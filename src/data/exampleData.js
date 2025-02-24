@@ -1,3 +1,0 @@
-const DATA = {};
-
-export { DATA };

@@ -18,8 +18,10 @@
         "react"
     ],
     "rules": {
-        "react/jsx-uses-react": "off",
+        "react/jsx-uses-react": "error",
         "react/react-in-jsx-scope": "off",
-        "no-unused-vars": "warn"
+        "no-unused-vars": "warn",
+        "react/prop-types": "off",
+        "no-undef": "off"
     }
 }

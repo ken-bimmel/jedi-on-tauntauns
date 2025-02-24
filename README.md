@@ -12,3 +12,18 @@ To start:
 
 1. Update the `homepage` attribute of _package.json_
 2. `npm run deploy`
+
+This is intended to be an NPC generator and tracker for the Kids on Bikes hack, Jedi on Tauntauns.
+
+Proposed features include:
+
+- [ ] Generate a random NPC
+  - [ ] Include name/species/description as part of generated NPC
+  - [ ] Include randomly generated stats
+  - [ ] Include randomly generated feats
+  - [ ] Role-based templated for the generator
+- [ ] Ability to modify generated NPC name/species/description/stats
+- [ ] Ability to track health
+- [ ] Ability to track initiative order
+  - [ ] Ability to add PCs to initiative
+- [ ] Ability to save current state to local storage and/or json file
