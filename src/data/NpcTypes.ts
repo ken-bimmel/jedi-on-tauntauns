@@ -26,6 +26,7 @@ type NPC = {
   stats: StatsArray;
   feats: Feat[];
   role: string;
+  description?: string;
 };
 
 export { DieSize, Stat, StatsArray, Feat, NPC };

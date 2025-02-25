@@ -28,6 +28,8 @@ const EXAMPLE_NPC: NPC = {
   stats: EXAMPLE_STATS_ARRAY,
   feats: [EXAMPLE_FEAT, EXAMPLE_FEAT_2],
   role: "Smuggler",
+  description:
+    "Fovv Schintriemp is a clever and elusive Sullustan smuggler known for his ability to navigate through the most dangerous sectors of the galaxy. With a sharp wit and an even sharper sense for business, he always finds a way to slip past Imperial checkpoints and make lucrative deals under the radar.",
 };
 
 export { EXAMPLE_NPC };

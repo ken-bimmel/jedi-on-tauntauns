@@ -1,8 +1,10 @@
 import React from "react";
 
-import { Card, CardContent, Typography } from "@mui/material";
+import { Card, CardContent, Grid2 as Grid } from "@mui/material";
 import { NPC } from "../data/NpcTypes";
 import StatsSection from "./StatSection";
+import NarrativeSection from "./NarrativeSection";
+import FeatsSection from "./FeatsSection";
 
 type NpcCardProps = {
   npc: NPC;
@@ -11,10 +13,13 @@ type NpcCardProps = {
 function NpcCard(props: NpcCardProps) {
   const { npc } = props;
   return (
-    <Card>
-      <CardContent>
-        <Typography variant="h4">{npc.name}</Typography>
-        <StatsSection statsArray={npc.stats} />
+    <Card style={{ width: "fit-content" }}>
+      <CardContent style={{ width: "fit-content" }}>
+        <Grid container flexDirection="column" spacing={2}>
+          <NarrativeSection npc={npc} />
+          <StatsSection statsArray={npc.stats} />
+          <FeatsSection feats={npc.feats} />
+        </Grid>
       </CardContent>
     </Card>
   );
