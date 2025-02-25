@@ -3,7 +3,7 @@ import React from "react";
 import { Grid2 as Grid } from "@mui/material";
 import StatCard from "./StatCard";
 import { STAT_COLORS } from "../constants";
-import { StatsArray } from "../data/NpcTypes";
+import { StatsArray } from "../constants/npc";
 
 type statSectionProps = {
   statsArray: StatsArray;
@@ -16,7 +16,7 @@ function StatSection(props: statSectionProps) {
       container
       flexDirection={"row"}
       spacing={4}
-      style={{ width: "fit-content" }}
+      style={{ width: "fit-content", minWidth: "1000px" }}
     >
       <StatCard
         stat={statsArray.forceSensitivity}

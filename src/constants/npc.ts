@@ -1,4 +1,43 @@
-import { StatsArray, NPC, Feat } from "./NpcTypes";
+type DieSize = 0 | 4 | 6 | 8 | 10 | 12 | 20;
+type StatName =
+  | "Force Sensitivity"
+  | "Athleticism"
+  | "Brains"
+  | "Charm"
+  | "Technician"
+  | "Fight"
+  | "Grit";
+
+type Stat = {
+  name: StatName;
+  value: DieSize;
+};
+
+type StatsArray = {
+  forceSensitivity: Stat;
+  athleticism: Stat;
+  brains: Stat;
+  charm: Stat;
+  technician: Stat;
+  fight: Stat;
+  grit: Stat;
+};
+
+type Feat = {
+  name: string;
+  description: string;
+};
+
+type NPC = {
+  name: string;
+  species: string;
+  stats: StatsArray;
+  feats: Feat[];
+  role: string;
+  description?: string;
+  maxInjuries?: number;
+  currentInjuries?: number;
+};
 
 const EXAMPLE_STATS_ARRAY: StatsArray = {
   forceSensitivity: { name: "Force Sensitivity", value: 0 },
@@ -32,4 +71,4 @@ const EXAMPLE_NPC: NPC = {
     "Fovv Schintriemp is a clever and elusive Sullustan smuggler known for his ability to navigate through the most dangerous sectors of the galaxy. With a sharp wit and an even sharper sense for business, he always finds a way to slip past Imperial checkpoints and make lucrative deals under the radar.",
 };
 
-export { EXAMPLE_NPC };
+export { DieSize, StatName, Stat, StatsArray, Feat, NPC, EXAMPLE_NPC };

@@ -2,7 +2,7 @@ import React from "react";
 
 import { Grid2 as Grid, Tooltip, Typography } from "@mui/material";
 import InfoIcon from "@mui/icons-material/InfoOutlined";
-import { NPC } from "../data/NpcTypes";
+import { NPC } from "../constants/npc";
 
 type NarrativeSectionProps = {
   npc: NPC;

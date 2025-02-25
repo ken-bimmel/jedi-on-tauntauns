@@ -10,7 +10,7 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import { Feat } from "../data/NpcTypes";
+import { Feat } from "../constants/npc";
 
 type FeatsSection = {
   feats: Feat[];
@@ -18,6 +18,9 @@ type FeatsSection = {
 
 function FeatsSection(props: FeatsSection) {
   const { feats } = props;
+  if (feats.length === 0) {
+    return null;
+  }
   return (
     <Grid>
       <TableContainer component={Paper} style={{ maxWidth: "1000px" }}>

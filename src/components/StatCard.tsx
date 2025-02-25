@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Card, CardContent, Grid2 as Grid, Typography } from "@mui/material";
-import { Stat } from "../data/NpcTypes";
+import { Stat } from "../constants/npc";
 
 type StatCardProps = {
   stat: Stat;

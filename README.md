@@ -19,9 +19,10 @@ Proposed features include:
 
 - [ ] Generate a random NPC
   - [ ] Include name/species/description as part of generated NPC
-  - [ ] Include randomly generated stats
+  - [x] Include randomly generated stats
+    - [ ] Switch to normal distribution from linear
   - [ ] Include randomly generated feats
-  - [ ] Role-based templated for the generator
+  - [x] Role-based templated for the generator
 - [ ] Ability to modify generated NPC name/species/description/stats
 - [ ] Ability to track health
 - [ ] Ability to track initiative order
