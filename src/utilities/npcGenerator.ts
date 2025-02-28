@@ -3,7 +3,9 @@ import {
   FORCE_DIE_SIZES,
   NUM_DICE,
   NUM_FDICE,
+  RANDOM_ROLE_NAME,
   Role,
+  ROLES,
   Tier,
 } from "../constants/generator";
 import { Feat, NPC, Stat, StatName, StatsArray } from "../constants/npc";
@@ -11,15 +13,27 @@ import { normal_random } from "./random";
 
 function generateNpc(role: Role, tier: Tier): NPC {
   const { name, species } = generateRandomNameAndSpecies();
+  let internalRole = role;
+  /*`role` is `undefined` when the 'random' role is selected because it's not
+   * in `ROLES`.
+   */
+  if (role === undefined) {
+    internalRole = getRandomRole();
+  }
   const npc: NPC = {
     name,
     species,
-    stats: generateStatsArray(role, tier),
+    stats: generateStatsArray(internalRole, tier),
     feats: generateFeatArray(tier),
-    role: `${tier.name} ${role.name}`,
+    role: `${tier.name} ${internalRole.name}`,
   };
 
   return npc;
+}
+
+function getRandomRole(): Role {
+  const roleKeys = Object.keys(ROLES);
+  return ROLES[roleKeys[Math.floor(Math.random() * roleKeys.length)]];
 }
 
 function generateRandomNameAndSpecies() {

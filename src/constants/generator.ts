@@ -95,10 +95,17 @@ const ROLES: { [key: string]: Role } = {
   },
 };
 
-const ROLE_LIST = Object.keys(ROLES).map((key) => ({
-  id: key,
-  label: ROLES[key].name,
-}));
+const RANDOM_ROLE_NAME = "Random";
+
+const ROLE_LIST: { id: string; label: string }[] = Object.keys(ROLES).map(
+  (key) => ({
+    id: key,
+    label: ROLES[key].name,
+  })
+);
+
+//This adds the special random 'role' that randomly selects another role
+ROLE_LIST.push({ id: RANDOM_ROLE_NAME.toLowerCase(), label: RANDOM_ROLE_NAME });
 
 const DEFAULT_ROLE = ROLE_LIST[0];
 
@@ -147,4 +154,5 @@ export {
   NUM_DICE,
   FORCE_DIE_SIZES,
   NUM_FDICE,
+  RANDOM_ROLE_NAME,
 };

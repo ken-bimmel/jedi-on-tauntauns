@@ -23,8 +23,9 @@ Proposed features include:
     - [x] Switch to normal distribution from linear
   - [ ] Include randomly generated feats
   - [x] Role-based templated for the generator
-    - [ ] Add random option for Role
+    - [x] Add random option for Role
   - [x] Add tiers to the generator
+  - [ ] Add force sensitivity toggle
 - [ ] Ability to modify generated NPC name/species/description/stats
 - [ ] Ability to track health
 - [ ] Ability to track initiative order
