@@ -1,6 +1,7 @@
 import { DIE_SIZES, FORCE_DIE_SIZES } from "../constants/generator";
 import { NPC, Stat, StatName, StatsArray } from "../constants/npc";
 import { Role } from "../constants/roles";
+import { normal_random } from "./random";
 
 function generateNpc(role: Role): NPC {
   const { name, species } = generateRandomNameAndSpecies();
@@ -39,10 +40,10 @@ function generateFeatArray() {
 }
 
 function generateRandomStat(name: StatName, role: Role): Stat {
-  let valueIndex = Math.floor(Math.random() * DIE_SIZES.length);
+  let valueIndex = Math.floor(normal_random() * DIE_SIZES.length);
   let valueArray = DIE_SIZES;
   if (name === "Force Sensitivity") {
-    valueIndex = Math.floor(Math.random() * FORCE_DIE_SIZES.length);
+    valueIndex = Math.floor(normal_random() * FORCE_DIE_SIZES.length);
     valueArray = FORCE_DIE_SIZES;
   }
   if (role.increasedStats.includes(name)) {
