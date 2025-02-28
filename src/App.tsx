@@ -3,11 +3,21 @@ import NpcCard from "./components/NpcCard";
 import { NPC, EXAMPLE_NPC } from "./constants/npc";
 import { Autocomplete, Button, Grid2 as Grid, TextField } from "@mui/material";
 import { generateNpc } from "./utilities/npcGenerator";
-import { DEFAULT_ROLE, ROLE_LIST, ROLES } from "./constants/roles";
+import {
+  DEFAULT_ROLE,
+  DEFAULT_TIER,
+  ROLES,
+  TIERS,
+  ROLE_LIST,
+  TIER_LIST,
+} from "./constants/generator";
 
 function App() {
   const [activeRole, setActiveRole] = useState<{ id: string; label: string }>(
     DEFAULT_ROLE
+  );
+  const [activeTier, setActiveTier] = useState<{ id: string; label: string }>(
+    DEFAULT_TIER
   );
   const [npcs, setNpcs] = useState<NPC[]>([EXAMPLE_NPC]);
 
@@ -25,7 +35,7 @@ function App() {
         <Grid>
           <Button
             onClick={() => {
-              addNpc(generateNpc(ROLES[activeRole.id]));
+              addNpc(generateNpc(ROLES[activeRole.id], TIERS[activeTier.id]));
             }}
           >
             Generate NPC
@@ -40,7 +50,15 @@ function App() {
             style={{ minWidth: "250px" }}
           />
         </Grid>
-        {/* tier select */}
+        <Grid>
+          <Autocomplete
+            value={activeTier}
+            options={TIER_LIST}
+            onChange={(e, value) => setActiveTier(value ?? DEFAULT_TIER)}
+            renderInput={(params) => <TextField {...params} label="Tier" />}
+            style={{ minWidth: "250px" }}
+          />
+        </Grid>
       </Grid>
       {npcs.map((npc) => (
         <NpcCard key={npc.name} npc={npc} />

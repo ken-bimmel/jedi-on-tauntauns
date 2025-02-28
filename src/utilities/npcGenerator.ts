@@ -1,16 +1,22 @@
-import { DIE_SIZES, FORCE_DIE_SIZES } from "../constants/generator";
-import { NPC, Stat, StatName, StatsArray } from "../constants/npc";
-import { Role } from "../constants/roles";
+import {
+  DIE_SIZES,
+  FORCE_DIE_SIZES,
+  NUM_DICE,
+  NUM_FDICE,
+  Role,
+  Tier,
+} from "../constants/generator";
+import { Feat, NPC, Stat, StatName, StatsArray } from "../constants/npc";
 import { normal_random } from "./random";
 
-function generateNpc(role: Role): NPC {
+function generateNpc(role: Role, tier: Tier): NPC {
   const { name, species } = generateRandomNameAndSpecies();
   const npc: NPC = {
     name,
     species,
-    stats: generateStatsArray(role),
-    feats: generateFeatArray(),
-    role: role.name,
+    stats: generateStatsArray(role, tier),
+    feats: generateFeatArray(tier),
+    role: `${tier.name} ${role.name}`,
   };
 
   return npc;
@@ -23,27 +29,39 @@ function generateRandomNameAndSpecies() {
   };
 }
 
-function generateStatsArray(role: Role): StatsArray {
+function generateStatsArray(role: Role, tier: Tier): StatsArray {
   return {
-    forceSensitivity: generateRandomStat("Force Sensitivity", role),
-    athleticism: generateRandomStat("Athleticism", role),
-    brains: generateRandomStat("Brains", role),
-    charm: generateRandomStat("Charm", role),
-    technician: generateRandomStat("Technician", role),
-    fight: generateRandomStat("Fight", role),
-    grit: generateRandomStat("Grit", role),
+    forceSensitivity: generateRandomStat("Force Sensitivity", role, tier),
+    athleticism: generateRandomStat("Athleticism", role, tier),
+    brains: generateRandomStat("Brains", role, tier),
+    charm: generateRandomStat("Charm", role, tier),
+    technician: generateRandomStat("Technician", role, tier),
+    fight: generateRandomStat("Fight", role, tier),
+    grit: generateRandomStat("Grit", role, tier),
   };
 }
 
-function generateFeatArray() {
-  return [];
+function generateFeatArray(tier: Tier): Feat[] {
+  if (tier.name === "Lieutenant") {
+    return []; // return 1 feat
+  }
+  if (tier.name === "Boss") {
+    return []; // return 2 feats
+  }
+  return []; // grunts don't get a feat
 }
 
-function generateRandomStat(name: StatName, role: Role): Stat {
-  let valueIndex = Math.floor(normal_random() * DIE_SIZES.length);
+function generateRandomStat(name: StatName, role: Role, tier: Tier): Stat {
+  let valueIndex = Math.min(
+    Math.max(Math.floor(normal_random() * NUM_DICE) + tier.adjustment, 0),
+    NUM_DICE
+  );
   let valueArray = DIE_SIZES;
   if (name === "Force Sensitivity") {
-    valueIndex = Math.floor(normal_random() * FORCE_DIE_SIZES.length);
+    valueIndex = Math.min(
+      Math.max(Math.floor(normal_random() * NUM_FDICE) + tier.adjustment, 0),
+      NUM_FDICE
+    );
     valueArray = FORCE_DIE_SIZES;
   }
   if (role.increasedStats.includes(name)) {
