@@ -3,7 +3,6 @@ import {
   FORCE_DIE_SIZES,
   NUM_DICE,
   NUM_FDICE,
-  RANDOM_ROLE_NAME,
   Role,
   ROLES,
   Tier,
