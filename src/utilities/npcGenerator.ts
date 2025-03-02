@@ -40,15 +40,39 @@ function getRandomRole(): Role {
 
 function generateRandomNameAndSpecies() {
   const species = SPECIES[Math.floor(Math.random() * NUM_SPECIES)];
-  const hasFemaleNames = species.defaultFemaleNames !== undefined;
-  const hasMaleNames = species.defaultMaleNames !== undefined;
-  const hasNBNames = species.defaultNonBinaryNames !== undefined;
+  const femaleNameRank =
+    species.defaultFemaleNames !== undefined ? Math.random() : -1;
+  const maleNameRank =
+    species.defaultMaleNames !== undefined ? Math.random() : -1;
+  const nbNameRank =
+    species.defaultNonBinaryNames !== undefined ? Math.random() : -1;
 
-  const numNameLists = [hasFemaleNames, hasMaleNames, hasNBNames].filter(
-    Boolean
-  ).length;
+  let npcName: string;
+
+  // setting rank to -1 if no list defined ensures we will only get lists that
+  // exist
+  if (femaleNameRank > maleNameRank && femaleNameRank > nbNameRank) {
+    // femaleNameRank is higher than both other options
+    npcName =
+      species.defaultFemaleNames![
+        Math.floor(Math.random() * species.defaultFemaleNames!.length)
+      ];
+  } else if (maleNameRank > nbNameRank) {
+    // know fnr is lower than one or both of male and nb name ranks so only need
+    // to test that mnr is higher than nbnr
+    npcName =
+      species.defaultMaleNames![
+        Math.floor(Math.random() * species.defaultMaleNames!.length)
+      ];
+  } else {
+    // make nb name
+    npcName =
+      species.defaultNonBinaryNames![
+        Math.floor(Math.random() * species.defaultNonBinaryNames!.length)
+      ];
+  }
   return {
-    name: "Ooga booga",
+    name: npcName,
     species: species.name,
   };
 }
