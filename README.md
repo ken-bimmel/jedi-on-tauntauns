@@ -28,7 +28,7 @@ This is intended to be an NPC generator and tracker for the Kids on Bikes hack, 
   - [x] Role-based templated for the generator
     - [x] Add random option for Role
   - [x] Add tiers to the generator
-  - [ ] Add force sensitivity toggle
+  - [x] Add force sensitivity toggle
 - [ ] Ability to modify generated NPC name/species/description/stats
   - [ ] Add link to name generator
 - [ ] Ability to track health

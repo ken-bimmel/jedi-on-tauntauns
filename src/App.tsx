@@ -1,7 +1,15 @@
 import { useState } from "react";
 import NpcCard from "./components/NpcCard";
 import { NPC, EXAMPLE_NPC } from "./constants/npc";
-import { Autocomplete, Button, Grid2 as Grid, TextField } from "@mui/material";
+import {
+  Autocomplete,
+  Button,
+  FormControlLabel,
+  FormGroup,
+  Grid2 as Grid,
+  Switch,
+  TextField,
+} from "@mui/material";
 import { generateNpc } from "./utilities/npcGenerator";
 import {
   DEFAULT_ROLE,
@@ -19,6 +27,7 @@ function App() {
   const [activeTier, setActiveTier] = useState<{ id: string; label: string }>(
     DEFAULT_TIER
   );
+  const [forceSensitive, setForceSensitive] = useState(false);
   const [npcs, setNpcs] = useState<NPC[]>([EXAMPLE_NPC]);
 
   function addNpc(newNpc: NPC) {
@@ -35,7 +44,13 @@ function App() {
         <Grid>
           <Button
             onClick={() => {
-              addNpc(generateNpc(ROLES[activeRole.id], TIERS[activeTier.id]));
+              addNpc(
+                generateNpc(
+                  ROLES[activeRole.id],
+                  TIERS[activeTier.id],
+                  forceSensitive
+                )
+              );
             }}
           >
             Generate NPC
@@ -58,6 +73,19 @@ function App() {
             renderInput={(params) => <TextField {...params} label="Tier" />}
             style={{ minWidth: "250px" }}
           />
+        </Grid>
+        <Grid>
+          <FormGroup>
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={forceSensitive}
+                  onChange={(e) => setForceSensitive(e.target.checked)}
+                />
+              }
+              label="Force sensitive?"
+            />
+          </FormGroup>
         </Grid>
       </Grid>
       {npcs.map((npc) => (

@@ -19,7 +19,11 @@ function NarrativeSection(props: NarrativeSectionProps) {
       spacing={2}
     >
       <Grid>
-        <Typography variant="h4" width="fit-content">
+        <Typography
+          variant="h4"
+          width="fit-content"
+          style={{ textTransform: "capitalize" }}
+        >
           {npc.name}
         </Typography>
       </Grid>

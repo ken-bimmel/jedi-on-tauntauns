@@ -11,7 +11,7 @@ import { Feat, NPC, Stat, StatName, StatsArray } from "../constants/npc";
 import { NUM_SPECIES, SPECIES } from "../constants/species";
 import { normal_random } from "./random";
 
-function generateNpc(role: Role, tier: Tier): NPC {
+function generateNpc(role: Role, tier: Tier, forceSensitive: boolean): NPC {
   const { name, species } = generateRandomNameAndSpecies();
   let internalRole = role;
   /*
@@ -25,7 +25,7 @@ function generateNpc(role: Role, tier: Tier): NPC {
     id: window.crypto.randomUUID(),
     name,
     species,
-    stats: generateStatsArray(internalRole, tier),
+    stats: generateStatsArray(internalRole, tier, forceSensitive),
     feats: generateFeatArray(tier),
     role: `${tier.name} ${internalRole.name}`,
   };
@@ -77,9 +77,15 @@ function generateRandomNameAndSpecies() {
   };
 }
 
-function generateStatsArray(role: Role, tier: Tier): StatsArray {
+function generateStatsArray(
+  role: Role,
+  tier: Tier,
+  forceSensitive: boolean
+): StatsArray {
   return {
-    forceSensitivity: generateRandomStat("Force Sensitivity", role, tier),
+    forceSensitivity: forceSensitive
+      ? generateRandomStat("Force Sensitivity", role, tier)
+      : { name: "Force Sensitivity", value: 0 },
     athleticism: generateRandomStat("Athleticism", role, tier),
     brains: generateRandomStat("Brains", role, tier),
     charm: generateRandomStat("Charm", role, tier),
