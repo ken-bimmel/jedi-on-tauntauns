@@ -36,7 +36,7 @@ type NPC = {
   feats: Feat[];
   role: string;
   description?: string;
-  maxInjuries?: number;
+  maxInjuries: number;
   currentInjuries?: number;
 };
 
@@ -68,9 +68,11 @@ const EXAMPLE_NPC: NPC = {
   species: "Sullustan",
   stats: EXAMPLE_STATS_ARRAY,
   feats: [EXAMPLE_FEAT, EXAMPLE_FEAT_2],
-  role: "Smuggler",
+  role: "Boss Smuggler",
   description:
     "Fovv Schintriemp is a clever and elusive Sullustan smuggler known for his ability to navigate through the most dangerous sectors of the galaxy. With a sharp wit and an even sharper sense for business, he always finds a way to slip past Imperial checkpoints and make lucrative deals under the radar.",
+  maxInjuries: 3,
+  currentInjuries: 1,
 };
 
 export { DieSize, StatName, Stat, StatsArray, Feat, NPC, EXAMPLE_NPC };

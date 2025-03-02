@@ -115,20 +115,24 @@ const DEFAULT_ROLE = ROLE_LIST[0];
 type Tier = {
   name: "Grunt" | "Lieutenant" | "Boss";
   adjustment: -1 | 0 | 1;
+  maxInjuries: 1 | 2 | 3;
 };
 
 const TIERS: { [key: string]: Tier } = {
   grunt: {
     name: "Grunt",
     adjustment: -1,
+    maxInjuries: 1,
   },
   lieutenant: {
     name: "Lieutenant",
     adjustment: 0,
+    maxInjuries: 2,
   },
   boss: {
     name: "Boss",
     adjustment: 1,
+    maxInjuries: 3,
   },
 };
 

@@ -5,6 +5,7 @@ import { NPC } from "../constants/npc";
 import StatsSection from "./StatSection";
 import NarrativeSection from "./NarrativeSection";
 import FeatsSection from "./FeatsSection";
+import ActionsSection from "./ActionsSection";
 
 type NpcCardProps = {
   npc: NPC;
@@ -17,7 +18,10 @@ function NpcCard(props: NpcCardProps) {
       <Card style={{ width: "fit-content" }}>
         <CardContent style={{ width: "fit-content" }}>
           <Grid container flexDirection="column" spacing={2}>
-            <NarrativeSection npc={npc} />
+            <Grid container flexDirection="row" spacing={2}>
+              <NarrativeSection npc={npc} />
+              <ActionsSection npc={npc} />
+            </Grid>
             <StatsSection statsArray={npc.stats} />
             <FeatsSection feats={npc.feats} />
           </Grid>

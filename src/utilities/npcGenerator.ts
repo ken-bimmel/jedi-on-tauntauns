@@ -28,6 +28,8 @@ function generateNpc(role: Role, tier: Tier, forceSensitive: boolean): NPC {
     stats: generateStatsArray(internalRole, tier, forceSensitive),
     feats: generateFeatArray(tier),
     role: `${tier.name} ${internalRole.name}`,
+    maxInjuries: tier.maxInjuries,
+    currentInjuries: 0,
   };
 
   return npc;
