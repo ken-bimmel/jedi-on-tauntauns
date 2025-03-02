@@ -1,4 +1,4 @@
-# Template Repo
+# Jedi On Tauntauns NPC Generator
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -15,10 +15,13 @@ To start:
 
 This is intended to be an NPC generator and tracker for the Kids on Bikes hack, Jedi on Tauntauns.
 
-Proposed features include:
+## Proposed features include:
 
 - [ ] Generate a random NPC
   - [ ] Include name/species/description as part of generated NPC
+    - [x] Include species
+    - [x] Include species-determined name
+    - [ ] Include physical description
   - [x] Include randomly generated stats
     - [x] Switch to normal distribution from linear
   - [ ] Include randomly generated feats
@@ -27,6 +30,7 @@ Proposed features include:
   - [x] Add tiers to the generator
   - [ ] Add force sensitivity toggle
 - [ ] Ability to modify generated NPC name/species/description/stats
+  - [ ] Add link to name generator
 - [ ] Ability to track health
 - [ ] Ability to track initiative order
   - [ ] Ability to add PCs to initiative

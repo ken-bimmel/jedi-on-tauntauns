@@ -100,16 +100,10 @@ function generateFeatArray(tier: Tier): Feat[] {
 }
 
 function generateRandomStat(name: StatName, role: Role, tier: Tier): Stat {
-  let valueIndex = Math.min(
-    Math.max(Math.floor(normal_random() * NUM_DICE) + tier.adjustment, 0),
-    NUM_DICE
-  );
+  let valueIndex = Math.floor(normal_random() * NUM_DICE);
   let valueArray = DIE_SIZES;
   if (name === "Force Sensitivity") {
-    valueIndex = Math.min(
-      Math.max(Math.floor(normal_random() * NUM_FDICE) + tier.adjustment, 0),
-      NUM_FDICE
-    );
+    valueIndex = Math.floor(normal_random() * NUM_FDICE);
     valueArray = FORCE_DIE_SIZES;
   }
   if (role.increasedStats.includes(name)) {
@@ -121,6 +115,10 @@ function generateRandomStat(name: StatName, role: Role, tier: Tier): Stat {
   if (role.decreasedStats.includes(name)) {
     valueIndex = Math.max(0, valueIndex - explodeModifier());
   }
+  valueIndex = Math.min(
+    valueArray.length - 1,
+    Math.max(valueIndex + tier.adjustment, 0)
+  );
   return {
     name,
     value: valueArray[valueIndex],

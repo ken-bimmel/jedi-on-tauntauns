@@ -7,6 +7,11 @@ type Role = {
   eligibleFeats?: Feat[];
 };
 
+/**
+ * Roles are templates to help influence the stats of an NPC based on their
+ * profession. Every role has two skills that are likely to be higher and two
+ * skills that are likely to be lower.
+ */
 const ROLES: { [key: string]: Role } = {
   smuggler: {
     name: "Smuggler",
