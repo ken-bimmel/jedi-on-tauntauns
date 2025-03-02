@@ -8,18 +8,21 @@ import {
   Tier,
 } from "../constants/generator";
 import { Feat, NPC, Stat, StatName, StatsArray } from "../constants/npc";
+import { NUM_SPECIES, SPECIES } from "../constants/species";
 import { normal_random } from "./random";
 
 function generateNpc(role: Role, tier: Tier): NPC {
   const { name, species } = generateRandomNameAndSpecies();
   let internalRole = role;
-  /*`role` is `undefined` when the 'random' role is selected because it's not
+  /*
+   * `role` is `undefined` when the 'random' role is selected because it's not
    * in `ROLES`.
    */
   if (role === undefined) {
     internalRole = getRandomRole();
   }
   const npc: NPC = {
+    id: window.crypto.randomUUID(),
     name,
     species,
     stats: generateStatsArray(internalRole, tier),
@@ -36,9 +39,17 @@ function getRandomRole(): Role {
 }
 
 function generateRandomNameAndSpecies() {
+  const species = SPECIES[Math.floor(Math.random() * NUM_SPECIES)];
+  const hasFemaleNames = species.defaultFemaleNames !== undefined;
+  const hasMaleNames = species.defaultMaleNames !== undefined;
+  const hasNBNames = species.defaultNonBinaryNames !== undefined;
+
+  const numNameLists = [hasFemaleNames, hasMaleNames, hasNBNames].filter(
+    Boolean
+  ).length;
   return {
     name: "Ooga booga",
-    species: "Human",
+    species: species.name,
   };
 }
 

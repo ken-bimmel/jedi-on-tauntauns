@@ -29,6 +29,7 @@ type Feat = {
 };
 
 type NPC = {
+  id: string;
   name: string;
   species: string;
   stats: StatsArray;
@@ -62,6 +63,7 @@ const EXAMPLE_FEAT_2: Feat = {
 };
 
 const EXAMPLE_NPC: NPC = {
+  id: window.crypto.randomUUID(),
   name: "Fovv Schintriemp",
   species: "Sullustan",
   stats: EXAMPLE_STATS_ARRAY,

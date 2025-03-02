@@ -61,7 +61,7 @@ function App() {
         </Grid>
       </Grid>
       {npcs.map((npc) => (
-        <NpcCard key={npc.name} npc={npc} />
+        <NpcCard key={npc.id} npc={npc} />
       ))}
     </Grid>
   );
