@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useReducer } from "react";
 import NpcCard from "./components/NpcCard";
-import { NPC, EXAMPLE_NPC } from "./constants/npc";
 import {
   Autocomplete,
   Button,
@@ -10,33 +9,16 @@ import {
   Switch,
   TextField,
 } from "@mui/material";
-import { generateNpc } from "./utilities/npcGenerator";
 import {
   DEFAULT_ROLE,
   DEFAULT_TIER,
-  ROLES,
-  TIERS,
   ROLE_LIST,
   TIER_LIST,
 } from "./constants/generator";
+import { DEFAULT_STATE, reducer } from "./reducer";
 
 function App() {
-  const [activeRole, setActiveRole] = useState<{ id: string; label: string }>(
-    DEFAULT_ROLE
-  );
-  const [activeTier, setActiveTier] = useState<{ id: string; label: string }>(
-    DEFAULT_TIER
-  );
-  const [forceSensitive, setForceSensitive] = useState(false);
-  const [npcs, setNpcs] = useState<NPC[]>([EXAMPLE_NPC]);
-
-  function addNpc(newNpc: NPC) {
-    if (npcs.length === 1 && npcs[0] === EXAMPLE_NPC) {
-      setNpcs([newNpc]);
-    } else {
-      setNpcs((currentNpcs) => [newNpc, ...currentNpcs]);
-    }
-  }
+  const [state, dispatch] = useReducer(reducer, DEFAULT_STATE);
 
   return (
     <Grid container flexDirection="column" spacing={2}>
@@ -44,13 +26,7 @@ function App() {
         <Grid>
           <Button
             onClick={() => {
-              addNpc(
-                generateNpc(
-                  ROLES[activeRole.id],
-                  TIERS[activeTier.id],
-                  forceSensitive
-                )
-              );
+              dispatch({ type: "ADD_NPC" });
             }}
           >
             Generate NPC
@@ -58,18 +34,22 @@ function App() {
         </Grid>
         <Grid>
           <Autocomplete
-            value={activeRole}
+            value={state.generatorConfiguration.activeRole}
             options={ROLE_LIST}
-            onChange={(e, value) => setActiveRole(value ?? DEFAULT_ROLE)}
+            onChange={(e, value) =>
+              dispatch({ type: "UPDATE_ROLE", payload: value ?? DEFAULT_ROLE })
+            }
             renderInput={(params) => <TextField {...params} label="Role" />}
             style={{ minWidth: "250px" }}
           />
         </Grid>
         <Grid>
           <Autocomplete
-            value={activeTier}
+            value={state.generatorConfiguration.activeTier}
             options={TIER_LIST}
-            onChange={(e, value) => setActiveTier(value ?? DEFAULT_TIER)}
+            onChange={(e, value) =>
+              dispatch({ type: "UPDATE_TIER", payload: value ?? DEFAULT_TIER })
+            }
             renderInput={(params) => <TextField {...params} label="Tier" />}
             style={{ minWidth: "250px" }}
           />
@@ -79,8 +59,13 @@ function App() {
             <FormControlLabel
               control={
                 <Switch
-                  checked={forceSensitive}
-                  onChange={(e) => setForceSensitive(e.target.checked)}
+                  checked={state.generatorConfiguration.forceSensitive}
+                  onChange={(e) =>
+                    dispatch({
+                      type: "UPDATE_FORCE_SENSITIVE_TOGGLE",
+                      payload: e.target.checked,
+                    })
+                  }
                 />
               }
               label="Force sensitive?"
@@ -88,7 +73,7 @@ function App() {
           </FormGroup>
         </Grid>
       </Grid>
-      {npcs.map((npc) => (
+      {state.npcs.map((npc) => (
         <NpcCard key={npc.id} npc={npc} />
       ))}
     </Grid>
