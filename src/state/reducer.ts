@@ -1,60 +1,18 @@
-import {
-  DEFAULT_ROLE,
-  DEFAULT_TIER,
-  EXAMPLE_NPC,
-  NPC,
-  ROLES,
-  TIERS,
-} from "../constants";
+import { EXAMPLE_NPC, ROLES, TIERS } from "../constants";
 import { produce } from "immer";
 import { generateNpc } from "../utilities/npcGenerator";
-
-type StateActions =
-  | {
-      type: "ADD_NPC";
-    }
-  | {
-      type: "UPDATE_ROLE";
-      payload: { id: string; label: string };
-    }
-  | {
-      type: "UPDATE_TIER";
-      payload: { id: string; label: string };
-    }
-  | {
-      type: "UPDATE_FORCE_SENSITIVE_TOGGLE";
-      payload: boolean;
-    }
-  | {
-      type: "SET_NPC_INJURY_LEVEL";
-      payload: {
-        npcId: string;
-        newInjuryLevel: null | number;
-      };
-    };
-
-type AppState = {
-  generatorConfiguration: {
-    activeRole: { id: string; label: string };
-    activeTier: { id: string; label: string };
-    forceSensitive: boolean;
-  };
-  npcs: NPC[];
-};
-
-const DEFAULT_STATE: AppState = {
-  generatorConfiguration: {
-    activeRole: DEFAULT_ROLE,
-    activeTier: DEFAULT_TIER,
-    forceSensitive: false,
-  },
-  npcs: [EXAMPLE_NPC],
-};
+import { AppState, StateActions, DEFAULT_STATE } from "./stateTypes";
+import { saveToLocalStorage } from "./storage";
 
 function reducer(state: AppState, action: StateActions) {
+  let newState = state;
   switch (action.type) {
+    case "LOAD_STATE": {
+      newState = action.payload;
+      break;
+    }
     case "ADD_NPC": {
-      return produce(state, (draftState) => {
+      newState = produce(state, (draftState) => {
         const newNpc = generateNpc(
           ROLES[state.generatorConfiguration.activeRole.id],
           TIERS[state.generatorConfiguration.activeTier.id],
@@ -66,24 +24,28 @@ function reducer(state: AppState, action: StateActions) {
           draftState.npcs = [newNpc, ...state.npcs];
         }
       });
+      break;
     }
     case "UPDATE_ROLE": {
-      return produce(state, (draftState) => {
+      newState = produce(state, (draftState) => {
         draftState.generatorConfiguration.activeRole = action.payload;
       });
+      break;
     }
     case "UPDATE_TIER": {
-      return produce(state, (draftState) => {
+      newState = produce(state, (draftState) => {
         draftState.generatorConfiguration.activeTier = action.payload;
       });
+      break;
     }
     case "UPDATE_FORCE_SENSITIVE_TOGGLE": {
-      return produce(state, (draftState) => {
+      newState = produce(state, (draftState) => {
         draftState.generatorConfiguration.forceSensitive = action.payload;
       });
+      break;
     }
     case "SET_NPC_INJURY_LEVEL": {
-      return produce(state, (draftState) => {
+      newState = produce(state, (draftState) => {
         const npc = draftState.npcs.find(
           (npc) => npc.id === action.payload.npcId
         );
@@ -91,10 +53,14 @@ function reducer(state: AppState, action: StateActions) {
           npc.currentInjuries = action.payload.newInjuryLevel ?? 0;
         }
       });
+      break;
     }
     default:
-      return state;
+      newState = state;
   }
+  // autosave after every action
+  saveToLocalStorage(newState);
+  return newState;
 }
 
-export { StateActions, AppState, DEFAULT_STATE, reducer };
+export { reducer };

@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useEffect, useReducer, useRef } from "react";
 import NpcCard from "./components/NpcCard";
 import {
   Autocomplete,
@@ -6,6 +6,7 @@ import {
   FormControlLabel,
   FormGroup,
   Grid2 as Grid,
+  IconButton,
   Switch,
   TextField,
 } from "@mui/material";
@@ -15,11 +16,39 @@ import {
   ROLE_LIST,
   TIER_LIST,
 } from "./constants/generator";
-import { DEFAULT_STATE, reducer } from "./state/reducer";
+import { reducer } from "./state/reducer";
 import { StateDispatchContext } from "./state/reducerContext";
+import { Download, Upload } from "@mui/icons-material";
+import { DEFAULT_STATE } from "./state/stateTypes";
+import { loadFromStorage } from "./state/storage";
+import VisuallyHiddenInput from "./components/VisuallyHiddenInput";
 
 function App() {
   const [state, dispatch] = useReducer(reducer, DEFAULT_STATE);
+  const uploadInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const savedState = loadFromStorage();
+    dispatch({ type: "LOAD_STATE", payload: savedState ?? DEFAULT_STATE });
+  }, []);
+
+  function importFile(event: React.ChangeEvent<HTMLInputElement>) {
+    if (event.target.files) {
+      const uploadedFileReader = new FileReader();
+      uploadedFileReader.onload = () => {
+        const uploadedState = JSON.parse(uploadedFileReader.result as string);
+        dispatch({
+          type: "LOAD_STATE",
+          payload: uploadedState ?? DEFAULT_STATE,
+        });
+      };
+      uploadedFileReader.readAsText(event.target.files[0]);
+    }
+  }
+
+  const stateBlob = new Blob([JSON.stringify(state)], {
+    type: "application/json",
+  });
 
   return (
     <StateDispatchContext.Provider value={dispatch}>
@@ -79,6 +108,28 @@ function App() {
                 label="Force sensitive?"
               />
             </FormGroup>
+          </Grid>
+          <Grid>
+            <IconButton
+              href={URL.createObjectURL(stateBlob)}
+              download="JOT-NPCs.json"
+              color="primary"
+            >
+              <Download />
+            </IconButton>
+          </Grid>
+          <Grid>
+            <IconButton
+              color="primary"
+              onClick={() => uploadInputRef.current?.click()}
+            >
+              <Upload />
+            </IconButton>
+            <VisuallyHiddenInput
+              ref={uploadInputRef}
+              type="file"
+              onChange={importFile}
+            />
           </Grid>
         </Grid>
         {state.npcs.map((npc) => (
