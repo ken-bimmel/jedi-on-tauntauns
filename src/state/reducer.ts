@@ -5,9 +5,9 @@ import {
   NPC,
   ROLES,
   TIERS,
-} from "./constants";
+} from "../constants";
 import { produce } from "immer";
-import { generateNpc } from "./utilities/npcGenerator";
+import { generateNpc } from "../utilities/npcGenerator";
 
 type StateActions =
   | {
@@ -24,6 +24,13 @@ type StateActions =
   | {
       type: "UPDATE_FORCE_SENSITIVE_TOGGLE";
       payload: boolean;
+    }
+  | {
+      type: "SET_NPC_INJURY_LEVEL";
+      payload: {
+        npcId: string;
+        newInjuryLevel: null | number;
+      };
     };
 
 type AppState = {
@@ -75,9 +82,19 @@ function reducer(state: AppState, action: StateActions) {
         draftState.generatorConfiguration.forceSensitive = action.payload;
       });
     }
+    case "SET_NPC_INJURY_LEVEL": {
+      return produce(state, (draftState) => {
+        const npc = draftState.npcs.find(
+          (npc) => npc.id === action.payload.npcId
+        );
+        if (npc) {
+          npc.currentInjuries = action.payload.newInjuryLevel ?? 0;
+        }
+      });
+    }
     default:
       return state;
   }
 }
 
-export { DEFAULT_STATE, reducer };
+export { StateActions, AppState, DEFAULT_STATE, reducer };
