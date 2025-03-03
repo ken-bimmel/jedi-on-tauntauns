@@ -12,10 +12,12 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { NPC } from "../constants/npc";
 import { STAT_COLORS } from "../constants";
 import { StateDispatchContext } from "../state/reducerContext";
-import { Delete } from "@mui/icons-material";
+import { Delete, Edit, Save } from "@mui/icons-material";
 
 type ActionSectionProps = {
   npc: NPC;
+  isEditMode: boolean;
+  editModeCallback: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const StyledRating = styled(Rating)({
@@ -29,7 +31,7 @@ const StyledRating = styled(Rating)({
 });
 
 function ActionsSection(props: ActionSectionProps) {
-  const { npc } = props;
+  const { npc, isEditMode, editModeCallback } = props;
   const dispatch = useContext(StateDispatchContext);
   return (
     <Grid
@@ -55,20 +57,32 @@ function ActionsSection(props: ActionSectionProps) {
           }}
         />
       </Grid>
-      <Grid>
-        <Tooltip title="Delete NPC">
-          <IconButton
-            color="error"
-            onClick={() => {
-              dispatch!({
-                type: "DELETE_NPC",
-                payload: npc.id,
-              });
-            }}
-          >
-            <Delete />
-          </IconButton>
-        </Tooltip>
+      <Grid container flexDirection="row">
+        <Grid>
+          <Tooltip title="Edit NPC">
+            <IconButton
+              color="primary"
+              onClick={() => editModeCallback(!isEditMode)}
+            >
+              {isEditMode ? <Save /> : <Edit />}
+            </IconButton>
+          </Tooltip>
+        </Grid>
+        <Grid>
+          <Tooltip title="Delete NPC">
+            <IconButton
+              color="error"
+              onClick={() => {
+                dispatch!({
+                  type: "DELETE_NPC",
+                  payload: npc.id,
+                });
+              }}
+            >
+              <Delete />
+            </IconButton>
+          </Tooltip>
+        </Grid>
       </Grid>
     </Grid>
   );

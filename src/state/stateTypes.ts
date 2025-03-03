@@ -30,6 +30,14 @@ type StateActions =
         npcId: string;
         newInjuryLevel: null | number;
       };
+    }
+  | {
+      type: "UPDATE_NPC_NON_STAT_OR_FEAT_PROPERTY";
+      payload: {
+        npcId: string;
+        field: string;
+        newValue: string;
+      };
     };
 
 type AppState = {

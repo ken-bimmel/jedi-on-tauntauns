@@ -66,6 +66,18 @@ function reducer(state: AppState, action: StateActions) {
       });
       break;
     }
+    case "UPDATE_NPC_NON_STAT_OR_FEAT_PROPERTY": {
+      newState = produce(state, (draftState) => {
+        const npc = draftState.npcs.find(
+          (npc) => npc.id === action.payload.npcId
+        );
+        if (npc) {
+          //@ts-expect-error Some mismatch in types on field here. It works fine
+          npc[action.payload.field] = action.payload.newValue;
+        }
+      });
+      break;
+    }
     default:
       newState = state;
   }
