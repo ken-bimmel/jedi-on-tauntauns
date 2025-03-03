@@ -51,5 +51,5 @@
     "*.{js,jsx}": "eslint",
     "*.{js,jsx,ts,tsx,md,html,css}": "prettier --write --ignore-unknown"
   },
-  "homepage": "http://ken-bimmel.github.io/jot-gm"
+  "homepage": "https://ken-bimmel.github.io/jedi-on-tauntauns/"
 }
