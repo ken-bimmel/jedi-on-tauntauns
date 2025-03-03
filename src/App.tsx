@@ -9,6 +9,7 @@ import {
   IconButton,
   Switch,
   TextField,
+  Tooltip,
 } from "@mui/material";
 import {
   DEFAULT_ROLE,
@@ -18,7 +19,7 @@ import {
 } from "./constants/generator";
 import { reducer } from "./state/reducer";
 import { StateDispatchContext } from "./state/reducerContext";
-import { Download, Upload } from "@mui/icons-material";
+import { Download, Restore, Upload } from "@mui/icons-material";
 import { DEFAULT_STATE } from "./state/stateTypes";
 import { loadFromStorage } from "./state/storage";
 import VisuallyHiddenInput from "./components/VisuallyHiddenInput";
@@ -46,6 +47,10 @@ function App() {
     }
   }
 
+  function reset() {
+    dispatch({ type: "LOAD_STATE", payload: DEFAULT_STATE });
+  }
+
   const stateBlob = new Blob([JSON.stringify(state)], {
     type: "application/json",
   });
@@ -53,12 +58,18 @@ function App() {
   return (
     <StateDispatchContext.Provider value={dispatch}>
       <Grid container flexDirection="column" spacing={2}>
-        <Grid container flexDirection="row" justifyContent="flex-start">
+        <Grid
+          container
+          flexDirection="row"
+          justifyContent="flex-start"
+          alignItems="center"
+        >
           <Grid>
             <Button
               onClick={() => {
                 dispatch({ type: "ADD_NPC" });
               }}
+              variant="contained"
             >
               Generate NPC
             </Button>
@@ -110,26 +121,37 @@ function App() {
             </FormGroup>
           </Grid>
           <Grid>
-            <IconButton
-              href={URL.createObjectURL(stateBlob)}
-              download="JOT-NPCs.json"
-              color="primary"
-            >
-              <Download />
-            </IconButton>
+            <Tooltip title="Save NPCs to disk">
+              <IconButton
+                href={URL.createObjectURL(stateBlob)}
+                download="JOT-NPCs.json"
+                color="primary"
+              >
+                <Download />
+              </IconButton>
+            </Tooltip>
           </Grid>
           <Grid>
-            <IconButton
-              color="primary"
-              onClick={() => uploadInputRef.current?.click()}
-            >
-              <Upload />
-            </IconButton>
+            <Tooltip title="Load NPCs from disk">
+              <IconButton
+                color="primary"
+                onClick={() => uploadInputRef.current?.click()}
+              >
+                <Upload />
+              </IconButton>
+            </Tooltip>
             <VisuallyHiddenInput
               ref={uploadInputRef}
               type="file"
               onChange={importFile}
             />
+          </Grid>
+          <Grid>
+            <Tooltip title="Reset all NPCs">
+              <IconButton color="primary" onClick={reset}>
+                <Restore />
+              </IconButton>
+            </Tooltip>
           </Grid>
         </Grid>
         {state.npcs.map((npc) => (

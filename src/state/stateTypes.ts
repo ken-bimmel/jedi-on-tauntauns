@@ -9,6 +9,10 @@ type StateActions =
       type: "ADD_NPC";
     }
   | {
+      type: "DELETE_NPC";
+      payload: string;
+    }
+  | {
       type: "UPDATE_ROLE";
       payload: { id: string; label: string };
     }

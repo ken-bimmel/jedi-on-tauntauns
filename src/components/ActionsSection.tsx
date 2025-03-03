@@ -1,11 +1,18 @@
 import React, { useContext } from "react";
 
-import { Grid2 as Grid, Rating, styled } from "@mui/material";
+import {
+  Grid2 as Grid,
+  IconButton,
+  Rating,
+  styled,
+  Tooltip,
+} from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { NPC } from "../constants/npc";
 import { STAT_COLORS } from "../constants";
 import { StateDispatchContext } from "../state/reducerContext";
+import { Delete } from "@mui/icons-material";
 
 type ActionSectionProps = {
   npc: NPC;
@@ -28,9 +35,10 @@ function ActionsSection(props: ActionSectionProps) {
     <Grid
       container
       flexDirection="row"
-      justifyContent="flex-start"
+      justifyContent="space-between"
       alignItems="flex-end"
       spacing={2}
+      flexGrow={1}
     >
       <Grid>
         <StyledRating
@@ -46,6 +54,21 @@ function ActionsSection(props: ActionSectionProps) {
             });
           }}
         />
+      </Grid>
+      <Grid>
+        <Tooltip title="Delete NPC">
+          <IconButton
+            color="error"
+            onClick={() => {
+              dispatch!({
+                type: "DELETE_NPC",
+                payload: npc.id,
+              });
+            }}
+          >
+            <Delete />
+          </IconButton>
+        </Tooltip>
       </Grid>
     </Grid>
   );

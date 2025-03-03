@@ -1,7 +1,7 @@
 import { EXAMPLE_NPC, ROLES, TIERS } from "../constants";
 import { produce } from "immer";
 import { generateNpc } from "../utilities/npcGenerator";
-import { AppState, StateActions, DEFAULT_STATE } from "./stateTypes";
+import { AppState, StateActions } from "./stateTypes";
 import { saveToLocalStorage } from "./storage";
 
 function reducer(state: AppState, action: StateActions) {
@@ -22,6 +22,17 @@ function reducer(state: AppState, action: StateActions) {
           draftState.npcs = [newNpc];
         } else {
           draftState.npcs = [newNpc, ...state.npcs];
+        }
+      });
+      break;
+    }
+    case "DELETE_NPC": {
+      newState = produce(state, (draftState) => {
+        const npcIndex = draftState.npcs.findIndex(
+          (npc) => npc.id === action.payload
+        );
+        if (npcIndex !== -1) {
+          draftState.npcs.splice(npcIndex, 1);
         }
       });
       break;
