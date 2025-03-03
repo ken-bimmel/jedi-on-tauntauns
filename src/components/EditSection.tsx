@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 
-import { Grid2 as Grid, TextField, Tooltip, Typography } from "@mui/material";
+import { Grid2 as Grid, IconButton, TextField, Tooltip } from "@mui/material";
 import { NPC } from "../constants/npc";
-import { Description } from "@mui/icons-material";
+import { Launch } from "@mui/icons-material";
 import { StateDispatchContext } from "../state/reducerContext";
+import { SPECIES } from "../constants/species";
 
 type EditSectionProps = {
   npc: NPC;
@@ -47,8 +48,20 @@ function EditSection(props: EditSectionProps) {
             value={npc.name}
             onChange={makeChangeHandler("name")}
           />
+          <Tooltip title="Name generator">
+            <IconButton
+              href={
+                SPECIES.find((species) => species.name === npc.species)
+                  ?.generatorUrl ?? ""
+              }
+              target="_blank"
+            >
+              <Launch />
+            </IconButton>
+          </Tooltip>
         </Grid>
         <Grid>
+          {/* TODO: Maybe autocomplete with supported species list? */}
           <TextField
             label="NPC Species"
             variant="outlined"
