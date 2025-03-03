@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/jot-gm/static/js/main.a571ac1b.js",
-    "index.html": "/jot-gm/index.html",
-    "main.a571ac1b.js.map": "/jot-gm/static/js/main.a571ac1b.js.map"
+    "main.js": "/jedi-on-tauntauns/static/js/main.a571ac1b.js",
+    "index.html": "/jedi-on-tauntauns/index.html",
+    "main.a571ac1b.js.map": "/jedi-on-tauntauns/static/js/main.a571ac1b.js.map"
   },
   "entrypoints": [
     "static/js/main.a571ac1b.js"
