@@ -1,8 +1,8 @@
 import React from "react";
 
 import { Grid2 as Grid, Tooltip, Typography } from "@mui/material";
-import InfoIcon from "@mui/icons-material/InfoOutlined";
 import { NPC } from "../constants/npc";
+import { Description } from "@mui/icons-material";
 
 type NarrativeSectionProps = {
   npc: NPC;
@@ -35,7 +35,7 @@ function NarrativeSection(props: NarrativeSectionProps) {
       {npc?.description !== undefined ? (
         <Grid>
           <Tooltip title={npc.description} placement="bottom-end">
-            <InfoIcon />
+            <Description />
           </Tooltip>
         </Grid>
       ) : null}
