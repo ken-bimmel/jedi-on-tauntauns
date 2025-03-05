@@ -33,7 +33,7 @@ This is intended to be an NPC generator and tracker for the Kids on Bikes hack, 
   - [x] Add UI for editing name
   - [x] Add UI for editing species
   - [x] Add UI for editing/adding description
-  - [ ] Add UI for editing stats
+  - [x] Add UI for editing stats
   - [ ] Add UI for editing feats
   - [x] Add link to name generator
 - [x] Ability to track health
@@ -42,3 +42,6 @@ This is intended to be an NPC generator and tracker for the Kids on Bikes hack, 
 - [ ] Ability to track initiative order
   - [ ] Ability to add PCs to initiative
 - [x] Ability to save current state to local storage and/or json file
+- [ ] Add rules text as tooltips
+  - [ ] Add to stats
+  - [ ] Add to injury levels

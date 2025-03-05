@@ -1,10 +1,17 @@
 import React, { useContext } from "react";
 
-import { Grid2 as Grid, IconButton, TextField, Tooltip } from "@mui/material";
+import {
+  Grid2 as Grid,
+  IconButton,
+  Select,
+  TextField,
+  Tooltip,
+} from "@mui/material";
 import { NPC } from "../constants/npc";
 import { Launch } from "@mui/icons-material";
 import { StateDispatchContext } from "../state/reducerContext";
 import { SPECIES } from "../constants/species";
+import StatEditSelect from "./StatEditSelect";
 
 type EditSectionProps = {
   npc: NPC;
@@ -87,6 +94,31 @@ function EditSection(props: EditSectionProps) {
           multiline
           fullWidth
         />
+      </Grid>
+      <Grid container flexDirection="row">
+        <StatEditSelect
+          npcId={npc.id}
+          stat={npc.stats.forceSensitivity}
+          statKey="forceSensitivity"
+        />
+        <StatEditSelect
+          npcId={npc.id}
+          stat={npc.stats.athleticism}
+          statKey="athleticism"
+        />
+        <StatEditSelect
+          npcId={npc.id}
+          stat={npc.stats.brains}
+          statKey="brains"
+        />
+        <StatEditSelect npcId={npc.id} stat={npc.stats.charm} statKey="charm" />
+        <StatEditSelect
+          npcId={npc.id}
+          stat={npc.stats.technician}
+          statKey="technician"
+        />
+        <StatEditSelect npcId={npc.id} stat={npc.stats.fight} statKey="fight" />
+        <StatEditSelect npcId={npc.id} stat={npc.stats.grit} statKey="grit" />
       </Grid>
     </Grid>
   );

@@ -78,8 +78,20 @@ function reducer(state: AppState, action: StateActions) {
       });
       break;
     }
+    case "UPDATE_NPC_STAT_PROPERTY": {
+      newState = produce(state, (draftState) => {
+        const npc = draftState.npcs.find(
+          (npc) => npc.id === action.payload.npcId
+        );
+        if (npc) {
+          npc.stats[action.payload.statKey] = action.payload.newStat;
+        }
+      });
+      break;
+    }
     default:
-      newState = state;
+      // not saving
+      return state;
   }
   // autosave after every action
   saveToLocalStorage(newState);

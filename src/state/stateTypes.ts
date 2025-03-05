@@ -1,4 +1,11 @@
-import { NPC, DEFAULT_ROLE, DEFAULT_TIER, EXAMPLE_NPC } from "../constants";
+import {
+  NPC,
+  DEFAULT_ROLE,
+  DEFAULT_TIER,
+  EXAMPLE_NPC,
+  Stat,
+  StatsArray,
+} from "../constants";
 
 type StateActions =
   | {
@@ -37,6 +44,14 @@ type StateActions =
         npcId: string;
         field: string;
         newValue: string;
+      };
+    }
+  | {
+      type: "UPDATE_NPC_STAT_PROPERTY";
+      payload: {
+        npcId: string;
+        statKey: keyof StatsArray;
+        newStat: Stat;
       };
     };
 
