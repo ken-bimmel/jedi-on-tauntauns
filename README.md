@@ -1,4 +1,15 @@
-# Jedi On Tauntauns NPC Generator
+# Jedi on Tauntauns
+
+This is intended to be a set of tools to assist in running the [Kids on Bikes](https://www.huntersentertainment.com/kidsonbikesrpg) hack, Jedi on Tauntauns. Currently this includes the following items:
+
+- NPC generator and tracker
+- Initiative tracker (planned)
+- Character sheet (planned)
+- Vehicle sheet (planned)
+
+These tools are currently accessible here: https://ken-bimmel.github.io/jedi-on-tauntauns/
+
+## Running locally
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -13,12 +24,12 @@ To start:
 1. Update the `homepage` attribute of _package.json_
 2. `npm run deploy`
 
-This is intended to be an NPC generator and tracker for the Kids on Bikes hack, Jedi on Tauntauns.
-
 ## Proposed features include:
 
+### NPC Generator
+
 - [x] Generate a random NPC
-  - [ x] Include name/species as part of generated NPC
+  - [x] Include name/species as part of generated NPC
     - [x] Include species
     - [x] Include species-determined name
   - [x] Include randomly generated stats
@@ -39,8 +50,6 @@ This is intended to be an NPC generator and tracker for the Kids on Bikes hack, 
   - [x] Add read-only display
   - [x] Add interactive tracking
 - [ ] Add Destiny Point tracking
-- [ ] Ability to track initiative order
-  - [ ] Ability to add PCs to initiative
 - [x] Ability to save current state to local storage and/or json file
 - [ ] Add rules text as tooltips
   - [ ] Add to stats
