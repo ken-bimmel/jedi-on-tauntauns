@@ -39,6 +39,7 @@ This is intended to be an NPC generator and tracker for the Kids on Bikes hack, 
 - [x] Ability to track health
   - [x] Add read-only display
   - [x] Add interactive tracking
+- [ ] Add Destiny Point tracking
 - [ ] Ability to track initiative order
   - [ ] Ability to add PCs to initiative
 - [x] Ability to save current state to local storage and/or json file

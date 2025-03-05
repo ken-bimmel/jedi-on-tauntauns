@@ -1,4 +1,11 @@
 import {
+  BOSS_FEATS,
+  DECREASE_STAT_REPLACEMENT_STRING,
+  INCREASE_STAT_REPLACEMENT_STRING,
+  LIEUTENANT_FEATS,
+  ROLE_FEATS,
+} from "../constants/feats";
+import {
   DIE_SIZES,
   FORCE_DIE_SIZES,
   NUM_DICE,
@@ -9,7 +16,7 @@ import {
 } from "../constants/generator";
 import { Feat, NPC, Stat, StatName, StatsArray } from "../constants/npc";
 import { NUM_SPECIES, SPECIES } from "../constants/species";
-import { normal_random } from "./random";
+import { normalRandom, shuffleArray } from "./random";
 
 function generateNpc(role: Role, tier: Tier, forceSensitive: boolean): NPC {
   const { name, species } = generateRandomNameAndSpecies();
@@ -26,7 +33,7 @@ function generateNpc(role: Role, tier: Tier, forceSensitive: boolean): NPC {
     name,
     species,
     stats: generateStatsArray(internalRole, tier, forceSensitive),
-    feats: generateFeatArray(tier),
+    feats: generateFeatArray(tier, role),
     role: `${tier.name} ${internalRole.name}`,
     maxInjuries: tier.maxInjuries,
     currentInjuries: 0,
@@ -97,21 +104,52 @@ function generateStatsArray(
   };
 }
 
-function generateFeatArray(tier: Tier): Feat[] {
+function generateFeatArray(tier: Tier, role: Role): Feat[] {
+  if (tier.name === "Grunt") {
+    // grunts don't get feats
+    return [];
+  }
+  const featsArray: Omit<Feat, "id">[] = [ROLE_FEATS[role.slug]];
+  let featCount = 1;
   if (tier.name === "Lieutenant") {
-    return []; // return 1 feat
+    featsArray.push(...LIEUTENANT_FEATS);
   }
   if (tier.name === "Boss") {
-    return []; // return 2 feats
+    featsArray.push(...BOSS_FEATS);
+    featCount = 2;
   }
-  return []; // grunts don't get a feat
+  shuffleArray(featsArray);
+  const selectedFeats = featsArray.slice(0, featCount);
+  const modifiedFeats = selectedFeats.map((feat) => {
+    let newDescription = feat.description;
+    if (newDescription.includes(INCREASE_STAT_REPLACEMENT_STRING)) {
+      const increaseStat = role.increasedStats[Math.floor(Math.random() * 2)];
+      newDescription = newDescription.replace(
+        INCREASE_STAT_REPLACEMENT_STRING,
+        increaseStat
+      );
+    }
+    if (newDescription.includes(DECREASE_STAT_REPLACEMENT_STRING)) {
+      const decreaseStat = role.decreasedStats[Math.floor(Math.random() * 2)];
+      newDescription = newDescription.replace(
+        DECREASE_STAT_REPLACEMENT_STRING,
+        decreaseStat
+      );
+    }
+    return {
+      id: window.crypto.randomUUID(),
+      name: feat.name,
+      description: newDescription,
+    };
+  });
+  return modifiedFeats;
 }
 
 function generateRandomStat(name: StatName, role: Role, tier: Tier): Stat {
-  let valueIndex = Math.floor(normal_random() * NUM_DICE);
+  let valueIndex = Math.floor(normalRandom() * NUM_DICE);
   let valueArray = DIE_SIZES;
   if (name === "Force Sensitivity") {
-    valueIndex = Math.floor(normal_random() * NUM_FDICE);
+    valueIndex = Math.floor(normalRandom() * NUM_FDICE);
     valueArray = FORCE_DIE_SIZES;
   }
   if (role.increasedStats.includes(name)) {
