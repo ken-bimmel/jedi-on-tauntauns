@@ -17,14 +17,13 @@ This is intended to be an NPC generator and tracker for the Kids on Bikes hack, 
 
 ## Proposed features include:
 
-- [ ] Generate a random NPC
-  - [ ] Include name/species/description as part of generated NPC
+- [x] Generate a random NPC
+  - [ x] Include name/species as part of generated NPC
     - [x] Include species
     - [x] Include species-determined name
-    - [ ] Include physical description
   - [x] Include randomly generated stats
     - [x] Switch to normal distribution from linear
-  - [ ] Include randomly generated feats
+  - [x] Include randomly generated feats
   - [x] Role-based templated for the generator
     - [x] Add random option for Role
   - [x] Add tiers to the generator

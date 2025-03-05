@@ -95,7 +95,7 @@ const ROLES: { [key: string]: Role } = {
   merchant: {
     slug: "merchant",
     name: "Merchant",
-    increasedStats: ["Charm", "Technician"],
+    increasedStats: ["Charm", "Brains"],
     decreasedStats: ["Fight", "Grit"],
   },
   laborer: {
