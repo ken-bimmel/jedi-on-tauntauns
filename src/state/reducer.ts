@@ -89,6 +89,55 @@ function reducer(state: AppState, action: StateActions) {
       });
       break;
     }
+    case "ADD_BLANK_FEAT": {
+      newState = produce(state, (draftState) => {
+        const npc = draftState.npcs.find(
+          (npc) => npc.id === action.payload.npcId
+        );
+        if (npc) {
+          npc.feats.push({
+            id: window.crypto.randomUUID(),
+            name: "",
+            description: "",
+          });
+        }
+      });
+      break;
+    }
+    case "DELETE_NPC_FEAT": {
+      newState = produce(state, (draftState) => {
+        const npcIndex = draftState.npcs.findIndex(
+          (npc) => npc.id === action.payload.npcId
+        );
+        if (npcIndex !== -1) {
+          const featIndex = draftState.npcs[npcIndex].feats.findIndex(
+            (feat) => feat.id === action.payload.featId
+          );
+          if (featIndex !== -1) {
+            draftState.npcs[npcIndex].feats.splice(featIndex, 1);
+          }
+        }
+      });
+      break;
+    }
+    case "UPDATE_NPC_FEAT": {
+      newState = produce(state, (draftState) => {
+        const npc = draftState.npcs.find(
+          (npc) => npc.id === action.payload.npcId
+        );
+        if (npc) {
+          const feat = npc.feats.find(
+            (feat) => feat.id === action.payload.featId
+          );
+          if (feat) {
+            feat.name = action.payload.newName ?? feat.name;
+            feat.description =
+              action.payload.newDescription ?? feat.description;
+          }
+        }
+      });
+      break;
+    }
     default:
       // not saving
       return state;

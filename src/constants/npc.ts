@@ -24,6 +24,7 @@ type StatsArray = {
 };
 
 type Feat = {
+  id: string;
   name: string;
   description: string;
 };
@@ -51,12 +52,14 @@ const EXAMPLE_STATS_ARRAY: StatsArray = {
 };
 
 const EXAMPLE_FEAT: Feat = {
+  id: window.crypto.randomUUID(),
   name: "My Hunk of Junk",
   description:
     "Pick a specific vehicle. When you make a Technician check for that vehicle, you get a +2 bonus to that check.",
 };
 
 const EXAMPLE_FEAT_2: Feat = {
+  id: window.crypto.randomUUID(),
   name: "Infamous",
   description:
     "When you make a Charm check against underworld targets, you get a +2 bonus to that check. When you make a Charm check against a figure of authority, you take a -2 penalty to that check.",

@@ -59,7 +59,7 @@ function ActionsSection(props: ActionSectionProps) {
       </Grid>
       <Grid container flexDirection="row">
         <Grid>
-          <Tooltip title="Edit NPC">
+          <Tooltip title={isEditMode ? "Save NPC" : "Edit NPC"}>
             <IconButton
               color="primary"
               onClick={() => editModeCallback(!isEditMode)}

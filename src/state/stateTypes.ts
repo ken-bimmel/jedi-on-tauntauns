@@ -53,6 +53,28 @@ type StateActions =
         statKey: keyof StatsArray;
         newStat: Stat;
       };
+    }
+  | {
+      type: "ADD_BLANK_FEAT";
+      payload: {
+        npcId: string;
+      };
+    }
+  | {
+      type: "DELETE_NPC_FEAT";
+      payload: {
+        npcId: string;
+        featId: string;
+      };
+    }
+  | {
+      type: "UPDATE_NPC_FEAT";
+      payload: {
+        npcId: string;
+        featId: string;
+        newName?: string;
+        newDescription?: string;
+      };
     };
 
 type AppState = {
