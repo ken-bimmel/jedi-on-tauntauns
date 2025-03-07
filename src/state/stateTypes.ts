@@ -39,6 +39,13 @@ type StateActions =
       };
     }
   | {
+      type: "SET_NPC_DESTINY_LEVEL";
+      payload: {
+        npcId: string;
+        newDestinyLevel: null | number;
+      };
+    }
+  | {
       type: "UPDATE_NPC_NON_STAT_OR_FEAT_PROPERTY";
       payload: {
         npcId: string;

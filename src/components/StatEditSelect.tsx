@@ -26,7 +26,7 @@ function StatEditSelect(props: StatEditSelectProps) {
       ...stat,
       value: event.target.value as DieSize,
     };
-    dispatch!({
+    dispatch?.({
       type: "UPDATE_NPC_STAT_PROPERTY",
       payload: {
         npcId,

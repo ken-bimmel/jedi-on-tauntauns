@@ -20,7 +20,7 @@ function EditableNarrativeSection(props: EditableNarrativeSectionProps) {
   ): React.FocusEventHandler<HTMLInputElement | HTMLTextAreaElement> {
     return (event) => {
       const newValue = event.target.value;
-      dispatch!({
+      dispatch?.({
         type: "UPDATE_NPC_NON_STAT_OR_FEAT_PROPERTY",
         payload: {
           npcId: npc.id,

@@ -39,7 +39,10 @@ type NPC = {
   description?: string;
   maxInjuries: number;
   currentInjuries?: number;
+  currentDestiny?: number;
 };
+
+const MAX_NPC_DESTINY = 5;
 
 const EXAMPLE_STATS_ARRAY: StatsArray = {
   forceSensitivity: { name: "Force Sensitivity", value: 0 },
@@ -76,6 +79,16 @@ const EXAMPLE_NPC: NPC = {
     "Fovv Schintriemp is a clever and elusive Sullustan smuggler known for his ability to navigate through the most dangerous sectors of the galaxy. With a sharp wit and an even sharper sense for business, he always finds a way to slip past Imperial checkpoints and make lucrative deals under the radar.",
   maxInjuries: 3,
   currentInjuries: 1,
+  currentDestiny: 3,
 };
 
-export { DieSize, StatName, Stat, StatsArray, Feat, NPC, EXAMPLE_NPC };
+export {
+  DieSize,
+  StatName,
+  Stat,
+  StatsArray,
+  Feat,
+  NPC,
+  EXAMPLE_NPC,
+  MAX_NPC_DESTINY,
+};

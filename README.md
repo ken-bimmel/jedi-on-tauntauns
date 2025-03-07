@@ -49,7 +49,7 @@ To start:
 - [x] Ability to track health
   - [x] Add read-only display
   - [x] Add interactive tracking
-- [ ] Add Destiny Point tracking
+- [x] Add Destiny Point tracking
 - [x] Ability to save current state to local storage and/or json file
 - [ ] Add rules text as tooltips
   - [ ] Add to stats

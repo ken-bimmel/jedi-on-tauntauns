@@ -9,10 +9,16 @@ import {
 } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import { NPC } from "../constants/npc";
+import { MAX_NPC_DESTINY, NPC } from "../constants/npc";
 import { STAT_COLORS } from "../constants";
 import { StateDispatchContext } from "../state/reducerContext";
-import { Delete, Edit, Save } from "@mui/icons-material";
+import {
+  Delete,
+  Edit,
+  HourglassEmpty,
+  HourglassFull,
+  Save,
+} from "@mui/icons-material";
 
 type ActionSectionProps = {
   npc: NPC;
@@ -20,12 +26,22 @@ type ActionSectionProps = {
   editModeCallback: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const StyledRating = styled(Rating)({
+const InjuryRating = styled(Rating)({
   "& .MuiRating-iconFilled": {
     color: STAT_COLORS.grit,
   },
   "& .MuiRating-iconHover": {
     color: STAT_COLORS.grit,
+    filter: "brightness(80%)",
+  },
+});
+
+const DestinyRating = styled(Rating)({
+  "& .MuiRating-iconFilled": {
+    color: STAT_COLORS.forceSensitivity,
+  },
+  "& .MuiRating-iconHover": {
+    color: STAT_COLORS.forceSensitivity,
     filter: "brightness(80%)",
   },
 });
@@ -43,14 +59,29 @@ function ActionsSection(props: ActionSectionProps) {
       flexGrow={1}
     >
       <Grid>
-        <StyledRating
+        <DestinyRating
+          max={MAX_NPC_DESTINY}
+          value={npc.currentDestiny}
+          precision={1}
+          icon={<HourglassFull fontSize="inherit" />}
+          emptyIcon={<HourglassEmpty fontSize="inherit" />}
+          onChange={(_e: Event, value: null | number) => {
+            dispatch?.({
+              type: "SET_NPC_DESTINY_LEVEL",
+              payload: { npcId: npc.id, newDestinyLevel: value },
+            });
+          }}
+        />
+      </Grid>
+      <Grid>
+        <InjuryRating
           max={npc.maxInjuries}
           value={npc.currentInjuries}
           precision={1}
           icon={<FavoriteIcon fontSize="inherit" />}
           emptyIcon={<FavoriteBorderIcon fontSize="inherit" />}
           onChange={(_e: Event, value: null | number) => {
-            dispatch!({
+            dispatch?.({
               type: "SET_NPC_INJURY_LEVEL",
               payload: { npcId: npc.id, newInjuryLevel: value },
             });
@@ -73,7 +104,7 @@ function ActionsSection(props: ActionSectionProps) {
             <IconButton
               color="error"
               onClick={() => {
-                dispatch!({
+                dispatch?.({
                   type: "DELETE_NPC",
                   payload: npc.id,
                 });

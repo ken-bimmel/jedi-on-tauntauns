@@ -66,6 +66,17 @@ function reducer(state: AppState, action: StateActions) {
       });
       break;
     }
+    case "SET_NPC_DESTINY_LEVEL": {
+      newState = produce(state, (draftState) => {
+        const npc = draftState.npcs.find(
+          (npc) => npc.id === action.payload.npcId
+        );
+        if (npc) {
+          npc.currentDestiny = action.payload.newDestinyLevel ?? 0;
+        }
+      });
+      break;
+    }
     case "UPDATE_NPC_NON_STAT_OR_FEAT_PROPERTY": {
       newState = produce(state, (draftState) => {
         const npc = draftState.npcs.find(

@@ -26,11 +26,11 @@ function EditableFeatsSection(props: EditableFeatsSectionProps) {
   const dispatch = useContext(StateDispatchContext);
 
   function addNewFeat() {
-    dispatch!({ type: "ADD_BLANK_FEAT", payload: { npcId: npc.id } });
+    dispatch?.({ type: "ADD_BLANK_FEAT", payload: { npcId: npc.id } });
   }
 
   function deleteFeat(featId: string) {
-    dispatch!({ type: "DELETE_NPC_FEAT", payload: { npcId: npc.id, featId } });
+    dispatch?.({ type: "DELETE_NPC_FEAT", payload: { npcId: npc.id, featId } });
   }
 
   function makeUpdateFeat(
@@ -38,7 +38,7 @@ function EditableFeatsSection(props: EditableFeatsSectionProps) {
     featId: string
   ): React.FocusEventHandler<HTMLInputElement | HTMLTextAreaElement> {
     return (event) => {
-      dispatch!({
+      dispatch?.({
         type: "UPDATE_NPC_FEAT",
         payload: {
           npcId: npc.id,
