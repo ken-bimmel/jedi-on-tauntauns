@@ -3,7 +3,6 @@
 This is intended to be a set of tools to assist in running the [Kids on Bikes](https://www.huntersentertainment.com/kidsonbikesrpg) hack, Jedi on Tauntauns. Currently this includes the following items:
 
 - NPC generator and tracker
-- Initiative tracker (planned)
 - Character sheet (planned)
 - Vehicle sheet (planned)
 
@@ -25,6 +24,12 @@ To start:
 2. `npm run deploy`
 
 ## Proposed features include:
+
+### Overall Project
+
+- [ ] Convert to Vite
+- [ ] Add Tabs to separate parts of the program
+- [ ] Add data sharing urls
 
 ### NPC Generator
 
@@ -54,3 +59,30 @@ To start:
 - [x] Add rules text as tooltips
   - [x] Add to stats
   - [x] Add to injury levels
+
+### Character Sheet
+
+- [ ] Create a new blank character
+  - [ ] Save character with name
+  - [ ] Retrieve a saved character
+- [ ] Track and modify
+  - [ ] Injuries
+  - [ ] Destiny Points
+  - [ ] Inventory
+  - [ ] Stats
+  - [ ] Feats
+  - [ ] Character Description
+- [ ] Roll stats
+  - [ ] Flat rolls
+  - [ ] Modified rolls?
+
+### Vehicle Sheet
+
+- [ ] Create a new vehicle
+  - [ ] Save vehicle
+  - [ ] Retrieve a saved vehicle
+- [ ] Track and modify
+  - [ ] Hull
+  - [ ] Systems
+  - [ ] Modifiers
+  - [ ] Cargo
