@@ -1,33 +1,4 @@
-type DieSize = 0 | 4 | 6 | 8 | 10 | 12 | 20;
-type StatName =
-  | "Force Sensitivity"
-  | "Athleticism"
-  | "Brains"
-  | "Charm"
-  | "Technician"
-  | "Fight"
-  | "Grit";
-
-type Stat = {
-  name: StatName;
-  value: DieSize;
-};
-
-type StatsArray = {
-  forceSensitivity: Stat;
-  athleticism: Stat;
-  brains: Stat;
-  charm: Stat;
-  technician: Stat;
-  fight: Stat;
-  grit: Stat;
-};
-
-type Feat = {
-  id: string;
-  name: string;
-  description: string;
-};
+import { StatsArray, Feat } from "./character";
 
 type NPC = {
   id: string;
@@ -82,13 +53,4 @@ const EXAMPLE_NPC: NPC = {
   currentDestiny: 3,
 };
 
-export {
-  DieSize,
-  StatName,
-  Stat,
-  StatsArray,
-  Feat,
-  NPC,
-  EXAMPLE_NPC,
-  MAX_NPC_DESTINY,
-};
+export { NPC, EXAMPLE_NPC, MAX_NPC_DESTINY };

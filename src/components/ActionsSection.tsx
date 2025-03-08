@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 import { Grid2 as Grid, IconButton, Tooltip } from "@mui/material";
-import { NPC } from "../constants/npc";
+import { NPC } from "../constants";
 import { StateDispatchContext } from "../state/reducerContext";
 import { Delete, Edit, Save } from "@mui/icons-material";
 import DestinyPointTracker from "./DestinyPointTracker";

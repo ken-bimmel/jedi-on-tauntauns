@@ -12,7 +12,7 @@ import {
   TableRow,
   TextField,
 } from "@mui/material";
-import { NPC } from "../constants/npc";
+import { NPC } from "../constants";
 import { Add, Delete } from "@mui/icons-material";
 import { StateDispatchContext } from "../state/reducerContext";
 

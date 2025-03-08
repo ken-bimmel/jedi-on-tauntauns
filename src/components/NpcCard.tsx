@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { Card, CardContent, Grid2 as Grid } from "@mui/material";
-import { NPC } from "../constants/npc";
+import { NPC } from "../constants";
 import StatsSection from "./StatSection";
 import NarrativeSection from "./NarrativeSection";
 import FeatsSection from "./FeatsSection";

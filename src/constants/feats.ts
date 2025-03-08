@@ -1,4 +1,4 @@
-import { Feat } from "./npc";
+import { Feat } from "./character";
 
 const INCREASE_STAT_REPLACEMENT_STRING = "#S1#";
 const DECREASE_STAT_REPLACEMENT_STRING = "#S2#";

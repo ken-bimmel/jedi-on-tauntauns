@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Grid2 as Grid, Tooltip, Typography } from "@mui/material";
-import { NPC } from "../constants/npc";
+import { NPC } from "../constants";
 import { Description } from "@mui/icons-material";
 
 type NarrativeSectionProps = {

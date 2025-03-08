@@ -4,8 +4,6 @@ import {
   INCREASE_STAT_REPLACEMENT_STRING,
   LIEUTENANT_FEATS,
   ROLE_FEATS,
-} from "../constants/feats";
-import {
   DIE_SIZES,
   FORCE_DIE_SIZES,
   NUM_DICE,
@@ -13,9 +11,14 @@ import {
   Role,
   ROLES,
   Tier,
-} from "../constants/generator";
-import { Feat, NPC, Stat, StatName, StatsArray } from "../constants/npc";
-import { NUM_SPECIES, SPECIES } from "../constants/species";
+  NPC,
+  Feat,
+  Stat,
+  StatName,
+  StatsArray,
+  NUM_SPECIES,
+  SPECIES,
+} from "../constants";
 import { normalRandom, shuffleArray } from "./random";
 
 function generateNpc(role: Role, tier: Tier, forceSensitive: boolean): NPC {
@@ -63,22 +66,22 @@ function generateRandomNameAndSpecies() {
   if (femaleNameRank > maleNameRank && femaleNameRank > nbNameRank) {
     // femaleNameRank is higher than both other options
     npcName =
-      species.defaultFemaleNames![
-        Math.floor(Math.random() * species.defaultFemaleNames!.length)
-      ];
+      species.defaultFemaleNames?.[
+        Math.floor(Math.random() * (species.defaultFemaleNames?.length ?? 0))
+      ] ?? "";
   } else if (maleNameRank > nbNameRank) {
     // know fnr is lower than one or both of male and nb name ranks so only need
     // to test that mnr is higher than nbnr
     npcName =
-      species.defaultMaleNames![
-        Math.floor(Math.random() * species.defaultMaleNames!.length)
-      ];
+      species.defaultMaleNames?.[
+        Math.floor(Math.random() * (species.defaultMaleNames.length ?? 0))
+      ] ?? "";
   } else {
     // make nb name
     npcName =
-      species.defaultNonBinaryNames![
-        Math.floor(Math.random() * species.defaultNonBinaryNames!.length)
-      ];
+      species.defaultNonBinaryNames?.[
+        Math.floor(Math.random() * (species.defaultNonBinaryNames.length ?? 0))
+      ] ?? "";
   }
   return {
     name: npcName,

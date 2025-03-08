@@ -10,7 +10,7 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import { Feat } from "../constants/npc";
+import { Feat } from "../constants/character";
 
 type FeatsSection = {
   feats: Feat[];

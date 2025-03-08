@@ -1,5 +1,5 @@
 import { Grid2 as Grid } from "@mui/material";
-import { NPC } from "../constants/npc";
+import { NPC } from "../constants";
 import StatEditSelect from "./StatEditSelect";
 import EditableFeatsSection from "./EditableFeatSection";
 import EditableNarrativeSection from "./EditableNarrativeSection";

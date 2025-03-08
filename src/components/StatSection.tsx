@@ -2,8 +2,7 @@ import React from "react";
 
 import { Grid2 as Grid } from "@mui/material";
 import StatCard from "./StatCard";
-import { STAT_COLORS } from "../constants";
-import { StatsArray } from "../constants/npc";
+import { STAT_COLORS, StatsArray } from "../constants";
 
 type statSectionProps = {
   statsArray: StatsArray;

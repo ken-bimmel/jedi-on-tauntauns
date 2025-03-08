@@ -6,7 +6,7 @@ import {
   Select,
   SelectChangeEvent,
 } from "@mui/material";
-import { DieSize, Stat, StatsArray } from "../constants/npc";
+import { DieSize, Stat, StatsArray } from "../constants/character";
 import { useContext } from "react";
 import { StateDispatchContext } from "../state/reducerContext";
 

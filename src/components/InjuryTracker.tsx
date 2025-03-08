@@ -7,11 +7,9 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import { NPC } from "../constants/npc";
-import { STAT_COLORS } from "../constants";
+import { STAT_COLORS, NPC, INJURY_LEVELS } from "../constants";
 import { Favorite, FavoriteBorder, Info } from "@mui/icons-material";
 import { StateDispatchContext } from "../state/reducerContext";
-import { INJURY_LEVELS } from "../constants/rulesText";
 
 const InjuryRating = styled(Rating)({
   "& .MuiRating-iconFilled": {

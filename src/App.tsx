@@ -11,12 +11,7 @@ import {
   TextField,
   Tooltip,
 } from "@mui/material";
-import {
-  DEFAULT_ROLE,
-  DEFAULT_TIER,
-  ROLE_LIST,
-  TIER_LIST,
-} from "./constants/generator";
+import { DEFAULT_ROLE, DEFAULT_TIER, ROLE_LIST, TIER_LIST } from "./constants";
 import { reducer } from "./state/reducer";
 import { StateDispatchContext } from "./state/reducerContext";
 import { Download, Restore, Upload } from "@mui/icons-material";

@@ -7,8 +7,7 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import { Stat } from "../constants/npc";
-import { STAT_DESCRIPTIONS } from "../constants/rulesText";
+import { Stat, STAT_DESCRIPTIONS } from "../constants";
 
 type StatCardProps = {
   stat: Stat;

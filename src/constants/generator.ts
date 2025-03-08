@@ -1,4 +1,4 @@
-import { StatName, DieSize } from "./npc";
+import { StatName, DieSize } from "./character";
 
 type Role = {
   slug: string;

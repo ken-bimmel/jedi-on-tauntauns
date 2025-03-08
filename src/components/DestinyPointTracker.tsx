@@ -1,8 +1,7 @@
 import { useContext } from "react";
 
 import { Grid2 as Grid, Rating, styled, Tooltip } from "@mui/material";
-import { MAX_NPC_DESTINY, NPC } from "../constants/npc";
-import { STAT_COLORS } from "../constants";
+import { MAX_NPC_DESTINY, NPC, STAT_COLORS } from "../constants";
 import { HourglassFull, HourglassEmpty } from "@mui/icons-material";
 import { StateDispatchContext } from "../state/reducerContext";
 
