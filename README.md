@@ -51,6 +51,6 @@ To start:
   - [x] Add interactive tracking
 - [x] Add Destiny Point tracking
 - [x] Ability to save current state to local storage and/or json file
-- [ ] Add rules text as tooltips
-  - [ ] Add to stats
-  - [ ] Add to injury levels
+- [x] Add rules text as tooltips
+  - [x] Add to stats
+  - [x] Add to injury levels

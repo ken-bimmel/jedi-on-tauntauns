@@ -1,7 +1,14 @@
 import React from "react";
 
-import { Card, CardContent, Grid2 as Grid, Typography } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  Grid2 as Grid,
+  Tooltip,
+  Typography,
+} from "@mui/material";
 import { Stat } from "../constants/npc";
+import { STAT_DESCRIPTIONS } from "../constants/rulesText";
 
 type StatCardProps = {
   stat: Stat;
@@ -11,18 +18,21 @@ type StatCardProps = {
 function StatCard(props: StatCardProps) {
   const { stat, color } = props;
   const displayValue = `${stat.value !== 0 ? "d" : ""}${stat.value}`;
+  const statText = STAT_DESCRIPTIONS[stat.name];
   return (
     <Grid>
-      <Card>
-        <CardContent>
-          <Typography variant="h4" sx={{ color: color }}>
-            {displayValue}
-          </Typography>
-          <Typography variant="h6" sx={{ color: color }}>
-            {stat.name}
-          </Typography>
-        </CardContent>
-      </Card>
+      <Tooltip title={statText}>
+        <Card>
+          <CardContent>
+            <Typography variant="h4" sx={{ color: color }}>
+              {displayValue}
+            </Typography>
+            <Typography variant="h6" sx={{ color: color }}>
+              {stat.name}
+            </Typography>
+          </CardContent>
+        </Card>
+      </Tooltip>
     </Grid>
   );
 }
