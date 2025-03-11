@@ -1,158 +1,47 @@
-import { useEffect, useReducer, useRef } from "react";
-import NpcCard from "./components/NpcCard";
-import {
-  Autocomplete,
-  Button,
-  FormControlLabel,
-  FormGroup,
-  Grid2 as Grid,
-  IconButton,
-  Switch,
-  TextField,
-  Tooltip,
-} from "@mui/material";
-import { DEFAULT_ROLE, DEFAULT_TIER, ROLE_LIST, TIER_LIST } from "./constants";
+import React, { useReducer, useState } from "react";
+import { Tab, Tabs } from "@mui/material";
 import { reducer } from "./state/reducer";
 import { StateDispatchContext } from "./state/reducerContext";
-import { Download, Restore, Upload } from "@mui/icons-material";
 import { DEFAULT_STATE } from "./state/stateTypes";
-import { loadFromStorage } from "./state/storage";
-import VisuallyHiddenInput from "./components/VisuallyHiddenInput";
+import TabPanel from "./components/TabPanel";
+import NpcGeneratorTab from "./tabs/NpcGenerator";
+import { useNavigate } from "react-router";
+import { ROUTE_LIST } from "./constants/routeList";
 
-function App() {
+type AppProps = {
+  startingTab: number;
+};
+
+function App(props: AppProps) {
+  const { startingTab } = props;
   const [state, dispatch] = useReducer(reducer, DEFAULT_STATE);
-  const uploadInputRef = useRef<HTMLInputElement>(null);
+  const [activeTab, setActiveTab] = useState<number>(startingTab);
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    const savedState = loadFromStorage();
-    dispatch({ type: "LOAD_STATE", payload: savedState ?? DEFAULT_STATE });
-  }, []);
-
-  function importFile(event: React.ChangeEvent<HTMLInputElement>) {
-    if (event.target.files) {
-      const uploadedFileReader = new FileReader();
-      uploadedFileReader.onload = () => {
-        const uploadedState = JSON.parse(uploadedFileReader.result as string);
-        dispatch({
-          type: "LOAD_STATE",
-          payload: uploadedState ?? DEFAULT_STATE,
-        });
-      };
-      uploadedFileReader.readAsText(event.target.files[0]);
-    }
-  }
-
-  function reset() {
-    dispatch({ type: "LOAD_STATE", payload: DEFAULT_STATE });
-  }
-
-  const stateBlob = new Blob([JSON.stringify(state)], {
-    type: "application/json",
-  });
+  const updateActiveTab = (e: React.SyntheticEvent, newValue: number) => {
+    setActiveTab(newValue);
+    navigate(
+      ROUTE_LIST.find((route) => route.tabIndex === newValue)?.path ?? "/",
+      { replace: true }
+    );
+  };
 
   return (
     <StateDispatchContext.Provider value={dispatch}>
-      <Grid container flexDirection="column" spacing={2}>
-        <Grid
-          container
-          flexDirection="row"
-          justifyContent="flex-start"
-          alignItems="center"
-        >
-          <Grid>
-            <Button
-              onClick={() => {
-                dispatch({ type: "ADD_NPC" });
-              }}
-              variant="contained"
-            >
-              Generate NPC
-            </Button>
-          </Grid>
-          <Grid>
-            <Autocomplete
-              value={state.generatorConfiguration.activeRole}
-              options={ROLE_LIST}
-              onChange={(e, value) =>
-                dispatch({
-                  type: "UPDATE_ROLE",
-                  payload: value ?? DEFAULT_ROLE,
-                })
-              }
-              renderInput={(params) => <TextField {...params} label="Role" />}
-              style={{ minWidth: "250px" }}
-            />
-          </Grid>
-          <Grid>
-            <Autocomplete
-              value={state.generatorConfiguration.activeTier}
-              options={TIER_LIST}
-              onChange={(e, value) =>
-                dispatch({
-                  type: "UPDATE_TIER",
-                  payload: value ?? DEFAULT_TIER,
-                })
-              }
-              renderInput={(params) => <TextField {...params} label="Tier" />}
-              style={{ minWidth: "250px" }}
-            />
-          </Grid>
-          <Grid>
-            <FormGroup>
-              <FormControlLabel
-                control={
-                  <Switch
-                    checked={state.generatorConfiguration.forceSensitive}
-                    onChange={(e) =>
-                      dispatch({
-                        type: "UPDATE_FORCE_SENSITIVE_TOGGLE",
-                        payload: e.target.checked,
-                      })
-                    }
-                  />
-                }
-                label="Force sensitive?"
-              />
-            </FormGroup>
-          </Grid>
-          <Grid>
-            <Tooltip title="Save NPCs to disk">
-              <IconButton
-                href={URL.createObjectURL(stateBlob)}
-                download="JOT-NPCs.json"
-                color="primary"
-              >
-                <Download />
-              </IconButton>
-            </Tooltip>
-          </Grid>
-          <Grid>
-            <Tooltip title="Load NPCs from disk">
-              <IconButton
-                color="primary"
-                onClick={() => uploadInputRef.current?.click()}
-              >
-                <Upload />
-              </IconButton>
-            </Tooltip>
-            <VisuallyHiddenInput
-              ref={uploadInputRef}
-              type="file"
-              onChange={importFile}
-            />
-          </Grid>
-          <Grid>
-            <Tooltip title="Reset all NPCs">
-              <IconButton color="primary" onClick={reset}>
-                <Restore />
-              </IconButton>
-            </Tooltip>
-          </Grid>
-        </Grid>
-        {state.npcs.map((npc) => (
-          <NpcCard key={npc.id} npc={npc} />
-        ))}
-      </Grid>
+      <Tabs value={activeTab} onChange={updateActiveTab}>
+        <Tab label="NPC Generator" />
+        <Tab label="Character Sheet" />
+        <Tab label="Vehicle Sheet" />
+      </Tabs>
+      <TabPanel value={activeTab} index={0}>
+        <NpcGeneratorTab state={state} />
+      </TabPanel>
+      <TabPanel value={activeTab} index={1}>
+        The Character Sheet is under construction.
+      </TabPanel>
+      <TabPanel value={activeTab} index={2}>
+        The Vehicle Sheet is under construction.
+      </TabPanel>
     </StateDispatchContext.Provider>
   );
 }
