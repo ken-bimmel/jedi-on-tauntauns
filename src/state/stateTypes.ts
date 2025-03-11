@@ -5,6 +5,7 @@ import {
   EXAMPLE_NPC,
   Stat,
   StatsArray,
+  PC,
 } from "../constants";
 
 type StateActions =
@@ -91,6 +92,8 @@ type AppState = {
     forceSensitive: boolean;
   };
   npcs: NPC[];
+  pcs: PC[];
+  activePCIndex: number | undefined;
 };
 
 const DEFAULT_STATE: AppState = {
@@ -100,6 +103,8 @@ const DEFAULT_STATE: AppState = {
     forceSensitive: false,
   },
   npcs: [EXAMPLE_NPC],
+  pcs: [],
+  activePCIndex: undefined,
 };
 
 export { StateActions, AppState, DEFAULT_STATE };

@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { Tab, Tabs } from "@mui/material";
 import { reducer } from "./state/reducer";
 import { StateDispatchContext } from "./state/reducerContext";
@@ -7,6 +7,7 @@ import TabPanel from "./components/TabPanel";
 import NpcGeneratorTab from "./tabs/NpcGenerator";
 import { useNavigate } from "react-router";
 import { ROUTE_LIST } from "./constants/routeList";
+import { loadFromStorage } from "./state/storage";
 
 type AppProps = {
   startingTab: number;
@@ -17,6 +18,11 @@ function App(props: AppProps) {
   const [state, dispatch] = useReducer(reducer, DEFAULT_STATE);
   const [activeTab, setActiveTab] = useState<number>(startingTab);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const savedState = loadFromStorage();
+    dispatch?.({ type: "LOAD_STATE", payload: savedState ?? DEFAULT_STATE });
+  }, []);
 
   const updateActiveTab = (e: React.SyntheticEvent, newValue: number) => {
     setActiveTab(newValue);

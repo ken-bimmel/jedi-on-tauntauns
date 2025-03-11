@@ -1,20 +1,20 @@
 import React, { useContext } from "react";
 
 import { Grid2 as Grid, IconButton, Tooltip } from "@mui/material";
-import { NPC } from "../constants";
+import { NPC, PC } from "../constants";
 import { StateDispatchContext } from "../state/reducerContext";
 import { Delete, Edit, Save } from "@mui/icons-material";
 import DestinyPointTracker from "./DestinyPointTracker";
 import InjuryTracker from "./InjuryTracker";
 
 type ActionSectionProps = {
-  npc: NPC;
+  character: NPC | PC;
   isEditMode: boolean;
   editModeCallback: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 function ActionsSection(props: ActionSectionProps) {
-  const { npc, isEditMode, editModeCallback } = props;
+  const { character, isEditMode, editModeCallback } = props;
   const dispatch = useContext(StateDispatchContext);
   return (
     <Grid
@@ -25,8 +25,8 @@ function ActionsSection(props: ActionSectionProps) {
       spacing={2}
       flexGrow={1}
     >
-      <DestinyPointTracker npc={npc} />
-      <InjuryTracker npc={npc} />
+      <DestinyPointTracker npc={character} />
+      <InjuryTracker npc={character} />
       <Grid container flexDirection="row">
         <Grid>
           <Tooltip title={isEditMode ? "Save NPC" : "Edit NPC"}>
@@ -45,7 +45,7 @@ function ActionsSection(props: ActionSectionProps) {
               onClick={() => {
                 dispatch?.({
                   type: "DELETE_NPC",
-                  payload: npc.id,
+                  payload: character.id,
                 });
               }}
             >

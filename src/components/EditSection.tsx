@@ -1,45 +1,57 @@
 import { Grid2 as Grid } from "@mui/material";
-import { NPC } from "../constants";
+import { NPC, PC } from "../constants";
 import StatEditSelect from "./StatEditSelect";
 import EditableFeatsSection from "./EditableFeatSection";
 import EditableNarrativeSection from "./EditableNarrativeSection";
 
 type EditSectionProps = {
-  npc: NPC;
+  character: NPC | PC;
 };
 
 function EditSection(props: EditSectionProps) {
-  const { npc } = props;
+  const { character } = props;
 
   return (
     <Grid container flexDirection="column" spacing={2}>
-      <EditableNarrativeSection npc={npc} />
+      <EditableNarrativeSection npc={character} />
       <Grid container flexDirection="row">
         <StatEditSelect
-          npcId={npc.id}
-          stat={npc.stats.forceSensitivity}
+          npcId={character.id}
+          stat={character.stats.forceSensitivity}
           statKey="forceSensitivity"
         />
         <StatEditSelect
-          npcId={npc.id}
-          stat={npc.stats.athleticism}
+          npcId={character.id}
+          stat={character.stats.athleticism}
           statKey="athleticism"
         />
         <StatEditSelect
-          npcId={npc.id}
-          stat={npc.stats.brains}
+          npcId={character.id}
+          stat={character.stats.brains}
           statKey="brains"
         />
-        <StatEditSelect npcId={npc.id} stat={npc.stats.charm} statKey="charm" />
         <StatEditSelect
-          npcId={npc.id}
-          stat={npc.stats.technician}
+          npcId={character.id}
+          stat={character.stats.charm}
+          statKey="charm"
+        />
+        <StatEditSelect
+          npcId={character.id}
+          stat={character.stats.technician}
           statKey="technician"
         />
-        <StatEditSelect npcId={npc.id} stat={npc.stats.fight} statKey="fight" />
-        <StatEditSelect npcId={npc.id} stat={npc.stats.grit} statKey="grit" />
+        <StatEditSelect
+          npcId={character.id}
+          stat={character.stats.fight}
+          statKey="fight"
+        />
+        <StatEditSelect
+          npcId={character.id}
+          stat={character.stats.grit}
+          statKey="grit"
+        />
       </Grid>
-      <EditableFeatsSection npc={npc} />
+      <EditableFeatsSection npc={character} />
     </Grid>
   );
 }

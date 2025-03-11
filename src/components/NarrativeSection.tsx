@@ -1,15 +1,15 @@
 import React from "react";
 
 import { Grid2 as Grid, Tooltip, Typography } from "@mui/material";
-import { NPC } from "../constants";
+import { NPC, PC } from "../constants";
 import { Description } from "@mui/icons-material";
 
 type NarrativeSectionProps = {
-  npc: NPC;
+  character: NPC | PC;
 };
 
 function NarrativeSection(props: NarrativeSectionProps) {
-  const { npc } = props;
+  const { character } = props;
   return (
     <Grid
       container
@@ -24,17 +24,17 @@ function NarrativeSection(props: NarrativeSectionProps) {
           width="fit-content"
           style={{ textTransform: "capitalize" }}
         >
-          {npc.name}
+          {character.name}
         </Typography>
       </Grid>
       <Grid>
         <Typography variant="h6" width="fit-content">
-          {npc.species} {npc.role}
+          {character.species} {character.role}
         </Typography>
       </Grid>
-      {npc?.description !== undefined ? (
+      {character?.description !== undefined ? (
         <Grid>
-          <Tooltip title={npc.description} placement="bottom-end">
+          <Tooltip title={character.description} placement="bottom-end">
             <Description />
           </Tooltip>
         </Grid>
