@@ -1,16 +1,23 @@
 # Jedi on Tauntauns
 
-This is intended to be a set of tools to assist in running the [Kids on Bikes](https://www.huntersentertainment.com/kidsonbikesrpg) hack, Jedi on Tauntauns. Currently this includes the following items:
+_Jedi on Tauntauns_ is intended to be a rules-lite system for playing improv and
+storytelling-focused TTRPG games in the Star Wars universe based on the
+[Kids on Bikes](https://www.huntersentertainment.com/kidsonbikesrpg) system.
+
+This repository contains both the rules for _Jedi on Tauntauns_ and the source
+code for several web-based tools to assist in playing and running the system.
+
+Currently the tools included in this repository are:
 
 - NPC generator and tracker
-- Character sheet (planned)
+- Character sheet (in progress)
 - Vehicle sheet (planned)
 
-These tools are currently accessible here: https://ken-bimmel.github.io/jedi-on-tauntauns/
+These tools are accessible here: https://ken-bimmel.github.io/jedi-on-tauntauns/
+
+The rules are located in the [_rules_ folder](https://github.com/ken-bimmel/jedi-on-tauntauns/tree/main/rules).
 
 ## Running locally
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 To start:
 
@@ -30,7 +37,7 @@ To start:
 - [ ] Convert to Vite
 - [x] Add Tabs to separate parts of the program
 - [ ] Add data sharing urls
-- [ ] Add rules and pdf generation
+- [x] Add rules and pdf generation
 
 ### NPC Generator
 
