@@ -28,8 +28,9 @@ To start:
 ### Overall Project
 
 - [ ] Convert to Vite
-- [ ] Add Tabs to separate parts of the program
+- [x] Add Tabs to separate parts of the program
 - [ ] Add data sharing urls
+- [ ] Add rules and pdf generation
 
 ### NPC Generator
 
@@ -59,6 +60,9 @@ To start:
 - [x] Add rules text as tooltips
   - [x] Add to stats
   - [x] Add to injury levels
+- [ ] Add NPC grouping and Table of Contents
+- [ ] Add NPC dice rolling
+  - [ ] Add die roll log
 
 ### Character Sheet
 
@@ -72,9 +76,11 @@ To start:
   - [ ] Stats
   - [ ] Feats
   - [ ] Character Description
+  - [ ] IP usage
 - [ ] Roll stats
   - [ ] Flat rolls
   - [ ] Modified rolls?
+  - [ ] Roll log
 
 ### Vehicle Sheet
 
