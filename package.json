@@ -30,7 +30,8 @@
     "eject": "react-scripts eject",
     "prepare": "husky install",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "rules": "md-to-pdf --config-file='./rules/config.js' ./rules/rules.md"
   },
   "browserslist": {
     "production": [
