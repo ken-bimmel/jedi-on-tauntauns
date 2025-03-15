@@ -5,8 +5,9 @@
 - [Introduction](#introduction)
 - [Dice Mechanics](#dice-mechanics)
   - [Standard Checks](#standard-checks)
+    - [Collaborative Checks](#collaborative-checks)
   - [Contested Checks](#contested-checks)
-  - [Collaborative Checks](#collaborative-checks)
+  - [Twist of Destiny](#twist-of-destiny)
   - [Destiny Points](#destiny-points)
   - [Planned Actions](#planned-actions)
   - [Bonuses and Penalties](#bonuses-and-penalties)
@@ -19,15 +20,13 @@
     - [Technician](#technician)
     - [Fight](#fight)
     - [Grit](#grit)
-    - [Perception Checks](#perception-checks)
+  - [Perception-style Checks](#perception-style-checks)
   - [Feats](#feats)
+  - [Injury Levels](#injury-levels)
+    - [Harm](#harm)
+    - [Healing](#healing)
   - [Character Creation](#character-creation)
   - [Improvement Phases](#improvement-phases)
-- [Conflict](#conflict)
-  - [Initiative](#initiative)
-  - [Injury Levels](#injury-levels)
-  - [Harm](#harm)
-  - [Healing](#healing)
 - [Gear](#gear)
 - [Vehicles](#vehicles)
   - [Specs](#specs)
@@ -48,45 +47,59 @@
 
 # Introduction
 
-This is a rules-lite hack of _Kids on Bikes_ for use in a Star Wars setting.
+This is a rules-lite hack of [_Kids on Bikes_](https://www.huntersentertainment.com/kidsonbikesrpg) for use in a Star Wars setting. The intention of this system is to create a simple framework for telling shared, improvised stories with your friends. It is not intended as a simulationist engine for highly tactical gameplay. The emphasis should always be on having fun, moving the story forward, and player agency in service of the story.
 
 # Dice Mechanics
 
-_Jedi on Tauntauns_ uses all the standard dihedral dice, except the d100. In all situations where you roll dice, rolling the maximum value of the die allows you to roll the die again, adding the second result cumulatively (i.e. dice explode). Dice may explode infinitely.
+_Jedi on Tauntauns_ uses all the standard polyhedral dice, except the d100. In all situations where you roll dice, rolling the maximum value of the die allows you to roll the die again, adding the second result cumulatively (i.e. dice explode). Dice may explode infinitely. The result of the roll is compared to either a target number or the result of a competitor's roll.
+
+In general, the degree of success on a check should determine the scale of the outcome. If you succeed by a wide margin, you will have much more success than if you only just barely succeeded on the check. Similarly, just barely failing a check is not as bad as failing by a wide margin. The impact of a success or failure on a check should also take into account the scale of the action. Failing to chat up the barman will have much less impact than failing to convince the guards that you do actually belong in this high-security facility, even for the same degree of failure.
 
 ## Standard Checks
 
 A standard check is any check not covered by a more specific set of rules. When you make a standard check, the GM sets a target number for the check. You then roll your die for the Stat called for by the GM. If the result of your roll meets or exceeds the target number, you succeed on the check. Exceeding the target number by five or more may have extra benefits. Similarly, failing a check by five or more may have additional penalties.
 
+### Collaborative Checks
+
+<!-- This system seems inelegant and needs to be looked at more closely to ensure it is accomplishing what I want. There should be some benefit for working together, but I am not sure what at this time. -->
+
+If multiple characters are working together to accomplish an action that is not a Planned Action (see below) each additional character may either attempt the check themselves or add +2 to the current attempt.
+
 ## Contested Checks
 
-A contested check is called for when two or more characters in a scene are competing over the outcome of an action. To resolve a contested check, each character makes a roll with the Stat they are using for the check (as determined by the GM). The highest result is the victor. As with standard checks, winning or losing by a margin of five or more may have additional benefits or penalties respectively.
+A contested check is called for when two or more characters in a scene are competing over the outcome of an action. To resolve a contested check, each character makes a roll with the Stat they are using for the check (as determined by the GM). The highest result is the victor. Tied results represent a stalemate, and do not count as failures. As with standard checks, winning or losing by a margin of five or more may have additional benefits or penalties respectively.
 
-## Collaborative Checks
+## Twist of Destiny
 
-If multiple characters are working together to accomplish an action that is not a Planned Action (see below) each additional character may either attempt the check themselves or add +2 to the next attempt.
+<!-- For simplicity I have gone with all dice, but I think they may be too great a burden on d4 and d6 stats, so I may revisit this in the future. -->
+
+Anytime a character rolls a 1 on a die, they automatically fail the check as the will of the Force turns against them and some outside influence causes their attempt to go awry. This outside force could be anything from a stormtrooper showing up at an inopportune moment to deflector shields coming back online just before their attacks land, or anything else. The intention is that this is an outside force preventing their success, not a failure on their part to succeed.
 
 ## Destiny Points
 
-Whenever a player fails a check of any kind they receive a Destiny Point. By default Destiny Points can be used in the following ways:
+Whenever a character fails a check of any kind they receive a Destiny Point. By default Destiny Points can be used in the following ways:
 
 - Add +1 to any roll of yours
-- Add +1 to a Planned Action of another player
+- Add +1 to a Planned Action of another character
 
 Any number of Destiny Points can be spent on a single roll. The bonus for Destiny Points is applied as specified in the Bonuses and Penalties section below. Feats may add additional uses for Destiny Points.
+
+<!-- 5 is just a guess at an appropriate limit on DP, it may require updating -->
+
+A character may have no more than 5 Destiny Points at any time. If Destiny Points would be gained past 5, they are instead lost immediately.
 
 Destiny Points do not carry over between sessions.
 
 ## Planned Actions
 
-If a character is under no time pressure or stress when they make a check, they may make that check as a Planned Action. When making a Planned Action an actor may both:
+If a character is under no time pressure or stress when they make a check, they may make that check as a Planned Action. When making a Planned Action an actor may:
 
-- Take half of the maximum die value for the Stat being used, instead of rolling the die
+- Take half of the maximum die value for the Stat being used, instead of rolling the die (i.e. d10 -> 5, d12 -> 6, etc.)
 - Receive help from other players, who spend their Destiny Points to grant +1 to the roll
 
 ## Bonuses and Penalties
 
-Some Feats will provide bonuses or penalties to your checks. Both bonuses and penalties are applied after the roll is complete and before you evaluate success or failure. This means that they cannot make a die explode or prevent a die from exploding.
+Spending Destiny Points and some Feats will provide bonuses or penalties to your checks. Both bonuses and penalties are applied after the roll is complete and before you evaluate success or failure. This means that they cannot make a die explode or prevent a die from exploding.
 
 # Characters
 
@@ -97,8 +110,6 @@ Mechanically, each player is composed of seven Stats and any number of Feats. Ea
 ## Stats
 
 There are seven stats, listed with explanations below, that govern all of the checks that you might make as a character in _Jedi on Tauntauns_. Each stat is defined by its die size (i.e. d4, d6, d8, d10, d12, d20), though the Force Sensitivity Stat is potentially 0. All other stats default to d4 and are improved during character creation and any Improvement Phases. Stats are listed below with descriptions of the types of activities they cover.
-
-Additionally, when you are asked to make a check with a particular Stat, you may always make the check with a smaller die size than what is listed for the Stat if you feel it is in character or thematically appropriate. For example, if you were playing a very book smart character with a Brains Stat of d12 and were asked for a Brains check perform an astronavigation calculation, you might decide that your character has never attempted such math before and that you should take the check at d6 instead to reflect that unfamiliarity. You are never required use a smaller die size, but you may at any time.
 
 ### Force Sensitivity
 
@@ -128,7 +139,7 @@ This Stat determines how competent in combat scenarios a character is. This Stat
 
 This Stat determines how durable your character is. This Stat covers any check to resist an aggressive action in combat, as well as to resist environmental or psychological hazards. This stat may also be used for checks that rely on how "street-smart" a character is, whether that is navigating a slum, haggling over prices, or surviving in a sandstorm.
 
-### Perception Checks
+## Perception-style Checks
 
 You may notice that there is no skill that covers the types of actions typically covered by perception or insight-style checks in other systems. Instead of having a dedicated skill for those actions, players can expect to make checks using the skills relevant to the situation or type of information they are seeking. Some examples are provided below:
 
@@ -159,6 +170,26 @@ Feats are additional abilities you can unlock that provide bonuses, create new a
 | Tough                  | 2 IP | You can sustain two Minor Injuries before receiving a Major Injury.                                                                                                                                                                                                                                               |
 | Will of the Force      | 3 IP | Once per session you may choose to spend your Destiny Points during your roll, instead of after the roll. This means that you may spend Destiny Points to cause a die to explode.                                                                                                                                 |
 
+## Injury Levels
+
+All player characters have five Injury Levels by default. These levels are as follows:
+
+1. Uninjured
+2. Minor Injury
+3. Major Injury
+4. Unconscious
+5. Dead
+
+When a character has a Major Injury, they receive a -2 penalty to all checks. An Unconscious character automatically fails all checks except Grit checks, to which they receive a -4 penalty.
+
+### Harm
+
+Generally, aggressive actions are resolved with a Contested Check with the aggressor rolling Fight and the Defender rolling Grit. If the aggressor succeeds, their attack inflicts one Injury Level.
+
+### Healing
+
+When a character has an Injury Level, they can generally heal that Injury Level by benefitting from a successful Brains check. Additionally, they could recover once a sufficient amount of time has passed.
+
 ## Character Creation
 
 When creating a new character, you will build your character out of a pool of 14 Improvement Points (IP). The mechanical character should be created following these steps:
@@ -172,36 +203,6 @@ When creating a new character, you will build your character out of a pool of 14
 ## Improvement Phases
 
 Whenever you enter an Improvement Phase, you are granted 2 additional IP. You may then spend any IP you have (including leftover IP from character creation or previous Improvement phases), as defined in the Character Creation section above.
-
-# Conflict
-
-## Initiative
-
-_Jedi on Tauntauns_ does not have a structured initiative system. It is up to the GM's discretion when characters act in high-stakes scenes.
-
-## Injury Levels
-
-All player characters have five Injury Levels by default. These levels are as follows:
-
-1. Uninjured
-2. Minor Injury
-3. Major Injury
-4. Unconscious
-5. Dead
-
-When a character has a Major Injury, they receive a -2 penalty to all checks. An Unconscious character automatically fails all checks except Grit checks, to which they receive a -4 penalty.
-
-## Harm
-
-Generally, aggressive actions are resolved with a Contested Check with the aggressor rolling Fight and the Defender rolling Grit. If the aggressor succeeds, their attack inflicts one Injury Level.
-
-## Healing
-
-When a character has an Injury Level, there is the possibility to recover that lost Injury Level by one of the following means:
-
-1. Another character may make a Brains check to patch you up. The difficulty will be a factor of how injured you are, how much time pressure you are under, and what supplies are available.
-2. Using a piece of technology.
-3. Resting for a significant period of time.
 
 # Gear
 

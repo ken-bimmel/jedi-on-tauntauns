@@ -63,6 +63,7 @@ To start:
 - [ ] Add NPC grouping and Table of Contents
 - [ ] Add NPC dice rolling
   - [ ] Add die roll log
+- [ ] Set friendly/hostile/neutral status
 
 ### Character Sheet
 
