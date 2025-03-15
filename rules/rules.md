@@ -265,7 +265,7 @@ When a vehicle has Major Damage, it receive a -2 penalty to all Specs. A Disable
 
 ### Damage Between Vehicles and Characters
 
-Due to the difference in scale, Damage and Injury are not directly exchangeable. Most attacks by characters against vehicles will not cause Damage to vehicles, since they are so much larger. Conversely, most attacks by vehicles are likely to be fatal for characters, as vehicle weapons are much more powerful.
+Due to the difference in scale, Damage and Injury are not directly exchangeable. Most attacks by characters against vehicles will not cause Damage to vehicles, since the vehicles are so much larger. Conversely, most attacks by vehicles are likely to be fatal for characters, as vehicle weapons are much more powerful.
 
 ## Vehicle Creation
 
