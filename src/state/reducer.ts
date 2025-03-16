@@ -93,13 +93,15 @@ function reducer(state: AppState, action: StateActions) {
       });
       break;
     }
-    case "UPDATE_NPC_STAT_PROPERTY": {
+    case "UPDATE_CHARACTER_STAT_PROPERTY": {
       newState = produce(state, (draftState) => {
-        const npc = draftState.npcs.find(
-          (npc) => npc.id === action.payload.npcId
+        const character = getCharacter(
+          draftState,
+          action.payload.isNpc,
+          action.payload.characterId
         );
-        if (npc) {
-          npc.stats[action.payload.statKey] = action.payload.newStat;
+        if (character) {
+          character.stats[action.payload.statKey] = action.payload.newStat;
         }
       });
       break;

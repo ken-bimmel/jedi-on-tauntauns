@@ -13,11 +13,12 @@ import { StateDispatchContext } from "../state/reducerContext";
 type StatEditSelectProps = {
   stat: Stat;
   statKey: keyof StatsArray;
-  npcId: string;
+  characterId: string;
+  isNpc: boolean;
 };
 
 function StatEditSelect(props: StatEditSelectProps) {
-  const { stat, statKey, npcId } = props;
+  const { stat, statKey, characterId, isNpc } = props;
 
   const dispatch = useContext(StateDispatchContext);
 
@@ -27,9 +28,10 @@ function StatEditSelect(props: StatEditSelectProps) {
       value: event.target.value as DieSize,
     };
     dispatch?.({
-      type: "UPDATE_NPC_STAT_PROPERTY",
+      type: "UPDATE_CHARACTER_STAT_PROPERTY",
       payload: {
-        npcId,
+        isNpc,
+        characterId,
         statKey,
         newStat,
       },
@@ -39,9 +41,9 @@ function StatEditSelect(props: StatEditSelectProps) {
   return (
     <Grid>
       <FormControl>
-        <InputLabel id={`${npcId}-${stat.name}`}>{stat.name}</InputLabel>
+        <InputLabel id={`${characterId}-${stat.name}`}>{stat.name}</InputLabel>
         <Select
-          labelId={`${npcId}-${stat.name}`}
+          labelId={`${characterId}-${stat.name}`}
           value={stat.value}
           label={stat.name}
           onChange={updateStat}

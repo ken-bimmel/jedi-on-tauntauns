@@ -81,7 +81,7 @@ To start:
   - [x] Injuries
   - [x] Destiny Points
   - [ ] Inventory
-  - [ ] Stats
+  - [x] Stats
   - [ ] Feats
   - [ ] Character Description
   - [ ] IP usage

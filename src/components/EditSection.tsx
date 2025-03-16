@@ -17,39 +17,46 @@ function EditSection(props: EditSectionProps) {
       <EditableNarrativeSection character={character} isNpc={isNpc} />
       <Grid container flexDirection="row">
         <StatEditSelect
-          npcId={character.id}
+          characterId={character.id}
           stat={character.stats.forceSensitivity}
           statKey="forceSensitivity"
+          isNpc={isNpc}
         />
         <StatEditSelect
-          npcId={character.id}
+          characterId={character.id}
           stat={character.stats.athleticism}
           statKey="athleticism"
+          isNpc={isNpc}
         />
         <StatEditSelect
-          npcId={character.id}
+          characterId={character.id}
           stat={character.stats.brains}
           statKey="brains"
+          isNpc={isNpc}
         />
         <StatEditSelect
-          npcId={character.id}
+          characterId={character.id}
           stat={character.stats.charm}
           statKey="charm"
+          isNpc={isNpc}
         />
         <StatEditSelect
-          npcId={character.id}
+          characterId={character.id}
           stat={character.stats.technician}
           statKey="technician"
+          isNpc={isNpc}
         />
         <StatEditSelect
-          npcId={character.id}
+          characterId={character.id}
           stat={character.stats.fight}
           statKey="fight"
+          isNpc={isNpc}
         />
         <StatEditSelect
-          npcId={character.id}
+          characterId={character.id}
           stat={character.stats.grit}
           statKey="grit"
+          isNpc={isNpc}
         />
       </Grid>
       <EditableFeatsSection character={character} isNpc={isNpc} />

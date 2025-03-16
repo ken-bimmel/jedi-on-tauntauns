@@ -58,9 +58,10 @@ type StateActions =
       };
     }
   | {
-      type: "UPDATE_NPC_STAT_PROPERTY";
+      type: "UPDATE_CHARACTER_STAT_PROPERTY";
       payload: {
-        npcId: string;
+        isNpc: boolean;
+        characterId: string;
         statKey: keyof StatsArray;
         newStat: Stat;
       };
