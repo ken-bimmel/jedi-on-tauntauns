@@ -41,7 +41,7 @@ function InjuryLabel(props: InjuryLabelProps) {
 }
 
 function InjuryTracker(props: InjuryTrackerProps) {
-  const { character } = props;
+  const { character, isNpc } = props;
   const dispatch = useContext(StateDispatchContext);
 
   return (
@@ -55,9 +55,10 @@ function InjuryTracker(props: InjuryTrackerProps) {
           emptyIcon={<FavoriteBorder />}
           onChange={(_e: Event, value: null | number) => {
             dispatch?.({
-              type: "SET_NPC_INJURY_LEVEL",
+              type: "SET_CHARACTER_INJURY_LEVEL",
               payload: {
-                npcId: character.id,
+                isNpc,
+                characterId: character.id,
                 newInjuryLevel: character.maxInjuries - (value ?? 0),
               },
             });

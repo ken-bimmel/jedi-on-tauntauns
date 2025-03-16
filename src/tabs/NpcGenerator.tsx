@@ -45,7 +45,7 @@ function NpcGeneratorTab(props: NpcGeneratorTabProps) {
             options={ROLE_LIST}
             onChange={(e, value) =>
               dispatch?.({
-                type: "UPDATE_ROLE",
+                type: "UPDATE_GENERATOR_ROLE",
                 payload: value ?? DEFAULT_ROLE,
               })
             }
@@ -59,7 +59,7 @@ function NpcGeneratorTab(props: NpcGeneratorTabProps) {
             options={TIER_LIST}
             onChange={(e, value) =>
               dispatch?.({
-                type: "UPDATE_TIER",
+                type: "UPDATE_GENERATOR_TIER",
                 payload: value ?? DEFAULT_TIER,
               })
             }
@@ -75,7 +75,7 @@ function NpcGeneratorTab(props: NpcGeneratorTabProps) {
                   checked={state.generatorConfiguration.forceSensitive}
                   onChange={(e) =>
                     dispatch?.({
-                      type: "UPDATE_FORCE_SENSITIVE_TOGGLE",
+                      type: "UPDATE_GENERATOR_FORCE_SENSITIVE_TOGGLE",
                       payload: e.target.checked,
                     })
                   }

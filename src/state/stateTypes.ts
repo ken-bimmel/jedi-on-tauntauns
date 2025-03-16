@@ -22,21 +22,22 @@ type StateActions =
       payload: string;
     }
   | {
-      type: "UPDATE_ROLE";
+      type: "UPDATE_GENERATOR_ROLE";
       payload: { id: string; label: string };
     }
   | {
-      type: "UPDATE_TIER";
+      type: "UPDATE_GENERATOR_TIER";
       payload: { id: string; label: string };
     }
   | {
-      type: "UPDATE_FORCE_SENSITIVE_TOGGLE";
+      type: "UPDATE_GENERATOR_FORCE_SENSITIVE_TOGGLE";
       payload: boolean;
     }
   | {
-      type: "SET_NPC_INJURY_LEVEL";
+      type: "SET_CHARACTER_INJURY_LEVEL";
       payload: {
-        npcId: string;
+        isNpc: boolean;
+        characterId: string;
         newInjuryLevel: null | number;
       };
     }

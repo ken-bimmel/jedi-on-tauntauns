@@ -37,31 +37,34 @@ function reducer(state: AppState, action: StateActions) {
       });
       break;
     }
-    case "UPDATE_ROLE": {
+    case "UPDATE_GENERATOR_ROLE": {
       newState = produce(state, (draftState) => {
         draftState.generatorConfiguration.activeRole = action.payload;
       });
       break;
     }
-    case "UPDATE_TIER": {
+    case "UPDATE_GENERATOR_TIER": {
       newState = produce(state, (draftState) => {
         draftState.generatorConfiguration.activeTier = action.payload;
       });
       break;
     }
-    case "UPDATE_FORCE_SENSITIVE_TOGGLE": {
+    case "UPDATE_GENERATOR_FORCE_SENSITIVE_TOGGLE": {
       newState = produce(state, (draftState) => {
         draftState.generatorConfiguration.forceSensitive = action.payload;
       });
       break;
     }
-    case "SET_NPC_INJURY_LEVEL": {
+    case "SET_CHARACTER_INJURY_LEVEL": {
       newState = produce(state, (draftState) => {
-        const npc = draftState.npcs.find(
-          (npc) => npc.id === action.payload.npcId
+        const characterArray = action.payload.isNpc
+          ? draftState.npcs
+          : draftState.pcs;
+        const character = characterArray.find(
+          (char) => char.id === action.payload.characterId
         );
-        if (npc) {
-          npc.currentInjuries = action.payload.newInjuryLevel ?? 0;
+        if (character) {
+          character.currentInjuries = action.payload.newInjuryLevel ?? 0;
         }
       });
       break;

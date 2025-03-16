@@ -78,7 +78,7 @@ To start:
   - [ ] Save character with name
   - [ ] Retrieve a saved character
 - [ ] Track and modify
-  - [ ] Injuries
+  - [x] Injuries
   - [ ] Destiny Points
   - [ ] Inventory
   - [ ] Stats
@@ -87,7 +87,6 @@ To start:
   - [ ] IP usage
 - [ ] Roll stats
   - [ ] Flat rolls
-  - [ ] Modified rolls?
   - [ ] Roll log
 
 ### Vehicle Sheet
