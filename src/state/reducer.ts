@@ -1,5 +1,5 @@
-import { EXAMPLE_NPC, ROLES, TIERS } from "../constants";
-import { produce } from "immer";
+import { EXAMPLE_NPC, NPC, PC, ROLES, TIERS } from "../constants";
+import { produce, WritableDraft } from "immer";
 import { generateNpc } from "../utilities/npcGenerator";
 import { AppState, StateActions } from "./stateTypes";
 import { saveToLocalStorage } from "./storage";
@@ -57,11 +57,10 @@ function reducer(state: AppState, action: StateActions) {
     }
     case "SET_CHARACTER_INJURY_LEVEL": {
       newState = produce(state, (draftState) => {
-        const characterArray = action.payload.isNpc
-          ? draftState.npcs
-          : draftState.pcs;
-        const character = characterArray.find(
-          (char) => char.id === action.payload.characterId
+        const character = getCharacter(
+          draftState,
+          action.payload.isNpc,
+          action.payload.characterId
         );
         if (character) {
           character.currentInjuries = action.payload.newInjuryLevel ?? 0;
@@ -71,11 +70,10 @@ function reducer(state: AppState, action: StateActions) {
     }
     case "SET_CHARACTER_DESTINY_LEVEL": {
       newState = produce(state, (draftState) => {
-        const characterArray = action.payload.isNpc
-          ? draftState.npcs
-          : draftState.pcs;
-        const character = characterArray.find(
-          (char) => char.id === action.payload.characterId
+        const character = getCharacter(
+          draftState,
+          action.payload.isNpc,
+          action.payload.characterId
         );
         if (character) {
           character.currentDestiny = action.payload.newDestinyLevel ?? 0;
@@ -162,6 +160,16 @@ function reducer(state: AppState, action: StateActions) {
   // autosave after every action
   saveToLocalStorage(newState);
   return newState;
+}
+
+function getCharacter(
+  draftState: WritableDraft<AppState>,
+  isNpc: boolean,
+  characterId: string
+): WritableDraft<NPC> | WritableDraft<PC> | undefined {
+  const characterArray = isNpc ? draftState.npcs : draftState.pcs;
+  const character = characterArray.find((char) => char.id === characterId);
+  return character;
 }
 
 export { reducer };
