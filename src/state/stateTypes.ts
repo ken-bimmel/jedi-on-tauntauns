@@ -50,9 +50,10 @@ type StateActions =
       };
     }
   | {
-      type: "UPDATE_NPC_NON_STAT_OR_FEAT_PROPERTY";
+      type: "UPDATE_CHARACTER_NON_STAT_OR_FEAT_PROPERTY";
       payload: {
-        npcId: string;
+        isNpc: boolean;
+        characterId: string;
         field: string;
         newValue: string;
       };

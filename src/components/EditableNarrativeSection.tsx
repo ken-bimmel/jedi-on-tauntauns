@@ -21,9 +21,10 @@ function EditableNarrativeSection(props: EditableNarrativeSectionProps) {
     return (event) => {
       const newValue = event.target.value;
       dispatch?.({
-        type: "UPDATE_NPC_NON_STAT_OR_FEAT_PROPERTY",
+        type: "UPDATE_CHARACTER_NON_STAT_OR_FEAT_PROPERTY",
         payload: {
-          npcId: character.id,
+          isNpc,
+          characterId: character.id,
           field,
           newValue,
         },

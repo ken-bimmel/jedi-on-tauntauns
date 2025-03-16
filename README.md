@@ -83,7 +83,7 @@ To start:
   - [ ] Inventory
   - [x] Stats
   - [x] Feats
-  - [ ] Character Description
+  - [x] Character Description
   - [ ] IP usage
 - [ ] Roll stats
   - [ ] Flat rolls
