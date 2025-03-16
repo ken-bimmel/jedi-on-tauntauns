@@ -42,9 +42,10 @@ type StateActions =
       };
     }
   | {
-      type: "SET_NPC_DESTINY_LEVEL";
+      type: "SET_CHARACTER_DESTINY_LEVEL";
       payload: {
-        npcId: string;
+        isNpc: boolean;
+        characterId: string;
         newDestinyLevel: null | number;
       };
     }

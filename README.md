@@ -79,7 +79,7 @@ To start:
   - [ ] Retrieve a saved character
 - [ ] Track and modify
   - [x] Injuries
-  - [ ] Destiny Points
+  - [x] Destiny Points
   - [ ] Inventory
   - [ ] Stats
   - [ ] Feats

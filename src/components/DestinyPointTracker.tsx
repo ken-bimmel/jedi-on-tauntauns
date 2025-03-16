@@ -40,8 +40,12 @@ function DestinyPointTracker(props: DestinyPointTrackerProps) {
           emptyIcon={<HourglassEmpty />}
           onChange={(_e: Event, value: null | number) => {
             dispatch?.({
-              type: "SET_NPC_DESTINY_LEVEL",
-              payload: { npcId: character.id, newDestinyLevel: value },
+              type: "SET_CHARACTER_DESTINY_LEVEL",
+              payload: {
+                isNpc,
+                characterId: character.id,
+                newDestinyLevel: value,
+              },
             });
           }}
         />

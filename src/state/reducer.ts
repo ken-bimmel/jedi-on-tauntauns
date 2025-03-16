@@ -69,13 +69,16 @@ function reducer(state: AppState, action: StateActions) {
       });
       break;
     }
-    case "SET_NPC_DESTINY_LEVEL": {
+    case "SET_CHARACTER_DESTINY_LEVEL": {
       newState = produce(state, (draftState) => {
-        const npc = draftState.npcs.find(
-          (npc) => npc.id === action.payload.npcId
+        const characterArray = action.payload.isNpc
+          ? draftState.npcs
+          : draftState.pcs;
+        const character = characterArray.find(
+          (char) => char.id === action.payload.characterId
         );
-        if (npc) {
-          npc.currentDestiny = action.payload.newDestinyLevel ?? 0;
+        if (character) {
+          character.currentDestiny = action.payload.newDestinyLevel ?? 0;
         }
       });
       break;
