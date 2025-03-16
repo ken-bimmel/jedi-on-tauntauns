@@ -108,11 +108,13 @@ function reducer(state: AppState, action: StateActions) {
     }
     case "ADD_BLANK_FEAT": {
       newState = produce(state, (draftState) => {
-        const npc = draftState.npcs.find(
-          (npc) => npc.id === action.payload.npcId
+        const character = getCharacter(
+          draftState,
+          action.payload.isNpc,
+          action.payload.characterId
         );
-        if (npc) {
-          npc.feats.push({
+        if (character) {
+          character.feats.push({
             id: window.crypto.randomUUID(),
             name: "",
             description: "",
@@ -121,35 +123,40 @@ function reducer(state: AppState, action: StateActions) {
       });
       break;
     }
-    case "DELETE_NPC_FEAT": {
+    case "DELETE_CHARACTER_FEAT": {
       newState = produce(state, (draftState) => {
-        const npcIndex = draftState.npcs.findIndex(
-          (npc) => npc.id === action.payload.npcId
+        const character = getCharacter(
+          draftState,
+          action.payload.isNpc,
+          action.payload.characterId
         );
-        if (npcIndex !== -1) {
-          const featIndex = draftState.npcs[npcIndex].feats.findIndex(
+        if (character) {
+          const featIndex = character.feats.findIndex(
             (feat) => feat.id === action.payload.featId
           );
           if (featIndex !== -1) {
-            draftState.npcs[npcIndex].feats.splice(featIndex, 1);
+            character.feats.splice(featIndex, 1);
           }
         }
       });
       break;
     }
-    case "UPDATE_NPC_FEAT": {
+    case "UPDATE_CHARACTER_FEAT": {
       newState = produce(state, (draftState) => {
-        const npc = draftState.npcs.find(
-          (npc) => npc.id === action.payload.npcId
+        const character = getCharacter(
+          draftState,
+          action.payload.isNpc,
+          action.payload.characterId
         );
-        if (npc) {
-          const feat = npc.feats.find(
+        if (character) {
+          const feat = character.feats.find(
             (feat) => feat.id === action.payload.featId
           );
           if (feat) {
             feat.name = action.payload.newName ?? feat.name;
             feat.description =
               action.payload.newDescription ?? feat.description;
+            feat.ipCost = action.payload.newIpCost ?? feat.ipCost;
           }
         }
       });

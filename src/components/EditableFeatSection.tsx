@@ -27,29 +27,35 @@ function EditableFeatsSection(props: EditableFeatsSectionProps) {
   const dispatch = useContext(StateDispatchContext);
 
   function addNewFeat() {
-    dispatch?.({ type: "ADD_BLANK_FEAT", payload: { npcId: character.id } });
+    dispatch?.({
+      type: "ADD_BLANK_FEAT",
+      payload: { isNpc, characterId: character.id },
+    });
   }
 
   function deleteFeat(featId: string) {
     dispatch?.({
-      type: "DELETE_NPC_FEAT",
-      payload: { npcId: character.id, featId },
+      type: "DELETE_CHARACTER_FEAT",
+      payload: { isNpc, characterId: character.id, featId },
     });
   }
 
   function makeUpdateFeat(
-    field: "name" | "description",
+    field: "name" | "description" | "ipCost",
     featId: string
   ): React.FocusEventHandler<HTMLInputElement | HTMLTextAreaElement> {
     return (event) => {
       dispatch?.({
-        type: "UPDATE_NPC_FEAT",
+        type: "UPDATE_CHARACTER_FEAT",
         payload: {
-          npcId: character.id,
+          isNpc,
+          characterId: character.id,
           featId,
           newName: field === "name" ? event.target.value : undefined,
           newDescription:
             field === "description" ? event.target.value : undefined,
+          newIpCost:
+            field === "ipCost" ? parseInt(event.target.value) || 0 : undefined,
         },
       });
     };
@@ -80,7 +86,6 @@ function EditableFeatsSection(props: EditableFeatsSectionProps) {
                     variant="outlined"
                     value={feat.name}
                     onChange={makeUpdateFeat("name", feat.id)}
-                    multiline
                     fullWidth
                   />
                 </TableCell>
@@ -90,7 +95,7 @@ function EditableFeatsSection(props: EditableFeatsSectionProps) {
                       label="Feat Cost"
                       variant="outlined"
                       value={feat.ipCost}
-                      multiline
+                      onChange={makeUpdateFeat("ipCost", feat.id)}
                       fullWidth
                     />
                   </TableCell>

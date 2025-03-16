@@ -69,23 +69,27 @@ type StateActions =
   | {
       type: "ADD_BLANK_FEAT";
       payload: {
-        npcId: string;
+        isNpc: boolean;
+        characterId: string;
       };
     }
   | {
-      type: "DELETE_NPC_FEAT";
+      type: "DELETE_CHARACTER_FEAT";
       payload: {
-        npcId: string;
+        isNpc: boolean;
+        characterId: string;
         featId: string;
       };
     }
   | {
-      type: "UPDATE_NPC_FEAT";
+      type: "UPDATE_CHARACTER_FEAT";
       payload: {
-        npcId: string;
+        isNpc: boolean;
+        characterId: string;
         featId: string;
         newName?: string;
         newDescription?: string;
+        newIpCost?: number;
       };
     };
 

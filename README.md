@@ -82,7 +82,7 @@ To start:
   - [x] Destiny Points
   - [ ] Inventory
   - [x] Stats
-  - [ ] Feats
+  - [x] Feats
   - [ ] Character Description
   - [ ] IP usage
 - [ ] Roll stats
