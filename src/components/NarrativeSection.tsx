@@ -6,10 +6,11 @@ import { Description } from "@mui/icons-material";
 
 type NarrativeSectionProps = {
   character: NPC | PC;
+  isNpc: boolean;
 };
 
 function NarrativeSection(props: NarrativeSectionProps) {
-  const { character } = props;
+  const { character, isNpc } = props;
   return (
     <Grid
       container
@@ -29,7 +30,7 @@ function NarrativeSection(props: NarrativeSectionProps) {
       </Grid>
       <Grid>
         <Typography variant="h6" width="fit-content">
-          {character.species} {character.role}
+          {character.species} {isNpc ? (character as NPC).role : ""}
         </Typography>
       </Grid>
       {character?.description !== undefined ? (

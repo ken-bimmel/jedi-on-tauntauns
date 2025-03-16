@@ -6,14 +6,15 @@ import EditableNarrativeSection from "./EditableNarrativeSection";
 
 type EditSectionProps = {
   character: NPC | PC;
+  isNpc: boolean;
 };
 
 function EditSection(props: EditSectionProps) {
-  const { character } = props;
+  const { character, isNpc } = props;
 
   return (
     <Grid container flexDirection="column" spacing={2}>
-      <EditableNarrativeSection npc={character} />
+      <EditableNarrativeSection character={character} isNpc={isNpc} />
       <Grid container flexDirection="row">
         <StatEditSelect
           npcId={character.id}
@@ -51,7 +52,7 @@ function EditSection(props: EditSectionProps) {
           statKey="grit"
         />
       </Grid>
-      <EditableFeatsSection npc={character} />
+      <EditableFeatsSection character={character} isNpc={isNpc} />
     </Grid>
   );
 }

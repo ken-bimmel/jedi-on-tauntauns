@@ -22,15 +22,16 @@ function NpcCard(props: NpcCardProps) {
         <CardContent style={{ width: "fit-content", minWidth: "1000px" }}>
           <Grid container flexDirection="column" spacing={2}>
             <Grid container flexDirection="row" spacing={2}>
-              <NarrativeSection character={npc} />
+              <NarrativeSection character={npc} isNpc={true} />
               <ActionsSection
                 character={npc}
+                isNpc={true}
                 isEditMode={isEditMode}
                 editModeCallback={setIsEditMode}
               />
             </Grid>
             {isEditMode ? (
-              <EditSection character={npc} />
+              <EditSection character={npc} isNpc={true} />
             ) : (
               <>
                 <StatsSection statsArray={npc.stats} />

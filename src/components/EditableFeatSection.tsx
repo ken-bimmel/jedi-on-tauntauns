@@ -12,25 +12,29 @@ import {
   TableRow,
   TextField,
 } from "@mui/material";
-import { NPC } from "../constants";
+import { NPC, PC } from "../constants";
 import { Add, Delete } from "@mui/icons-material";
 import { StateDispatchContext } from "../state/reducerContext";
 
 type EditableFeatsSectionProps = {
-  npc: NPC;
+  character: NPC | PC;
+  isNpc: boolean;
 };
 
 function EditableFeatsSection(props: EditableFeatsSectionProps) {
-  const { npc } = props;
+  const { character, isNpc } = props;
 
   const dispatch = useContext(StateDispatchContext);
 
   function addNewFeat() {
-    dispatch?.({ type: "ADD_BLANK_FEAT", payload: { npcId: npc.id } });
+    dispatch?.({ type: "ADD_BLANK_FEAT", payload: { npcId: character.id } });
   }
 
   function deleteFeat(featId: string) {
-    dispatch?.({ type: "DELETE_NPC_FEAT", payload: { npcId: npc.id, featId } });
+    dispatch?.({
+      type: "DELETE_NPC_FEAT",
+      payload: { npcId: character.id, featId },
+    });
   }
 
   function makeUpdateFeat(
@@ -41,7 +45,7 @@ function EditableFeatsSection(props: EditableFeatsSectionProps) {
       dispatch?.({
         type: "UPDATE_NPC_FEAT",
         payload: {
-          npcId: npc.id,
+          npcId: character.id,
           featId,
           newName: field === "name" ? event.target.value : undefined,
           newDescription:
@@ -58,6 +62,7 @@ function EditableFeatsSection(props: EditableFeatsSectionProps) {
           <TableHead>
             <TableRow>
               <TableCell>Feat</TableCell>
+              {!isNpc ? <TableCell>Feat Cost</TableCell> : null}
               <TableCell>Description</TableCell>
               <TableCell size="small">
                 <IconButton onClick={addNewFeat}>
@@ -67,7 +72,7 @@ function EditableFeatsSection(props: EditableFeatsSectionProps) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {(npc.feats ?? []).map((feat) => (
+            {(character.feats ?? []).map((feat) => (
               <TableRow key={feat.id}>
                 <TableCell>
                   <TextField
@@ -79,6 +84,17 @@ function EditableFeatsSection(props: EditableFeatsSectionProps) {
                     fullWidth
                   />
                 </TableCell>
+                {!isNpc ? (
+                  <TableCell>
+                    <TextField
+                      label="Feat Cost"
+                      variant="outlined"
+                      value={feat.ipCost}
+                      multiline
+                      fullWidth
+                    />
+                  </TableCell>
+                ) : null}
                 <TableCell>
                   <TextField
                     label="Feat Description"

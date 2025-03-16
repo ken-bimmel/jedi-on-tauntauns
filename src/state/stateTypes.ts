@@ -6,6 +6,7 @@ import {
   Stat,
   StatsArray,
   PC,
+  EXAMPLE_PC,
 } from "../constants";
 
 type StateActions =
@@ -103,7 +104,7 @@ const DEFAULT_STATE: AppState = {
     forceSensitive: false,
   },
   npcs: [EXAMPLE_NPC],
-  pcs: [],
+  pcs: [EXAMPLE_PC],
   activePCIndex: undefined,
 };
 

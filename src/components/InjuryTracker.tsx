@@ -7,7 +7,7 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import { STAT_COLORS, NPC, INJURY_LEVELS } from "../constants";
+import { STAT_COLORS, NPC, INJURY_LEVELS, PC } from "../constants";
 import { Favorite, FavoriteBorder, Info } from "@mui/icons-material";
 import { StateDispatchContext } from "../state/reducerContext";
 
@@ -22,7 +22,8 @@ const InjuryRating = styled(Rating)({
 });
 
 type InjuryTrackerProps = {
-  npc: NPC;
+  character: NPC | PC;
+  isNpc: boolean;
 };
 
 type InjuryLabelProps = {
@@ -40,15 +41,15 @@ function InjuryLabel(props: InjuryLabelProps) {
 }
 
 function InjuryTracker(props: InjuryTrackerProps) {
-  const { npc } = props;
+  const { character } = props;
   const dispatch = useContext(StateDispatchContext);
 
   return (
     <Grid container flexDirection="row" alignItems="center" spacing={1}>
       <Grid>
         <InjuryRating
-          max={npc.maxInjuries}
-          value={npc.maxInjuries - (npc.currentInjuries ?? 0)}
+          max={character.maxInjuries}
+          value={character.maxInjuries - (character.currentInjuries ?? 0)}
           precision={1}
           icon={<Favorite />}
           emptyIcon={<FavoriteBorder />}
@@ -56,8 +57,8 @@ function InjuryTracker(props: InjuryTrackerProps) {
             dispatch?.({
               type: "SET_NPC_INJURY_LEVEL",
               payload: {
-                npcId: npc.id,
-                newInjuryLevel: npc.maxInjuries - (value ?? 0),
+                npcId: character.id,
+                newInjuryLevel: character.maxInjuries - (value ?? 0),
               },
             });
           }}
@@ -67,7 +68,9 @@ function InjuryTracker(props: InjuryTrackerProps) {
         <Tooltip
           title={
             <InjuryLabel
-              {...INJURY_LEVELS[npc.maxInjuries][npc.currentInjuries ?? 0]}
+              {...INJURY_LEVELS[character.maxInjuries][
+                character.currentInjuries ?? 0
+              ]}
             />
           }
         >

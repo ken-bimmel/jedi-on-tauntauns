@@ -22,15 +22,16 @@ function PcCard(props: PCCardProps) {
         <CardContent style={{ width: "fit-content", minWidth: "1000px" }}>
           <Grid container flexDirection="column" spacing={2}>
             <Grid container flexDirection="row" spacing={2}>
-              <NarrativeSection character={pc} />
+              <NarrativeSection character={pc} isNpc={false} />
               <ActionsSection
                 character={pc}
+                isNpc={false}
                 isEditMode={isEditMode}
                 editModeCallback={setIsEditMode}
               />
             </Grid>
             {isEditMode ? (
-              <EditSection character={pc} />
+              <EditSection character={pc} isNpc={false} />
             ) : (
               <>
                 <StatsSection statsArray={pc.stats} />

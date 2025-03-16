@@ -1,16 +1,17 @@
 import React, { useContext } from "react";
 
 import { Grid2 as Grid, IconButton, TextField, Tooltip } from "@mui/material";
-import { NPC, SPECIES } from "../constants";
+import { NPC, PC, SPECIES } from "../constants";
 import { Launch } from "@mui/icons-material";
 import { StateDispatchContext } from "../state/reducerContext";
 
 type EditableNarrativeSectionProps = {
-  npc: NPC;
+  character: NPC | PC;
+  isNpc: boolean;
 };
 
 function EditableNarrativeSection(props: EditableNarrativeSectionProps) {
-  const { npc } = props;
+  const { character, isNpc } = props;
 
   const dispatch = useContext(StateDispatchContext);
 
@@ -22,7 +23,7 @@ function EditableNarrativeSection(props: EditableNarrativeSectionProps) {
       dispatch?.({
         type: "UPDATE_NPC_NON_STAT_OR_FEAT_PROPERTY",
         payload: {
-          npcId: npc.id,
+          npcId: character.id,
           field,
           newValue,
         },
@@ -43,13 +44,13 @@ function EditableNarrativeSection(props: EditableNarrativeSectionProps) {
             label="NPC Name"
             variant="outlined"
             style={{ textTransform: "capitalize" }}
-            value={npc.name}
+            value={character.name}
             onChange={makeChangeHandler("name")}
           />
           <Tooltip title="Name generator">
             <IconButton
               href={
-                SPECIES.find((species) => species.name === npc.species)
+                SPECIES.find((species) => species.name === character.species)
                   ?.generatorUrl ??
                 "https://www.fantasynamegenerators.com/star-wars.php"
               }
@@ -64,24 +65,26 @@ function EditableNarrativeSection(props: EditableNarrativeSectionProps) {
           <TextField
             label="NPC Species"
             variant="outlined"
-            value={npc.species}
+            value={character.species}
             onChange={makeChangeHandler("species")}
           />
         </Grid>
-        <Grid>
-          <TextField
-            label="NPC Role"
-            variant="outlined"
-            value={npc.role}
-            onChange={makeChangeHandler("role")}
-          />
-        </Grid>
+        {isNpc ? (
+          <Grid>
+            <TextField
+              label="NPC Role"
+              variant="outlined"
+              value={(character as NPC).role}
+              onChange={makeChangeHandler("role")}
+            />
+          </Grid>
+        ) : null}
       </Grid>
       <Grid flexGrow={1}>
         <TextField
           label="NPC Description"
           variant="outlined"
-          value={npc.description}
+          value={character.description}
           onChange={makeChangeHandler("description")}
           multiline
           fullWidth

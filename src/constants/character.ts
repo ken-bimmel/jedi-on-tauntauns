@@ -28,6 +28,7 @@ type Feat = {
   id: string;
   name: string;
   description: string;
+  ipCost?: number;
 };
 
 export { DieSize, StatName, Stat, StatsArray, Feat };

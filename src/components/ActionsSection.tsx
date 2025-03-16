@@ -4,17 +4,21 @@ import { Grid2 as Grid, IconButton, Tooltip } from "@mui/material";
 import { NPC, PC } from "../constants";
 import { StateDispatchContext } from "../state/reducerContext";
 import { Delete, Edit, Save } from "@mui/icons-material";
-import DestinyPointTracker from "./DestinyPointTracker";
 import InjuryTracker from "./InjuryTracker";
+import DestinyPointTracker from "./DestinyPointTracker";
 
 type ActionSectionProps = {
   character: NPC | PC;
   isEditMode: boolean;
   editModeCallback: React.Dispatch<React.SetStateAction<boolean>>;
+  /**
+   * Whether the character is an NPC or a PC. `true` for NPC.
+   */
+  isNpc: boolean;
 };
 
 function ActionsSection(props: ActionSectionProps) {
-  const { character, isEditMode, editModeCallback } = props;
+  const { character, isEditMode, editModeCallback, isNpc } = props;
   const dispatch = useContext(StateDispatchContext);
   return (
     <Grid
@@ -25,8 +29,8 @@ function ActionsSection(props: ActionSectionProps) {
       spacing={2}
       flexGrow={1}
     >
-      <DestinyPointTracker npc={character} />
-      <InjuryTracker npc={character} />
+      <DestinyPointTracker character={character} isNpc={isNpc} />
+      <InjuryTracker character={character} isNpc={isNpc} />
       <Grid container flexDirection="row">
         <Grid>
           <Tooltip title={isEditMode ? "Save NPC" : "Edit NPC"}>
