@@ -38,6 +38,7 @@ To start:
 - [x] Add Tabs to separate parts of the program
 - [ ] Add data sharing urls
 - [x] Add rules and pdf generation
+- [ ] Add warning to reset button
 
 ### NPC Generator
 
@@ -79,12 +80,15 @@ To start:
   - [ ] Retrieve a saved character
 - [ ] Track and modify
   - [x] Injuries
+    - [ ] Update injury tracker for PC injury states
+    - [ ] Edit number of injuries
   - [x] Destiny Points
   - [x] Inventory
   - [x] Stats
   - [x] Feats
   - [x] Character Description
-  - [ ] IP usage
+  - [x] IP usage
+    - [x] Increase total available IP
 - [ ] Roll stats
   - [ ] Flat rolls
   - [ ] Roll log

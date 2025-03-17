@@ -114,6 +114,13 @@ type StateActions =
         newName: string | undefined;
         newDescription: string | undefined;
       };
+    }
+  | {
+      type: "UPDATE_TOTAL_IP";
+      payload: {
+        characterId: string;
+        newIpValue: number;
+      };
     };
 
 type AppState = {

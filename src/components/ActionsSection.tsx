@@ -6,6 +6,7 @@ import { StateDispatchContext } from "../state/reducerContext";
 import { Delete, Edit, Save } from "@mui/icons-material";
 import InjuryTracker from "./InjuryTracker";
 import DestinyPointTracker from "./DestinyPointTracker";
+import IpTracker from "./IpTracker";
 
 type ActionSectionProps = {
   character: NPC | PC;
@@ -31,6 +32,7 @@ function ActionsSection(props: ActionSectionProps) {
     >
       <DestinyPointTracker character={character} isNpc={isNpc} />
       <InjuryTracker character={character} isNpc={isNpc} />
+      {!isNpc && isEditMode ? <IpTracker character={character as PC} /> : null}
       <Grid container flexDirection="row">
         <Grid>
           <Tooltip title={isEditMode ? "Save character" : "Edit character"}>
