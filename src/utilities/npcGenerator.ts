@@ -16,13 +16,18 @@ import {
   Stat,
   StatName,
   StatsArray,
-  NUM_SPECIES,
   SPECIES,
+  Species,
 } from "../constants";
 import { normalRandom, shuffleArray } from "./random";
 
-function generateNpc(role: Role, tier: Tier, forceSensitive: boolean): NPC {
-  const { name, species } = generateRandomNameAndSpecies();
+function generateNpc(
+  species: Species,
+  role: Role,
+  tier: Tier,
+  forceSensitive: boolean
+): NPC {
+  const { name, genSpecies } = generateRandomNameAndSpecies(species);
   let internalRole = role;
   /*
    * `role` is `undefined` when the 'random' role is selected because it's not
@@ -34,7 +39,7 @@ function generateNpc(role: Role, tier: Tier, forceSensitive: boolean): NPC {
   const npc: NPC = {
     id: window.crypto.randomUUID(),
     name,
-    species,
+    species: genSpecies,
     stats: generateStatsArray(internalRole, tier, forceSensitive),
     feats: generateFeatArray(tier, role),
     role: `${tier.name} ${internalRole.name}`,
@@ -50,14 +55,17 @@ function getRandomRole(): Role {
   return ROLES[roleKeys[Math.floor(Math.random() * roleKeys.length)]];
 }
 
-function generateRandomNameAndSpecies() {
-  const species = SPECIES[Math.floor(Math.random() * NUM_SPECIES)];
+function generateRandomNameAndSpecies(species: Species) {
+  let internalSpecies = species;
+  if (internalSpecies === undefined) {
+    internalSpecies = getRandomSpecies();
+  }
   const femaleNameRank =
-    species.defaultFemaleNames !== undefined ? Math.random() : -1;
+    internalSpecies.defaultFemaleNames !== undefined ? Math.random() : -1;
   const maleNameRank =
-    species.defaultMaleNames !== undefined ? Math.random() : -1;
+    internalSpecies.defaultMaleNames !== undefined ? Math.random() : -1;
   const nbNameRank =
-    species.defaultNonBinaryNames !== undefined ? Math.random() : -1;
+    internalSpecies.defaultNonBinaryNames !== undefined ? Math.random() : -1;
 
   let npcName: string;
 
@@ -66,27 +74,38 @@ function generateRandomNameAndSpecies() {
   if (femaleNameRank > maleNameRank && femaleNameRank > nbNameRank) {
     // femaleNameRank is higher than both other options
     npcName =
-      species.defaultFemaleNames?.[
-        Math.floor(Math.random() * (species.defaultFemaleNames?.length ?? 0))
+      internalSpecies.defaultFemaleNames?.[
+        Math.floor(
+          Math.random() * (internalSpecies.defaultFemaleNames?.length ?? 0)
+        )
       ] ?? "";
   } else if (maleNameRank > nbNameRank) {
     // know fnr is lower than one or both of male and nb name ranks so only need
     // to test that mnr is higher than nbnr
     npcName =
-      species.defaultMaleNames?.[
-        Math.floor(Math.random() * (species.defaultMaleNames.length ?? 0))
+      internalSpecies.defaultMaleNames?.[
+        Math.floor(
+          Math.random() * (internalSpecies.defaultMaleNames.length ?? 0)
+        )
       ] ?? "";
   } else {
     // make nb name
     npcName =
-      species.defaultNonBinaryNames?.[
-        Math.floor(Math.random() * (species.defaultNonBinaryNames.length ?? 0))
+      internalSpecies.defaultNonBinaryNames?.[
+        Math.floor(
+          Math.random() * (internalSpecies.defaultNonBinaryNames.length ?? 0)
+        )
       ] ?? "";
   }
   return {
     name: npcName,
-    species: species.name,
+    genSpecies: internalSpecies.name,
   };
+}
+
+function getRandomSpecies(): Species {
+  const speciesKeys = Object.keys(SPECIES);
+  return SPECIES[speciesKeys[Math.floor(Math.random() * speciesKeys.length)]];
 }
 
 function generateStatsArray(

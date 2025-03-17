@@ -125,10 +125,10 @@ const ROLE_LIST: { id: string; label: string }[] = Object.keys(ROLES).map(
   })
 );
 
-//This adds the special random 'role' that randomly selects another role
-ROLE_LIST.push({ id: "random", label: "Random" });
+const DEFAULT_ROLE = { id: "random", label: "Random" };
 
-const DEFAULT_ROLE = ROLE_LIST[0];
+//This adds the special random 'role' that randomly selects another role
+ROLE_LIST.push(DEFAULT_ROLE);
 
 type Tier = {
   name: "Grunt" | "Lieutenant" | "Boss";

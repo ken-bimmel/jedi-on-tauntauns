@@ -6,8 +6,8 @@ type Species = {
   defaultNonBinaryNames?: string[];
 };
 
-const SPECIES: Species[] = [
-  {
+const SPECIES: { [key: string]: Species } = {
+  "Alderaanian (Human)": {
     name: "Alderaanian (Human)",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-alderaanian-names.php",
@@ -36,7 +36,7 @@ const SPECIES: Species[] = [
       "baihun turrano",
     ],
   },
-  {
+  Anzati: {
     name: "Anzati",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-anzati-names.php",
     defaultFemaleNames: [
@@ -64,7 +64,7 @@ const SPECIES: Species[] = [
       "zaldik lasmus",
     ],
   },
-  {
+  Aqualish: {
     name: "Aqualish",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-aqualish-names.php",
     defaultFemaleNames: [
@@ -92,7 +92,7 @@ const SPECIES: Species[] = [
       "purzira jet",
     ],
   },
-  {
+  Arkanian: {
     name: "Arkanian",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-arkanian-names.php",
     defaultFemaleNames: [
@@ -120,7 +120,7 @@ const SPECIES: Species[] = [
       "noldiram virzengac",
     ],
   },
-  {
+  Balosar: {
     name: "Balosar",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-balosar-names.php",
     defaultFemaleNames: [
@@ -148,7 +148,7 @@ const SPECIES: Species[] = [
       "bizzen melnul",
     ],
   },
-  {
+  Besalisk: {
     name: "Besalisk",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-besalisk-names.php",
     defaultFemaleNames: [
@@ -176,7 +176,7 @@ const SPECIES: Species[] = [
       "marreb atrad",
     ],
   },
-  {
+  Bith: {
     name: "Bith",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-bith-names.php",
     defaultFemaleNames: [
@@ -204,7 +204,7 @@ const SPECIES: Species[] = [
       "rimecro numnu",
     ],
   },
-  {
+  Bothan: {
     name: "Bothan",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-bothan-names.php",
     defaultFemaleNames: [
@@ -232,7 +232,7 @@ const SPECIES: Species[] = [
       "griduc verire",
     ],
   },
-  {
+  Cerean: {
     name: "Cerean",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-cerean-names.php",
     defaultFemaleNames: [
@@ -260,7 +260,7 @@ const SPECIES: Species[] = [
       "hundurs-Skirfonz gareft",
     ],
   },
-  {
+  Chalactan: {
     name: "Chalactan",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-chalactan-names.php",
@@ -289,7 +289,7 @@ const SPECIES: Species[] = [
       "rayu turaso",
     ],
   },
-  {
+  "Chandrilan (Human)": {
     name: "Chandrilan (Human)",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-chandrilan-names.php",
@@ -318,7 +318,7 @@ const SPECIES: Species[] = [
       "suwi caiglile",
     ],
   },
-  {
+  Clawdite: {
     name: "Clawdite",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-clawdite-names.php",
     defaultFemaleNames: [
@@ -346,7 +346,7 @@ const SPECIES: Species[] = [
       "lurlod ryzac",
     ],
   },
-  {
+  Clone: {
     name: "Clone",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-clone-names.php",
     defaultMaleNames: [
@@ -362,7 +362,7 @@ const SPECIES: Species[] = [
       " UG776",
     ],
   },
-  {
+  "Codru-Ji": {
     name: "Codru-Ji",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-codru-ji-names.php",
     defaultFemaleNames: [
@@ -390,7 +390,7 @@ const SPECIES: Species[] = [
       "uqa",
     ],
   },
-  {
+  "Corellian (Human)": {
     name: "Corellian (Human)",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-corellian-names.php",
@@ -419,7 +419,7 @@ const SPECIES: Species[] = [
       "peirvec zers",
     ],
   },
-  {
+  "Coruscanti (Human)": {
     name: "Coruscanti (Human)",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-coruscanti-names.php",
@@ -448,7 +448,7 @@ const SPECIES: Species[] = [
       "mar leimo",
     ],
   },
-  {
+  Dathomirian: {
     name: "Dathomirian",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-dathomirian-names.php",
@@ -477,7 +477,7 @@ const SPECIES: Species[] = [
       "Aberrant nadrizz",
     ],
   },
-  {
+  Devaronian: {
     name: "Devaronian",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-devaronian-names.php",
@@ -506,7 +506,7 @@ const SPECIES: Species[] = [
       "guelmilmak d'vimnondt",
     ],
   },
-  {
+  Dug: {
     name: "Dug",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-dug-names.php",
     defaultNonBinaryNames: [
@@ -522,7 +522,7 @@ const SPECIES: Species[] = [
       "gegedi gwekodi",
     ],
   },
-  {
+  Duros: {
     name: "Duros",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-duros-names.php",
     defaultFemaleNames: [
@@ -550,7 +550,7 @@ const SPECIES: Species[] = [
       "limunsom duntum",
     ],
   },
-  {
+  Ewok: {
     name: "Ewok",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-ewok-names.php",
     defaultFemaleNames: [
@@ -578,7 +578,7 @@ const SPECIES: Species[] = [
       "greedrit daakarroo",
     ],
   },
-  {
+  Falleen: {
     name: "Falleen",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-falleen-names.php",
     defaultFemaleNames: [
@@ -606,7 +606,7 @@ const SPECIES: Species[] = [
       "kazu disuux",
     ],
   },
-  {
+  Farghul: {
     name: "Farghul",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-farghul-names.php",
     defaultFemaleNames: [
@@ -634,7 +634,7 @@ const SPECIES: Species[] = [
       "med",
     ],
   },
-  {
+  Gamorrean: {
     name: "Gamorrean",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-gamorrean-names.php",
@@ -663,7 +663,7 @@ const SPECIES: Species[] = [
       "trefnugh trurkos",
     ],
   },
-  {
+  Gand: {
     name: "Gand",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-gand-names.php",
     defaultNonBinaryNames: [
@@ -679,7 +679,7 @@ const SPECIES: Species[] = [
       "ukoor nezlyu",
     ],
   },
-  {
+  "Gen'dai": {
     name: "Gen'dai",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-gendai-names.php",
     defaultNonBinaryNames: [
@@ -695,7 +695,7 @@ const SPECIES: Species[] = [
       "zalnan",
     ],
   },
-  {
+  Geonosian: {
     name: "Geonosian",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-geonosian-names.php",
@@ -724,7 +724,7 @@ const SPECIES: Species[] = [
       "nukrigg hommad",
     ],
   },
-  {
+  Gotal: {
     name: "Gotal",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-gotal-names.php",
     defaultMaleNames: [
@@ -740,7 +740,7 @@ const SPECIES: Species[] = [
       "gloxzaul grerloth",
     ],
   },
-  {
+  Gran: {
     name: "Gran",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-gran-names.php",
     defaultFemaleNames: [
@@ -768,7 +768,7 @@ const SPECIES: Species[] = [
       "figgieg klietiyk",
     ],
   },
-  {
+  Gungan: {
     name: "Gungan",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-gungan-names.php",
     defaultFemaleNames: [
@@ -796,7 +796,7 @@ const SPECIES: Species[] = [
       "naubboow trondierr",
     ],
   },
-  {
+  Hutt: {
     name: "Hutt",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-hutt-names.php",
     defaultNonBinaryNames: [
@@ -812,7 +812,7 @@ const SPECIES: Species[] = [
       "boojaabug proh",
     ],
   },
-  {
+  Iktotchi: {
     name: "Iktotchi",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-iktotchi-names.php",
     defaultFemaleNames: [
@@ -840,7 +840,7 @@ const SPECIES: Species[] = [
       "mifyi jimm",
     ],
   },
-  {
+  "Ishi Tib": {
     name: "Ishi Tib",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-ishi-tib-names.php",
     defaultFemaleNames: [
@@ -868,7 +868,7 @@ const SPECIES: Species[] = [
       "henlomich vorgom",
     ],
   },
-  {
+  Ithorian: {
     name: "Ithorian",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-ithorian-names.php",
     defaultFemaleNames: [
@@ -896,7 +896,7 @@ const SPECIES: Species[] = [
       "phuuwbonuut lits",
     ],
   },
-  {
+  Jawa: {
     name: "Jawa",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-jawa-names.php",
     defaultFemaleNames: [
@@ -924,7 +924,7 @@ const SPECIES: Species[] = [
       "kleblattunt sud",
     ],
   },
-  {
+  Kaleesh: {
     name: "Kaleesh",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-kaleesh-names.php",
     defaultFemaleNames: [
@@ -952,7 +952,7 @@ const SPECIES: Species[] = [
       "tykriragh symmei",
     ],
   },
-  {
+  Kaminoan: {
     name: "Kaminoan",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-kaminoan-names.php",
     defaultFemaleNames: [
@@ -980,7 +980,7 @@ const SPECIES: Species[] = [
       "derul brolriru",
     ],
   },
-  {
+  "Kel Dor": {
     name: "Kel Dor",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-kel-dor-names.php",
     defaultFemaleNames: [
@@ -1008,7 +1008,7 @@ const SPECIES: Species[] = [
       "ol'ar ges",
     ],
   },
-  {
+  Keshiri: {
     name: "Keshiri",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-keshiri-names.php",
     defaultFemaleNames: [
@@ -1036,7 +1036,7 @@ const SPECIES: Species[] = [
       "jirjonn voold",
     ],
   },
-  {
+  Kiffar: {
     name: "Kiffar",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-kiffar-names.php",
     defaultFemaleNames: [
@@ -1064,7 +1064,7 @@ const SPECIES: Species[] = [
       "zotalas zostex",
     ],
   },
-  {
+  Klatooinian: {
     name: "Klatooinian",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-klatooinian-names.php",
@@ -1093,7 +1093,7 @@ const SPECIES: Species[] = [
       "ontucir jok",
     ],
   },
-  {
+  Korunnai: {
     name: "Korunnai",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-korunnai-names.php",
     defaultFemaleNames: [
@@ -1121,7 +1121,7 @@ const SPECIES: Species[] = [
       "oguth vunvo",
     ],
   },
-  {
+  Kubaz: {
     name: "Kubaz",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-kubaz-names.php",
     defaultFemaleNames: [
@@ -1149,7 +1149,7 @@ const SPECIES: Species[] = [
       "levranol feabzu",
     ],
   },
-  {
+  Lasat: {
     name: "Lasat",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-lasat-names.php",
     defaultFemaleNames: [
@@ -1177,7 +1177,7 @@ const SPECIES: Species[] = [
       "duglulin alleb",
     ],
   },
-  {
+  Lothalite: {
     name: "Lothalite",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-lothalite-names.php",
@@ -1206,7 +1206,7 @@ const SPECIES: Species[] = [
       "nazzuk gar",
     ],
   },
-  {
+  Mandalorian: {
     name: "Mandalorian",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-mandalorian-names.php",
@@ -1235,7 +1235,7 @@ const SPECIES: Species[] = [
       "sivobok straggard",
     ],
   },
-  {
+  Mikkian: {
     name: "Mikkian",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-mikkian-names.php",
     defaultFemaleNames: [
@@ -1251,7 +1251,7 @@ const SPECIES: Species[] = [
       "zevras has",
     ],
   },
-  {
+  Mirialan: {
     name: "Mirialan",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-mirialan-names.php",
     defaultFemaleNames: [
@@ -1279,7 +1279,7 @@ const SPECIES: Species[] = [
       "surat droromurk",
     ],
   },
-  {
+  "Mon Calamari": {
     name: "Mon Calamari",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-mon-calamari-names.php",
@@ -1308,7 +1308,7 @@ const SPECIES: Species[] = [
       "hiygengarx ghu",
     ],
   },
-  {
+  Muun: {
     name: "Muun",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-muun-names.php",
     defaultMaleNames: [
@@ -1324,7 +1324,7 @@ const SPECIES: Species[] = [
       "bronevo kissen",
     ],
   },
-  {
+  "Naboo (Human)": {
     name: "Naboo (Human)",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-naboo-names.php",
     defaultFemaleNames: [
@@ -1352,7 +1352,7 @@ const SPECIES: Species[] = [
       "varmaalom vastelo",
     ],
   },
-  {
+  Nautolan: {
     name: "Nautolan",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-nautolan-names.php",
     defaultFemaleNames: [
@@ -1380,7 +1380,7 @@ const SPECIES: Species[] = [
       "kenduspred rha",
     ],
   },
-  {
+  Neimoidian: {
     name: "Neimoidian",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-neimoidian-names.php",
@@ -1409,7 +1409,7 @@ const SPECIES: Species[] = [
       "imoruund srimrai",
     ],
   },
-  {
+  Nikto: {
     name: "Nikto",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-nikto-names.php",
     defaultNonBinaryNames: [
@@ -1425,7 +1425,7 @@ const SPECIES: Species[] = [
       "s'voodrik'nov tunturr",
     ],
   },
-  {
+  Nothoiin: {
     name: "Nothoiin",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-nothoiin-names.php",
     defaultFemaleNames: [
@@ -1453,7 +1453,7 @@ const SPECIES: Species[] = [
       "vhesenn ryzan",
     ],
   },
-  {
+  "Onderonian (Human)": {
     name: "Onderonian (Human)",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-onderonian-names.php",
@@ -1482,7 +1482,7 @@ const SPECIES: Species[] = [
       "shomzar duvrid",
     ],
   },
-  {
+  Ortolan: {
     name: "Ortolan",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-ortolan-names.php",
     defaultFemaleNames: [
@@ -1510,7 +1510,7 @@ const SPECIES: Species[] = [
       "berlatz halod",
     ],
   },
-  {
+  Pantoran: {
     name: "Pantoran",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-pantoran-names.php",
     defaultFemaleNames: [
@@ -1538,7 +1538,7 @@ const SPECIES: Species[] = [
       "chisond tirnik",
     ],
   },
-  {
+  "Pau'an": {
     name: "Pau'an",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-pauan-names.php",
     defaultFemaleNames: [
@@ -1566,7 +1566,7 @@ const SPECIES: Species[] = [
       "vinid klahum",
     ],
   },
-  {
+  Quarren: {
     name: "Quarren",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-quarren-names.php",
     defaultFemaleNames: [
@@ -1594,7 +1594,7 @@ const SPECIES: Species[] = [
       "galwik koppid",
     ],
   },
-  {
+  Rodian: {
     name: "Rodian",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-rodian-names.php",
     defaultFemaleNames: [
@@ -1622,7 +1622,7 @@ const SPECIES: Species[] = [
       "ceegwithald wee",
     ],
   },
-  {
+  Savarian: {
     name: "Savarian",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-savarian-names.php",
     defaultFemaleNames: [
@@ -1650,7 +1650,7 @@ const SPECIES: Species[] = [
       "zyrwild burvagon",
     ],
   },
-  {
+  Selkath: {
     name: "Selkath",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-selkath-names.php",
     defaultFemaleNames: [
@@ -1678,7 +1678,7 @@ const SPECIES: Species[] = [
       "gusshi wartu",
     ],
   },
-  {
+  Selonian: {
     name: "Selonian",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-selonian-names.php",
     defaultFemaleNames: [
@@ -1706,7 +1706,7 @@ const SPECIES: Species[] = [
       "dehleg kimo",
     ],
   },
-  {
+  Sephi: {
     name: "Sephi",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-sephi-names.php",
     defaultFemaleNames: [
@@ -1734,7 +1734,7 @@ const SPECIES: Species[] = [
       "ranvux jin",
     ],
   },
-  {
+  "Serennian (Human)": {
     name: "Serennian (Human)",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-serennian-names.php",
@@ -1763,7 +1763,7 @@ const SPECIES: Species[] = [
       "nec vos",
     ],
   },
-  {
+  Shistavanen: {
     name: "Shistavanen",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-shistavanen-names.php",
@@ -1792,7 +1792,7 @@ const SPECIES: Species[] = [
       "camvod lur",
     ],
   },
-  {
+  Skakoan: {
     name: "Skakoan",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-skakoan-names.php",
     defaultMaleNames: [
@@ -1808,7 +1808,7 @@ const SPECIES: Species[] = [
       "damol trable",
     ],
   },
-  {
+  Snivvian: {
     name: "Snivvian",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-snivvian-names.php",
     defaultFemaleNames: [
@@ -1836,7 +1836,7 @@ const SPECIES: Species[] = [
       "kascich zul",
     ],
   },
-  {
+  Stormtrooper: {
     name: "Stormtrooper",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-stormtrooper-names.php",
@@ -1853,7 +1853,7 @@ const SPECIES: Species[] = [
       "PXL500",
     ],
   },
-  {
+  Sullustan: {
     name: "Sullustan",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-sullustan-names.php",
@@ -1882,7 +1882,7 @@ const SPECIES: Species[] = [
       "habuufrulss al",
     ],
   },
-  {
+  Talz: {
     name: "Talz",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-talz-names.php",
     defaultFemaleNames: [
@@ -1910,7 +1910,7 @@ const SPECIES: Species[] = [
       "cuszellu dac",
     ],
   },
-  {
+  Tholothian: {
     name: "Tholothian",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-tholothian-names.php",
@@ -1939,7 +1939,7 @@ const SPECIES: Species[] = [
       "jegriz ya",
     ],
   },
-  {
+  Togruta: {
     name: "Togruta",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-togruta-names.php",
     defaultFemaleNames: [
@@ -1967,7 +1967,7 @@ const SPECIES: Species[] = [
       "azwud vardal",
     ],
   },
-  {
+  Toydarian: {
     name: "Toydarian",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-toydarian-names.php",
@@ -1996,7 +1996,7 @@ const SPECIES: Species[] = [
       "berriddun kate",
     ],
   },
-  {
+  Trandoshan: {
     name: "Trandoshan",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-trandoshan-names.php",
@@ -2025,7 +2025,7 @@ const SPECIES: Species[] = [
       "drocrarst daasch",
     ],
   },
-  {
+  "Tusken Raider": {
     name: "Tusken Raider",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-tusken-raider-names.php",
@@ -2054,7 +2054,7 @@ const SPECIES: Species[] = [
       "Ggk'otrr'rtr",
     ],
   },
-  {
+  "Twi'lek": {
     name: "Twi'lek",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-twilek-names.php",
     defaultFemaleNames: [
@@ -2082,7 +2082,7 @@ const SPECIES: Species[] = [
       "pretrath chat",
     ],
   },
-  {
+  Ugnaughts: {
     name: "Ugnaughts",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-ugnaught-names.php",
     defaultFemaleNames: [
@@ -2110,7 +2110,7 @@ const SPECIES: Species[] = [
       "garlearn kuc",
     ],
   },
-  {
+  Weequay: {
     name: "Weequay",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-weequay-names.php",
     defaultFemaleNames: [
@@ -2138,7 +2138,7 @@ const SPECIES: Species[] = [
       "tonduk-ro drog",
     ],
   },
-  {
+  Wookiee: {
     name: "Wookiee",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-wookiee-names.php",
     defaultFemaleNames: [
@@ -2166,7 +2166,7 @@ const SPECIES: Species[] = [
       "snrleeorcardrywrrhuark",
     ],
   },
-  {
+  Yarkora: {
     name: "Yarkora",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-yarkora-names.php",
     defaultFemaleNames: [
@@ -2194,7 +2194,7 @@ const SPECIES: Species[] = [
       "dazel-gryne heketh",
     ],
   },
-  {
+  Zabrak: {
     name: "Zabrak",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-zabrak-names.php",
     defaultFemaleNames: [
@@ -2222,7 +2222,7 @@ const SPECIES: Species[] = [
       "thisith liven",
     ],
   },
-  {
+  Zeltron: {
     name: "Zeltron",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-zeltron-names.php",
     defaultFemaleNames: [
@@ -2250,7 +2250,7 @@ const SPECIES: Species[] = [
       "zennihn wanzar",
     ],
   },
-  {
+  Zygerrian: {
     name: "Zygerrian",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-zygerrian-names.php",
@@ -2279,8 +2279,18 @@ const SPECIES: Species[] = [
       "daagrik crolnod",
     ],
   },
-];
+};
 
-const NUM_SPECIES = SPECIES.length;
+const SPECIES_LIST: { id: string; label: string }[] = Object.keys(SPECIES).map(
+  (key) => ({
+    id: key,
+    label: SPECIES[key].name,
+  })
+);
 
-export { SPECIES, NUM_SPECIES };
+const DEFAULT_SPECIES = { id: "random", label: "Random" };
+
+//This adds the special random species that randomly selects another species
+SPECIES_LIST.unshift(DEFAULT_SPECIES);
+
+export { Species, SPECIES, SPECIES_LIST, DEFAULT_SPECIES };

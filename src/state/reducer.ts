@@ -1,4 +1,4 @@
-import { EXAMPLE_NPC, NPC, PC, ROLES, TIERS } from "../constants";
+import { NPC, PC, ROLES, SPECIES, TIERS } from "../constants";
 import { produce, WritableDraft } from "immer";
 import { generateNpc } from "../utilities/npcGenerator";
 import { AppState, StateActions } from "./stateTypes";
@@ -14,15 +14,12 @@ function reducer(state: AppState, action: StateActions) {
     case "ADD_NPC": {
       newState = produce(state, (draftState) => {
         const newNpc = generateNpc(
+          SPECIES[state.generatorConfiguration.activeSpecies.id],
           ROLES[state.generatorConfiguration.activeRole.id],
           TIERS[state.generatorConfiguration.activeTier.id],
           state.generatorConfiguration.forceSensitive
         );
-        if (state.npcs.length === 1 && state.npcs[0] === EXAMPLE_NPC) {
-          draftState.npcs = [newNpc];
-        } else {
-          draftState.npcs = [newNpc, ...state.npcs];
-        }
+        draftState.npcs = [newNpc, ...state.npcs];
       });
       break;
     }
@@ -34,6 +31,12 @@ function reducer(state: AppState, action: StateActions) {
         if (npcIndex !== -1) {
           draftState.npcs.splice(npcIndex, 1);
         }
+      });
+      break;
+    }
+    case "UPDATE_GENERATOR_SPECIES": {
+      newState = produce(state, (draftState) => {
+        draftState.generatorConfiguration.activeSpecies = action.payload;
       });
       break;
     }

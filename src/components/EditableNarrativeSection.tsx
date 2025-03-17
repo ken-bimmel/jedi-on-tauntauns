@@ -51,8 +51,7 @@ function EditableNarrativeSection(props: EditableNarrativeSectionProps) {
           <Tooltip title="Name generator">
             <IconButton
               href={
-                SPECIES.find((species) => species.name === character.species)
-                  ?.generatorUrl ??
+                SPECIES[character.species]?.generatorUrl ??
                 "https://www.fantasynamegenerators.com/star-wars.php"
               }
               target="_blank"

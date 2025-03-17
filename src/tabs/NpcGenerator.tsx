@@ -9,7 +9,14 @@ import {
   TextField,
 } from "@mui/material";
 import NpcCard from "../components/NpcCard";
-import { ROLE_LIST, DEFAULT_ROLE, TIER_LIST, DEFAULT_TIER } from "../constants";
+import {
+  ROLE_LIST,
+  DEFAULT_ROLE,
+  TIER_LIST,
+  DEFAULT_TIER,
+  SPECIES_LIST,
+  DEFAULT_SPECIES,
+} from "../constants";
 import { StateDispatchContext } from "../state/reducerContext";
 import { AppState } from "../state/stateTypes";
 import NpcList from "../components/NpcList";
@@ -48,6 +55,22 @@ function NpcGeneratorTab(props: NpcGeneratorTabProps) {
           </Grid>
           <Grid>
             <Autocomplete
+              value={state.generatorConfiguration.activeSpecies}
+              options={SPECIES_LIST}
+              onChange={(e, value) =>
+                dispatch?.({
+                  type: "UPDATE_GENERATOR_SPECIES",
+                  payload: value ?? DEFAULT_SPECIES,
+                })
+              }
+              renderInput={(params) => (
+                <TextField {...params} label="Species" />
+              )}
+              style={{ minWidth: "225px" }}
+            />
+          </Grid>
+          <Grid>
+            <Autocomplete
               value={state.generatorConfiguration.activeRole}
               options={ROLE_LIST}
               onChange={(e, value) =>
@@ -57,7 +80,7 @@ function NpcGeneratorTab(props: NpcGeneratorTabProps) {
                 })
               }
               renderInput={(params) => <TextField {...params} label="Role" />}
-              style={{ minWidth: "250px" }}
+              style={{ minWidth: "200px" }}
             />
           </Grid>
           <Grid>
@@ -71,7 +94,7 @@ function NpcGeneratorTab(props: NpcGeneratorTabProps) {
                 })
               }
               renderInput={(params) => <TextField {...params} label="Tier" />}
-              style={{ minWidth: "250px" }}
+              style={{ minWidth: "150px" }}
             />
           </Grid>
           <Grid>

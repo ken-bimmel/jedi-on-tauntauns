@@ -7,6 +7,7 @@ import {
   StatsArray,
   PC,
   EXAMPLE_PC,
+  DEFAULT_SPECIES,
 } from "../constants";
 
 type StateActions =
@@ -20,6 +21,10 @@ type StateActions =
   | {
       type: "DELETE_NPC";
       payload: string;
+    }
+  | {
+      type: "UPDATE_GENERATOR_SPECIES";
+      payload: { id: string; label: string };
     }
   | {
       type: "UPDATE_GENERATOR_ROLE";
@@ -134,6 +139,7 @@ type AppState = {
   generatorConfiguration: {
     activeRole: { id: string; label: string };
     activeTier: { id: string; label: string };
+    activeSpecies: { id: string; label: string };
     forceSensitive: boolean;
   };
   npcs: NPC[];
@@ -145,6 +151,7 @@ const DEFAULT_STATE: AppState = {
   generatorConfiguration: {
     activeRole: DEFAULT_ROLE,
     activeTier: DEFAULT_TIER,
+    activeSpecies: DEFAULT_SPECIES,
     forceSensitive: false,
   },
   npcs: [EXAMPLE_NPC],

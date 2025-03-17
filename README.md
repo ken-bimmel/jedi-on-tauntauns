@@ -48,7 +48,7 @@ To start:
   - [x] Include name/species as part of generated NPC
     - [x] Include species
     - [x] Include species-determined name
-    - [ ] Select species + have random option
+    - [x] Select species + have random option
     - [ ] Option for non-sentient creatures
   - [x] Include randomly generated stats
     - [x] Switch to normal distribution from linear
