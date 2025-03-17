@@ -41,6 +41,7 @@ To start:
 - [ ] Add warning to reset button
 - [ ] New rating component for injury and destiny point trackers that allows
       tooltips on individual icons
+- [ ] Add link to rules
 
 ### NPC Generator
 
