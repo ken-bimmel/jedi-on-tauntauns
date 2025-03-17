@@ -120,6 +120,7 @@ function reducer(state: AppState, action: StateActions) {
             id: window.crypto.randomUUID(),
             name: "",
             description: "",
+            ipCost: 0,
           });
         }
       });
@@ -159,6 +160,61 @@ function reducer(state: AppState, action: StateActions) {
             feat.description =
               action.payload.newDescription ?? feat.description;
             feat.ipCost = action.payload.newIpCost ?? feat.ipCost;
+          }
+        }
+      });
+      break;
+    }
+    case "ADD_INVENTORY_ITEM": {
+      newState = produce(state, (draftState) => {
+        const pc = getCharacter(
+          draftState,
+          false,
+          action.payload.characterId
+        ) as PC;
+        if (pc) {
+          pc.inventory.push({
+            id: window.crypto.randomUUID(),
+            name: "",
+            description: "",
+          });
+        }
+      });
+      break;
+    }
+    case "DELETE_INVENTORY_ITEM": {
+      newState = produce(state, (draftState) => {
+        const character = getCharacter(
+          draftState,
+          false,
+          action.payload.characterId
+        ) as PC;
+        if (character) {
+          const itemIndex = character.inventory.findIndex(
+            (item) => item.id === action.payload.itemId
+          );
+          if (itemIndex !== -1) {
+            character.inventory.splice(itemIndex, 1);
+          }
+        }
+      });
+      break;
+    }
+    case "UPDATE_INVENTORY_ITEM": {
+      newState = produce(state, (draftState) => {
+        const character = getCharacter(
+          draftState,
+          false,
+          action.payload.characterId
+        ) as PC;
+        if (character) {
+          const item = character.inventory.find(
+            (item) => item.id === action.payload.itemId
+          );
+          if (item) {
+            item.name = action.payload.newName ?? item.name;
+            item.description =
+              action.payload.newDescription ?? item.description;
           }
         }
       });

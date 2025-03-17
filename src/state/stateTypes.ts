@@ -88,9 +88,31 @@ type StateActions =
         isNpc: boolean;
         characterId: string;
         featId: string;
-        newName?: string;
-        newDescription?: string;
-        newIpCost?: number;
+        newName: string | undefined;
+        newDescription: string | undefined;
+        newIpCost: number | undefined;
+      };
+    }
+  | {
+      type: "ADD_INVENTORY_ITEM";
+      payload: {
+        characterId: string;
+      };
+    }
+  | {
+      type: "DELETE_INVENTORY_ITEM";
+      payload: {
+        characterId: string;
+        itemId: string;
+      };
+    }
+  | {
+      type: "UPDATE_INVENTORY_ITEM";
+      payload: {
+        characterId: string;
+        itemId: string;
+        newName: string | undefined;
+        newDescription: string | undefined;
       };
     };
 

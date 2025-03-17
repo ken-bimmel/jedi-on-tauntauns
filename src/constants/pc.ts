@@ -1,5 +1,11 @@
 import { Feat, StatName, StatsArray } from "./character";
 
+type InventoryItem = {
+  id: string;
+  name: string;
+  description: string;
+};
+
 type PC = {
   id: string;
   name: string;
@@ -11,7 +17,7 @@ type PC = {
   maxInjuries: number;
   currentInjuries?: number;
   currentDestiny?: number;
-  inventory?: string[];
+  inventory: InventoryItem[];
   totalIp: number;
 };
 
@@ -43,6 +49,12 @@ const EXAMPLE_FEAT_2: Feat = {
   ipCost: 1,
 };
 
+const EXAMPLE_ITEM: InventoryItem = {
+  id: window.crypto.randomUUID(),
+  name: "Blaster Pistol",
+  description: "You use this to shoot people",
+};
+
 const EXAMPLE_PC: PC = {
   id: window.crypto.randomUUID(),
   name: "Makk Riin",
@@ -57,6 +69,7 @@ const EXAMPLE_PC: PC = {
   currentDestiny: 3,
   totalIp: 20,
   // Should have a total of 19 IP spent
+  inventory: [EXAMPLE_ITEM],
 };
 
-export { PC, EXAMPLE_PC, MAX_PC_DESTINY };
+export { PC, InventoryItem, EXAMPLE_PC, MAX_PC_DESTINY };

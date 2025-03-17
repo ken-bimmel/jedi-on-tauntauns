@@ -33,7 +33,7 @@ function ActionsSection(props: ActionSectionProps) {
       <InjuryTracker character={character} isNpc={isNpc} />
       <Grid container flexDirection="row">
         <Grid>
-          <Tooltip title={isEditMode ? "Save NPC" : "Edit NPC"}>
+          <Tooltip title={isEditMode ? "Save character" : "Edit character"}>
             <IconButton
               color="primary"
               onClick={() => editModeCallback(!isEditMode)}
@@ -42,21 +42,23 @@ function ActionsSection(props: ActionSectionProps) {
             </IconButton>
           </Tooltip>
         </Grid>
-        <Grid>
-          <Tooltip title="Delete NPC">
-            <IconButton
-              color="error"
-              onClick={() => {
-                dispatch?.({
-                  type: "DELETE_NPC",
-                  payload: character.id,
-                });
-              }}
-            >
-              <Delete />
-            </IconButton>
-          </Tooltip>
-        </Grid>
+        {isNpc ? (
+          <Grid>
+            <Tooltip title="Delete NPC">
+              <IconButton
+                color="error"
+                onClick={() => {
+                  dispatch?.({
+                    type: "DELETE_NPC",
+                    payload: character.id,
+                  });
+                }}
+              >
+                <Delete />
+              </IconButton>
+            </Tooltip>
+          </Grid>
+        ) : null}
       </Grid>
     </Grid>
   );

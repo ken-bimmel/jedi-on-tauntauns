@@ -68,7 +68,7 @@ function EditableFeatsSection(props: EditableFeatsSectionProps) {
           <TableHead>
             <TableRow>
               <TableCell>Feat</TableCell>
-              {!isNpc ? <TableCell>Feat Cost</TableCell> : null}
+              {!isNpc ? <TableCell size="small">Feat Cost</TableCell> : null}
               <TableCell>Description</TableCell>
               <TableCell size="small">
                 <IconButton onClick={addNewFeat}>
@@ -90,13 +90,14 @@ function EditableFeatsSection(props: EditableFeatsSectionProps) {
                   />
                 </TableCell>
                 {!isNpc ? (
-                  <TableCell>
+                  <TableCell size="small">
                     <TextField
                       label="Feat Cost"
+                      type="number"
                       variant="outlined"
                       value={feat.ipCost}
                       onChange={makeUpdateFeat("ipCost", feat.id)}
-                      fullWidth
+                      style={{ maxWidth: "86px" }}
                     />
                   </TableCell>
                 ) : null}

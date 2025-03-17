@@ -80,7 +80,7 @@ To start:
 - [ ] Track and modify
   - [x] Injuries
   - [x] Destiny Points
-  - [ ] Inventory
+  - [x] Inventory
   - [x] Stats
   - [x] Feats
   - [x] Character Description
