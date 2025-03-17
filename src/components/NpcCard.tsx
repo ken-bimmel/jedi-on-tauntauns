@@ -18,7 +18,7 @@ function NpcCard(props: NpcCardProps) {
 
   return (
     <Grid>
-      <Card style={{ width: "fit-content" }}>
+      <Card id={npc.id} style={{ width: "fit-content" }}>
         <CardContent style={{ width: "fit-content", minWidth: "1000px" }}>
           <Grid container flexDirection="column" spacing={2}>
             <Grid container flexDirection="row" spacing={2}>

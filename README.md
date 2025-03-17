@@ -44,10 +44,12 @@ To start:
 
 ### NPC Generator
 
-- [x] Generate a random NPC
+- [ ] Generate a random NPC
   - [x] Include name/species as part of generated NPC
     - [x] Include species
     - [x] Include species-determined name
+    - [ ] Select species + have random option
+    - [ ] Option for non-sentient creatures
   - [x] Include randomly generated stats
     - [x] Switch to normal distribution from linear
   - [x] Include randomly generated feats
@@ -70,7 +72,9 @@ To start:
 - [x] Add rules text as tooltips
   - [x] Add to stats
   - [x] Add to injury levels
-- [ ] Add NPC grouping and Table of Contents
+- [ ] Add NPC grouping and table of contents
+  - [ ] NPC groups/affiliation
+  - [x] Table of contents
 - [ ] Add NPC dice rolling
   - [ ] Add die roll log
 - [ ] Set friendly/hostile/neutral status
