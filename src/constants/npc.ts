@@ -1,22 +1,11 @@
-import { StatsArray, Feat } from "./character";
+import { StatsArray, Feat, Character } from "./character";
 
-type NPC = {
-  id: string;
-  name: string;
-  species: string;
-  stats: StatsArray;
-  feats: Feat[];
+type NPC = Character & {
+  /**
+   * The NPC's role text. First set at NPC creation and includes the tier of the
+   * NPC at time of creation
+   */
   role: string;
-  description?: string;
-  /**
-   * The maximum possible number of injuries.
-   */
-  maxInjuries: number;
-  /**
-   * The number of injuries taken.
-   */
-  currentInjuries?: number;
-  currentDestiny?: number;
 };
 
 const MAX_NPC_DESTINY = 5;

@@ -12,12 +12,12 @@ import {
   TableRow,
   TextField,
 } from "@mui/material";
-import { NPC, PC } from "../constants";
+import { Character } from "../constants";
 import { Add, Delete } from "@mui/icons-material";
 import { StateDispatchContext } from "../state/reducerContext";
 
 type EditableFeatsSectionProps = {
-  character: NPC | PC;
+  character: Character;
   isNpc: boolean;
 };
 

@@ -31,6 +31,48 @@ type Feat = {
   ipCost?: number;
 };
 
+type Character = {
+  /**
+   * Uniquely identifying id for the character. In standard UUIDv4 format
+   */
+  id: string;
+  /**
+   * The name of this character
+   */
+  name: string;
+  /**
+   * The species of this character. If this string matches a string from the
+   * _species.ts_ file, a link to the related name generator on
+   * https://fantasynamegenerators.com will be included on the edit view of the
+   * character card
+   */
+  species: string;
+  /**
+   * An object containing the stats of this character
+   */
+  stats: StatsArray;
+  /**
+   * An array of the feats this character possesses
+   */
+  feats: Feat[];
+  /**
+   * A description of this character
+   */
+  description?: string;
+  /**
+   * The maximum possible number of injuries
+   */
+  maxInjuries: number;
+  /**
+   * The number of injuries taken
+   */
+  currentInjuries?: number;
+  /**
+   * The current number of Destiny Points this character has
+   */
+  currentDestiny?: number;
+};
+
 const INJURY_LEVELS: {
   [key: string]: {
     label: string;
@@ -67,7 +109,7 @@ const INJURY_LEVELS: {
   },
   dead: {
     label: "Dead",
-    modifier: -4,
+    modifier: 0,
     autoFailStats: [
       "Force Sensitivity",
       "Athleticism",
@@ -80,4 +122,4 @@ const INJURY_LEVELS: {
   },
 };
 
-export { DieSize, StatName, Stat, StatsArray, Feat, INJURY_LEVELS };
+export { DieSize, StatName, Stat, StatsArray, Feat, Character, INJURY_LEVELS };

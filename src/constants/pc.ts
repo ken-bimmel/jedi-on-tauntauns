@@ -1,4 +1,4 @@
-import { Feat, StatName, StatsArray } from "./character";
+import { Character, Feat, StatName, StatsArray } from "./character";
 
 type InventoryItem = {
   id: string;
@@ -6,18 +6,18 @@ type InventoryItem = {
   description: string;
 };
 
-type PC = {
-  id: string;
-  name: string;
-  species: string;
+type PC = Character & {
+  /**
+   * The Stat increased by this character's species
+   */
   speciesStat: StatName;
-  stats: StatsArray;
-  feats: Feat[];
-  description?: string;
-  maxInjuries: number;
-  currentInjuries?: number;
-  currentDestiny?: number;
+  /**
+   * The list of inventory items this character possesses
+   */
   inventory: InventoryItem[];
+  /**
+   * The total IP this character has been granted (not the same as spent IP)
+   */
   totalIp: number;
 };
 

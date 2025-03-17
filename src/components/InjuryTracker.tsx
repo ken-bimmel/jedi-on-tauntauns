@@ -9,7 +9,7 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import { STAT_COLORS, NPC, INJURY_LEVELS, PC } from "../constants";
+import { STAT_COLORS, INJURY_LEVELS, Character } from "../constants";
 import { AddCircle, RemoveCircle } from "@mui/icons-material";
 import { AccountInjury, Bandage, Skull, Sleep } from "mdi-material-ui";
 import { StateDispatchContext } from "../state/reducerContext";
@@ -28,7 +28,7 @@ const InjuryRating = styled(Rating)({
 });
 
 type InjuryTrackerProps = {
-  character: NPC | PC;
+  character: Character;
   isNpc: boolean;
   isEditMode: boolean;
 };

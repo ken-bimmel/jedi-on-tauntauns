@@ -1,11 +1,10 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 
 import { Grid2 as Grid, Rating, styled, Tooltip } from "@mui/material";
 import {
+  Character,
   MAX_NPC_DESTINY,
   MAX_PC_DESTINY,
-  NPC,
-  PC,
   STAT_COLORS,
 } from "../constants";
 import { HourglassFull, HourglassEmpty } from "@mui/icons-material";
@@ -22,7 +21,7 @@ const DestinyRating = styled(Rating)({
 });
 
 type DestinyPointTrackerProps = {
-  character: NPC | PC;
+  character: Character;
   isNpc: boolean;
 };
 
