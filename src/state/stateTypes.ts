@@ -121,6 +121,13 @@ type StateActions =
         characterId: string;
         newIpValue: number;
       };
+    }
+  | {
+      type: "UPDATE_TOTAL_INJURIES";
+      payload: {
+        characterId: string;
+        newMaxInjuries: number;
+      };
     };
 
 type AppState = {

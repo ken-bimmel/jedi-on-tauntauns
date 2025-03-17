@@ -233,6 +233,19 @@ function reducer(state: AppState, action: StateActions) {
       });
       break;
     }
+    case "UPDATE_TOTAL_INJURIES": {
+      newState = produce(state, (draftState) => {
+        const character = getCharacter(
+          draftState,
+          false,
+          action.payload.characterId
+        ) as PC;
+        if (character) {
+          character.maxInjuries = action.payload.newMaxInjuries;
+        }
+      });
+      break;
+    }
     default:
       // not saving
       return state;

@@ -31,7 +31,11 @@ function ActionsSection(props: ActionSectionProps) {
       flexGrow={1}
     >
       <DestinyPointTracker character={character} isNpc={isNpc} />
-      <InjuryTracker character={character} isNpc={isNpc} />
+      <InjuryTracker
+        character={character}
+        isNpc={isNpc}
+        isEditMode={isEditMode}
+      />
       {!isNpc && isEditMode ? <IpTracker character={character as PC} /> : null}
       <Grid container flexDirection="row">
         <Grid>

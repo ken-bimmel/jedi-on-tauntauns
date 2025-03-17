@@ -8,7 +8,13 @@ type NPC = {
   feats: Feat[];
   role: string;
   description?: string;
+  /**
+   * The maximum possible number of injuries.
+   */
   maxInjuries: number;
+  /**
+   * The number of injuries taken.
+   */
   currentInjuries?: number;
   currentDestiny?: number;
 };
@@ -48,7 +54,7 @@ const EXAMPLE_NPC: NPC = {
   role: "Boss Smuggler",
   description:
     "Fovv Schintriemp is a clever and elusive Sullustan smuggler known for his ability to navigate through the most dangerous sectors of the galaxy. With a sharp wit and an even sharper sense for business, he always finds a way to slip past Imperial checkpoints and make lucrative deals under the radar.",
-  maxInjuries: 3,
+  maxInjuries: 4,
   currentInjuries: 1,
   currentDestiny: 3,
 };

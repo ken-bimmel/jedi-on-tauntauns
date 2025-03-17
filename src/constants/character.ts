@@ -31,4 +31,53 @@ type Feat = {
   ipCost?: number;
 };
 
-export { DieSize, StatName, Stat, StatsArray, Feat };
+const INJURY_LEVELS: {
+  [key: string]: {
+    label: string;
+    modifier: number;
+    autoFailStats: StatName[];
+  };
+} = {
+  uninjured: {
+    label: "Uninjured",
+    modifier: 0,
+    autoFailStats: [],
+  },
+  minorInjury: {
+    label: "Minor Injury",
+    modifier: 0,
+    autoFailStats: [],
+  },
+  majorInjury: {
+    label: "Major Injury",
+    modifier: -2,
+    autoFailStats: [],
+  },
+  unconscious: {
+    label: "Unconscious",
+    modifier: -4,
+    autoFailStats: [
+      "Force Sensitivity",
+      "Athleticism",
+      "Brains",
+      "Charm",
+      "Technician",
+      "Fight",
+    ],
+  },
+  dead: {
+    label: "Dead",
+    modifier: -4,
+    autoFailStats: [
+      "Force Sensitivity",
+      "Athleticism",
+      "Brains",
+      "Charm",
+      "Technician",
+      "Fight",
+      "Grit",
+    ],
+  },
+};
+
+export { DieSize, StatName, Stat, StatsArray, Feat, INJURY_LEVELS };

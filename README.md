@@ -39,6 +39,8 @@ To start:
 - [ ] Add data sharing urls
 - [x] Add rules and pdf generation
 - [ ] Add warning to reset button
+- [ ] New rating component for injury and destiny point trackers that allows
+      tooltips on individual icons
 
 ### NPC Generator
 
@@ -78,10 +80,10 @@ To start:
 - [ ] Create a new blank character
   - [ ] Save character with name
   - [ ] Retrieve a saved character
-- [ ] Track and modify
+- [x] Track and modify
   - [x] Injuries
-    - [ ] Update injury tracker for PC injury states
-    - [ ] Edit number of injuries
+    - [x] Update injury tracker for PC injury states
+    - [x] Edit max number of injuries
   - [x] Destiny Points
   - [x] Inventory
   - [x] Stats
