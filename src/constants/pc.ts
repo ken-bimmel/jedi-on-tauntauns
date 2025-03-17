@@ -23,6 +23,16 @@ type PC = Character & {
 
 const MAX_PC_DESTINY = 5;
 
+const BLANK_STATS_ARRAY: StatsArray = {
+  forceSensitivity: { name: "Force Sensitivity", value: 0 },
+  athleticism: { name: "Athleticism", value: 4 },
+  brains: { name: "Brains", value: 4 },
+  charm: { name: "Charm", value: 4 },
+  technician: { name: "Technician", value: 4 },
+  fight: { name: "Fight", value: 4 },
+  grit: { name: "Grit", value: 4 },
+};
+
 const EXAMPLE_STATS_ARRAY: StatsArray = {
   forceSensitivity: { name: "Force Sensitivity", value: 4 },
   athleticism: { name: "Athleticism", value: 6 },
@@ -72,4 +82,4 @@ const EXAMPLE_PC: PC = {
   inventory: [EXAMPLE_ITEM],
 };
 
-export { PC, InventoryItem, EXAMPLE_PC, MAX_PC_DESTINY };
+export { PC, InventoryItem, EXAMPLE_PC, MAX_PC_DESTINY, BLANK_STATS_ARRAY };

@@ -96,6 +96,7 @@ To start:
   - [x] Character Description
   - [x] IP usage
     - [x] Increase total available IP
+    - [ ] Set species stat
 - [ ] Roll stats
   - [ ] Flat rolls
   - [ ] Roll log

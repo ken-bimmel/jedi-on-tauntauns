@@ -19,6 +19,9 @@ type StateActions =
       type: "ADD_NPC";
     }
   | {
+      type: "ADD_PC";
+    }
+  | {
       type: "DELETE_NPC";
       payload: string;
     }

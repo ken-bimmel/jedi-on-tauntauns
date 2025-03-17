@@ -3,6 +3,7 @@ import { produce, WritableDraft } from "immer";
 import { generateNpc } from "../utilities/npcGenerator";
 import { AppState, StateActions } from "./stateTypes";
 import { saveToLocalStorage } from "./storage";
+import { generateBlankPC } from "../utilities/pcGenerator";
 
 function reducer(state: AppState, action: StateActions) {
   let newState = state;
@@ -20,6 +21,12 @@ function reducer(state: AppState, action: StateActions) {
           state.generatorConfiguration.forceSensitive
         );
         draftState.npcs = [newNpc, ...state.npcs];
+      });
+      break;
+    }
+    case "ADD_PC": {
+      newState = produce(state, (draftState) => {
+        draftState.pcs = [generateBlankPC(), ...state.pcs];
       });
       break;
     }
