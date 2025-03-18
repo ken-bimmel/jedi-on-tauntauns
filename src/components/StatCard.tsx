@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Character, Stat, STAT_DESCRIPTIONS } from "../constants";
-import { rollStat } from "../utilities/statRoller";
+import { composeStatRollMessage } from "../utilities/statRoller";
 import { useSnackStack } from "./StackingSnackbars/SnackStackProvider";
 import StackingSnackbar from "./StackingSnackbars/StackingSnackbar";
 import { DiceMultiple } from "mdi-material-ui";
@@ -26,9 +26,7 @@ function StatCard(props: StatCardProps) {
   const dispatch = useContext(StateDispatchContext);
 
   function roll() {
-    const rollMessage = `${character.name} rolled a ${rollStat(
-      stat
-    )} on their ${stat.name} check`;
+    const rollMessage = composeStatRollMessage(stat, character);
     const timestamp = new Date();
     dispatch?.({
       type: "ADD_ROLL",

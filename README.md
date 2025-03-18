@@ -76,14 +76,14 @@ To start:
   - [x] Add to injury levels
 - [ ] Add NPC grouping and table of contents
   - [ ] NPC groups/affiliation
+  - [ ] Set friendly/hostile/neutral status
   - [x] Table of contents
 - [ ] Roll stats
   - [x] Flat rolls
-  - [ ] Add injury modifiers to rolling logic
+  - [x] Add injury modifiers to rolling logic
   - [ ] Rolls log
     - [x] Datastore
     - [ ] Display
-- [ ] Set friendly/hostile/neutral status
 
 ### Character Sheet
 
@@ -105,7 +105,7 @@ To start:
     - [x] Set species stat
 - [ ] Roll stats
   - [x] Flat rolls
-  - [ ] Add injury modifiers to rolling logic
+  - [x] Add injury modifiers to rolling logic
   - [ ] Rolls log
     - [x] Datastore
     - [ ] Display
