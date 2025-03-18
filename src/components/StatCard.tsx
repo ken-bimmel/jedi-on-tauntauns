@@ -20,7 +20,7 @@ function StatCard(props: StatCardProps) {
   const statText = STAT_DESCRIPTIONS[stat.name];
   return (
     <Grid>
-      <Tooltip title={statText}>
+      <Tooltip title={statText} arrow>
         <Card>
           <CardContent>
             <Typography variant="h4" sx={{ color: color }}>

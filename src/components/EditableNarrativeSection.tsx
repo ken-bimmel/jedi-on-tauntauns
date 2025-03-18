@@ -48,7 +48,7 @@ function EditableNarrativeSection(props: EditableNarrativeSectionProps) {
             value={character.name}
             onChange={makeChangeHandler("name")}
           />
-          <Tooltip title="Name generator">
+          <Tooltip title="Name generator" arrow>
             <IconButton
               href={
                 SPECIES[character.species]?.generatorUrl ??

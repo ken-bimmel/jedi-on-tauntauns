@@ -35,7 +35,7 @@ function NarrativeSection(props: NarrativeSectionProps) {
       </Grid>
       {character?.description !== undefined ? (
         <Grid>
-          <Tooltip title={character.description} placement="bottom-end">
+          <Tooltip title={character.description} placement="bottom-end" arrow>
             <Description />
           </Tooltip>
         </Grid>

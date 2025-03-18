@@ -81,7 +81,10 @@ function ActionsSection(props: ActionSectionProps) {
       ) : null}
       <Grid container flexDirection="row">
         <Grid>
-          <Tooltip title={isEditMode ? "Save character" : "Edit character"}>
+          <Tooltip
+            title={isEditMode ? "Save character" : "Edit character"}
+            arrow
+          >
             <IconButton
               color="primary"
               onClick={() => editModeCallback(!isEditMode)}
@@ -92,7 +95,7 @@ function ActionsSection(props: ActionSectionProps) {
         </Grid>
         {isNpc ? (
           <Grid>
-            <Tooltip title="Delete NPC">
+            <Tooltip title="Delete NPC" arrow>
               <IconButton
                 color="error"
                 onClick={() => {

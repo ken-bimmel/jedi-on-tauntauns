@@ -100,7 +100,7 @@ function InjuryTracker(props: InjuryTrackerProps) {
     <Grid container flexDirection="row" alignItems="center" spacing={1}>
       {!isNpc && isEditMode ? (
         <Grid>
-          <Tooltip title="Reduce Max Injuries">
+          <Tooltip title="Reduce Max Injuries" arrow>
             <IconButton onClick={makeUpdateMaxInjury(-1)}>
               <RemoveCircle />
             </IconButton>
@@ -108,7 +108,7 @@ function InjuryTracker(props: InjuryTrackerProps) {
         </Grid>
       ) : null}
       <Grid>
-        <Tooltip title={<InjuryLabel {...injuryLevel} />}>
+        <Tooltip title={<InjuryLabel {...injuryLevel} />} arrow>
           <InjuryRating
             max={character.maxInjuries}
             value={currentInjuryLevel}
@@ -129,7 +129,7 @@ function InjuryTracker(props: InjuryTrackerProps) {
       </Grid>
       {!isNpc && isEditMode ? (
         <Grid>
-          <Tooltip title="Increase Max Injuries">
+          <Tooltip title="Increase Max Injuries" arrow>
             <IconButton onClick={makeUpdateMaxInjury(1)}>
               <AddCircle />
             </IconButton>

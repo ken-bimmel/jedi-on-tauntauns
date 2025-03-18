@@ -37,7 +37,7 @@ function IpTracker(props: IpTrackerProps) {
   return (
     <Grid container flexDirection="row" alignItems="center" spacing={1}>
       <Grid>
-        <Tooltip title="Decrease total IP">
+        <Tooltip title="Decrease total IP" arrow>
           <IconButton onClick={makeUpdateIp(-1)}>
             <RemoveCircle />
           </IconButton>
@@ -49,7 +49,7 @@ function IpTracker(props: IpTrackerProps) {
         </Typography>
       </Grid>
       <Grid>
-        <Tooltip title="Increase total IP">
+        <Tooltip title="Increase total IP" arrow>
           <IconButton onClick={makeUpdateIp(1)}>
             <AddCircle />
           </IconButton>

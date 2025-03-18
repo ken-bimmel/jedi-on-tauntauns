@@ -3,7 +3,7 @@ import { BLANK_STATS_ARRAY, PC } from "../constants";
 function generateBlankPC(): PC {
   return {
     id: window.crypto.randomUUID(),
-    name: "",
+    name: "New Character",
     species: "",
     stats: BLANK_STATS_ARRAY,
     speciesStat: "Force Sensitivity",

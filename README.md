@@ -36,6 +36,7 @@ To start:
 
 - [ ] Convert to Vite
 - [x] Add Tabs to separate parts of the program
+  - [ ] Make tabs sticky
 - [ ] Add data sharing urls
 - [x] Add rules and pdf generation
 - [ ] Add warning to reset button
@@ -83,7 +84,7 @@ To start:
 ### Character Sheet
 
 - [ ] Create a new blank character
-  - [ ] Save character with name
+  - [x] Save character with name
   - [ ] Retrieve a saved character
 - [x] Track and modify
   - [x] Injuries

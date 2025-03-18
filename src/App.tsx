@@ -72,7 +72,7 @@ function App(props: AppProps) {
           justifyContent="flex-end"
         >
           <Grid>
-            <Tooltip title="Save data to disk">
+            <Tooltip title="Save data to disk" arrow>
               <IconButton
                 href={URL.createObjectURL(stateBlob)}
                 download="JOT-NPCs.json"
@@ -83,7 +83,7 @@ function App(props: AppProps) {
             </Tooltip>
           </Grid>
           <Grid>
-            <Tooltip title="Load data from disk">
+            <Tooltip title="Load data from disk" arrow>
               <IconButton
                 color="primary"
                 onClick={() => uploadInputRef.current?.click()}
@@ -98,7 +98,7 @@ function App(props: AppProps) {
             />
           </Grid>
           <Grid>
-            <Tooltip title="Reset all data">
+            <Tooltip title="Reset all data" arrow>
               <IconButton color="primary" onClick={reset}>
                 <Restore />
               </IconButton>
