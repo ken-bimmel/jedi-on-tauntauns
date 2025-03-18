@@ -75,28 +75,34 @@ type Character = {
 
 const INJURY_LEVELS: {
   [key: string]: {
-    label: string;
+    name: string;
+    rulesExplanation: string;
     modifier: number;
     autoFailStats: StatName[];
   };
 } = {
   uninjured: {
-    label: "Uninjured",
+    name: "Uninjured",
+    rulesExplanation: "",
     modifier: 0,
     autoFailStats: [],
   },
   minorInjury: {
-    label: "Minor Injury",
+    name: "Minor Injury",
+    rulesExplanation: "",
     modifier: 0,
     autoFailStats: [],
   },
   majorInjury: {
-    label: "Major Injury",
+    name: "Major Injury",
+    rulesExplanation: "-2 penalty on all checks",
     modifier: -2,
     autoFailStats: [],
   },
   unconscious: {
-    label: "Unconscious",
+    name: "Unconscious",
+    rulesExplanation:
+      "Automatically fail all checks except Grit. Grit checks made with a -4 penalty",
     modifier: -4,
     autoFailStats: [
       "Force Sensitivity",
@@ -108,7 +114,8 @@ const INJURY_LEVELS: {
     ],
   },
   dead: {
-    label: "Dead",
+    name: "Dead",
+    rulesExplanation: "",
     modifier: 0,
     autoFailStats: [
       "Force Sensitivity",

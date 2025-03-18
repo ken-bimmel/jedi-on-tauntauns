@@ -34,16 +34,17 @@ type InjuryTrackerProps = {
 };
 
 type InjuryLabelProps = {
-  label: string;
+  name: string;
+  rulesExplanation: string;
   modifier: number;
 };
 
 function InjuryLabel(props: InjuryLabelProps) {
-  const { label, modifier } = props;
+  const { name, modifier, rulesExplanation } = props;
   return (
     <>
-      <Typography>{label}</Typography>
-      {modifier !== 0 ? `${modifier} penalty to all checks` : null}
+      <Typography>{name}</Typography>
+      {modifier !== 0 ? rulesExplanation : null}
     </>
   );
 }
