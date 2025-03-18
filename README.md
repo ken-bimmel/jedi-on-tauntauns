@@ -77,8 +77,10 @@ To start:
 - [ ] Add NPC grouping and table of contents
   - [ ] NPC groups/affiliation
   - [x] Table of contents
-- [ ] Add NPC dice rolling
-  - [ ] Add die roll log
+- [ ] Roll stats
+  - [x] Flat rolls
+  - [ ] Add injury modifiers to rolling logic
+  - [ ] Rolls log
 - [ ] Set friendly/hostile/neutral status
 
 ### Character Sheet
@@ -100,8 +102,9 @@ To start:
     - [x] Increase total available IP
     - [x] Set species stat
 - [ ] Roll stats
-  - [ ] Flat rolls
-  - [ ] Roll log
+  - [x] Flat rolls
+  - [ ] Add injury modifiers to rolling logic
+  - [ ] Rolls log
 
 ### Vehicle Sheet
 

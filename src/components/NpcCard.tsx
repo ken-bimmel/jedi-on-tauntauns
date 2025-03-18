@@ -34,7 +34,7 @@ function NpcCard(props: NpcCardProps) {
               <EditSection character={npc} isNpc={true} />
             ) : (
               <>
-                <StatsSection statsArray={npc.stats} />
+                <StatsSection character={npc} />
                 <FeatsSection feats={npc.feats} isNpc={true} />
               </>
             )}

@@ -7,21 +7,44 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import { Stat, STAT_DESCRIPTIONS } from "../constants";
+import { Character, Stat, STAT_DESCRIPTIONS } from "../constants";
+import { rollStat } from "../utilities/statRoller";
+import { useSnackStack } from "./StackingSnackbars/SnackStackProvider";
+import StackingSnackbar from "./StackingSnackbars/StackingSnackbar";
+import { DiceMultiple } from "mdi-material-ui";
 
 type StatCardProps = {
   stat: Stat;
   color: string;
+  character: Character;
 };
 
 function StatCard(props: StatCardProps) {
-  const { stat, color } = props;
+  const { stat, color, character } = props;
+  const { addToast } = useSnackStack();
+
+  function roll() {
+    const rollMessage = `${character.name} rolled a ${rollStat(
+      stat
+    )} on their ${stat.name} check`;
+    addToast({
+      severity: "success",
+      message: rollMessage,
+      position: { vertical: "top", horizontal: "center" },
+      key: Date.now(),
+      duration: 30000,
+      color: color,
+      icon: <DiceMultiple />,
+    });
+  }
+
   const displayValue = `${stat.value !== 0 ? "d" : ""}${stat.value}`;
   const statText = STAT_DESCRIPTIONS[stat.name];
   return (
     <Grid>
+      <StackingSnackbar />
       <Tooltip title={statText} arrow>
-        <Card>
+        <Card onClick={roll}>
           <CardContent>
             <Typography variant="h4" sx={{ color: color }}>
               {displayValue}

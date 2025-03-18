@@ -35,7 +35,7 @@ function PcCard(props: PCCardProps) {
               <EditSection character={pc} isNpc={false} />
             ) : (
               <>
-                <StatsSection statsArray={pc.stats} />
+                <StatsSection character={pc} />
                 <FeatsSection feats={pc.feats} isNpc={false} />
               </>
             )}

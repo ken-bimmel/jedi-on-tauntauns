@@ -11,6 +11,7 @@ import { loadFromStorage } from "./state/storage";
 import CharacterSheetTab from "./tabs/CharacterSheet";
 import { Download, Upload, Restore } from "@mui/icons-material";
 import VisuallyHiddenInput from "./components/VisuallyHiddenInput";
+import SnackStackProvider from "./components/StackingSnackbars/SnackStackProvider";
 
 type AppProps = {
   startingTab: number;
@@ -61,60 +62,62 @@ function App(props: AppProps) {
 
   return (
     <StateDispatchContext.Provider value={dispatch}>
-      <Tabs value={activeTab} onChange={updateActiveTab}>
-        <Tab label="NPC Generator" />
-        <Tab label="Character Sheet" />
-        <Tab label="Vehicle Sheet" />
-        <Grid
-          container
-          flexDirection="row"
-          flexGrow={1}
-          justifyContent="flex-end"
-        >
-          <Grid>
-            <Tooltip title="Save data to disk" arrow>
-              <IconButton
-                href={URL.createObjectURL(stateBlob)}
-                download="JOT-NPCs.json"
-                color="primary"
-              >
-                <Download />
-              </IconButton>
-            </Tooltip>
+      <SnackStackProvider>
+        <Tabs value={activeTab} onChange={updateActiveTab}>
+          <Tab label="NPC Generator" />
+          <Tab label="Character Sheet" />
+          <Tab label="Vehicle Sheet" />
+          <Grid
+            container
+            flexDirection="row"
+            flexGrow={1}
+            justifyContent="flex-end"
+          >
+            <Grid>
+              <Tooltip title="Save data to disk" arrow>
+                <IconButton
+                  href={URL.createObjectURL(stateBlob)}
+                  download="JOT-NPCs.json"
+                  color="primary"
+                >
+                  <Download />
+                </IconButton>
+              </Tooltip>
+            </Grid>
+            <Grid>
+              <Tooltip title="Load data from disk" arrow>
+                <IconButton
+                  color="primary"
+                  onClick={() => uploadInputRef.current?.click()}
+                >
+                  <Upload />
+                </IconButton>
+              </Tooltip>
+              <VisuallyHiddenInput
+                ref={uploadInputRef}
+                type="file"
+                onChange={importFile}
+              />
+            </Grid>
+            <Grid>
+              <Tooltip title="Reset all data" arrow>
+                <IconButton color="primary" onClick={reset}>
+                  <Restore />
+                </IconButton>
+              </Tooltip>
+            </Grid>
           </Grid>
-          <Grid>
-            <Tooltip title="Load data from disk" arrow>
-              <IconButton
-                color="primary"
-                onClick={() => uploadInputRef.current?.click()}
-              >
-                <Upload />
-              </IconButton>
-            </Tooltip>
-            <VisuallyHiddenInput
-              ref={uploadInputRef}
-              type="file"
-              onChange={importFile}
-            />
-          </Grid>
-          <Grid>
-            <Tooltip title="Reset all data" arrow>
-              <IconButton color="primary" onClick={reset}>
-                <Restore />
-              </IconButton>
-            </Tooltip>
-          </Grid>
-        </Grid>
-      </Tabs>
-      <TabPanel value={activeTab} index={0}>
-        <NpcGeneratorTab state={state} />
-      </TabPanel>
-      <TabPanel value={activeTab} index={1}>
-        <CharacterSheetTab state={state} />
-      </TabPanel>
-      <TabPanel value={activeTab} index={2}>
-        The Vehicle Sheet is under construction.
-      </TabPanel>
+        </Tabs>
+        <TabPanel value={activeTab} index={0}>
+          <NpcGeneratorTab state={state} />
+        </TabPanel>
+        <TabPanel value={activeTab} index={1}>
+          <CharacterSheetTab state={state} />
+        </TabPanel>
+        <TabPanel value={activeTab} index={2}>
+          The Vehicle Sheet is under construction.
+        </TabPanel>
+      </SnackStackProvider>
     </StateDispatchContext.Provider>
   );
 }
