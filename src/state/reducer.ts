@@ -30,6 +30,12 @@ function reducer(state: AppState, action: StateActions) {
       });
       break;
     }
+    case "SET_ACTIVE_PC": {
+      newState = produce(state, (draftState) => {
+        draftState.activePcId = action.payload;
+      });
+      break;
+    }
     case "DELETE_NPC": {
       newState = produce(state, (draftState) => {
         const npcIndex = draftState.npcs.findIndex(

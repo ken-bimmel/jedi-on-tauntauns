@@ -19,18 +19,17 @@ import { StateDispatchContext } from "../state/reducerContext";
 
 type PcListProps = {
   pcs: PC[];
+  activePcId: string;
 };
 
 function PcList(props: PcListProps) {
-  const { pcs } = props;
+  const { pcs, activePcId } = props;
 
   const dispatch = useContext(StateDispatchContext);
 
-  function makeScrollHandler(characterId: string) {
+  function makeLoadHandler(characterId: string) {
     return () => {
-      document.getElementById(characterId)?.scrollIntoView({
-        behavior: "smooth",
-      });
+      dispatch?.({ type: "SET_ACTIVE_PC", payload: characterId });
     };
   }
 
@@ -59,11 +58,18 @@ function PcList(props: PcListProps) {
             </TableHead>
             <TableBody>
               {pcs.map((pc) => (
-                <TableRow key={pc.id}>
+                <TableRow
+                  key={pc.id}
+                  style={
+                    pc.id === activePcId
+                      ? { background: "darkGrey" }
+                      : undefined
+                  }
+                >
                   <Tooltip title={`${pc.totalIp}IP`} placement="left" arrow>
                     <TableCell
                       style={{ textTransform: "capitalize" }}
-                      onClick={makeScrollHandler(pc.id)}
+                      onClick={makeLoadHandler(pc.id)}
                     >
                       {pc.name}
                     </TableCell>

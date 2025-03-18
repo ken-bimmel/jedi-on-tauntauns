@@ -83,9 +83,9 @@ To start:
 
 ### Character Sheet
 
-- [ ] Create a new blank character
+- [x] Create a new blank character
   - [x] Save character with name
-  - [ ] Retrieve a saved character
+  - [x] Retrieve a saved character
 - [x] Track and modify
   - [x] Injuries
     - [x] Update injury tracker for PC injury states

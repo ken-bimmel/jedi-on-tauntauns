@@ -23,6 +23,10 @@ type StateActions =
       type: "ADD_PC";
     }
   | {
+      type: "SET_ACTIVE_PC";
+      payload: string;
+    }
+  | {
       type: "DELETE_NPC";
       payload: string;
     }
@@ -155,7 +159,7 @@ type AppState = {
   };
   npcs: NPC[];
   pcs: PC[];
-  activePCIndex: number | undefined;
+  activePcId: string;
 };
 
 const DEFAULT_STATE: AppState = {
@@ -167,7 +171,7 @@ const DEFAULT_STATE: AppState = {
   },
   npcs: [EXAMPLE_NPC],
   pcs: [EXAMPLE_PC],
-  activePCIndex: undefined,
+  activePcId: EXAMPLE_PC.id,
 };
 
 export { StateActions, AppState, DEFAULT_STATE };

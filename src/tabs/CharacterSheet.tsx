@@ -12,6 +12,7 @@ type CharacterSheetTabProps = {
 function CharacterSheetTab(props: CharacterSheetTabProps) {
   const { state } = props;
   const dispatch = useContext(StateDispatchContext);
+  const activePc = state.pcs.find((pc) => pc.id === state.activePcId);
 
   return (
     <StateDispatchContext.Provider value={dispatch}>
@@ -22,12 +23,10 @@ function CharacterSheetTab(props: CharacterSheetTabProps) {
         justifyContent="space-between"
       >
         <Grid container flexDirection="column" spacing={2}>
-          {state.pcs.map((pc) => (
-            <PcCard key={pc.id} pc={pc} />
-          ))}
+          {activePc ? <PcCard pc={activePc} /> : null}
         </Grid>
         <Grid>
-          <PcList pcs={state.pcs} />
+          <PcList pcs={state.pcs} activePcId={state.activePcId} />
         </Grid>
       </Grid>
     </StateDispatchContext.Provider>
