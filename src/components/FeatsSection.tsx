@@ -14,11 +14,12 @@ import { Feat } from "../constants/character";
 
 type FeatsSection = {
   feats: Feat[];
+  isNpc: boolean;
 };
 
 function FeatsSection(props: FeatsSection) {
-  const { feats } = props;
-  if (feats.length === 0) {
+  const { feats, isNpc } = props;
+  if (feats.length === 0 && isNpc) {
     return null;
   }
   return (

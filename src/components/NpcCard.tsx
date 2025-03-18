@@ -35,7 +35,7 @@ function NpcCard(props: NpcCardProps) {
             ) : (
               <>
                 <StatsSection statsArray={npc.stats} />
-                <FeatsSection feats={npc.feats} />
+                <FeatsSection feats={npc.feats} isNpc={true} />
               </>
             )}
           </Grid>
