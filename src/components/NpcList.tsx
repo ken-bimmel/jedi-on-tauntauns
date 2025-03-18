@@ -43,7 +43,7 @@ function NpcList(props: NpcListProps) {
               {npcs.map((npc) => (
                 <TableRow key={npc.id}>
                   <Tooltip
-                    title={`${npc.species} ${npc.role}`}
+                    title={`${npc.disposition} ${npc.species} ${npc.role}`}
                     placement="left"
                     arrow
                   >

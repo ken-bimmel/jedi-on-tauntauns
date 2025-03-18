@@ -6,6 +6,7 @@ type NPC = Character & {
    * NPC at time of creation
    */
   role: string;
+  disposition: "Hostile" | "Neutral" | "Friendly";
 };
 
 const MAX_NPC_DESTINY = 5;
@@ -38,6 +39,7 @@ const EXAMPLE_NPC: NPC = {
   id: window.crypto.randomUUID(),
   name: "Fovv Schintriemp",
   species: "Sullustan",
+  disposition: "Neutral",
   stats: EXAMPLE_STATS_ARRAY,
   feats: [EXAMPLE_FEAT, EXAMPLE_FEAT_2],
   role: "Boss Smuggler",

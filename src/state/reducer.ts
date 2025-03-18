@@ -292,6 +292,21 @@ function reducer(state: AppState, action: StateActions) {
       });
       break;
     }
+    case "NEXT_DISPOSITION": {
+      newState = produce(state, (draftState) => {
+        const character = getCharacter(draftState, true, action.payload) as NPC;
+        if (character) {
+          if (character.disposition === "Neutral") {
+            character.disposition = "Friendly";
+          } else if (character.disposition === "Friendly") {
+            character.disposition = "Hostile";
+          } else {
+            character.disposition = "Neutral";
+          }
+        }
+      });
+      break;
+    }
     default:
       // not saving
       return state;

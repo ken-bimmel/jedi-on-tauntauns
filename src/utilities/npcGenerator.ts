@@ -45,6 +45,7 @@ function generateNpc(
     role: `${tier.name} ${internalRole.name}`,
     maxInjuries: tier.maxInjuries,
     currentInjuries: 0,
+    disposition: "Neutral",
   };
 
   return npc;

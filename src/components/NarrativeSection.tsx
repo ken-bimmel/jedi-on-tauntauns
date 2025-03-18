@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 
-import { Grid2 as Grid, Tooltip, Typography } from "@mui/material";
+import { Grid2 as Grid, IconButton, Tooltip, Typography } from "@mui/material";
 import { NPC, PC } from "../constants";
-import { Description } from "@mui/icons-material";
+import {
+  Description,
+  ThumbDown,
+  ThumbsUpDown,
+  ThumbUp,
+} from "@mui/icons-material";
+import { StateDispatchContext } from "../state/reducerContext";
 
 type NarrativeSectionProps = {
   character: NPC | PC;
@@ -11,6 +17,8 @@ type NarrativeSectionProps = {
 
 function NarrativeSection(props: NarrativeSectionProps) {
   const { character, isNpc } = props;
+  const dispatch = useContext(StateDispatchContext);
+
   return (
     <Grid
       container
@@ -19,6 +27,23 @@ function NarrativeSection(props: NarrativeSectionProps) {
       alignItems="flex-end"
       spacing={2}
     >
+      {isNpc ? (
+        <Tooltip title={(character as NPC).disposition}>
+          <IconButton
+            onClick={() =>
+              dispatch?.({ type: "NEXT_DISPOSITION", payload: character.id })
+            }
+          >
+            {(character as NPC).disposition === "Neutral" ? (
+              <ThumbsUpDown />
+            ) : (character as NPC).disposition === "Friendly" ? (
+              <ThumbUp color="success" />
+            ) : (
+              <ThumbDown color="error" />
+            )}
+          </IconButton>
+        </Tooltip>
+      ) : null}
       <Grid>
         <Typography
           variant="h4"

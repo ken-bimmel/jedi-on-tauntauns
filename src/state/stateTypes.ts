@@ -157,6 +157,10 @@ type StateActions =
   | {
       type: "ADD_ROLL";
       payload: Roll;
+    }
+  | {
+      type: "NEXT_DISPOSITION";
+      payload: string;
     };
 
 type AppState = {
