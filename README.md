@@ -10,7 +10,7 @@ code for several web-based tools to assist in playing and running the system.
 Currently the tools included in this repository are:
 
 - NPC generator and tracker
-- Character sheet (in progress)
+- Character sheet
 - Vehicle sheet (planned)
 
 These tools are accessible here: https://ken-bimmel.github.io/jedi-on-tauntauns/
@@ -43,6 +43,7 @@ To start:
 - [ ] New rating component for injury and destiny point trackers that allows
       tooltips on individual icons
 - [ ] Add link to rules
+- [ ] Add roll history viewer
 
 ### NPC Generator
 
@@ -78,12 +79,11 @@ To start:
   - [ ] NPC groups/affiliation
   - [ ] Set friendly/hostile/neutral status
   - [x] Table of contents
-- [ ] Roll stats
+- [x] Roll stats
   - [x] Flat rolls
   - [x] Add injury modifiers to rolling logic
-  - [ ] Rolls log
+  - [x] Rolls log
     - [x] Datastore
-    - [ ] Display
 
 ### Character Sheet
 
@@ -103,12 +103,11 @@ To start:
   - [x] IP usage
     - [x] Increase total available IP
     - [x] Set species stat
-- [ ] Roll stats
+- [x] Roll stats
   - [x] Flat rolls
   - [x] Add injury modifiers to rolling logic
-  - [ ] Rolls log
+  - [x] Rolls log
     - [x] Datastore
-    - [ ] Display
 
 ### Vehicle Sheet
 
