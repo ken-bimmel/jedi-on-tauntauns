@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import {
   Card,
@@ -12,6 +12,7 @@ import { rollStat } from "../utilities/statRoller";
 import { useSnackStack } from "./StackingSnackbars/SnackStackProvider";
 import StackingSnackbar from "./StackingSnackbars/StackingSnackbar";
 import { DiceMultiple } from "mdi-material-ui";
+import { StateDispatchContext } from "../state/reducerContext";
 
 type StatCardProps = {
   stat: Stat;
@@ -22,16 +23,25 @@ type StatCardProps = {
 function StatCard(props: StatCardProps) {
   const { stat, color, character } = props;
   const { addToast } = useSnackStack();
+  const dispatch = useContext(StateDispatchContext);
 
   function roll() {
     const rollMessage = `${character.name} rolled a ${rollStat(
       stat
     )} on their ${stat.name} check`;
+    const timestamp = new Date();
+    dispatch?.({
+      type: "ADD_ROLL",
+      payload: {
+        rollMessage,
+        timestamp,
+      },
+    });
     addToast({
       severity: "success",
       message: rollMessage,
       position: { vertical: "top", horizontal: "center" },
-      key: Date.now(),
+      key: timestamp.getTime(),
       duration: 30000,
       color: color,
       icon: <DiceMultiple />,

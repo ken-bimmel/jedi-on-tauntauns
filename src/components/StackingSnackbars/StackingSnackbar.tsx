@@ -6,7 +6,6 @@ const StackingSnackbar: React.FC = () => {
   const { toastsPack } = useSnackStack();
 
   const firstToast = toastsPack[0];
-  console.log({ toastsPack });
 
   return (
     <MuiSnackbar

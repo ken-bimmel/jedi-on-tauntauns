@@ -81,6 +81,8 @@ To start:
   - [x] Flat rolls
   - [ ] Add injury modifiers to rolling logic
   - [ ] Rolls log
+    - [x] Datastore
+    - [ ] Display
 - [ ] Set friendly/hostile/neutral status
 
 ### Character Sheet
@@ -105,6 +107,8 @@ To start:
   - [x] Flat rolls
   - [ ] Add injury modifiers to rolling logic
   - [ ] Rolls log
+    - [x] Datastore
+    - [ ] Display
 
 ### Vehicle Sheet
 

@@ -286,6 +286,12 @@ function reducer(state: AppState, action: StateActions) {
       });
       break;
     }
+    case "ADD_ROLL": {
+      newState = produce(state, (draftState) => {
+        draftState.rollLog = [action.payload, ...state.rollLog];
+      });
+      break;
+    }
     default:
       // not saving
       return state;

@@ -6,7 +6,7 @@ import { DEFAULT_STATE } from "./state/stateTypes";
 import TabPanel from "./components/TabPanel";
 import NpcGeneratorTab from "./tabs/NpcGenerator";
 import { useNavigate } from "react-router";
-import { ROUTE_LIST } from "./constants/routeList";
+import { ROUTE_LIST } from "./constants";
 import { loadFromStorage } from "./state/storage";
 import CharacterSheetTab from "./tabs/CharacterSheet";
 import { Download, Upload, Restore } from "@mui/icons-material";

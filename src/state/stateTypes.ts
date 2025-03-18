@@ -9,6 +9,7 @@ import {
   EXAMPLE_PC,
   DEFAULT_SPECIES,
   StatName,
+  Roll,
 } from "../constants";
 
 type StateActions =
@@ -152,6 +153,10 @@ type StateActions =
         characterId: string;
         newSpeciesStat: StatName;
       };
+    }
+  | {
+      type: "ADD_ROLL";
+      payload: Roll;
     };
 
 type AppState = {
@@ -163,6 +168,7 @@ type AppState = {
   };
   npcs: NPC[];
   pcs: PC[];
+  rollLog: Roll[];
   activePcId: string;
 };
 
@@ -175,6 +181,7 @@ const DEFAULT_STATE: AppState = {
   },
   npcs: [EXAMPLE_NPC],
   pcs: [EXAMPLE_PC],
+  rollLog: [],
   activePcId: EXAMPLE_PC.id,
 };
 
