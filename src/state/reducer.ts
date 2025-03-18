@@ -256,6 +256,19 @@ function reducer(state: AppState, action: StateActions) {
       });
       break;
     }
+    case "UPDATE_SPECIES_STAT": {
+      newState = produce(state, (draftState) => {
+        const character = getCharacter(
+          draftState,
+          false,
+          action.payload.characterId
+        ) as PC;
+        if (character) {
+          character.speciesStat = action.payload.newSpeciesStat;
+        }
+      });
+      break;
+    }
     default:
       // not saving
       return state;

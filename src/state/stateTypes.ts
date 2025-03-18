@@ -8,6 +8,7 @@ import {
   PC,
   EXAMPLE_PC,
   DEFAULT_SPECIES,
+  StatName,
 } from "../constants";
 
 type StateActions =
@@ -135,6 +136,13 @@ type StateActions =
       payload: {
         characterId: string;
         newMaxInjuries: number;
+      };
+    }
+  | {
+      type: "UPDATE_SPECIES_STAT";
+      payload: {
+        characterId: string;
+        newSpeciesStat: StatName;
       };
     };
 
