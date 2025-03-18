@@ -36,13 +36,13 @@ To start:
 
 - [ ] Convert to Vite
 - [x] Add Tabs to separate parts of the program
-  - [ ] Make tabs sticky
+  - [x] Make tabs sticky
 - [ ] Add data sharing urls
 - [x] Add rules and pdf generation
 - [ ] Add warning to reset button and PC delete
 - [ ] New rating component for injury and destiny point trackers that allows
       tooltips on individual icons
-- [ ] Add link to rules
+- [x] Add link to rules
 - [ ] Add roll history viewer
 
 ### NPC Generator

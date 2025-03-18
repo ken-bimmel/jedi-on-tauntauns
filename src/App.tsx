@@ -63,7 +63,18 @@ function App(props: AppProps) {
   return (
     <StateDispatchContext.Provider value={dispatch}>
       <SnackStackProvider>
-        <Tabs value={activeTab} onChange={updateActiveTab}>
+        <Tabs
+          value={activeTab}
+          onChange={updateActiveTab}
+          style={{
+            position: "sticky",
+            top: 0,
+            left: 0,
+            width: "calc(100vw-16px)",
+            backgroundColor: "white",
+            zIndex: 99,
+          }}
+        >
           <Tab label="NPC Generator" />
           <Tab label="Character Sheet" />
           <Tab label="Vehicle Sheet" />
