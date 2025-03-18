@@ -9,7 +9,7 @@ import { useNavigate } from "react-router";
 import { ROUTE_LIST } from "./constants";
 import { loadFromStorage } from "./state/storage";
 import CharacterSheetTab from "./tabs/CharacterSheet";
-import { Download, Upload, Restore } from "@mui/icons-material";
+import { Download, Upload, Restore, MenuBook } from "@mui/icons-material";
 import VisuallyHiddenInput from "./components/VisuallyHiddenInput";
 import SnackStackProvider from "./components/StackingSnackbars/SnackStackProvider";
 
@@ -73,6 +73,17 @@ function App(props: AppProps) {
             flexGrow={1}
             justifyContent="flex-end"
           >
+            <Grid>
+              <Tooltip title="Go to rules" arrow>
+                <IconButton
+                  href="https://github.com/ken-bimmel/jedi-on-tauntauns/blob/main/rules/rules.md"
+                  target="_blank"
+                  color="primary"
+                >
+                  <MenuBook />
+                </IconButton>
+              </Tooltip>
+            </Grid>
             <Grid>
               <Tooltip title="Save data to disk" arrow>
                 <IconButton
