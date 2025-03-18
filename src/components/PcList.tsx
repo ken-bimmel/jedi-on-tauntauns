@@ -16,6 +16,7 @@ import {
 import { PC } from "../constants";
 import { PlusCircle } from "mdi-material-ui";
 import { StateDispatchContext } from "../state/reducerContext";
+import { Delete } from "@mui/icons-material";
 
 type PcListProps = {
   pcs: PC[];
@@ -67,11 +68,35 @@ function PcList(props: PcListProps) {
                   }
                 >
                   <Tooltip title={`${pc.totalIp}IP`} placement="left" arrow>
-                    <TableCell
-                      style={{ textTransform: "capitalize" }}
-                      onClick={makeLoadHandler(pc.id)}
-                    >
-                      {pc.name}
+                    <TableCell onClick={makeLoadHandler(pc.id)}>
+                      <Grid
+                        container
+                        flexDirection="row"
+                        spacing={1}
+                        alignItems="center"
+                        justifyContent="space-between"
+                      >
+                        <Grid>
+                          <Typography style={{ textTransform: "capitalize" }}>
+                            {pc.name}
+                          </Typography>
+                        </Grid>
+                        <Grid>
+                          <Tooltip title="Delete this character" arrow>
+                            <IconButton
+                              onClick={() =>
+                                dispatch?.({
+                                  type: "DELETE_PC",
+                                  payload: pc.id,
+                                })
+                              }
+                              color="error"
+                            >
+                              <Delete />
+                            </IconButton>
+                          </Tooltip>
+                        </Grid>
+                      </Grid>
                     </TableCell>
                   </Tooltip>
                 </TableRow>

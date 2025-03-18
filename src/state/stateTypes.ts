@@ -31,6 +31,10 @@ type StateActions =
       payload: string;
     }
   | {
+      type: "DELETE_PC";
+      payload: string;
+    }
+  | {
       type: "UPDATE_GENERATOR_SPECIES";
       payload: { id: string; label: string };
     }

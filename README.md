@@ -39,7 +39,7 @@ To start:
   - [ ] Make tabs sticky
 - [ ] Add data sharing urls
 - [x] Add rules and pdf generation
-- [ ] Add warning to reset button
+- [ ] Add warning to reset button and PC delete
 - [ ] New rating component for injury and destiny point trackers that allows
       tooltips on individual icons
 - [ ] Add link to rules
@@ -86,6 +86,7 @@ To start:
 - [x] Create a new blank character
   - [x] Save character with name
   - [x] Retrieve a saved character
+  - [x] Delete a saved character
 - [x] Track and modify
   - [x] Injuries
     - [x] Update injury tracker for PC injury states

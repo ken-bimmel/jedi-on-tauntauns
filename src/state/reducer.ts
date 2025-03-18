@@ -47,6 +47,17 @@ function reducer(state: AppState, action: StateActions) {
       });
       break;
     }
+    case "DELETE_PC": {
+      newState = produce(state, (draftState) => {
+        const pcIndex = draftState.pcs.findIndex(
+          (pc) => pc.id === action.payload
+        );
+        if (pcIndex !== -1) {
+          draftState.pcs.splice(pcIndex, 1);
+        }
+      });
+      break;
+    }
     case "UPDATE_GENERATOR_SPECIES": {
       newState = produce(state, (draftState) => {
         draftState.generatorConfiguration.activeSpecies = action.payload;
