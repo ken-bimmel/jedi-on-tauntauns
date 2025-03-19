@@ -13,6 +13,7 @@ import {
   Typography,
 } from "@mui/material";
 import { NPC } from "../constants";
+import { groupNpcs } from "../utilities/npcGrouper";
 
 type NpcListProps = {
   npcs: NPC[];
@@ -20,6 +21,7 @@ type NpcListProps = {
 
 function NpcList(props: NpcListProps) {
   const { npcs } = props;
+  const groupedNpcs = groupNpcs(npcs);
 
   function makeScrollHandler(characterId: string) {
     return () => {
@@ -40,22 +42,31 @@ function NpcList(props: NpcListProps) {
               </TableCell>
             </TableHead>
             <TableBody>
-              {npcs.map((npc) => (
-                <TableRow key={npc.id}>
-                  <Tooltip
-                    title={`${npc.disposition} ${npc.species} ${npc.role}`}
-                    placement="left"
-                    arrow
-                  >
-                    <TableCell
-                      style={{ textTransform: "capitalize" }}
-                      onClick={makeScrollHandler(npc.id)}
-                    >
-                      {npc.name}
-                    </TableCell>
-                  </Tooltip>
-                </TableRow>
-              ))}
+              {Object.keys(groupedNpcs)
+                .sort()
+                .map((group) => (
+                  <>
+                    <TableRow key={group}>
+                      <Typography variant="h6">{group}</Typography>
+                    </TableRow>
+                    {groupedNpcs[group].map((npc) => (
+                      <TableRow key={npc.id}>
+                        <Tooltip
+                          title={`${npc.disposition} ${npc.species} ${npc.role}`}
+                          placement="left"
+                          arrow
+                        >
+                          <TableCell
+                            style={{ textTransform: "capitalize" }}
+                            onClick={makeScrollHandler(npc.id)}
+                          >
+                            {npc.name}
+                          </TableCell>
+                        </Tooltip>
+                      </TableRow>
+                    ))}
+                  </>
+                ))}
             </TableBody>
           </Table>
         </CardContent>

@@ -75,8 +75,8 @@ To start:
 - [x] Add rules text as tooltips
   - [x] Add to stats
   - [x] Add to injury levels
-- [ ] Add NPC grouping and table of contents
-  - [ ] NPC groups/affiliation
+- [x] Add NPC grouping and table of contents
+  - [x] NPC groups/affiliation
   - [x] Set friendly/hostile/neutral status
   - [x] Table of contents
 - [x] Roll stats
