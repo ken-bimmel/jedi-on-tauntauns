@@ -18,6 +18,7 @@ import {
   StatsArray,
   SPECIES,
   Species,
+  DEFAULT_GROUP,
 } from "../constants";
 import { normalRandom, shuffleArray } from "./random";
 
@@ -46,6 +47,7 @@ function generateNpc(
     maxInjuries: tier.maxInjuries,
     currentInjuries: 0,
     disposition: "Neutral",
+    group: DEFAULT_GROUP,
   };
 
   return npc;

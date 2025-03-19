@@ -6,8 +6,19 @@ type NPC = Character & {
    * NPC at time of creation
    */
   role: string;
+  /**
+   * The NPC's disposition towards the players
+   */
   disposition: "Hostile" | "Neutral" | "Friendly";
+  /**
+   * The group, if any, the NPC is associated with.
+   *
+   * @default "Unaffiliated"
+   */
+  group: string;
 };
+
+const DEFAULT_GROUP = "Unaffiliated";
 
 const MAX_NPC_DESTINY = 5;
 
@@ -48,6 +59,7 @@ const EXAMPLE_NPC: NPC = {
   maxInjuries: 4,
   currentInjuries: 1,
   currentDestiny: 3,
+  group: "Black Sun",
 };
 
-export { NPC, EXAMPLE_NPC, MAX_NPC_DESTINY };
+export { NPC, EXAMPLE_NPC, MAX_NPC_DESTINY, DEFAULT_GROUP };

@@ -31,6 +31,7 @@ function EditableNarrativeSection(props: EditableNarrativeSectionProps) {
       });
     };
   }
+
   return (
     <>
       <Grid
@@ -70,14 +71,24 @@ function EditableNarrativeSection(props: EditableNarrativeSectionProps) {
           />
         </Grid>
         {isNpc ? (
-          <Grid>
-            <TextField
-              label="NPC Role"
-              variant="outlined"
-              value={(character as NPC).role}
-              onChange={makeChangeHandler("role")}
-            />
-          </Grid>
+          <>
+            <Grid>
+              <TextField
+                label="NPC Role"
+                variant="outlined"
+                value={(character as NPC).role}
+                onChange={makeChangeHandler("role")}
+              />
+            </Grid>
+            <Grid>
+              <TextField
+                label="NPC Group Affiliation"
+                variant="outlined"
+                value={(character as NPC).group}
+                onChange={makeChangeHandler("group")}
+              />
+            </Grid>
+          </>
         ) : null}
       </Grid>
       <Grid flexGrow={1}>
