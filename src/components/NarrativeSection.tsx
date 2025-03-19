@@ -2,13 +2,9 @@ import React, { useContext } from "react";
 
 import { Grid2 as Grid, IconButton, Tooltip, Typography } from "@mui/material";
 import { NPC, PC } from "../constants";
-import {
-  Description,
-  ThumbDown,
-  ThumbsUpDown,
-  ThumbUp,
-} from "@mui/icons-material";
+import { Description } from "@mui/icons-material";
 import { StateDispatchContext } from "../state/reducerContext";
+import { EmoticonAngry, EmoticonHappy, EmoticonNeutral } from "mdi-material-ui";
 
 type NarrativeSectionProps = {
   character: NPC | PC;
@@ -35,11 +31,11 @@ function NarrativeSection(props: NarrativeSectionProps) {
             }
           >
             {(character as NPC).disposition === "Neutral" ? (
-              <ThumbsUpDown />
+              <EmoticonNeutral />
             ) : (character as NPC).disposition === "Friendly" ? (
-              <ThumbUp color="success" />
+              <EmoticonHappy color="success" />
             ) : (
-              <ThumbDown color="error" />
+              <EmoticonAngry color="error" />
             )}
           </IconButton>
         </Tooltip>

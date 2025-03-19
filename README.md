@@ -77,7 +77,7 @@ To start:
   - [x] Add to injury levels
 - [ ] Add NPC grouping and table of contents
   - [ ] NPC groups/affiliation
-  - [ ] Set friendly/hostile/neutral status
+  - [x] Set friendly/hostile/neutral status
   - [x] Table of contents
 - [x] Roll stats
   - [x] Flat rolls
