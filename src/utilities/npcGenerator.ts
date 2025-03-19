@@ -41,7 +41,7 @@ function generateNpc(
     name,
     species: genSpecies,
     stats: generateStatsArray(internalRole, tier, forceSensitive),
-    feats: generateFeatArray(tier, role),
+    feats: generateFeatArray(tier, internalRole),
     role: `${tier.name} ${internalRole.name}`,
     maxInjuries: tier.maxInjuries,
     currentInjuries: 0,

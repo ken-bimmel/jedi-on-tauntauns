@@ -9,10 +9,11 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import { STAT_COLORS, INJURY_LEVELS, Character } from "../constants";
+import { STAT_COLORS, Character } from "../constants";
 import { AddCircle, RemoveCircle } from "@mui/icons-material";
 import { AccountInjury, Bandage, Skull, Sleep } from "mdi-material-ui";
 import { StateDispatchContext } from "../state/reducerContext";
+import { getInjuryLevel } from "../utilities/injuryLevelCalculator";
 
 const InjuryRating = styled(Rating)({
   "& .MuiRating-iconFilled": {
@@ -83,18 +84,7 @@ function InjuryTracker(props: InjuryTrackerProps) {
     };
   }
 
-  const currentInjuryLevel = character.currentInjuries ?? 0;
-
-  let injuryLevel = INJURY_LEVELS.uninjured;
-  if (currentInjuryLevel === character.maxInjuries) {
-    injuryLevel = INJURY_LEVELS.dead;
-  } else if (currentInjuryLevel === character.maxInjuries - 1) {
-    injuryLevel = INJURY_LEVELS.unconscious;
-  } else if (currentInjuryLevel === character.maxInjuries - 2) {
-    injuryLevel = INJURY_LEVELS.majorInjury;
-  } else if (character.currentInjuries !== 0) {
-    injuryLevel = INJURY_LEVELS.minorInjury;
-  }
+  const injuryLevel = getInjuryLevel(character);
 
   return (
     <Grid container flexDirection="row" alignItems="center" spacing={1}>
@@ -111,7 +101,7 @@ function InjuryTracker(props: InjuryTrackerProps) {
         <Tooltip title={<InjuryLabel {...injuryLevel} />} arrow>
           <InjuryRating
             max={character.maxInjuries}
-            value={currentInjuryLevel}
+            value={character.currentInjuries ?? 0}
             precision={1}
             IconContainerComponent={makeIconContainer(character.maxInjuries)}
             onChange={(_e: Event, value: null | number) => {

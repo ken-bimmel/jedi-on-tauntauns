@@ -1,4 +1,5 @@
-import { Character, INJURY_LEVELS, Stat } from "../constants";
+import { Character, Stat } from "../constants";
+import { getInjuryLevel } from "./injuryLevelCalculator";
 
 function rollStat(
   stat: Stat,
@@ -14,19 +15,15 @@ function rollStat(
    */
   unModifiedRoll: number;
 } {
-  const currentInjuryLevel = character.currentInjuries ?? 0;
+  const injuryLevel = getInjuryLevel(character);
 
-  let modifier = 0;
-  if (currentInjuryLevel === character.maxInjuries) {
+  const modifier = injuryLevel.modifier;
+  const isAutoFail = injuryLevel.autoFailStats.includes(stat.name);
+
+  if (isAutoFail) {
     return { result: undefined, unModifiedRoll: 0 };
-  } else if (currentInjuryLevel === character.maxInjuries - 1) {
-    if (INJURY_LEVELS.unconscious.autoFailStats.includes(stat.name)) {
-      return { result: undefined, unModifiedRoll: 0 };
-    }
-    modifier = INJURY_LEVELS.unconscious.modifier;
-  } else if (currentInjuryLevel === character.maxInjuries - 2) {
-    modifier = INJURY_LEVELS.majorInjury.modifier;
   }
+
   const max = stat.value;
   const roll = Math.ceil(Math.random() * max);
   return {

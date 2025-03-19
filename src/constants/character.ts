@@ -73,13 +73,15 @@ type Character = {
   currentDestiny?: number;
 };
 
+type InjuryLevel = {
+  name: string;
+  rulesExplanation: string;
+  modifier: number;
+  autoFailStats: StatName[];
+};
+
 const INJURY_LEVELS: {
-  [key: string]: {
-    name: string;
-    rulesExplanation: string;
-    modifier: number;
-    autoFailStats: StatName[];
-  };
+  [key: string]: InjuryLevel;
 } = {
   uninjured: {
     name: "Uninjured",
