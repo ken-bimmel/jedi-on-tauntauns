@@ -31,6 +31,9 @@ make changes to the rules text.
 # Upcoming or desired features
 
 - [ ] More rules/text
+  - [ ] Vehicle rules
+    - [ ] Standard starting modules for classes of vehicles
+      - [ ] reduced starting VP in exchange for those modules
   - [ ] Additional examples
     - [ ] Vehicle creation
     - [ ] Combat/social encounter

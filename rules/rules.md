@@ -223,7 +223,7 @@ Vehicles are similar, but not the same as characters. Every vehicle will have a 
 
 ## Specs
 
-Specs define the performance characteristics of a vehicle. All Specs start at a value of 0 and cannot be improved past 3.
+Specs define the performance characteristics of a vehicle. All Specs start at a value of 0 and cannot be improved past 3. A Spec also cannot be reduced below -3.
 
 ### Speed
 
@@ -249,11 +249,13 @@ Systems covers activities that are related to the use of specific Modules in pla
 
 Every vehicle can have some number of Modules that provide additional capabilities. Examples of these are listed below, but you should always feel free to work with your GM to design additional new Modules. Some Modules may directly increase or decrease the bonuses and penalties your vehicle's Specs provide, while other Modules may simply provide new capabilities. You can think of Modules like Feats.
 
+<!-- Add templates for starting like "land vehicle" "light starship" "heavy starship" etc. these all have a starting number of modules and a starting number of VP. The starting modules are all simple things, like life support, sub-light engines, hyperdrive, crew cabins. These can provide the backbone of ships' effective HP, while offering for more interesting roleplay opportunities when they get destroyed instead of just the extra things on the ship being destroyed -->
+
 | Module                            | Cost | Description                                                                                                                                                                                                                                                                                                     |
 | --------------------------------- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Improved Maneuvering Jets         | 1VP  | Increase this vehicle's Maneuverability Spec by 1.                                                                                                                                                                                                                                                              |
 | Greater Improved Maneuvering Jets | 2VP  | Increase this vehicle's Maneuverability Spec by 1.                                                                                                                                                                                                                                                              |
-| Concealed Compartments            | 1VP  | This vehicle now has hidden cargo containers                                                                                                                                                                                                                                                                    |
+| Cargo Bay                         | 1VP  | This vehicle can now carry cargo                                                                                                                                                                                                                                                                                |
 | Distinctive Livery                | 1VP  | This vehicle is painted in a distinctive livery. If this livery is associated with a particular organization, you receive a +2 bonus to Charm checks related to that organization while in or near the vehicle. This vehicle receives a -2 penalty to checks while trying to pretend to be a different vehicle. |
 | A Hydrospanner a Day...           | 1VP  | One or more characters may spend a full day wrenching on this vehicle. For one week or until this vehicle is next damaged (whichever comes first), this vehicle receives a +1 bonus to all Specs.                                                                                                               |
 

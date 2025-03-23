@@ -114,8 +114,12 @@ To start:
 - [ ] Create a new vehicle
   - [ ] Save vehicle
   - [ ] Retrieve a saved vehicle
+  - [ ] Incorporate vehicle class
 - [ ] Track and modify
-  - [ ] Hull
-  - [ ] Systems
-  - [ ] Modifiers
+  - [ ] Specs
+  - [ ] Modules
+  - [ ] Damage
+    - [ ] Repair costs
   - [ ] Cargo
+  - [ ] VP
+- [ ] Linking characters to ships for ship rolls?
