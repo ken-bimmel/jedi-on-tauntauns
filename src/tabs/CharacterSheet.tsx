@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { Grid2 as Grid } from "@mui/material";
 import { StateDispatchContext } from "../state/reducerContext";
 import { AppState } from "../state/stateTypes";
-import PcCard from "../components/PcCard";
-import PcList from "../components/PcList";
+import PcCard from "../components/Characters/PcCard";
+import PcList from "../components/Characters/PcList";
 
 type CharacterSheetTabProps = {
   state: AppState;

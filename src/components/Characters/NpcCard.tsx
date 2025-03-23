@@ -1,45 +1,43 @@
 import React, { useState } from "react";
 
 import { Card, CardContent, Grid2 as Grid } from "@mui/material";
-import { PC } from "../constants";
+import { NPC } from "../../constants";
 import StatsSection from "./StatSection";
 import NarrativeSection from "./NarrativeSection";
 import FeatsSection from "./FeatsSection";
 import ActionsSection from "./ActionsSection";
 import EditSection from "./EditSection";
-import InventorySection from "./InventorySection";
 
-type PCCardProps = {
-  pc: PC;
+type NpcCardProps = {
+  npc: NPC;
 };
 
-function PcCard(props: PCCardProps) {
-  const { pc } = props;
+function NpcCard(props: NpcCardProps) {
+  const { npc } = props;
   const [isEditMode, setIsEditMode] = useState(false);
 
   return (
     <Grid>
-      <Card style={{ width: "fit-content" }}>
+      <Card id={npc.id} style={{ width: "fit-content" }}>
         <CardContent style={{ width: "fit-content", minWidth: "1000px" }}>
           <Grid container flexDirection="column" spacing={2}>
             <Grid container flexDirection="row" spacing={2}>
-              <NarrativeSection character={pc} isNpc={false} />
+              <NarrativeSection character={npc} isNpc={true} />
               <ActionsSection
-                character={pc}
-                isNpc={false}
+                character={npc}
+                isNpc={true}
                 isEditMode={isEditMode}
                 editModeCallback={setIsEditMode}
               />
             </Grid>
             {isEditMode ? (
-              <EditSection character={pc} isNpc={false} />
+              <EditSection character={npc} isNpc={true} />
             ) : (
               <>
-                <StatsSection character={pc} />
-                <FeatsSection feats={pc.feats} isNpc={false} />
+                <StatsSection character={npc} />
+                <FeatsSection feats={npc.feats} isNpc={true} />
               </>
             )}
-            <InventorySection character={pc} isEditMode={isEditMode} />
           </Grid>
         </CardContent>
       </Card>
@@ -47,4 +45,4 @@ function PcCard(props: PCCardProps) {
   );
 }
 
-export default PcCard;
+export default NpcCard;

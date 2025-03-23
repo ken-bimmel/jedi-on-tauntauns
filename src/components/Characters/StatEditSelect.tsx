@@ -6,9 +6,9 @@ import {
   Select,
   SelectChangeEvent,
 } from "@mui/material";
-import { DieSize, Stat, StatsArray } from "../constants/character";
+import { DieSize, Stat, StatsArray } from "../../constants/character";
 import { useContext } from "react";
-import { StateDispatchContext } from "../state/reducerContext";
+import { StateDispatchContext } from "../../state/reducerContext";
 
 type StatEditSelectProps = {
   stat: Stat;

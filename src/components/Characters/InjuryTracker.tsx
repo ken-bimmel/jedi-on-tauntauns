@@ -9,11 +9,11 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import { STAT_COLORS, Character } from "../constants";
+import { STAT_COLORS, Character } from "../../constants";
 import { AddCircle, RemoveCircle } from "@mui/icons-material";
 import { AccountInjury, Bandage, Skull, Sleep } from "mdi-material-ui";
-import { StateDispatchContext } from "../state/reducerContext";
-import { getInjuryLevel } from "../utilities/injuryLevelCalculator";
+import { StateDispatchContext } from "../../state/reducerContext";
+import { getInjuryLevel } from "../../utilities/injuryLevelCalculator";
 
 const InjuryRating = styled(Rating)({
   "& .MuiRating-iconFilled": {

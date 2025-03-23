@@ -12,9 +12,9 @@ import {
   TableRow,
   TextField,
 } from "@mui/material";
-import { PC } from "../constants";
+import { PC } from "../../constants";
 import { Add, Delete } from "@mui/icons-material";
-import { StateDispatchContext } from "../state/reducerContext";
+import { StateDispatchContext } from "../../state/reducerContext";
 
 type InventorySectionProps = {
   character: PC;

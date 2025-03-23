@@ -6,9 +6,9 @@ import {
   MAX_NPC_DESTINY,
   MAX_PC_DESTINY,
   STAT_COLORS,
-} from "../constants";
+} from "../../constants";
 import { HourglassFull, HourglassEmpty } from "@mui/icons-material";
-import { StateDispatchContext } from "../state/reducerContext";
+import { StateDispatchContext } from "../../state/reducerContext";
 
 const DestinyRating = styled(Rating)({
   "& .MuiRating-iconFilled": {

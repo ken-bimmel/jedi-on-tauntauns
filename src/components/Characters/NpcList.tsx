@@ -12,8 +12,8 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import { NPC } from "../constants";
-import { groupNpcs } from "../utilities/npcGrouper";
+import { NPC } from "../../constants";
+import { groupNpcs } from "../../utilities/npcGrouper";
 
 type NpcListProps = {
   npcs: NPC[];

@@ -12,9 +12,9 @@ import {
   TableRow,
   TextField,
 } from "@mui/material";
-import { Character } from "../constants";
+import { Character } from "../../constants";
 import { Add, Delete } from "@mui/icons-material";
-import { StateDispatchContext } from "../state/reducerContext";
+import { StateDispatchContext } from "../../state/reducerContext";
 
 type EditableFeatsSectionProps = {
   character: Character;

@@ -8,7 +8,7 @@ import {
   Switch,
   TextField,
 } from "@mui/material";
-import NpcCard from "../components/NpcCard";
+import NpcCard from "../components/Characters/NpcCard";
 import {
   ROLE_LIST,
   DEFAULT_ROLE,
@@ -19,7 +19,7 @@ import {
 } from "../constants";
 import { StateDispatchContext } from "../state/reducerContext";
 import { AppState } from "../state/stateTypes";
-import NpcList from "../components/NpcList";
+import NpcList from "../components/Characters/NpcList";
 
 type NpcGeneratorTabProps = {
   state: AppState;

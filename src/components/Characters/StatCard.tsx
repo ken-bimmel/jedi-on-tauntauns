@@ -7,12 +7,12 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import { Character, Stat, STAT_DESCRIPTIONS } from "../constants";
-import { composeStatRollMessage } from "../utilities/statRoller";
-import { useSnackStack } from "./StackingSnackbars/SnackStackProvider";
-import StackingSnackbar from "./StackingSnackbars/StackingSnackbar";
+import { Character, Stat, STAT_DESCRIPTIONS } from "../../constants";
+import { composeStatRollMessage } from "../../utilities/statRoller";
+import { useSnackStack } from "../StackingSnackbars/SnackStackProvider";
+import StackingSnackbar from "../StackingSnackbars/StackingSnackbar";
 import { DiceMultiple } from "mdi-material-ui";
-import { StateDispatchContext } from "../state/reducerContext";
+import { StateDispatchContext } from "../../state/reducerContext";
 
 type StatCardProps = {
   stat: Stat;

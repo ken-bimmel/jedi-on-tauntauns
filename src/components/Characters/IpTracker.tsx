@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { Grid2 as Grid, IconButton, Tooltip, Typography } from "@mui/material";
-import { PC } from "../constants";
-import { calcPcCurrentIp } from "../utilities/ipCalculator";
+import { PC } from "../../constants";
+import { calcPcCurrentIp } from "../../utilities/ipCalculator";
 import { AddCircle, RemoveCircle } from "@mui/icons-material";
-import { StateDispatchContext } from "../state/reducerContext";
+import { StateDispatchContext } from "../../state/reducerContext";
 
 type IpTrackerProps = {
   character: PC;

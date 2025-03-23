@@ -13,9 +13,9 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import { PC } from "../constants";
+import { PC } from "../../constants";
 import { PlusCircle } from "mdi-material-ui";
-import { StateDispatchContext } from "../state/reducerContext";
+import { StateDispatchContext } from "../../state/reducerContext";
 import { Delete } from "@mui/icons-material";
 
 type PcListProps = {

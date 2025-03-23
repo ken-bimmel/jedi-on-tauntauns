@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 
 import { Grid2 as Grid, IconButton, Tooltip, Typography } from "@mui/material";
-import { NPC, PC } from "../constants";
+import { NPC, PC } from "../../constants";
 import { Description } from "@mui/icons-material";
-import { StateDispatchContext } from "../state/reducerContext";
+import { StateDispatchContext } from "../../state/reducerContext";
 import { EmoticonAngry, EmoticonHappy, EmoticonNeutral } from "mdi-material-ui";
 
 type NarrativeSectionProps = {

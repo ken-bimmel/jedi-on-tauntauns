@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 
 import { Grid2 as Grid, IconButton, TextField, Tooltip } from "@mui/material";
-import { NPC, PC, SPECIES } from "../constants";
+import { NPC, PC, SPECIES } from "../../constants";
 import { Launch } from "@mui/icons-material";
-import { StateDispatchContext } from "../state/reducerContext";
+import { StateDispatchContext } from "../../state/reducerContext";
 
 type EditableNarrativeSectionProps = {
   character: NPC | PC;

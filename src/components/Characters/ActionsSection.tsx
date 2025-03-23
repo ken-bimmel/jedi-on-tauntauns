@@ -10,8 +10,8 @@ import {
   SelectChangeEvent,
   Tooltip,
 } from "@mui/material";
-import { NPC, PC, StatName } from "../constants";
-import { StateDispatchContext } from "../state/reducerContext";
+import { NPC, PC, StatName } from "../../constants";
+import { StateDispatchContext } from "../../state/reducerContext";
 import { Delete, Edit, Save } from "@mui/icons-material";
 import InjuryTracker from "./InjuryTracker";
 import DestinyPointTracker from "./DestinyPointTracker";

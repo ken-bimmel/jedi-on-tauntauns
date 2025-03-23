@@ -2,7 +2,7 @@ import React from "react";
 
 import { Grid2 as Grid } from "@mui/material";
 import StatCard from "./StatCard";
-import { Character, STAT_COLORS } from "../constants";
+import { Character, STAT_COLORS } from "../../constants";
 
 type statSectionProps = {
   character: Character;
