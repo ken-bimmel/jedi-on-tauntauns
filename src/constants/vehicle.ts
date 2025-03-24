@@ -5,10 +5,24 @@ type SpecName =
   | "Durability"
   | "Systems";
 
+type VehicleClass =
+  | "Terrestrial Vehicle"
+  | "Small Starship"
+  | "Medium Starship"
+  | "Large Starship";
+
 type Spec = {
   name: SpecName;
   bonus: number;
 };
+
+const STARTING_SPECS: Spec[] = [
+  { name: "Speed", bonus: 0 },
+  { name: "Maneuverability", bonus: 0 },
+  { name: "Firepower", bonus: 0 },
+  { name: "Durability", bonus: 0 },
+  { name: "Systems", bonus: 0 },
+];
 
 type Module = {
   id: string;
@@ -33,6 +47,68 @@ type Vehicle = {
   model: string;
   modules: Module[];
   cargo: CargoItem[];
+  class: VehicleClass;
+};
+
+const ENGINE_MODULE: Module = {
+  id: window.crypto.randomUUID(),
+  name: "Engine",
+  cost: 0,
+  description: "The engine allows the vehicle to move.",
+  damaged: false,
+};
+
+const COCKPIT_MODULE: Module = {
+  id: window.crypto.randomUUID(),
+  name: "Cockpit",
+  cost: 0,
+  description: "The cockpit allows the vehicle to be driven.",
+  damaged: false,
+};
+
+const LIFE_SUPPORT_MODULE: Module = {
+  id: window.crypto.randomUUID(),
+  name: "Life Support",
+  cost: 0,
+  description:
+    "The life support allows the vehicle to keep crew alive in a vacuum.",
+  damaged: false,
+};
+
+const CREW_QUARTERS_MODULE: Module = {
+  id: window.crypto.randomUUID(),
+  name: "Crew Quarters",
+  cost: 0,
+  description:
+    "The life support allows the vehicle to keep crew alive in a vacuum.",
+  damaged: false,
+};
+
+const ESCAPE_PODS_MODULE: Module = {
+  id: window.crypto.randomUUID(),
+  name: "Escape Pods",
+  cost: 0,
+  description:
+    "These escape pods allow you to get off the vehicle in a hurry if you need.",
+  damaged: false,
+};
+
+const CLASS_STARTING_MODULES: Record<VehicleClass, Module[]> = {
+  "Terrestrial Vehicle": [ENGINE_MODULE, COCKPIT_MODULE],
+  "Small Starship": [ENGINE_MODULE, COCKPIT_MODULE, LIFE_SUPPORT_MODULE],
+  "Medium Starship": [
+    ENGINE_MODULE,
+    COCKPIT_MODULE,
+    LIFE_SUPPORT_MODULE,
+    CREW_QUARTERS_MODULE,
+  ],
+  "Large Starship": [
+    ENGINE_MODULE,
+    COCKPIT_MODULE,
+    LIFE_SUPPORT_MODULE,
+    CREW_QUARTERS_MODULE,
+    ESCAPE_PODS_MODULE,
+  ],
 };
 
 const EXAMPLE_VEHICLE: Vehicle = {
@@ -69,6 +145,15 @@ const EXAMPLE_VEHICLE: Vehicle = {
         "This mysterious cargo container wiggles and shakes sometimes.",
     },
   ],
+  class: "Medium Starship",
 };
 
-export { SpecName, Spec, Vehicle, EXAMPLE_VEHICLE };
+export {
+  VehicleClass,
+  SpecName,
+  Spec,
+  Vehicle,
+  EXAMPLE_VEHICLE,
+  CLASS_STARTING_MODULES,
+  STARTING_SPECS,
+};
