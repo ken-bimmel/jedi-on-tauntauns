@@ -10,6 +10,8 @@ import {
   DEFAULT_SPECIES,
   StatName,
   Roll,
+  Vehicle,
+  EXAMPLE_VEHICLE,
 } from "../constants";
 
 type StateActions =
@@ -172,8 +174,10 @@ type AppState = {
   };
   npcs: NPC[];
   pcs: PC[];
+  vehicles: Vehicle[];
   rollLog: Roll[];
   activePcId: string;
+  activeVehicleId: string;
 };
 
 const DEFAULT_STATE: AppState = {
@@ -185,8 +189,10 @@ const DEFAULT_STATE: AppState = {
   },
   npcs: [EXAMPLE_NPC],
   pcs: [EXAMPLE_PC],
+  vehicles: [EXAMPLE_VEHICLE],
   rollLog: [],
   activePcId: EXAMPLE_PC.id,
+  activeVehicleId: EXAMPLE_VEHICLE.id,
 };
 
 export { StateActions, AppState, DEFAULT_STATE };

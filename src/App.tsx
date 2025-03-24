@@ -12,6 +12,7 @@ import CharacterSheetTab from "./tabs/CharacterSheet";
 import { Download, Upload, Restore, MenuBook } from "@mui/icons-material";
 import VisuallyHiddenInput from "./components/VisuallyHiddenInput";
 import SnackStackProvider from "./components/StackingSnackbars/SnackStackProvider";
+import VehicleSheet from "./tabs/VehicleSheet";
 
 type AppProps = {
   startingTab: number;
@@ -137,7 +138,7 @@ function App(props: AppProps) {
           <CharacterSheetTab state={state} />
         </TabPanel>
         <TabPanel value={activeTab} index={2}>
-          The Vehicle Sheet is under construction.
+          <VehicleSheet state={state} />
         </TabPanel>
       </SnackStackProvider>
     </StateDispatchContext.Provider>
