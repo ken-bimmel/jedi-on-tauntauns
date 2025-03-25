@@ -1,4 +1,9 @@
-import { Vehicle, VehicleClass, CLASS_STARTING_MODULES } from "../constants";
+import {
+  Vehicle,
+  VehicleClass,
+  CLASS_STARTING_MODULES,
+  STARTING_VP,
+} from "../constants";
 
 function generateBlankVehicle(vehicleClass: VehicleClass): Vehicle {
   const startingModules = structuredClone(CLASS_STARTING_MODULES[vehicleClass]);
@@ -10,6 +15,7 @@ function generateBlankVehicle(vehicleClass: VehicleClass): Vehicle {
     modules: startingModules,
     cargo: [],
     class: vehicleClass,
+    maxVp: STARTING_VP,
   };
 }
 

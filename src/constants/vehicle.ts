@@ -32,6 +32,14 @@ type Module = {
   increasedSpec?: SpecName;
   decreasedSpec?: SpecName;
   damaged: boolean;
+  /**
+   * Whether the system is active or not. An active system applies the changes
+   * to specs, an inactive system does not.
+   *
+   * If this field is left as `undefined`, the Module is always active and will
+   * not present the option to deactivate it.
+   */
+  active?: boolean;
 };
 
 type CargoItem = {
@@ -48,13 +56,16 @@ type Vehicle = {
   modules: Module[];
   cargo: CargoItem[];
   class: VehicleClass;
+  maxVp: number;
 };
+
+const STARTING_VP = 4;
 
 const ENGINE_MODULE: Module = {
   id: window.crypto.randomUUID(),
   name: "Engine",
   cost: 0,
-  description: "The engine allows the vehicle to move.",
+  description: "The engine allows the vehicle to move",
   damaged: false,
 };
 
@@ -62,7 +73,7 @@ const COCKPIT_MODULE: Module = {
   id: window.crypto.randomUUID(),
   name: "Cockpit",
   cost: 0,
-  description: "The cockpit allows the vehicle to be driven.",
+  description: "The cockpit allows the vehicle to be driven",
   damaged: false,
 };
 
@@ -71,7 +82,7 @@ const LIFE_SUPPORT_MODULE: Module = {
   name: "Life Support",
   cost: 0,
   description:
-    "The life support allows the vehicle to keep crew alive in a vacuum.",
+    "The life support allows the vehicle to keep crew alive in a vacuum",
   damaged: false,
 };
 
@@ -80,7 +91,7 @@ const CREW_QUARTERS_MODULE: Module = {
   name: "Crew Quarters",
   cost: 0,
   description:
-    "The life support allows the vehicle to keep crew alive in a vacuum.",
+    "The crew quarters provides a comfortable place for the crew to rest and relax",
   damaged: false,
 };
 
@@ -89,7 +100,7 @@ const ESCAPE_PODS_MODULE: Module = {
   name: "Escape Pods",
   cost: 0,
   description:
-    "These escape pods allow you to get off the vehicle in a hurry if you need.",
+    "The escape pods allow you to get off the vehicle in a hurry if you need",
   damaged: false,
 };
 
@@ -146,6 +157,7 @@ const EXAMPLE_VEHICLE: Vehicle = {
     },
   ],
   class: "Medium Starship",
+  maxVp: STARTING_VP,
 };
 
 export {
@@ -156,4 +168,5 @@ export {
   EXAMPLE_VEHICLE,
   CLASS_STARTING_MODULES,
   STARTING_SPECS,
+  STARTING_VP,
 };

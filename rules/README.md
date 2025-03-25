@@ -31,13 +31,14 @@ make changes to the rules text.
 # Upcoming or desired features
 
 - [ ] More rules/text
-  - [ ] Vehicle rules
-    - [ ] Standard starting modules for classes of vehicles
-      - [ ] reduced starting VP in exchange for those modules
+  - [x] Vehicle rules
+    - [x] Standard starting modules for classes of vehicles
   - [ ] Additional examples
     - [ ] Vehicle creation
-    - [ ] Combat/social encounter
+    - [ ] Combat encounter
+    - [ ] Social encounter
   - [ ] GM section
+    - [ ] Play philosophy
     - [ ] Check difficulty explanation
     - [ ] NPC Generation logic?
 - [ ] Infrastructure

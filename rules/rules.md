@@ -35,9 +35,11 @@
     - [Durability](#durability)
     - [Systems](#systems)
   - [Modules](#modules)
+    - [Starting Modules](#starting-modules)
   - [Vehicles and Damage](#vehicles-and-damage)
     - [Repairing Vehicles](#repairing-vehicles)
   - [Vehicle Creation](#vehicle-creation)
+    - [Vehicle Classes](#vehicle-classes)
     - [Vehicle Improvement](#vehicle-improvement)
 - [Examples](#examples)
   - [Example Character Build](#example-character-build)
@@ -219,11 +221,11 @@ Please note that these rules intentionally do not provide a system for tracking 
 
 # Vehicles
 
-Vehicles are similar, but not the same as characters. Every vehicle will have a set of five Specs. Each of these Specs covers a range of activities you might perform while using the vehicle. Each Spec is a bonus or penalty that is applied to your character's roll whenever you make a Stat check to perform a related activity. Additionally, each vehicle can have a number of Modules that expand its capabilities.
+Vehicles are similar, but not the same as characters. Every vehicle will have a set of five Specs. Each of these Specs covers a range of activities you might perform while using the vehicle. Each Spec is a bonus or penalty that is applied to your character's roll whenever you make a Stat check to perform a related activity. Additionally, each vehicle will have a number of Modules that define its capabilities.
 
 ## Specs
 
-Specs define the performance characteristics of a vehicle. All Specs start at a value of 0 and cannot be improved past 3. A Spec also cannot be reduced below -3.
+Specs define the performance characteristics of a vehicle. All Specs start at a value of 0 and cannot provide a bonus of more than 3. A Spec also cannot impose a penalty below -3. Specs are modified by the Modules that you have installed on the Vehicle.
 
 ### Speed
 
@@ -247,19 +249,40 @@ Systems covers activities that are related to the use of specific Modules in pla
 
 ## Modules
 
-Every vehicle can have some number of Modules that provide additional capabilities. Examples of these are listed below, but you should always feel free to work with your GM to design additional new Modules. Some Modules may directly increase or decrease the bonuses and penalties your vehicle's Specs provide, while other Modules may simply provide new capabilities. You can think of Modules like Feats.
+Every vehicle will have a number of Modules that provide additional capabilities. Modules typically come in one of three broad categories:
 
-<!-- Add templates for starting like "land vehicle" "light starship" "heavy starship" etc. these all have a starting number of modules and a starting number of VP. The starting modules are all simple things, like life support, sub-light engines, hyperdrive, crew cabins. These can provide the backbone of ships' effective HP, while offering for more interesting roleplay opportunities when they get destroyed instead of just the extra things on the ship being destroyed -->
+1. Modules that change Spec bonuses and penalties
+2. Modules that add functionality to the Vehicle
+3. Modules that change the way characters interact with the Vehicle
 
-| Module                            | Cost | Description                                                                                                                                                                                                                                                                                                     |
-| --------------------------------- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Improved Maneuvering Jets         | 1VP  | Increase this vehicle's Maneuverability Spec by 1.                                                                                                                                                                                                                                                              |
-| Greater Improved Maneuvering Jets | 2VP  | Increase this vehicle's Maneuverability Spec by 1.                                                                                                                                                                                                                                                              |
-| Cargo Bay                         | 1VP  | This vehicle can now carry cargo                                                                                                                                                                                                                                                                                |
-| Distinctive Livery                | 1VP  | This vehicle is painted in a distinctive livery. If this livery is associated with a particular organization, you receive a +2 bonus to Charm checks related to that organization while in or near the vehicle. This vehicle receives a -2 penalty to checks while trying to pretend to be a different vehicle. |
-| A Hydrospanner a Day...           | 1VP  | One or more characters may spend a full day wrenching on this vehicle. For one week or until this vehicle is next damaged (whichever comes first), this vehicle receives a +1 bonus to all Specs.                                                                                                               |
+Examples of these Modules are listed below, but it is highly encouraged that you work with your GM to design additional new Modules to suit the needs of your party.
 
-If you are creating Modules that increase the Specs of the vehicle, each Module should cost 1 more VP than the previous Module (i.e. the first costs 1VP, the second costs 2VP, and the third costs 3VP).
+| Module                    | Cost | Description                                                                                                                                                                                                                                                                                                     |
+| ------------------------- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Maneuvering Jets          | 1VP  | Increase this vehicle's Maneuverability Spec by 1.                                                                                                                                                                                                                                                              |
+| Improved Maneuvering Jets | 2VP  | Increase this vehicle's Maneuverability Spec by 1.                                                                                                                                                                                                                                                              |
+| Jury-Rigged Shields       | 1VP  | This Vehicle's got deflector shields, granting a +1 bonus to Durability. However, they draw too much power, imposing a -1 penalty to Speed when they are active.                                                                                                                                                |
+| Cargo Bay                 | 1VP  | This vehicle can now carry cargo                                                                                                                                                                                                                                                                                |
+| Laser Turret              | 1VP  | This vehicle now has a laser turret and can fire lasers while the turret is manned                                                                                                                                                                                                                              |
+| Armor Plating             | 1VP  | This vehicle has armor plating that will prevent some damage to the other parts of the vehicle                                                                                                                                                                                                                  |
+| Distinctive Livery        | 1VP  | This vehicle is painted in a distinctive livery. If this livery is associated with a particular organization, you receive a +2 bonus to Charm checks related to that organization while in or near the vehicle. This vehicle receives a -2 penalty to checks while trying to pretend to be a different vehicle. |
+| A Hydrospanner a Day...   | 1VP  | One or more characters may spend a full day wrenching on this vehicle. For one week or until this vehicle is next damaged (whichever comes first), this vehicle receives a +1 bonus to all Specs.                                                                                                               |
+
+If you are creating Modules that provide a flat bonus to a Spec, each Module should cost 1 more VP than the previous Module (i.e. the first costs 1VP, the second costs 2VP, and the third costs 3VP).
+
+<!-- The goal is that the list of Modules for a given Vehicle will provide the list of intended capabilities of that vehicle. So it should be somewhat granular, like you would need to have the Cargo Bay if you wanted to carry any particularly large amount of cargo, but you don't need to specify things like airlocks or toilets. The goal with having this list is that when things are destroyed, it makes defining the constraints of that damage easier and gives more fodder for story moments. -->
+
+### Starting Modules
+
+As discussed below, all vehicles will start with some number of Modules based on their Class. All starting Modules have a VP cost of 0. These starting modules are detailed below:
+
+| Module        | Description                                                                   |
+| ------------- | ----------------------------------------------------------------------------- |
+| Engine        | The engine allows the vehicle to move                                         |
+| Cockpit       | The cockpit allows the vehicle to be driven                                   |
+| Life Support  | The life support allows the vehicle to keep crew alive in a vacuum            |
+| Crew Quarters | The crew quarters provides a comfortable place for the crew to rest and relax |
+| Escape Pods   | The escape pods allow you to get off the vehicle in a hurry if you need       |
 
 ## Vehicles and Damage
 
@@ -273,12 +296,25 @@ It is possible to repair destroyed Module given enough time. To fully repair a d
 
 ## Vehicle Creation
 
-<!-- 8 VP is just a starting point. It may need to be revisited -->
+<!-- 6 VP is just a starting point. It may need to be revisited -->
 
-Creating vehicles is very similar to creating characters. Vehicles are created out of a pool of 8 Vehicle Points (VP). To create the mechanical profile of the vehicle, follow the following steps:
+Creating vehicles is very similar to creating characters. Vehicles are created out of a pool of 6 Vehicle Points (VP). To create the mechanical profile of the vehicle, follow the following steps:
 
-1. Pick a vehicle. Work with your GM to determine one Spec to increase to +1 and one Module to add to the vehicle.
-2. Distribute your 8 VP by spending them on Modules.
+1. Pick a vehicle. Work with your GM to determine the vehicle Class from the table below if there is some question. The vehicle Class will determine the Modules your vehicle starts with.
+2. Distribute your 4 VP by spending them on Modules.
+
+### Vehicle Classes
+
+Each Vehicle starts with the Modules provided by its Class. These are intended to show the minimum functionality of the Vehicle, and to provide more specific systems to be damaged, should your Vehicle end up in combat.
+
+| Class               | Example Vehicles              | Description                                                | Starting Modules                                          |
+| ------------------- | ----------------------------- | ---------------------------------------------------------- | --------------------------------------------------------- |
+| Terrestrial Vehicle | Speeder Bike, T-47 Airspeeder | Vehicles that don't leave atmosphere                       | Engine, Cockpit                                           |
+| Small Starship      | X-Wing, TIE Fighter           | Vehicles that wouldn't be comfortable to live out of       | Engine, Cockpit, Life Support                             |
+| Medium Starship     | YT-1300, Wayfarer             | Vehicles on which you could spend extended periods of time | Engine, Cockpit, Life Support, Crew Quarters              |
+| Large Starship      | CR90, Nebulon-B               | Vehicles that require more than just the PCs to operate    | Engine, Cockpit, Life Support, Crew Quarters, Escape Pods |
+
+For extremely large vehicles (Star Destroyer-sized or larger), work with your GM to establish appropriate starting modules.
 
 ### Vehicle Improvement
 
