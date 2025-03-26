@@ -165,6 +165,7 @@ export {
   SpecName,
   Spec,
   Vehicle,
+  Module,
   EXAMPLE_VEHICLE,
   CLASS_STARTING_MODULES,
   STARTING_SPECS,

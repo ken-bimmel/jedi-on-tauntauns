@@ -1,3 +1,5 @@
+import { SpecName } from "./vehicle";
+
 const STAT_COLORS = {
   forceSensitivity: "#5f0f40",
   athleticism: "#577590",
@@ -8,4 +10,12 @@ const STAT_COLORS = {
   grit: "#f9844a",
 };
 
-export { STAT_COLORS };
+const SPEC_COLORS: Record<SpecName, string> = {
+  Speed: "#d96e4a",
+  Maneuverability: "#a86d4d",
+  Firepower: "#8b9a6a",
+  Durability: "#586d4f",
+  Systems: "#413b30",
+};
+
+export { STAT_COLORS, SPEC_COLORS };

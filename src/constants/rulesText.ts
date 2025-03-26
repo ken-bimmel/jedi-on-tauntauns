@@ -1,4 +1,7 @@
-const STAT_DESCRIPTIONS = {
+import { StatName } from "./character";
+import { SpecName } from "./vehicle";
+
+const STAT_DESCRIPTIONS: Record<StatName, string> = {
   "Force Sensitivity":
     "This Stat covers all checks related to the use of the Force.",
   Athleticism:
@@ -13,4 +16,16 @@ const STAT_DESCRIPTIONS = {
   Grit: "This Stat covers all checks related to resistance to harm and practical knowledge.",
 };
 
-export { STAT_DESCRIPTIONS };
+const SPEC_DESCRIPTIONS: Record<SpecName, string> = {
+  Speed: "This Spec covers all checks related to how fast the vehicle is.",
+  Maneuverability:
+    "This Spec covers all checks related to how well the vehicle can maneuver.",
+  Firepower:
+    "This Spec covers all checks related to damaging things using the vehicle.",
+  Durability:
+    "This Spec covers all checks related to surviving incoming damage.",
+  Systems:
+    "This Spec covers all checks related to the use of Modules not related to another Spec.",
+};
+
+export { STAT_DESCRIPTIONS, SPEC_DESCRIPTIONS };

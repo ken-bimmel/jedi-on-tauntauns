@@ -7,6 +7,9 @@ function getSpecs(vehicle: Vehicle): Spec[] {
   const specs = structuredClone(STARTING_SPECS);
 
   for (const module of vehicle.modules) {
+    if (module?.active !== undefined && module?.active === false) {
+      continue;
+    }
     if (module.increasedSpec !== undefined) {
       const increasedSpec = specs.find(
         (spec) => spec.name === module.increasedSpec
