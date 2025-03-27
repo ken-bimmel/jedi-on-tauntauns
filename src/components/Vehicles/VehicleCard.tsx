@@ -2,10 +2,11 @@ import React, { useState } from "react";
 
 import { Card, CardContent, Grid2 as Grid } from "@mui/material";
 import { Vehicle } from "../../constants";
-import { getSpecs } from "../../utilities/specCalculator";
+import { getSpecs } from "../../utilities/vehicleCalcs";
 import SpecCard from "./SpecCard";
 import ModuleSection from "./ModuleSection";
 import VehicleCardHeader from "./VehicleCardHeader";
+import CargoSection from "./CargoSection";
 
 type VehicleCardProps = {
   vehicle: Vehicle;
@@ -31,6 +32,7 @@ function VehicleCard(props: VehicleCardProps) {
               ))}
             </Grid>
             <ModuleSection modules={vehicle.modules} isEditMode={isEditMode} />
+            <CargoSection cargo={vehicle.cargo} isEditMode={isEditMode} />
           </Grid>
         </CardContent>
       </Card>

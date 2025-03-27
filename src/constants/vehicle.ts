@@ -31,7 +31,7 @@ type Module = {
   description: string;
   increasedSpec?: SpecName;
   decreasedSpec?: SpecName;
-  damaged: boolean;
+  destroyed: boolean;
   /**
    * Whether the system is active or not. An active system applies the changes
    * to specs, an inactive system does not.
@@ -57,6 +57,7 @@ type Vehicle = {
   cargo: CargoItem[];
   class: VehicleClass;
   maxVp: number;
+  vpSpentOnRepairs: number;
 };
 
 const STARTING_VP = 4;
@@ -66,7 +67,7 @@ const ENGINE_MODULE: Module = {
   name: "Engine",
   cost: 0,
   description: "The engine allows the vehicle to move",
-  damaged: false,
+  destroyed: false,
 };
 
 const COCKPIT_MODULE: Module = {
@@ -74,7 +75,7 @@ const COCKPIT_MODULE: Module = {
   name: "Cockpit",
   cost: 0,
   description: "The cockpit allows the vehicle to be driven",
-  damaged: false,
+  destroyed: false,
 };
 
 const LIFE_SUPPORT_MODULE: Module = {
@@ -83,7 +84,7 @@ const LIFE_SUPPORT_MODULE: Module = {
   cost: 0,
   description:
     "The life support allows the vehicle to keep crew alive in a vacuum",
-  damaged: false,
+  destroyed: false,
 };
 
 const CREW_QUARTERS_MODULE: Module = {
@@ -92,7 +93,7 @@ const CREW_QUARTERS_MODULE: Module = {
   cost: 0,
   description:
     "The crew quarters provides a comfortable place for the crew to rest and relax",
-  damaged: false,
+  destroyed: false,
 };
 
 const ESCAPE_PODS_MODULE: Module = {
@@ -101,7 +102,7 @@ const ESCAPE_PODS_MODULE: Module = {
   cost: 0,
   description:
     "The escape pods allow you to get off the vehicle in a hurry if you need",
-  damaged: false,
+  destroyed: false,
 };
 
 const CLASS_STARTING_MODULES: Record<VehicleClass, Module[]> = {
@@ -135,7 +136,7 @@ const EXAMPLE_VEHICLE: Vehicle = {
       cost: 1,
       description: "Powerful thrusters allow this vehicle to move even faster",
       increasedSpec: "Speed",
-      damaged: false,
+      destroyed: false,
     },
     {
       id: window.crypto.randomUUID(),
@@ -145,7 +146,18 @@ const EXAMPLE_VEHICLE: Vehicle = {
         "Powerful thrusters allow this vehicle to move even faster at the cost of the vessel's ability to make tight turns",
       increasedSpec: "Speed",
       decreasedSpec: "Maneuverability",
-      damaged: false,
+      destroyed: true,
+    },
+    {
+      id: window.crypto.randomUUID(),
+      name: "High Thrust Nozzles2",
+      cost: 1,
+      description:
+        "Powerful thrusters allow this vehicle to move even faster at the cost of the vessel's ability to make tight turns",
+      increasedSpec: "Speed",
+      decreasedSpec: "Maneuverability",
+      destroyed: false,
+      active: true,
     },
   ],
   cargo: [
@@ -158,6 +170,7 @@ const EXAMPLE_VEHICLE: Vehicle = {
   ],
   class: "Medium Starship",
   maxVp: STARTING_VP,
+  vpSpentOnRepairs: 0,
 };
 
 export {
@@ -166,6 +179,7 @@ export {
   Spec,
   Vehicle,
   Module,
+  CargoItem,
   EXAMPLE_VEHICLE,
   CLASS_STARTING_MODULES,
   STARTING_SPECS,

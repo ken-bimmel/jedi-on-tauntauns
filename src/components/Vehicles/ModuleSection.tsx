@@ -18,7 +18,7 @@ import {
 } from "@mui/material";
 import { Module } from "../../constants";
 import { Power, ProgressAlert } from "mdi-material-ui";
-import { Delete } from "@mui/icons-material";
+import { Add, Delete } from "@mui/icons-material";
 
 type ModuleSectionProps = {
   modules: Module[];
@@ -34,18 +34,33 @@ function ModuleSection(props: ModuleSectionProps) {
           <TableHead>
             <TableRow>
               <TableCell size="small">Module</TableCell>
-              {isEditMode ? <TableCell size="small">Cost</TableCell> : null}
+              {isEditMode ? <TableCell>Cost</TableCell> : null}
               <TableCell>Description</TableCell>
               {isEditMode ? (
                 <TableCell size="medium">Spec Adjustments</TableCell>
               ) : null}
-              {isEditMode ? <TableCell size="small">Actions</TableCell> : null}
+              <TableCell>
+                Actions
+                {isEditMode ? (
+                  <Tooltip arrow title="Add module">
+                    <IconButton>
+                      <Add />
+                    </IconButton>
+                  </Tooltip>
+                ) : null}
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {modules.map((module) => (
               <TableRow key={module.id}>
-                <TableCell>
+                <TableCell
+                  style={
+                    !isEditMode && module.destroyed
+                      ? { textDecoration: "line-through" }
+                      : undefined
+                  }
+                >
                   {isEditMode ? (
                     <TextField fullWidth value={module.name} />
                   ) : (
@@ -53,11 +68,17 @@ function ModuleSection(props: ModuleSectionProps) {
                   )}
                 </TableCell>
                 {isEditMode ? (
-                  <TableCell size="small">
+                  <TableCell style={{ maxWidth: "65px" }}>
                     <TextField fullWidth value={module.cost} type="number" />
                   </TableCell>
                 ) : null}
-                <TableCell>
+                <TableCell
+                  style={
+                    !isEditMode && module.destroyed
+                      ? { textDecoration: "line-through" }
+                      : undefined
+                  }
+                >
                   {isEditMode ? (
                     <TextField multiline fullWidth value={module.description} />
                   ) : (
@@ -89,7 +110,7 @@ function ModuleSection(props: ModuleSectionProps) {
                       </Grid>
                       <Grid>
                         <InputLabel id={`decreasedSpec${module.id}`}>
-                          Increased Spec
+                          Decreased Spec
                         </InputLabel>
                         <Select
                           label="Decreased Spec"
@@ -110,43 +131,53 @@ function ModuleSection(props: ModuleSectionProps) {
                     </Grid>
                   </TableCell>
                 ) : null}
-                {isEditMode ? (
-                  <TableCell>
-                    <Grid container flexDirection="row">
-                      {module.active !== undefined ? (
-                        <Grid>
-                          <Tooltip
-                            title={
-                              module.active
-                                ? "Deactivate module"
-                                : "Activate module"
-                            }
-                          >
-                            <IconButton>
-                              <Power
-                                color={module.active ? "disabled" : "success"}
-                              />
-                            </IconButton>
-                          </Tooltip>
-                        </Grid>
-                      ) : null}
+                <TableCell>
+                  <Grid container flexDirection="column" alignItems="center">
+                    {module.active !== undefined ? (
                       <Grid>
-                        <Tooltip title="Module destroyed">
+                        <Tooltip
+                          title={
+                            module.active
+                              ? "Module is active"
+                              : "Module is inactive"
+                          }
+                          arrow
+                        >
                           <IconButton>
-                            <ProgressAlert />
+                            <Power
+                              color={module.active ? "success" : "disabled"}
+                            />
                           </IconButton>
                         </Tooltip>
                       </Grid>
+                    ) : null}
+                    <Grid>
+                      <Tooltip
+                        title={
+                          module.destroyed
+                            ? "Module destroyed"
+                            : "Module intact"
+                        }
+                        arrow
+                      >
+                        <IconButton>
+                          <ProgressAlert
+                            color={module.destroyed ? "error" : "success"}
+                          />
+                        </IconButton>
+                      </Tooltip>
+                    </Grid>
+                    {isEditMode ? (
                       <Grid>
-                        <Tooltip title="Delete module">
+                        <Tooltip title="Delete module" arrow>
                           <IconButton>
                             <Delete color="error" />
                           </IconButton>
                         </Tooltip>
                       </Grid>
-                    </Grid>
-                  </TableCell>
-                ) : null}
+                    ) : null}
+                  </Grid>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

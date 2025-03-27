@@ -2,7 +2,8 @@ import React from "react";
 
 import { Grid2 as Grid, IconButton, Tooltip, Typography } from "@mui/material";
 import { Vehicle } from "../../constants";
-import { Edit, Save } from "@mui/icons-material";
+import { Description, Edit, Save } from "@mui/icons-material";
+import VpTracker from "./VpTracker";
 
 type VehicleCardHeaderProps = {
   vehicle: Vehicle;
@@ -20,11 +21,24 @@ function VehicleCardHeader(props: VehicleCardHeaderProps) {
       spacing={2}
       justifyContent="space-between"
     >
-      <Grid>
-        <Typography variant="h4" width="fit-content">
-          {vehicle.name}
-        </Typography>
+      <Grid container flexDirection="row" alignItems="center">
+        <Grid>
+          <Typography variant="h4" width="fit-content">
+            {vehicle.name}
+          </Typography>
+        </Grid>
+        <Grid>
+          <Typography variant="h6" width="fit-content">
+            {vehicle.model}
+          </Typography>
+        </Grid>
+        <Grid>
+          <Tooltip title={vehicle.description} arrow>
+            <Description />
+          </Tooltip>
+        </Grid>
       </Grid>
+      {isEditMode ? <VpTracker vehicle={vehicle} /> : null}
       <Grid>
         <Tooltip title={isEditMode ? "Save vehicle" : "Edit vehicle"} arrow>
           <IconButton color="primary" onClick={() => setEditMode(!isEditMode)}>

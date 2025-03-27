@@ -16,6 +16,7 @@ function generateBlankVehicle(vehicleClass: VehicleClass): Vehicle {
     cargo: [],
     class: vehicleClass,
     maxVp: STARTING_VP,
+    vpSpentOnRepairs: 0,
   };
 }
 

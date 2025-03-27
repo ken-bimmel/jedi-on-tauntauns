@@ -1,4 +1,4 @@
-import { Spec, STARTING_SPECS, Vehicle } from "../constants";
+import { Module, Spec, STARTING_SPECS, Vehicle } from "../constants";
 
 /**
  * Get the Specs of the Vehicle object passed in
@@ -7,7 +7,12 @@ function getSpecs(vehicle: Vehicle): Spec[] {
   const specs = structuredClone(STARTING_SPECS);
 
   for (const module of vehicle.modules) {
-    if (module?.active !== undefined && module?.active === false) {
+    if (module?.active === undefined && module?.active === false) {
+      // if the active status is specified and is false, skip this module
+      continue;
+    }
+    if (module.destroyed) {
+      // if the module is destroyed, skip it
       continue;
     }
     if (module.increasedSpec !== undefined) {
@@ -31,4 +36,13 @@ function getSpecs(vehicle: Vehicle): Spec[] {
   return specs;
 }
 
-export { getSpecs };
+function getSpentVP(vehicle: Vehicle): number {
+  const moduleVp = vehicle.modules.reduce(
+    (currentTotal: number, module: Module) => currentTotal + module.cost,
+    0
+  );
+  console.log({ moduleVp, vehicle });
+  return moduleVp + vehicle.vpSpentOnRepairs;
+}
+
+export { getSpecs, getSpentVP };
