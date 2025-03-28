@@ -140,6 +140,7 @@ const EXAMPLE_VEHICLE: Vehicle = {
     "The One-Winged Mynock is a modified Corellian Engineering Corporation YT-2400 light freighter, known for its speed and rugged durability, making it a favorite among smugglers. Captained by the resourceful Fovv Schintriemp, the ship has become notorious for evading authorities and completing high-stakes missions across the galaxy.",
   model: "CEC YT-2400",
   modules: [
+    ...structuredClone(CLASS_STARTING_MODULES["Medium Starship"]),
     {
       id: window.crypto.randomUUID(),
       name: "Boosted Thrusters",
@@ -161,14 +162,33 @@ const EXAMPLE_VEHICLE: Vehicle = {
     },
     {
       id: window.crypto.randomUUID(),
-      name: "High Thrust Nozzles2",
+      name: "Cargo Bay",
+      cost: 1,
+      description: "A large cargo bay allows the Mynock to carry heavy cargo.",
+      increasedSpec: "",
+      decreasedSpec: "",
+      destroyed: false,
+    },
+    {
+      id: window.crypto.randomUUID(),
+      name: "Laser Turret",
       cost: 1,
       description:
-        "Powerful thrusters allow this vehicle to move even faster at the cost of the vessel's ability to make tight turns",
-      increasedSpec: "Speed",
-      decreasedSpec: "Maneuverability",
+        "This dorsally mounted laser turret allows the Mynock to fend off light threats.",
+      increasedSpec: "",
+      decreasedSpec: "",
       destroyed: false,
-      active: true,
+    },
+    {
+      id: window.crypto.randomUUID(),
+      name: "Deflector Shields",
+      cost: 1,
+      description:
+        "These deflector shields allow the Mynock to take more damage at the cost of reduced power for the weapons when they are active",
+      increasedSpec: "Durability",
+      decreasedSpec: "Firepower",
+      destroyed: false,
+      active: false,
     },
   ],
   cargo: [
@@ -180,7 +200,7 @@ const EXAMPLE_VEHICLE: Vehicle = {
     },
   ],
   class: "Medium Starship",
-  maxVp: STARTING_VP,
+  maxVp: STARTING_VP + 2,
   vpSpentOnRepairs: 0,
 };
 
