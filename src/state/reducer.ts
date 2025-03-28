@@ -421,6 +421,20 @@ function reducer(state: AppState, action: StateActions) {
       });
       break;
     }
+    case "UPDATE_VEHICLE": {
+      newState = produce(state, (draftState) => {
+        const vehicleIndex = draftState.vehicles.findIndex(
+          (vehicle) => vehicle.id === state.activeVehicleId
+        );
+        if (vehicleIndex !== -1) {
+          draftState.vehicles[vehicleIndex] = {
+            ...draftState.vehicles[vehicleIndex],
+            ...action.payload.vehicle,
+          };
+        }
+      });
+      break;
+    }
     default:
       // not saving
       return state;

@@ -43,7 +43,8 @@ function getSpentVP(vehicle: Vehicle): number {
       currentTotal + Math.max(parseInt(module.cost), 0),
     0
   );
-  return moduleVp + vehicle.vpSpentOnRepairs;
+  // @ts-expect-error Due to JS BS it's possible for this to be a string
+  return moduleVp + parseInt(vehicle.vpSpentOnRepairs);
 }
 
 export { getSpecs, getSpentVP };

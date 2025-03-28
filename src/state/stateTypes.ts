@@ -206,6 +206,12 @@ type StateActions =
         cargoId: string;
         cargo: Partial<CargoItem>;
       };
+    }
+  | {
+      type: "UPDATE_VEHICLE";
+      payload: {
+        vehicle: Partial<Omit<Vehicle, "cargo" | "modules">>;
+      };
     };
 
 type AppState = {

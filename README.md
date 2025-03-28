@@ -118,9 +118,10 @@ To start:
   - [x] Incorporate vehicle class
 - [ ] Track and modify
   - [x] Modules
-  - [ ] Damage
-    - [ ] Repair costs
+  - [x] Damage
+    - [x] Repair costs
     - [x] Damaged modules
   - [x] Cargo
-  - [ ] VP
+  - [x] VP
+  - [ ] Narrative bits
 - [ ] Linking characters to ships for ship rolls?
