@@ -40,6 +40,5 @@ make changes to the rules text.
   - [ ] GM section
     - [ ] Play philosophy
     - [ ] Check difficulty explanation
-    - [ ] NPC Generation logic?
 - [ ] Infrastructure
   - [ ] Improved styling
