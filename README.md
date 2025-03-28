@@ -35,8 +35,7 @@ To start:
 ### Overall Project
 
 - [ ] Convert to Vite
-- [ ] Add data sharing urls
-  - [ ] Stable urls for each tab
+- [ ] Add data sharing url
 - [ ] Add warning to reset button and PC delete
 - [ ] New rating component for injury and destiny point trackers that allows
       tooltips on individual icons

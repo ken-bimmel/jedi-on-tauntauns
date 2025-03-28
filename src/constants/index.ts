@@ -5,7 +5,6 @@ export * from "./generator";
 export * from "./npc";
 export * from "./pc";
 export * from "./rolls";
-export * from "./routeList";
 export * from "./rulesText";
 export * from "./species";
 export * from "./vehicle";

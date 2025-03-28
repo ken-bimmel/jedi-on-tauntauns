@@ -5,8 +5,6 @@ import { StateDispatchContext } from "./state/reducerContext";
 import { DEFAULT_STATE } from "./state/stateTypes";
 import TabPanel from "./components/TabPanel";
 import NpcGeneratorTab from "./tabs/NpcGenerator";
-import { useNavigate } from "react-router";
-import { ROUTE_LIST } from "./constants";
 import { loadFromStorage } from "./state/storage";
 import CharacterSheetTab from "./tabs/CharacterSheet";
 import { Download, Upload, Restore, MenuBook } from "@mui/icons-material";
@@ -14,15 +12,9 @@ import VisuallyHiddenInput from "./components/VisuallyHiddenInput";
 import SnackStackProvider from "./components/StackingSnackbars/SnackStackProvider";
 import VehicleSheet from "./tabs/VehicleSheet";
 
-type AppProps = {
-  startingTab: number;
-};
-
-function App(props: AppProps) {
-  const { startingTab } = props;
+function App() {
   const [state, dispatch] = useReducer(reducer, DEFAULT_STATE);
-  const [activeTab, setActiveTab] = useState<number>(startingTab);
-  const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState<number>(0);
 
   useEffect(() => {
     const savedState = loadFromStorage();
@@ -31,10 +23,6 @@ function App(props: AppProps) {
 
   const updateActiveTab = (e: React.SyntheticEvent, newValue: number) => {
     setActiveTab(newValue);
-    navigate(
-      ROUTE_LIST.find((route) => route.tabIndex === newValue)?.path ?? "/",
-      { replace: true }
-    );
   };
 
   function importFile(event: React.ChangeEvent<HTMLInputElement>) {
