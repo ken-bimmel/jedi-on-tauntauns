@@ -4,6 +4,7 @@ import { generateNpc } from "../utilities/npcGenerator";
 import { AppState, StateActions } from "./stateTypes";
 import { saveToLocalStorage } from "./storage";
 import { generateBlankPC } from "../utilities/pcGenerator";
+import { generateBlankVehicle } from "../utilities/vehicleGenerator";
 
 function reducer(state: AppState, action: StateActions) {
   let newState = state;
@@ -30,9 +31,24 @@ function reducer(state: AppState, action: StateActions) {
       });
       break;
     }
+    case "ADD_VEHICLE": {
+      newState = produce(state, (draftState) => {
+        draftState.vehicles = [
+          generateBlankVehicle(action.payload),
+          ...state.vehicles,
+        ];
+      });
+      break;
+    }
     case "SET_ACTIVE_PC": {
       newState = produce(state, (draftState) => {
         draftState.activePcId = action.payload;
+      });
+      break;
+    }
+    case "SET_ACTIVE_VEHICLE": {
+      newState = produce(state, (draftState) => {
+        draftState.activeVehicleId = action.payload;
       });
       break;
     }
@@ -54,6 +70,17 @@ function reducer(state: AppState, action: StateActions) {
         );
         if (pcIndex !== -1) {
           draftState.pcs.splice(pcIndex, 1);
+        }
+      });
+      break;
+    }
+    case "DELETE_VEHICLE": {
+      newState = produce(state, (draftState) => {
+        const vehicleIndex = draftState.vehicles.findIndex(
+          (vehicle) => vehicle.id === action.payload
+        );
+        if (vehicleIndex !== -1) {
+          draftState.vehicles.splice(vehicleIndex, 1);
         }
       });
       break;

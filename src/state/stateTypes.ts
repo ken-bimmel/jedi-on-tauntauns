@@ -12,6 +12,7 @@ import {
   Roll,
   Vehicle,
   EXAMPLE_VEHICLE,
+  VehicleClass,
 } from "../constants";
 
 type StateActions =
@@ -26,7 +27,15 @@ type StateActions =
       type: "ADD_PC";
     }
   | {
+      type: "ADD_VEHICLE";
+      payload: VehicleClass;
+    }
+  | {
       type: "SET_ACTIVE_PC";
+      payload: string;
+    }
+  | {
+      type: "SET_ACTIVE_VEHICLE";
       payload: string;
     }
   | {
@@ -35,6 +44,10 @@ type StateActions =
     }
   | {
       type: "DELETE_PC";
+      payload: string;
+    }
+  | {
+      type: "DELETE_VEHICLE";
       payload: string;
     }
   | {

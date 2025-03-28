@@ -111,10 +111,10 @@ To start:
 
 ### Vehicle Sheet
 
-- [ ] Create a new vehicle
-  - [ ] Save vehicle
-  - [ ] Retrieve a saved vehicle
-  - [ ] Incorporate vehicle class
+- [x] Create a new vehicle
+  - [x] Save vehicle
+  - [x] Retrieve a saved vehicle
+  - [x] Incorporate vehicle class
 - [ ] Track and modify
   - [ ] Specs
   - [ ] Modules

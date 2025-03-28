@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import {
   Card,
@@ -13,9 +13,10 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import { Vehicle } from "../../constants";
-import { PlusCircle } from "mdi-material-ui";
+import { Vehicle, VehicleClass } from "../../constants";
+import { Airplane, AirplanePlus, CarSide, SpaceStation } from "mdi-material-ui";
 import { Delete } from "@mui/icons-material";
+import { StateDispatchContext } from "../../state/reducerContext";
 
 type VehicleListProps = {
   vehicles: Vehicle[];
@@ -25,13 +26,25 @@ type VehicleListProps = {
 function VehicleList(props: VehicleListProps) {
   const { vehicles, activeVehicleId } = props;
 
-  // const dispatch = useContext(StateDispatchContext);
+  const dispatch = useContext(StateDispatchContext);
 
-  // function makeLoadHandler(characterId: string) {
-  //   return () => {
-  //     dispatch?.({ type: "SET_ACTIVE_PC", payload: characterId });
-  //   };
-  // }
+  function makeLoadHandler(vehicleId: string) {
+    return () => {
+      dispatch?.({ type: "SET_ACTIVE_VEHICLE", payload: vehicleId });
+    };
+  }
+
+  function makeDeleteHandler(vehicleId: string) {
+    return () => {
+      dispatch?.({ type: "DELETE_VEHICLE", payload: vehicleId });
+    };
+  }
+
+  function makeCreateHandler(vehicleClass: VehicleClass) {
+    return () => {
+      dispatch?.({ type: "ADD_VEHICLE", payload: vehicleClass });
+    };
+  }
 
   return (
     <Grid sx={{ position: "sticky", top: "72px" }}>
@@ -45,9 +58,28 @@ function VehicleList(props: VehicleListProps) {
                     <Typography variant="h5">Vehicles</Typography>
                   </Grid>
                   <Grid>
-                    <Tooltip title="Create a new vehicle" arrow>
-                      <IconButton>
-                        <PlusCircle />
+                    <Tooltip title="Create a new terrestrial vehicle" arrow>
+                      <IconButton
+                        onClick={makeCreateHandler("Terrestrial Vehicle")}
+                      >
+                        <CarSide />
+                      </IconButton>
+                    </Tooltip>
+                    <Tooltip title="Create a new small starship" arrow>
+                      <IconButton onClick={makeCreateHandler("Small Starship")}>
+                        <Airplane />
+                      </IconButton>
+                    </Tooltip>
+                    <Tooltip title="Create a new medium starship" arrow>
+                      <IconButton
+                        onClick={makeCreateHandler("Medium Starship")}
+                      >
+                        <AirplanePlus />
+                      </IconButton>
+                    </Tooltip>
+                    <Tooltip title="Create a new large starship" arrow>
+                      <IconButton onClick={makeCreateHandler("Large Starship")}>
+                        <SpaceStation />
                       </IconButton>
                     </Tooltip>
                   </Grid>
@@ -63,6 +95,7 @@ function VehicleList(props: VehicleListProps) {
                       ? { background: "darkGrey" }
                       : undefined
                   }
+                  onClick={makeLoadHandler(vehicle.id)}
                 >
                   <Tooltip title={`${vehicle.model}`} placement="left" arrow>
                     <TableCell>
@@ -78,7 +111,10 @@ function VehicleList(props: VehicleListProps) {
                         </Grid>
                         <Grid>
                           <Tooltip title="Delete this vehicle" arrow>
-                            <IconButton color="error">
+                            <IconButton
+                              color="error"
+                              onClick={makeDeleteHandler(vehicle.id)}
+                            >
                               <Delete />
                             </IconButton>
                           </Tooltip>

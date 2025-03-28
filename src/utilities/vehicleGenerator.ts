@@ -9,7 +9,7 @@ function generateBlankVehicle(vehicleClass: VehicleClass): Vehicle {
   const startingModules = structuredClone(CLASS_STARTING_MODULES[vehicleClass]);
   return {
     id: window.crypto.randomUUID(),
-    name: "New Vehicle",
+    name: `New ${vehicleClass}`,
     description: "",
     model: "",
     modules: startingModules,
