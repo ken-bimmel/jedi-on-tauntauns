@@ -47,7 +47,7 @@ To start:
 ### NPC Generator
 
 - [ ] Generate a random NPC
-  - [] Include name/species as part of generated NPC
+  - [ ] Include name/species as part of generated NPC
     - [ ] Option for non-sentient creatures
 
 ### Character Sheet
