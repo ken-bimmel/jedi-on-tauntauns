@@ -44,6 +44,7 @@ To start:
       tooltips on individual icons
 - [x] Add link to rules
 - [ ] Add roll history viewer
+- [ ] Standardize implementations of reducer actions and generation
 
 ### NPC Generator
 

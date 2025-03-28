@@ -3,6 +3,7 @@ import {
   VehicleClass,
   CLASS_STARTING_MODULES,
   STARTING_VP,
+  Module,
 } from "../constants";
 
 function generateBlankVehicle(vehicleClass: VehicleClass): Vehicle {
@@ -20,4 +21,16 @@ function generateBlankVehicle(vehicleClass: VehicleClass): Vehicle {
   };
 }
 
-export { generateBlankVehicle };
+function generateBlankModule(): Module {
+  return {
+    id: window.crypto.randomUUID(),
+    name: "New Module",
+    cost: 0,
+    description: "",
+    destroyed: false,
+    increasedSpec: "",
+    decreasedSpec: "",
+  };
+}
+
+export { generateBlankVehicle, generateBlankModule };

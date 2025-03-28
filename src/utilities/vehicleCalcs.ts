@@ -7,7 +7,7 @@ function getSpecs(vehicle: Vehicle): Spec[] {
   const specs = structuredClone(STARTING_SPECS);
 
   for (const module of vehicle.modules) {
-    if (module?.active === undefined && module?.active === false) {
+    if (module?.active !== undefined && module?.active === false) {
       // if the active status is specified and is false, skip this module
       continue;
     }
@@ -38,10 +38,11 @@ function getSpecs(vehicle: Vehicle): Spec[] {
 
 function getSpentVP(vehicle: Vehicle): number {
   const moduleVp = vehicle.modules.reduce(
-    (currentTotal: number, module: Module) => currentTotal + module.cost,
+    (currentTotal: number, module: Module) =>
+      // @ts-expect-error Due to JS BS it's possible for this to be a string
+      currentTotal + Math.max(parseInt(module.cost), 0),
     0
   );
-  console.log({ moduleVp, vehicle });
   return moduleVp + vehicle.vpSpentOnRepairs;
 }
 

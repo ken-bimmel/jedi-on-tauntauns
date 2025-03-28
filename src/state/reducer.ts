@@ -1,10 +1,13 @@
-import { NPC, PC, ROLES, SPECIES, TIERS } from "../constants";
+import { NPC, PC, ROLES, SPECIES, TIERS, Vehicle } from "../constants";
 import { produce, WritableDraft } from "immer";
 import { generateNpc } from "../utilities/npcGenerator";
 import { AppState, StateActions } from "./stateTypes";
 import { saveToLocalStorage } from "./storage";
 import { generateBlankPC } from "../utilities/pcGenerator";
-import { generateBlankVehicle } from "../utilities/vehicleGenerator";
+import {
+  generateBlankModule,
+  generateBlankVehicle,
+} from "../utilities/vehicleGenerator";
 
 function reducer(state: AppState, action: StateActions) {
   let newState = state;
@@ -334,6 +337,73 @@ function reducer(state: AppState, action: StateActions) {
       });
       break;
     }
+    case "ADD_BLANK_MODULE": {
+      newState = produce(state, (draftState) => {
+        const vehicle = getVehicle(draftState, state.activeVehicleId);
+        if (vehicle) {
+          vehicle.modules.push(generateBlankModule());
+        }
+      });
+      break;
+    }
+    case "ADD_CARGO": {
+      newState = produce(state, (draftState) => {
+        const vehicle = getVehicle(draftState, action.payload.vehicleId);
+        if (vehicle) {
+          vehicle.cargo.push({
+            id: window.crypto.randomUUID(),
+            name: "New Cargo",
+            description: "",
+          });
+        }
+      });
+      break;
+    }
+    case "DELETE_MODULE": {
+      newState = produce(state, (draftState) => {
+        const vehicle = getVehicle(draftState, state.activeVehicleId);
+        if (vehicle) {
+          const moduleIndex = vehicle.modules.findIndex(
+            (module) => module.id === action.payload
+          );
+          if (moduleIndex !== -1) {
+            vehicle.modules.splice(moduleIndex, 1);
+          }
+        }
+      });
+      break;
+    }
+    case "DELETE_CARGO": {
+      newState = produce(state, (draftState) => {
+        const vehicle = getVehicle(draftState, action.payload.vehicleId);
+        if (vehicle) {
+          const cargoIndex = vehicle.cargo.findIndex(
+            (cargo) => cargo.id === action.payload.cargoId
+          );
+          if (cargoIndex !== -1) {
+            vehicle.cargo.splice(cargoIndex, 1);
+          }
+        }
+      });
+      break;
+    }
+    case "UPDATE_MODULE": {
+      newState = produce(state, (draftState) => {
+        const vehicle = getVehicle(draftState, state.activeVehicleId);
+        if (vehicle) {
+          const moduleIndex = vehicle.modules.findIndex(
+            (module) => module.id === action.payload.moduleId
+          );
+          if (moduleIndex !== -1) {
+            vehicle.modules[moduleIndex] = {
+              ...vehicle.modules[moduleIndex],
+              ...action.payload.module,
+            };
+          }
+        }
+      });
+      break;
+    }
     default:
       // not saving
       return state;
@@ -351,6 +421,15 @@ function getCharacter(
   const characterArray = isNpc ? draftState.npcs : draftState.pcs;
   const character = characterArray.find((char) => char.id === characterId);
   return character;
+}
+
+function getVehicle(
+  draftState: WritableDraft<AppState>,
+  vehicleId: string
+): WritableDraft<Vehicle> | undefined {
+  const vehicleArray = draftState.vehicles;
+  const vehicle = vehicleArray.find((vehicle) => vehicle.id === vehicleId);
+  return vehicle;
 }
 
 export { reducer };

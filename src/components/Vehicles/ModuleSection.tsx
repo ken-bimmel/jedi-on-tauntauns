@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import {
   Grid2 as Grid,
@@ -17,8 +17,9 @@ import {
   Tooltip,
 } from "@mui/material";
 import { Module } from "../../constants";
-import { Power, ProgressAlert } from "mdi-material-ui";
+import { ImageBrokenVariant, Power } from "mdi-material-ui";
 import { Add, Delete } from "@mui/icons-material";
+import { StateDispatchContext } from "../../state/reducerContext";
 
 type ModuleSectionProps = {
   modules: Module[];
@@ -27,6 +28,41 @@ type ModuleSectionProps = {
 
 function ModuleSection(props: ModuleSectionProps) {
   const { modules, isEditMode } = props;
+
+  const dispatch = useContext(StateDispatchContext);
+
+  function makeDeleteHandler(moduleId: string) {
+    return () => {
+      dispatch?.({ type: "DELETE_MODULE", payload: moduleId });
+    };
+  }
+
+  function makeUpdateHandler(
+    moduleId: string,
+    targetField: keyof Module
+  ): React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> {
+    return (event) => {
+      const newValue = event.target.value;
+      dispatch?.({
+        type: "UPDATE_MODULE",
+        payload: { moduleId, module: { [targetField]: newValue } },
+      });
+    };
+  }
+
+  function makeButtonUpdateHandler(
+    moduleId: string,
+    targetField: keyof Module,
+    newValue: boolean | undefined
+  ): React.MouseEventHandler<HTMLButtonElement> {
+    return () => {
+      dispatch?.({
+        type: "UPDATE_MODULE",
+        payload: { moduleId, module: { [targetField]: newValue } },
+      });
+    };
+  }
+
   return (
     <Grid>
       <TableContainer component={Paper} style={{ maxWidth: "1000px" }}>
@@ -43,7 +79,9 @@ function ModuleSection(props: ModuleSectionProps) {
                 Actions
                 {isEditMode ? (
                   <Tooltip arrow title="Add module">
-                    <IconButton>
+                    <IconButton
+                      onClick={() => dispatch?.({ type: "ADD_BLANK_MODULE" })}
+                    >
                       <Add />
                     </IconButton>
                   </Tooltip>
@@ -62,14 +100,25 @@ function ModuleSection(props: ModuleSectionProps) {
                   }
                 >
                   {isEditMode ? (
-                    <TextField fullWidth value={module.name} />
+                    <TextField
+                      fullWidth
+                      value={module.name}
+                      label="Name"
+                      onChange={makeUpdateHandler(module.id, "name")}
+                    />
                   ) : (
                     module.name
                   )}
                 </TableCell>
                 {isEditMode ? (
                   <TableCell style={{ maxWidth: "65px" }}>
-                    <TextField fullWidth value={module.cost} type="number" />
+                    <TextField
+                      fullWidth
+                      value={module.cost}
+                      type="number"
+                      label="VP Cost"
+                      onChange={makeUpdateHandler(module.id, "cost")}
+                    />
                   </TableCell>
                 ) : null}
                 <TableCell
@@ -80,7 +129,13 @@ function ModuleSection(props: ModuleSectionProps) {
                   }
                 >
                   {isEditMode ? (
-                    <TextField multiline fullWidth value={module.description} />
+                    <TextField
+                      multiline
+                      fullWidth
+                      value={module.description}
+                      label="Description"
+                      onChange={makeUpdateHandler(module.id, "description")}
+                    />
                   ) : (
                     module.description
                   )}
@@ -97,8 +152,14 @@ function ModuleSection(props: ModuleSectionProps) {
                           labelId={`increasedSpec${module.id}`}
                           fullWidth
                           value={module.increasedSpec}
+                          //@ts-expect-error The handler works fine despite the
+                          //type mismatch
+                          onChange={makeUpdateHandler(
+                            module.id,
+                            "increasedSpec"
+                          )}
                         >
-                          <MenuItem value={undefined}>None</MenuItem>
+                          <MenuItem value={""}>None</MenuItem>
                           <MenuItem value="Speed">Speed</MenuItem>
                           <MenuItem value="Maneuverability">
                             Maneuverability
@@ -117,8 +178,14 @@ function ModuleSection(props: ModuleSectionProps) {
                           labelId={`decreasedSpec${module.id}`}
                           fullWidth
                           value={module.decreasedSpec}
+                          //@ts-expect-error The handler works fine despite the
+                          //type mismatch
+                          onChange={makeUpdateHandler(
+                            module.id,
+                            "decreasedSpec"
+                          )}
                         >
-                          <MenuItem value={undefined}>None</MenuItem>
+                          <MenuItem value={""}>None</MenuItem>
                           <MenuItem value="Speed">Speed</MenuItem>
                           <MenuItem value="Maneuverability">
                             Maneuverability
@@ -133,7 +200,7 @@ function ModuleSection(props: ModuleSectionProps) {
                 ) : null}
                 <TableCell>
                   <Grid container flexDirection="column" alignItems="center">
-                    {module.active !== undefined ? (
+                    {module.active !== undefined && !isEditMode ? (
                       <Grid>
                         <Tooltip
                           title={
@@ -142,35 +209,80 @@ function ModuleSection(props: ModuleSectionProps) {
                               : "Module is inactive"
                           }
                           arrow
+                          placement="right"
                         >
-                          <IconButton>
+                          <IconButton
+                            onClick={makeButtonUpdateHandler(
+                              module.id,
+                              "active",
+                              !module.active
+                            )}
+                          >
                             <Power
-                              color={module.active ? "success" : "disabled"}
+                              color={module.active ? "success" : "warning"}
                             />
                           </IconButton>
                         </Tooltip>
                       </Grid>
                     ) : null}
-                    <Grid>
-                      <Tooltip
-                        title={
-                          module.destroyed
-                            ? "Module destroyed"
-                            : "Module intact"
-                        }
-                        arrow
-                      >
-                        <IconButton>
-                          <ProgressAlert
-                            color={module.destroyed ? "error" : "success"}
-                          />
-                        </IconButton>
-                      </Tooltip>
-                    </Grid>
                     {isEditMode ? (
                       <Grid>
-                        <Tooltip title="Delete module" arrow>
-                          <IconButton>
+                        <Tooltip
+                          title={
+                            module.active === undefined
+                              ? "Make module activatable"
+                              : "Make module passive"
+                          }
+                          arrow
+                          placement="right"
+                        >
+                          <IconButton
+                            onClick={makeButtonUpdateHandler(
+                              module.id,
+                              "active",
+                              module.active === undefined ? false : undefined
+                            )}
+                          >
+                            <Power
+                              color={
+                                module.active === undefined
+                                  ? "disabled"
+                                  : "success"
+                              }
+                            />
+                          </IconButton>
+                        </Tooltip>
+                      </Grid>
+                    ) : null}
+                    {!isEditMode ? (
+                      <Grid>
+                        <Tooltip
+                          title={
+                            module.destroyed
+                              ? "Module is destroyed"
+                              : "Module is intact"
+                          }
+                          arrow
+                          placement="right"
+                        >
+                          <IconButton
+                            onClick={makeButtonUpdateHandler(
+                              module.id,
+                              "destroyed",
+                              !module.destroyed
+                            )}
+                          >
+                            <ImageBrokenVariant
+                              color={module.destroyed ? "error" : "success"}
+                            />
+                          </IconButton>
+                        </Tooltip>
+                      </Grid>
+                    ) : null}
+                    {isEditMode ? (
+                      <Grid>
+                        <Tooltip title="Delete module" arrow placement="right">
+                          <IconButton onClick={makeDeleteHandler(module.id)}>
                             <Delete color="error" />
                           </IconButton>
                         </Tooltip>

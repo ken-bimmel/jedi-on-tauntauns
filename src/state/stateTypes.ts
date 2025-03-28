@@ -13,6 +13,8 @@ import {
   Vehicle,
   EXAMPLE_VEHICLE,
   VehicleClass,
+  Module,
+  CargoItem,
 } from "../constants";
 
 type StateActions =
@@ -176,6 +178,42 @@ type StateActions =
   | {
       type: "NEXT_DISPOSITION";
       payload: string;
+    }
+  | {
+      type: "ADD_BLANK_MODULE";
+    }
+  | {
+      type: "ADD_CARGO";
+      payload: {
+        vehicleId: string;
+        cargo: CargoItem;
+      };
+    }
+  | {
+      type: "DELETE_MODULE";
+      payload: string;
+    }
+  | {
+      type: "DELETE_CARGO";
+      payload: {
+        vehicleId: string;
+        cargoId: string;
+      };
+    }
+  | {
+      type: "UPDATE_MODULE";
+      payload: {
+        moduleId: string;
+        module: Partial<Module>;
+      };
+    }
+  | {
+      type: "UPDATE_CARGO";
+      payload: {
+        vehicleId: string;
+        cargoId: string;
+        cargo: CargoItem;
+      };
     };
 
 type AppState = {

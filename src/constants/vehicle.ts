@@ -29,8 +29,8 @@ type Module = {
   name: string;
   cost: number;
   description: string;
-  increasedSpec?: SpecName;
-  decreasedSpec?: SpecName;
+  increasedSpec: SpecName | "";
+  decreasedSpec: SpecName | "";
   destroyed: boolean;
   /**
    * Whether the system is active or not. An active system applies the changes
@@ -68,6 +68,8 @@ const ENGINE_MODULE: Module = {
   cost: 0,
   description: "The engine allows the vehicle to move",
   destroyed: false,
+  increasedSpec: "",
+  decreasedSpec: "",
 };
 
 const COCKPIT_MODULE: Module = {
@@ -76,6 +78,8 @@ const COCKPIT_MODULE: Module = {
   cost: 0,
   description: "The cockpit allows the vehicle to be driven",
   destroyed: false,
+  increasedSpec: "",
+  decreasedSpec: "",
 };
 
 const LIFE_SUPPORT_MODULE: Module = {
@@ -85,6 +89,8 @@ const LIFE_SUPPORT_MODULE: Module = {
   description:
     "The life support allows the vehicle to keep crew alive in a vacuum",
   destroyed: false,
+  increasedSpec: "",
+  decreasedSpec: "",
 };
 
 const CREW_QUARTERS_MODULE: Module = {
@@ -94,6 +100,8 @@ const CREW_QUARTERS_MODULE: Module = {
   description:
     "The crew quarters provides a comfortable place for the crew to rest and relax",
   destroyed: false,
+  increasedSpec: "",
+  decreasedSpec: "",
 };
 
 const ESCAPE_PODS_MODULE: Module = {
@@ -103,6 +111,8 @@ const ESCAPE_PODS_MODULE: Module = {
   description:
     "The escape pods allow you to get off the vehicle in a hurry if you need",
   destroyed: false,
+  increasedSpec: "",
+  decreasedSpec: "",
 };
 
 const CLASS_STARTING_MODULES: Record<VehicleClass, Module[]> = {
@@ -136,6 +146,7 @@ const EXAMPLE_VEHICLE: Vehicle = {
       cost: 1,
       description: "Powerful thrusters allow this vehicle to move even faster",
       increasedSpec: "Speed",
+      decreasedSpec: "",
       destroyed: false,
     },
     {
