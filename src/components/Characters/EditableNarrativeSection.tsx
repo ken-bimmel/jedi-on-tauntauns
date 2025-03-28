@@ -1,7 +1,17 @@
 import React, { useContext } from "react";
 
-import { Grid2 as Grid, IconButton, TextField, Tooltip } from "@mui/material";
-import { NPC, PC, SPECIES } from "../../constants";
+import {
+  FormControl,
+  Grid2 as Grid,
+  IconButton,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+  TextField,
+  Tooltip,
+} from "@mui/material";
+import { NPC, PC, SPECIES, StatName } from "../../constants";
 import { Launch } from "@mui/icons-material";
 import { StateDispatchContext } from "../../state/reducerContext";
 
@@ -30,6 +40,16 @@ function EditableNarrativeSection(props: EditableNarrativeSectionProps) {
         },
       });
     };
+  }
+
+  function updateSpeciesStat(event: SelectChangeEvent<StatName>) {
+    dispatch?.({
+      type: "UPDATE_SPECIES_STAT",
+      payload: {
+        characterId: character.id,
+        newSpeciesStat: event.target.value as StatName,
+      },
+    });
   }
 
   return (
@@ -89,6 +109,32 @@ function EditableNarrativeSection(props: EditableNarrativeSectionProps) {
               />
             </Grid>
           </>
+        ) : null}
+        {!isNpc ? (
+          <Grid>
+            <FormControl>
+              <InputLabel id={`${character.id}-species-stat`}>
+                Species Stat
+              </InputLabel>
+              <Select
+                labelId={`${character.id}-species-stat`}
+                value={(character as PC).speciesStat}
+                label={(character as PC).speciesStat}
+                onChange={updateSpeciesStat}
+                style={{ minWidth: "125px" }}
+              >
+                <MenuItem value={"Force Sensitivity"}>
+                  Force Sensitivity
+                </MenuItem>
+                <MenuItem value={"Athleticism"}>Athleticism</MenuItem>
+                <MenuItem value={"Brains"}>Brains</MenuItem>
+                <MenuItem value={"Charm"}>Charm</MenuItem>
+                <MenuItem value={"Technician"}>Technician</MenuItem>
+                <MenuItem value={"Fight"}>Fight</MenuItem>
+                <MenuItem value={"Grit"}>Grit</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>
         ) : null}
       </Grid>
       <Grid flexGrow={1}>

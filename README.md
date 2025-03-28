@@ -10,8 +10,24 @@ code for several web-based tools to assist in playing and running the system.
 Currently the tools included in this repository are:
 
 - NPC generator and tracker
+  - Create NPCs of varying tiers, with profiles determined by their career or
+    role
+  - Track and edit NPC Injury Levels, Stats, Feats, and narrative details
+  - Roll checks for any NPC (including injury modifiers!)
 - Character sheet
+  - Create as many characters as you want
+  - Track character Stats, Feats, Destiny Points, Injury Levels, inventory, and
+    narrative details
+  - Roll checks for your PC (including injury modifiers!)
+  - Automatically calculate IP expenditure
 - Vehicle sheet
+  - Create as many vehicles as you want in any vehicle class (starting Modules
+    automatically included!)
+  - Automatically calculated Spec bonuses and penalties
+  - Track Modules, including passive and active Modules, Module destruction, and
+    Module modifiers
+  - Track cargo and narrative details
+  - Automatically calculate VP expenditure
 
 These tools are accessible here: https://ken-bimmel.github.io/jedi-on-tauntauns/
 
