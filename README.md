@@ -117,10 +117,10 @@ To start:
   - [x] Retrieve a saved vehicle
   - [x] Incorporate vehicle class
 - [ ] Track and modify
-  - [ ] Specs
-  - [ ] Modules
+  - [x] Modules
   - [ ] Damage
     - [ ] Repair costs
-  - [ ] Cargo
+    - [x] Damaged modules
+  - [x] Cargo
   - [ ] VP
 - [ ] Linking characters to ships for ship rolls?

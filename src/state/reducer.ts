@@ -346,9 +346,9 @@ function reducer(state: AppState, action: StateActions) {
       });
       break;
     }
-    case "ADD_CARGO": {
+    case "ADD_BLANK_CARGO": {
       newState = produce(state, (draftState) => {
-        const vehicle = getVehicle(draftState, action.payload.vehicleId);
+        const vehicle = getVehicle(draftState, state.activeVehicleId);
         if (vehicle) {
           vehicle.cargo.push({
             id: window.crypto.randomUUID(),
@@ -375,10 +375,10 @@ function reducer(state: AppState, action: StateActions) {
     }
     case "DELETE_CARGO": {
       newState = produce(state, (draftState) => {
-        const vehicle = getVehicle(draftState, action.payload.vehicleId);
+        const vehicle = getVehicle(draftState, state.activeVehicleId);
         if (vehicle) {
           const cargoIndex = vehicle.cargo.findIndex(
-            (cargo) => cargo.id === action.payload.cargoId
+            (cargo) => cargo.id === action.payload
           );
           if (cargoIndex !== -1) {
             vehicle.cargo.splice(cargoIndex, 1);
@@ -398,6 +398,23 @@ function reducer(state: AppState, action: StateActions) {
             vehicle.modules[moduleIndex] = {
               ...vehicle.modules[moduleIndex],
               ...action.payload.module,
+            };
+          }
+        }
+      });
+      break;
+    }
+    case "UPDATE_CARGO": {
+      newState = produce(state, (draftState) => {
+        const vehicle = getVehicle(draftState, state.activeVehicleId);
+        if (vehicle) {
+          const cargoIndex = vehicle.cargo.findIndex(
+            (cargo) => cargo.id === action.payload.cargoId
+          );
+          if (cargoIndex !== -1) {
+            vehicle.cargo[cargoIndex] = {
+              ...vehicle.cargo[cargoIndex],
+              ...action.payload.cargo,
             };
           }
         }

@@ -17,7 +17,7 @@ import {
   Tooltip,
 } from "@mui/material";
 import { Module } from "../../constants";
-import { ImageBrokenVariant, Power } from "mdi-material-ui";
+import { ImageBrokenVariant, LightningBolt, Power } from "mdi-material-ui";
 import { Add, Delete } from "@mui/icons-material";
 import { StateDispatchContext } from "../../state/reducerContext";
 
@@ -98,6 +98,7 @@ function ModuleSection(props: ModuleSectionProps) {
                       ? { textDecoration: "line-through" }
                       : undefined
                   }
+                  width="25%"
                 >
                   {isEditMode ? (
                     <TextField
@@ -111,12 +112,12 @@ function ModuleSection(props: ModuleSectionProps) {
                   )}
                 </TableCell>
                 {isEditMode ? (
-                  <TableCell style={{ maxWidth: "65px" }}>
+                  <TableCell width="10%">
                     <TextField
                       fullWidth
                       value={module.cost}
                       type="number"
-                      label="VP Cost"
+                      label="VP"
                       onChange={makeUpdateHandler(module.id, "cost")}
                     />
                   </TableCell>
@@ -141,7 +142,7 @@ function ModuleSection(props: ModuleSectionProps) {
                   )}
                 </TableCell>
                 {isEditMode ? (
-                  <TableCell size="medium">
+                  <TableCell size="medium" width="15%">
                     <Grid container flexDirection="column">
                       <Grid>
                         <InputLabel id={`increasedSpec${module.id}`}>
@@ -198,7 +199,7 @@ function ModuleSection(props: ModuleSectionProps) {
                     </Grid>
                   </TableCell>
                 ) : null}
-                <TableCell>
+                <TableCell width="12%">
                   <Grid container flexDirection="column" alignItems="center">
                     {module.active !== undefined && !isEditMode ? (
                       <Grid>
@@ -230,8 +231,8 @@ function ModuleSection(props: ModuleSectionProps) {
                         <Tooltip
                           title={
                             module.active === undefined
-                              ? "Make module activatable"
-                              : "Make module passive"
+                              ? "Module is always on"
+                              : "Module is activatable"
                           }
                           arrow
                           placement="right"
@@ -243,11 +244,9 @@ function ModuleSection(props: ModuleSectionProps) {
                               module.active === undefined ? false : undefined
                             )}
                           >
-                            <Power
+                            <LightningBolt
                               color={
-                                module.active === undefined
-                                  ? "disabled"
-                                  : "success"
+                                module.active === undefined ? "info" : "success"
                               }
                             />
                           </IconButton>

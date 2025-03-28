@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import {
   Grid2 as Grid,
@@ -15,6 +15,7 @@ import {
 } from "@mui/material";
 import { CargoItem } from "../../constants";
 import { Add, Delete } from "@mui/icons-material";
+import { StateDispatchContext } from "../../state/reducerContext";
 
 type CargoSectionProps = {
   cargo: CargoItem[];
@@ -23,19 +24,45 @@ type CargoSectionProps = {
 
 function CargoSection(props: CargoSectionProps) {
   const { cargo, isEditMode } = props;
+
+  const dispatch = useContext(StateDispatchContext);
+
+  function makeDeleteHandler(cargoId: string) {
+    return () => {
+      dispatch?.({ type: "DELETE_CARGO", payload: cargoId });
+    };
+  }
+
+  function makeUpdateHandler(
+    cargoId: string,
+    targetField: keyof CargoItem
+  ): React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> {
+    return (event) => {
+      const newValue = event.target.value;
+      dispatch?.({
+        type: "UPDATE_CARGO",
+        payload: { cargoId, cargo: { [targetField]: newValue } },
+      });
+    };
+  }
+
   return (
     <Grid>
       <TableContainer component={Paper} style={{ maxWidth: "1000px" }}>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell size="small">Cargo</TableCell>
-              <TableCell>Description</TableCell>
+              <TableCell size="small" width="25%">
+                Cargo
+              </TableCell>
+              <TableCell width="60%">Description</TableCell>
               {isEditMode ? (
-                <TableCell size="small">
+                <TableCell size="small" width="15%">
                   Actions
                   <Tooltip arrow title="Add cargo">
-                    <IconButton>
+                    <IconButton
+                      onClick={() => dispatch?.({ type: "ADD_BLANK_CARGO" })}
+                    >
                       <Add />
                     </IconButton>
                   </Tooltip>
@@ -48,7 +75,12 @@ function CargoSection(props: CargoSectionProps) {
               <TableRow key={item.id}>
                 <TableCell>
                   {isEditMode ? (
-                    <TextField fullWidth value={item.name} />
+                    <TextField
+                      fullWidth
+                      value={item.name}
+                      label="Name"
+                      onChange={makeUpdateHandler(item.id, "name")}
+                    />
                   ) : (
                     item.name
                   )}
@@ -56,7 +88,13 @@ function CargoSection(props: CargoSectionProps) {
 
                 <TableCell>
                   {isEditMode ? (
-                    <TextField multiline fullWidth value={item.description} />
+                    <TextField
+                      multiline
+                      fullWidth
+                      value={item.description}
+                      label="Name"
+                      onChange={makeUpdateHandler(item.id, "description")}
+                    />
                   ) : (
                     item.description
                   )}
@@ -66,7 +104,7 @@ function CargoSection(props: CargoSectionProps) {
                     <Grid container flexDirection="row">
                       <Grid>
                         <Tooltip title="Delete cargo">
-                          <IconButton>
+                          <IconButton onClick={makeDeleteHandler(item.id)}>
                             <Delete color="error" />
                           </IconButton>
                         </Tooltip>

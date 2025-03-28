@@ -183,11 +183,7 @@ type StateActions =
       type: "ADD_BLANK_MODULE";
     }
   | {
-      type: "ADD_CARGO";
-      payload: {
-        vehicleId: string;
-        cargo: CargoItem;
-      };
+      type: "ADD_BLANK_CARGO";
     }
   | {
       type: "DELETE_MODULE";
@@ -195,10 +191,7 @@ type StateActions =
     }
   | {
       type: "DELETE_CARGO";
-      payload: {
-        vehicleId: string;
-        cargoId: string;
-      };
+      payload: string;
     }
   | {
       type: "UPDATE_MODULE";
@@ -210,9 +203,8 @@ type StateActions =
   | {
       type: "UPDATE_CARGO";
       payload: {
-        vehicleId: string;
         cargoId: string;
-        cargo: CargoItem;
+        cargo: Partial<CargoItem>;
       };
     };
 
