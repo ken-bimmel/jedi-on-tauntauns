@@ -116,12 +116,12 @@ To start:
   - [x] Save vehicle
   - [x] Retrieve a saved vehicle
   - [x] Incorporate vehicle class
-- [ ] Track and modify
+- [x] Track and modify
   - [x] Modules
   - [x] Damage
     - [x] Repair costs
     - [x] Damaged modules
   - [x] Cargo
   - [x] VP
-  - [ ] Narrative bits
+  - [x] Narrative bits
 - [ ] Linking characters to ships for ship rolls?

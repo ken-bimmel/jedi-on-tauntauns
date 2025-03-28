@@ -7,6 +7,7 @@ import SpecCard from "./SpecCard";
 import ModuleSection from "./ModuleSection";
 import VehicleCardHeader from "./VehicleCardHeader";
 import CargoSection from "./CargoSection";
+import NarrativeSection from "./NarrativeSection";
 
 type VehicleCardProps = {
   vehicle: Vehicle;
@@ -26,6 +27,7 @@ function VehicleCard(props: VehicleCardProps) {
               isEditMode={isEditMode}
               setEditMode={setIsEditMode}
             />
+            {isEditMode ? <NarrativeSection vehicle={vehicle} /> : null}
             <Grid container flexDirection="row">
               {getSpecs(vehicle).map((spec) => (
                 <SpecCard key={spec.name} spec={spec} />
