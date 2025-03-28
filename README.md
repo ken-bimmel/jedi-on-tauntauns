@@ -37,7 +37,7 @@ To start:
 - [ ] Convert to Vite
 - [ ] Add data sharing url
 - [ ] Add warning to reset button and PC delete
-  - [x] Reset Button
+  - [ ] Reset Button
   - [ ] PC Delete
 - [ ] New rating component for injury and destiny point trackers that allows
       tooltips on individual icons

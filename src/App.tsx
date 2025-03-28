@@ -49,9 +49,6 @@ function App() {
 
   const uploadInputRef = useRef<HTMLInputElement>(null);
 
-  // @ts-expect-error FAST_REFRESH is actually a boolean
-  const isLocal = process.env.FAST_REFRESH === true;
-
   return (
     <StateDispatchContext.Provider value={dispatch}>
       <SnackStackProvider>
@@ -113,15 +110,13 @@ function App() {
                 onChange={importFile}
               />
             </Grid>
-            {isLocal ? (
-              <Grid>
-                <Tooltip title="Reset all data" arrow>
-                  <IconButton color="primary" onClick={reset}>
-                    <Restore />
-                  </IconButton>
-                </Tooltip>
-              </Grid>
-            ) : null}
+            <Grid>
+              <Tooltip title="Reset all data" arrow>
+                <IconButton color="primary" onClick={reset}>
+                  <Restore />
+                </IconButton>
+              </Tooltip>
+            </Grid>
           </Grid>
         </Tabs>
         <TabPanel value={activeTab} index={0}>
