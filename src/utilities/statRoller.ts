@@ -33,6 +33,9 @@ function rollStat(
 }
 
 function composeStatRollMessage(stat: Stat, character: Character): string {
+  if (stat.value === 0) {
+    return `${character.name} cannot make a ${stat.name} check`;
+  }
   const roll = rollStat(stat, character);
   if (roll.result === undefined) {
     return `${character.name} automatically failed their ${stat.name} check`;
