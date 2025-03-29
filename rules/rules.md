@@ -267,7 +267,7 @@ Examples of these Modules are listed below, but it is highly encouraged that you
 | ------------------------- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Maneuvering Jets          | 1VP  | Increase this vehicle's Maneuverability Spec by 1.                                                                                                                                                                                                                                                              |
 | Improved Maneuvering Jets | 2VP  | Increase this vehicle's Maneuverability Spec by 1.                                                                                                                                                                                                                                                              |
-| Jury-Rigged Shields       | 1VP  | This Vehicle's got deflector shields, granting a +1 bonus to Durability. However, they draw too much power, imposing a -1 penalty to Speed when they are active.                                                                                                                                                |
+| Jury-Rigged Shields       | 1VP  | This vehicle's got deflector shields, granting a +1 bonus to Durability. However, they draw too much power, imposing a -1 penalty to Speed when they are active.                                                                                                                                                |
 | Cargo Bay                 | 1VP  | This vehicle can carry cargo.                                                                                                                                                                                                                                                                                   |
 | Laser Turret              | 1VP  | This vehicle has a laser turret and can fire lasers while the turret is manned                                                                                                                                                                                                                                  |
 | Ion Cannon                | 2VP  | This vehicle has an ion cannon. When you hit an opposing vehicle with the ion cannon, make a contested Systems check against the opposing vehicle. If you succeed, temporarily disable a random Module on that vehicle.                                                                                         |
@@ -283,13 +283,13 @@ If you are creating Modules that provide a flat bonus to a Spec, each Module sho
 
 As discussed below in the vehicle creation section, all vehicles will start with some number of Modules based on their Class. All starting Modules have a VP cost of 0. These starting modules are detailed below:
 
-| Module        | Description                                                                                   |
-| ------------- | --------------------------------------------------------------------------------------------- |
-| Engine        | The engine allows the vehicle to move                                                         |
-| Cockpit       | The cockpit allows the vehicle to be driven                                                   |
-| Life Support  | The life support allows the vehicle to keep crew alive in a vacuum or other harsh environment |
-| Crew Quarters | The crew quarters provides a comfortable place for the crew to rest and relax                 |
-| Escape Pods   | The escape pods allow you to get off the vehicle in a hurry if you need                       |
+| Module        | Description                                                                                    |
+| ------------- | ---------------------------------------------------------------------------------------------- |
+| Engine        | The engine allows the vehicle to move.                                                         |
+| Cockpit       | The cockpit allows the vehicle to be driven.                                                   |
+| Life Support  | The life support allows the vehicle to keep crew alive in a vacuum or other harsh environment. |
+| Crew Quarters | The crew quarters provides a comfortable place for the crew to rest and relax.                 |
+| Escape Pods   | The escape pods allow you to get off the vehicle in a hurry if you need.                       |
 
 ## Vehicles and Damage
 
@@ -303,12 +303,12 @@ It is possible to repair destroyed Module given enough time. To fully repair a d
 
 ## Vehicle Creation
 
-<!-- 4 VP is just a starting point. It may need to be revisited -->
+<!-- 5 VP is just a starting point. It may need to be revisited -->
 
-Creating vehicles is very similar to creating characters. Vehicles are created out of a pool of 6 Vehicle Points (VP). To create the mechanical profile of the vehicle, follow the following steps:
+Creating vehicles is very similar to creating characters. Vehicles are created out of a pool of 5 Vehicle Points (VP). To create the mechanical profile of the vehicle, follow the following steps:
 
 1. Pick a vehicle. Work with your GM to determine the vehicle Class from the table below if there is some question. The vehicle Class will determine the Modules your vehicle starts with.
-2. Distribute your 4 VP by spending them on Modules.
+2. Distribute your 5 VP by spending them on Modules.
 
 For larger vehicles or particularly advanced vessels, a GM might grant additional VP when creating the vehicle.
 
@@ -365,7 +365,60 @@ This completes the mechanical character creation process for Alex's character. I
 
 ## Example Vehicle Build
 
-Now that Alex has created Nyysh it is time to create Nyysh's vehicle.
+Now that Alex has created Nyysh it is time to create Nyysh's vehicle. Since Nyysh frequently needs to travel around the system to carry out his boss's orders, he has a Z-95 Headhunter named Dragoon.
+
+Because of the size of Dragoon, its Class will be Small Starship. This means that it will start with the following Modules:
+
+| Module       | Description                                                                                    |
+| ------------ | ---------------------------------------------------------------------------------------------- |
+| Engine       | The engine allows the vehicle to move.                                                         |
+| Cockpit      | The cockpit allows the vehicle to be driven.                                                   |
+| Life Support | The life support allows the vehicle to keep crew alive in a vacuum or other harsh environment. |
+
+Next, Alex decides that Nyysh since Nyysh has the need for speed, he will have upgraded the engines in Dragoon, as well as the maneuvering jets so that it is a particularly nimble craft. This adds two new Modules to Dragoon:
+
+| Module              | Cost | Description                                        |
+| ------------------- | ---- | -------------------------------------------------- |
+| High-Thrust Engines | 1VP  | Increase this vehicle's Speed Spec by +1           |
+| Maneuvering Jets    | 1VP  | Increase this vehicle's Maneuverability Spec by +1 |
+
+Because Nyysh sometimes runs into tough customers as part of his work and he doesn't have the money for nice ones, he's chosen to fit a set of dodgy deflector shields and twin laser cannons:
+
+| Module              | Cost | Description                                                                                                                                                      |
+| ------------------- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Jury-Rigged Shields | 1VP  | This vehicle's got deflector shields, granting a +1 bonus to Durability. However, they draw too much power, imposing a -1 penalty to Speed when they are active. |
+| Twin Laser Cannons  | 1VP  | These twin laser cannons allow you to engage targets from your Vehicle without rolling down the window.                                                          |
+
+Lastly, Nyysh wants some comfort while cruising around, so he has installed a fancy layflat pilot's chair in Dragoon.
+
+| Module                | Cost | Description                                                                        |
+| --------------------- | ---- | ---------------------------------------------------------------------------------- |
+| Layflat Pilot's Chair | 1VP  | This comfy chair allows you to sleep comfortably on long passages in this Vehicle. |
+
+Pulling this all together now we can see that Dragoon has the following Modules:
+
+| Module                | Cost | Description                                                                                                                                                      |
+| --------------------- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Engine                | 0VP  | The engine allows the vehicle to move.                                                                                                                           |
+| Cockpit               | 0VP  | The cockpit allows the vehicle to be driven.                                                                                                                     |
+| Life Support          | 0VP  | The life support allows the vehicle to keep crew alive in a vacuum or other harsh environment.                                                                   |
+| High-Thrust Engines   | 1VP  | Increase this vehicle's Speed Spec by +1                                                                                                                         |
+| Maneuvering Jets      | 1VP  | Increase this vehicle's Maneuverability Spec by +1                                                                                                               |
+| Jury-Rigged Shields   | 1VP  | This vehicle's got deflector shields, granting a +1 bonus to Durability. However, they draw too much power, imposing a -1 penalty to Speed when they are active. |
+| Twin Laser Cannons    | 1VP  | These twin laser cannons allow you to engage targets from your Vehicle without rolling down the window.                                                          |
+| Layflat Pilot's Chair | 1VP  | This comfy chair allows you to sleep comfortably on long passages in this Vehicle.                                                                               |
+
+Now that we have the full list of Modules on Dragoon, we can calculate the Specs of the vehicle by tallying up the various bonuses and penalties provided by the Modules. If we calculate the Specs of Dragoon with the shields turned off we get the following:
+
+| Speed | Maneuverability | Firepower | Durability | Systems |
+| ----- | --------------- | --------- | ---------- | ------- |
+| +1    | +1              | 0         | 0          | 0       |
+
+However, if we calculate them with the shields turned on we get:
+
+| Speed | Maneuverability | Firepower | Durability | Systems |
+| ----- | --------------- | --------- | ---------- | ------- |
+| 0     | +1              | 0         | +1         | 0       |
 
 <!-- GM Section -->
 

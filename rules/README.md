@@ -34,7 +34,7 @@ make changes to the rules text.
   - [x] Vehicle rules
     - [x] Standard starting modules for classes of vehicles
   - [ ] Additional examples
-    - [ ] Vehicle creation
+    - [x] Vehicle creation
     - [ ] Combat encounter
     - [ ] Social encounter
   - [ ] GM section
