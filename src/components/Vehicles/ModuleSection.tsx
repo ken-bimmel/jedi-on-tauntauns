@@ -17,7 +17,14 @@ import {
   Tooltip,
 } from "@mui/material";
 import { Module } from "../../constants";
-import { ImageBrokenVariant, LightningBolt, Power } from "mdi-material-ui";
+import {
+  CheckboxMarked,
+  ImageBrokenVariant,
+  LightningBolt,
+  PowerPlug,
+  PowerPlugOff,
+  ToggleSwitchOff,
+} from "mdi-material-ui";
 import { Add, Delete } from "@mui/icons-material";
 import { StateDispatchContext } from "../../state/reducerContext";
 
@@ -219,9 +226,11 @@ function ModuleSection(props: ModuleSectionProps) {
                               !module.active
                             )}
                           >
-                            <Power
-                              color={module.active ? "success" : "warning"}
-                            />
+                            {module.active ? (
+                              <PowerPlug color="success" />
+                            ) : (
+                              <PowerPlugOff color="warning" />
+                            )}
                           </IconButton>
                         </Tooltip>
                       </Grid>
@@ -244,11 +253,11 @@ function ModuleSection(props: ModuleSectionProps) {
                               module.active === undefined ? false : undefined
                             )}
                           >
-                            <LightningBolt
-                              color={
-                                module.active === undefined ? "info" : "success"
-                              }
-                            />
+                            {module.active === undefined ? (
+                              <LightningBolt color="info" />
+                            ) : (
+                              <ToggleSwitchOff color="success" />
+                            )}
                           </IconButton>
                         </Tooltip>
                       </Grid>
@@ -271,9 +280,11 @@ function ModuleSection(props: ModuleSectionProps) {
                               !module.destroyed
                             )}
                           >
-                            <ImageBrokenVariant
-                              color={module.destroyed ? "error" : "success"}
-                            />
+                            {module.destroyed ? (
+                              <ImageBrokenVariant color={"error"} />
+                            ) : (
+                              <CheckboxMarked color="success" />
+                            )}
                           </IconButton>
                         </Tooltip>
                       </Grid>

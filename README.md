@@ -71,3 +71,4 @@ To start:
 ### Vehicle Sheet
 
 - [ ] Linking characters to ships for ship rolls
+- [ ] Library of standard ships for use with NPCs
