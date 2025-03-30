@@ -52,6 +52,7 @@ To start:
 
 - [ ] Convert to Vite
 - [ ] Add data sharing url
+  - [ ] Load individual character/vehicle
 - [ ] Add warning to reset button and PC delete
   - [ ] Reset Button
   - [ ] PC Delete
@@ -72,3 +73,4 @@ To start:
 
 - [ ] Linking characters to ships for ship rolls
 - [ ] Library of standard ships for use with NPCs
+- [ ] Autocomplete standard modules?

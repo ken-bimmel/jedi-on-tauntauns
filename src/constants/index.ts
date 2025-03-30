@@ -8,3 +8,4 @@ export * from "./rolls";
 export * from "./rulesText";
 export * from "./species";
 export * from "./vehicle";
+export * from "./vehicleTemplates";
