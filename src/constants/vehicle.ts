@@ -93,6 +93,17 @@ const LIFE_SUPPORT_MODULE: Module = {
   decreasedSpec: "",
 };
 
+const HYPERDRIVE_MODULE: Module = {
+  id: window.crypto.randomUUID(),
+  name: "Hyperdrive",
+  cost: 0,
+  description:
+    "The hyperdrive allows the vehicle to travel faster-than-light. ",
+  destroyed: false,
+  increasedSpec: "",
+  decreasedSpec: "",
+};
+
 const CREW_QUARTERS_MODULE: Module = {
   id: window.crypto.randomUUID(),
   name: "Crew Quarters",
@@ -122,12 +133,14 @@ const CLASS_STARTING_MODULES: Record<VehicleClass, Module[]> = {
     ENGINE_MODULE,
     COCKPIT_MODULE,
     LIFE_SUPPORT_MODULE,
+    HYPERDRIVE_MODULE,
     CREW_QUARTERS_MODULE,
   ],
   "Large Starship": [
     ENGINE_MODULE,
     COCKPIT_MODULE,
     LIFE_SUPPORT_MODULE,
+    HYPERDRIVE_MODULE,
     CREW_QUARTERS_MODULE,
     ESCAPE_PODS_MODULE,
   ],
