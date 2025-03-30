@@ -41,6 +41,9 @@
   - [Vehicle Creation](#vehicle-creation)
     - [Vehicle Classes](#vehicle-classes)
     - [Vehicle Improvement](#vehicle-improvement)
+- [Gamemastering](#gamemastering)
+  - [Setting Target Numbers](#setting-target-numbers)
+  - [Granting Improvement Phases and Vehicle Improvements](#granting-improvement-phases-and-vehicle-improvements)
 - [Examples](#examples)
   - [Example Character Build](#example-character-build)
   - [Example Vehicle Build](#example-vehicle-build)
@@ -50,8 +53,6 @@
 # Introduction
 
 This is a rules-lite hack of [_Kids on Bikes_](https://www.huntersentertainment.com/kidsonbikesrpg) for use in a Star Wars setting. The intention of this system is to create a simple framework for telling shared, improvised stories with your friends. It is not intended as a simulationist engine for highly tactical gameplay. The emphasis should always be on having fun, moving the story forward, and player agency in service of the story.
-
-<!-- Include call to the GM section once that section is written -->
 
 # Dice Mechanics
 
@@ -327,6 +328,49 @@ Each Vehicle starts with the Modules provided by its Class. These are intended t
 
 A Vehicle Improvement is a chance to increase the capabilities of your vehicle. Typically a GM will give a party a Vehicle Improvement as a reward for accomplishing in-game missions, acquiring sufficient in-game wealth, or spending in-game time working on the vehicle. Whenever a party gets a Vehicle Improvement they are granted 2 additional VP. You may then spend any VP you have (including leftover VP from vehicle creation or previous Vehicle Improvements) on repairing destroyed Modules or acquiring new Modules.
 
+# Gamemastering
+
+Your foremost role as Gamemaster (GM) for _Jedi on Tauntauns_ is to facilitate your group having fun and telling interesting stories. This means that while you should probably have a core plot in mind, you are not the only person in the group responsible for creating story elements. Let the group get distracted by an off-the-cuff NPC or a wild hare the party wants to chase. Having players add to the world and the plot through their actions or suggestions is a great way to spice the game up for yourself as well! If a player rolls really well, let them decide what happens as a result and abide by the decisions they made.
+
+Facilitating the storytelling also means getting the group back in motion if they are flagging. The party gets bogged down deciding what to do after the first step of their 15 step plan to rob the crime boss falls flat? Get them back in action by throwing a new, immediate problem at them. Try to avoid letting a single failure stop the whole story in its tracks. Maybe failing to crack the security system means they can't get through the vault door quietly anymore, but it certainly doesn't mean they can't use excessive force to get through it, damn the consequences.
+
+Now on to some more mundane advice.
+
+## Setting Target Numbers
+
+When you ask a player for a Stat check, it is frequently going to be a standard check against a target number (TN). Reference the below table to help determine what those target numbers should be. The die size columns list the percentage chance that a player with that die size will pass a check with that target number, ignoring any modifiers.
+
+| TN  | Rough Difficulty   | d4%   | d6%   | d8%   | d10% | d12%  | d20% |
+| --- | ------------------ | ----- | ----- | ----- | ---- | ----- | ---- |
+| 1   | Impossible to fail | 100   | 100   | 100   | 100  | 100   | 100  |
+| 2   | Easy               | 75    | 83.33 | 87.5  | 90   | 91.67 | 95   |
+| 3   | Easy               | 50    | 66.67 | 75    | 80   | 83.33 | 90   |
+| 4   | Easy               | 25    | 50    | 62.5  | 70   | 75    | 85   |
+| 5   | Moderate           | 25    | 33.33 | 50    | 60   | 66.67 | 80   |
+| 6   | Moderate           | 18.75 | 16.67 | 37.5  | 50   | 58.33 | 75   |
+| 7   | Moderate           | 12.5  | 16.67 | 25    | 40   | 50    | 70   |
+| 8   | Hard               | 6.25  | 13.89 | 12.5  | 30   | 41.67 | 65   |
+| 9   | Hard               | 6.25  | 11.11 | 12.5  | 20   | 33.33 | 60   |
+| 10  | Hard               | 4.69  | 8.33  | 10.94 | 10   | 25    | 55   |
+| 11  | Hard               | 3.13  | 5.56  | 9.38  | 10   | 16.67 | 50   |
+| 12  | Very Hard          | 1.56  | 2.78  | 7.81  | 9    | 8.33  | 45   |
+| 13  | Very Hard          | 1.56  | 2.78  | 6.25  | 8    | 8.33  | 40   |
+| 14  | Very Hard          | 1.17  | 2.31  | 4.69  | 7    | 7.64  | 35   |
+| 15  | Very Hard          | 0.78  | 1.85  | 3.13  | 6    | 6.94  | 30   |
+| 16  | Formidable         | 0.39  | 1.39  | 1.56  | 5    | 6.25  | 25   |
+| 17  | Formidable         | 0.39  | 0.93  | 1.56  | 4    | 5.56  | 20   |
+| 18  | Formidable         | 0.29  | 0.46  | 1.37  | 3    | 4.86  | 15   |
+| 19  | Almost Impossible  | 0.2   | 0.46  | 1.17  | 2    | 4.17  | 10   |
+| 20  | Almost Impossible  | 0.1   | 0.39  | 0.98  | 1    | 3.47  | 5    |
+
+## Granting Improvement Phases and Vehicle Improvements
+
+Generally, you should grant Improvement Phases when the party has accomplished a major goal or had a significant learning experience. This might be after they successfully complete a daring raid or survive a close encounter with an Imperial patrol. Parties also don't have to succeed in their stated mission to deserve an Improvement Phase. They might have learned a lot about smuggling, even if they end up getting shipped off the the spice mines after getting caught.
+
+If players take no Feats, they require 42 IP to max out their Stats, so you do not have to worry much about giving out too much IP. That said, keep an eye on the power level of characters and make sure it feels appropriate for the story you are telling. You can always adjust the pace at which you grant IP.
+
+Vehicle Improvements are the closest thing that _Jedi on Tauntauns_ has to a currency system. In general, parties should get Vehicle Improvements as rewards for jobs they do in-game. Maybe that crime boss offers them upgraded shields as part of their deal with him. Maybe they take their winnings from the casino and plow them back into their ship. Maybe they steal a new data core on a mission and install the AI on it in the ship's mainframe. Whatever the reason, Vehicle Improvements should be awarded to reflect material gains made by the party.
+
 # Examples
 
 ## Example Character Build
@@ -339,7 +383,7 @@ Next, Alex and their GM come up with a starting Feat for Wookies. They decide to
 | ----------------- | ---- | --------------------------------------------------------------------------------------------------------------------------- |
 | Fearsome Strength | N/A  | When you make an Athleticism check based on strength, each Destiny Point you spend increases your result by 2 instead of 1. |
 
-Now that Alex and their GM have decided on the Stat boost and Feat from being a Wookie, it is up to Alex to decide how to spend their 14 IP to complete building Nyysh.
+Now that Alex and their GM have decided on the Stat boost and Feat from being a Wookie, it is up to Alex to decide how to spend their 14 IP to complet building Nyysh.
 
 Since Alex wants Nyysh to be a very competent fighter they spend 6 of those points to increase Nyysh's Fight Stat to a d20. This requires them to spend 4 points to reach d12 (d4 -> d6, d6 -> d8, d8 -> d10, and d10 ->d12) and 2 points to reach d20 (d12 -> d20).
 
@@ -419,8 +463,3 @@ However, if we calculate them with the shields turned on we get:
 | Speed | Maneuverability | Firepower | Durability | Systems |
 | ----- | --------------- | --------- | ---------- | ------- |
 | 0     | +1              | 0         | +1         | 0       |
-
-<!-- GM Section -->
-
-<!-- encourage GM to give players narrative control -->
-<!-- Talk about when to give IP and narrative arcs? -->

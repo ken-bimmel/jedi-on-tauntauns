@@ -31,14 +31,12 @@ make changes to the rules text.
 # Upcoming or desired features
 
 - [ ] More rules/text
-  - [x] Vehicle rules
-    - [x] Standard starting modules for classes of vehicles
   - [ ] Additional examples
     - [x] Vehicle creation
     - [ ] Combat encounter
     - [ ] Social encounter
-  - [ ] GM section
-    - [ ] Play philosophy
-    - [ ] Check difficulty explanation
+  - [x] GM section
+    - [x] Play philosophy
+    - [x] Check difficulty explanation
 - [ ] Infrastructure
   - [ ] Improved styling
