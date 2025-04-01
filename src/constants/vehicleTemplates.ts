@@ -1,4 +1,6 @@
-const TERRESTRIAL_VEHICLE_TEMPLATES = [
+import { Vehicle } from "./vehicle";
+
+const TERRESTRIAL_VEHICLE_TEMPLATES: Vehicle[] = [
   {
     id: window.crypto.randomUUID(),
     name: "Sandcrawler",
@@ -27,7 +29,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Wide Treads",
-        cost: "0",
+        cost: 0,
         description:
           "These wide treads prevent the sandcrawler from sinking into the shifting dunes, at the cost of any maneuverability.",
         destroyed: false,
@@ -37,7 +39,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Heavy Hull",
-        cost: "1",
+        cost: 1,
         description:
           "The heavy construction of the sandcrawler keeps it safe from dangers out in the dunes at the cost of any impression of speed.",
         destroyed: false,
@@ -47,7 +49,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Scrap Workshop",
-        cost: "1",
+        cost: 1,
         description:
           "This scrap workshop is where the Jawas strip parts and cobble together sale goods.",
         destroyed: false,
@@ -88,7 +90,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Improved Repulsor",
-        cost: "1",
+        cost: 1,
         description:
           "The speed of the T-16 is one of its main draws, particularly for younger pilots.",
         destroyed: false,
@@ -98,7 +100,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Reaction Jets",
-        cost: "1",
+        cost: 1,
         description:
           "Enhancing the standard control surfaces of the T-16 is a set of reaction jets to improve the maneuverability of the craft.",
         destroyed: false,
@@ -139,7 +141,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Harpoon Gun",
-        cost: "1",
+        cost: 1,
         description:
           "The rear gunner on a T-47 has access to a harpoon gun and associated winch.",
         destroyed: false,
@@ -149,7 +151,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Blaster Cannons",
-        cost: "1",
+        cost: 1,
         description:
           "These front-mounted blaster cannons are a retrofit, but still pack a hefty punch.",
         destroyed: false,
@@ -159,7 +161,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Sturdy Frame",
-        cost: "1",
+        cost: 1,
         description:
           "The mundane origin of the T-47 belies the strength of the underlying airframe.",
         destroyed: false,
@@ -200,7 +202,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Linked Blaster Cannons",
-        cost: "1",
+        cost: 1,
         description:
           "These linked blaster cannons provide powerful direct-fire support.",
         destroyed: false,
@@ -210,7 +212,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Missile Racks",
-        cost: "2",
+        cost: 2,
         description:
           "These missile racks provide an indirect-fire option as well as a massed-fire option to the T3-B's gunner.",
         destroyed: false,
@@ -251,7 +253,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Troop Bay",
-        cost: "1",
+        cost: 1,
         description:
           "The Juggernaut can disgorge up to two full squads of soldiers from its troop bay.",
         destroyed: false,
@@ -261,7 +263,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Wheeled Carrier",
-        cost: "1",
+        cost: 1,
         description:
           "Using wheels instead of walking means the Juggernaut can reach higher speeds over even ground, but struggles when the going gets tough.",
         destroyed: false,
@@ -271,7 +273,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Heavy Armor",
-        cost: "1",
+        cost: 1,
         description: "The Juggernaut is covered in heavy armor plating.",
         destroyed: false,
         increasedSpec: "Durability",
@@ -280,7 +282,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Auxiliary Weaponry",
-        cost: "1",
+        cost: 1,
         description:
           "Lacking a dedicated main weapon, the Juggernaut is still quite capable of fending off infantry with it's auxiliary armament.",
         destroyed: false,
@@ -321,7 +323,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Heavy Hull",
-        cost: "1",
+        cost: 1,
         description:
           "The sturdy construction of this vehicle makes it more durable at the cost of speed.",
         destroyed: false,
@@ -331,7 +333,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Troop Bay",
-        cost: "1",
+        cost: 1,
         description:
           "The AT-TE can disgorge up to a full squad of soldiers from its troop bay.",
         destroyed: false,
@@ -341,7 +343,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Main Cannon",
-        cost: "1",
+        cost: 1,
         description:
           "The main turret of the AT-TE is armed with a large-bore laser for devastating firepower.",
         destroyed: false,
@@ -382,7 +384,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Heavy Hull",
-        cost: "1",
+        cost: 1,
         description:
           "The sturdy construction of this vehicle makes it more durable at the cost of speed.",
         destroyed: false,
@@ -392,7 +394,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Main Cannon",
-        cost: "1",
+        cost: 1,
         description:
           "The main turret of the AAT is armed with a large-bore laser for devastating firepower.",
         destroyed: false,
@@ -433,7 +435,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Bipedal Legs",
-        cost: "1",
+        cost: 1,
         description: "Long legs allow the AT-ST to cover ground quickly.",
         destroyed: false,
         increasedSpec: "Speed",
@@ -442,7 +444,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Recon Sensors",
-        cost: "1",
+        cost: 1,
         description:
           "The sensor package on the AT-ST is high-quality to aid in its scouting duties.",
         destroyed: false,
@@ -452,7 +454,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Side-mount Lasers",
-        cost: "1",
+        cost: 1,
         description: "The AT-ST has side-mounted light lasers.",
         destroyed: false,
         increasedSpec: "",
@@ -492,7 +494,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Heavy Hull",
-        cost: "1",
+        cost: 1,
         description:
           "The sturdy construction of this vehicle makes it more durable at the cost of speed.",
         destroyed: false,
@@ -502,7 +504,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Chin Lasers",
-        cost: "1",
+        cost: 1,
         description:
           "These chin-mounted lasers are ready to blast anything to pieces.",
         destroyed: false,
@@ -512,7 +514,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Troop Bay",
-        cost: "1",
+        cost: 1,
         description:
           "The AT-AT can disgorge up to two full squads of soldiers from its troop bay.",
         destroyed: false,
@@ -522,7 +524,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Armor Plating",
-        cost: "2",
+        cost: 2,
         description:
           "The armor plating that covers important surfaces on the AT-AT is almost impossible to pierce.",
         destroyed: false,
@@ -563,7 +565,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Sturdy Hull",
-        cost: "1",
+        cost: 1,
         description: "This skiff is well constructed and maintained.",
         destroyed: false,
         increasedSpec: "Durability",
@@ -572,7 +574,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Job-Specific Module",
-        cost: "1",
+        cost: 1,
         description:
           "This module does something specific and should be added when this skiff is created.",
         destroyed: false,
@@ -613,7 +615,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Heavy Hull",
-        cost: "1",
+        cost: 1,
         description:
           "The sturdy construction of this vehicle makes it more durable at the cost of speed.",
         destroyed: false,
@@ -623,7 +625,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Main Cannon",
-        cost: "1",
+        cost: 1,
         description:
           "The main turret of the hovertank is armed with a large-bore laser for devastating firepower.",
         destroyed: false,
@@ -664,7 +666,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Streamlined Cockpit",
-        cost: "1",
+        cost: 1,
         description:
           "This streamlined cockpit allows the podracer to cut through the air effortlessly.",
         destroyed: false,
@@ -674,7 +676,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Redlined Engines",
-        cost: "1",
+        cost: 1,
         description:
           "The engines on the podracer are tuned for maximum performance, at the cost of some durability.",
         destroyed: false,
@@ -684,7 +686,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Racing Thrusters",
-        cost: "1",
+        cost: 1,
         description:
           "These thrusters allow the podracer to turn on a tenth-cred. They tend to be pretty tempermental at the best of times though.",
         destroyed: false,
@@ -725,7 +727,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Luxury Quarters",
-        cost: "1",
+        cost: 1,
         description:
           "The owners of this sail barge have installed lavish quarters, granting them a +1 to Charm checks made aboard.",
         destroyed: false,
@@ -735,7 +737,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Heavy Hull",
-        cost: "1",
+        cost: 1,
         description:
           "The sturdy construction of this vehicle makes it more durable at the cost of speed.",
         destroyed: false,
@@ -745,7 +747,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Deck Cannons",
-        cost: "1",
+        cost: 1,
         description:
           "The heavy broadside of deck-mounted laser cannons allows this vehicle to pour laser fire on any attacker.",
         destroyed: false,
@@ -786,7 +788,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Sturdy Hull",
-        cost: "1",
+        cost: 1,
         description:
           "The sturdy construction of this landspeeder makes it more durable.",
         destroyed: false,
@@ -796,7 +798,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Improved X",
-        cost: "1",
+        cost: 1,
         description: "Improve one of this vehicle's stats after it is created.",
         destroyed: false,
         increasedSpec: "",
@@ -836,7 +838,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Sturdy Hull",
-        cost: "1",
+        cost: 1,
         description:
           "The sturdy construction of this airspeeder makes it more durable.",
         destroyed: false,
@@ -846,7 +848,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Improved X",
-        cost: "1",
+        cost: 1,
         description:
           "\tImprove one of this vehicle's stats after it is created.",
         destroyed: false,
@@ -887,7 +889,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Enhanced Engines",
-        cost: "1",
+        cost: 1,
         description:
           "These powerful engines allow the swoop bike to achieve incredible speeds.",
         destroyed: false,
@@ -897,7 +899,7 @@ const TERRESTRIAL_VEHICLE_TEMPLATES = [
       {
         id: window.crypto.randomUUID(),
         name: "Turbocharged Repulsor",
-        cost: "2",
+        cost: 2,
         description:
           "By turbocharging the repulsor engine, the swoop can achieve truly tremendous speed at the cost of some reliability.",
         destroyed: false,
