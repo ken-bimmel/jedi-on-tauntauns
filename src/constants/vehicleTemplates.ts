@@ -1,6 +1,67 @@
 const TERRESTRIAL_VEHICLE_TEMPLATES = [
   {
     id: window.crypto.randomUUID(),
+    name: "Sandcrawler",
+    description:
+      "A sandcrawler is a massive, slow-moving transport vehicle used by the Jawas to search the deserts for scrap metal and droid parts. With its towering, tank-like structure and large treaded wheels, it is equipped to carry a vast amount of cargo and can house droids for sale or trade.",
+    model: "Sandcrawler",
+    modules: [
+      {
+        id: window.crypto.randomUUID(),
+        name: "Engine",
+        cost: 0,
+        description: "The engine allows the vehicle to move.",
+        destroyed: false,
+        increasedSpec: "",
+        decreasedSpec: "",
+      },
+      {
+        id: window.crypto.randomUUID(),
+        name: "Cockpit",
+        cost: 0,
+        description: "The cockpit allows the vehicle to be driven.",
+        destroyed: false,
+        increasedSpec: "",
+        decreasedSpec: "",
+      },
+      {
+        id: window.crypto.randomUUID(),
+        name: "Wide Treads",
+        cost: "0",
+        description:
+          "These wide treads prevent the sandcrawler from sinking into the shifting dunes, at the cost of any maneuverability.",
+        destroyed: false,
+        increasedSpec: "",
+        decreasedSpec: "Maneuverability",
+      },
+      {
+        id: window.crypto.randomUUID(),
+        name: "Heavy Hull",
+        cost: "1",
+        description:
+          "The heavy construction of the sandcrawler keeps it safe from dangers out in the dunes at the cost of any impression of speed.",
+        destroyed: false,
+        increasedSpec: "Durability",
+        decreasedSpec: "Speed",
+      },
+      {
+        id: window.crypto.randomUUID(),
+        name: "Scrap Workshop",
+        cost: "1",
+        description:
+          "This scrap workshop is where the Jawas strip parts and cobble together sale goods.",
+        destroyed: false,
+        increasedSpec: "Systems",
+        decreasedSpec: "Speed",
+      },
+    ],
+    cargo: [],
+    class: "Terrestrial Vehicle",
+    maxVp: 4,
+    vpSpentOnRepairs: 0,
+  },
+  {
+    id: window.crypto.randomUUID(),
     name: "T-16 Skyhopper",
     description:
       "The T-16 Skyhopper is a small, single-pilot repulsorlift vehicle designed for sport and training, often used for target practice and recreational flying. Known for its speed and maneuverability, it features a sleek design and is occasionally equipped with laser cannons, making it a popular choice for young pilots in the Outer Rim.",
