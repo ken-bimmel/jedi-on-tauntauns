@@ -36,10 +36,16 @@ function reducer(state: AppState, action: StateActions) {
     }
     case "ADD_VEHICLE": {
       newState = produce(state, (draftState) => {
-        draftState.vehicles = [
-          generateBlankVehicle(action.payload),
-          ...state.vehicles,
-        ];
+        const newVehicle = generateBlankVehicle(action.payload);
+        draftState.vehicles = [newVehicle, ...state.vehicles];
+        draftState.activeVehicleId = newVehicle.id;
+      });
+      break;
+    }
+    case "ADD_VEHICLE_TEMPLATE": {
+      newState = produce(state, (draftState) => {
+        draftState.vehicles = [action.payload, ...state.vehicles];
+        draftState.activeVehicleId = action.payload.id;
       });
       break;
     }

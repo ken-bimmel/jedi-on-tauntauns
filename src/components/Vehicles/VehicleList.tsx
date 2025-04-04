@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 import {
   Card,
   CardContent,
   Grid2 as Grid,
   IconButton,
+  Modal,
   Table,
   TableBody,
   TableCell,
@@ -14,9 +15,16 @@ import {
   Typography,
 } from "@mui/material";
 import { Vehicle, VehicleClass } from "../../constants";
-import { Airplane, AirplanePlus, CarSide, SpaceStation } from "mdi-material-ui";
+import {
+  Airplane,
+  AirplanePlus,
+  CarSide,
+  ContentCopy,
+  SpaceStation,
+} from "mdi-material-ui";
 import { Delete } from "@mui/icons-material";
 import { StateDispatchContext } from "../../state/reducerContext";
+import VehicleTemplateCard from "./VehicleTemplateCard";
 
 type VehicleListProps = {
   vehicles: Vehicle[];
@@ -27,6 +35,7 @@ function VehicleList(props: VehicleListProps) {
   const { vehicles, activeVehicleId } = props;
 
   const dispatch = useContext(StateDispatchContext);
+  const [showVehicleTemplates, setShowVehicleTemplates] = useState(false);
 
   function makeLoadHandler(vehicleId: string) {
     return () => {
@@ -82,6 +91,14 @@ function VehicleList(props: VehicleListProps) {
                         <SpaceStation />
                       </IconButton>
                     </Tooltip>
+                    <Tooltip
+                      title="Create a vehicle from an existing template"
+                      arrow
+                    >
+                      <IconButton onClick={() => setShowVehicleTemplates(true)}>
+                        <ContentCopy />
+                      </IconButton>
+                    </Tooltip>
                   </Grid>
                 </Grid>
               </TableCell>
@@ -128,6 +145,12 @@ function VehicleList(props: VehicleListProps) {
           </Table>
         </CardContent>
       </Card>
+      <Modal
+        open={showVehicleTemplates}
+        onClose={() => setShowVehicleTemplates(false)}
+      >
+        <VehicleTemplateCard />
+      </Modal>
     </Grid>
   );
 }

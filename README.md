@@ -23,6 +23,7 @@ Currently the tools included in this repository are:
 - Vehicle sheet
   - Create as many vehicles as you want in any vehicle class (starting Modules
     automatically included!)
+  - Use pre-made standard vehicles (or don't!) for ease and speed
   - Automatically calculated Spec bonuses and penalties
   - Track Modules, including passive and active Modules, Module destruction, and
     Module modifiers
@@ -71,6 +72,11 @@ To start:
 
 ### Vehicle Sheet
 
-- [ ] Linking characters to ships for ship rolls
-- [ ] Library of standard ships for use with NPCs
+- [ ] Linking characters to vehicles for vehicle rolls
+- [ ] Library of standard vehicles for use with NPCs
+  - [x] UI for adding standard vehicles
+  - [x] Terrestrial Vehicles
+  - [x] Small Starships
+  - [ ] Medium Starships
+  - [ ] Large Starships
 - [ ] Autocomplete standard modules?

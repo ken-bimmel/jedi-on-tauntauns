@@ -212,6 +212,10 @@ type StateActions =
       payload: {
         vehicle: Partial<Omit<Vehicle, "cargo" | "modules">>;
       };
+    }
+  | {
+      type: "ADD_VEHICLE_TEMPLATE";
+      payload: Vehicle;
     };
 
 type AppState = {
