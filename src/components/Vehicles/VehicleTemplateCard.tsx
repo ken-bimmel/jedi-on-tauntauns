@@ -13,6 +13,7 @@ import {
   TableRow,
 } from "@mui/material";
 import {
+  MEDIUM_STARSHIP_TEMPLATES,
   SMALL_STARSHIP_TEMPLATES,
   TERRESTRIAL_VEHICLE_TEMPLATES,
 } from "../../constants";
@@ -23,6 +24,7 @@ function VehicleTemplateCard() {
   const vehicles = [
     ...TERRESTRIAL_VEHICLE_TEMPLATES,
     ...SMALL_STARSHIP_TEMPLATES,
+    ...MEDIUM_STARSHIP_TEMPLATES,
   ];
 
   const dispatch = useContext(StateDispatchContext);

@@ -77,7 +77,8 @@ To start:
   - [x] UI for adding standard vehicles
   - [x] Terrestrial Vehicles
   - [x] Small Starships
-  - [ ] Medium Starships
+  - [x] Medium Starships
   - [ ] Large Starships
+  - [ ] Swap table for DataGrid
 - [ ] Move New Module action to persistent bottom row
 - [ ] Autocomplete standard modules?
