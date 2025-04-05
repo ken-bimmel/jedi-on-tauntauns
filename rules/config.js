@@ -1,7 +1,7 @@
 /**
  * The semantic versioning version number of the rules text.
  */
-const RULES_VERSION = "0.5.4";
+const RULES_VERSION = "0.5.5";
 const documentTitle = `Jedi on Tauntauns v${RULES_VERSION}`;
 const documentName = `./rules/${documentTitle}.pdf`;
 
