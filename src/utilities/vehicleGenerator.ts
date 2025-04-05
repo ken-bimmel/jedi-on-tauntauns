@@ -25,7 +25,7 @@ function generateBlankModule(): Module {
   return {
     id: window.crypto.randomUUID(),
     name: "New Module",
-    cost: 0,
+    cost: 1,
     description: "",
     destroyed: false,
     increasedSpec: "",

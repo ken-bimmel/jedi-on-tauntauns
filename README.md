@@ -79,4 +79,5 @@ To start:
   - [x] Small Starships
   - [ ] Medium Starships
   - [ ] Large Starships
+- [ ] Move New Module action to persistent bottom row
 - [ ] Autocomplete standard modules?
