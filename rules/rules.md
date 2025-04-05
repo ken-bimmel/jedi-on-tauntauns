@@ -284,14 +284,15 @@ If you are creating Modules that provide a flat bonus to a Spec, each Module sho
 
 As discussed below in the vehicle creation section, all vehicles will start with some number of Modules based on their Class. All starting Modules have a VP cost of 0. These starting modules are detailed below:
 
-| Module        | Description                                                                                    |
-| ------------- | ---------------------------------------------------------------------------------------------- |
-| Engine        | The engine allows the vehicle to move.                                                         |
-| Cockpit       | The cockpit allows the vehicle to be driven.                                                   |
-| Life Support  | The life support allows the vehicle to keep crew alive in a vacuum or other harsh environment. |
-| Hyperdrive    | The hyperdrive allows the vehicle to travel faster-than-light.                                 |
-| Crew Quarters | The crew quarters provides a comfortable place for the crew to rest and relax.                 |
-| Escape Pods   | The escape pods allow you to get off the vehicle in a hurry if you need.                       |
+| Module            | Description                                                                                                                         |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Engine            | The engine allows the vehicle to move.                                                                                              |
+| Cockpit           | The cockpit allows the vehicle to be driven.                                                                                        |
+| Life Support      | The life support allows the vehicle to keep crew alive in a vacuum or other harsh environment.                                      |
+| Hyperdrive        | The hyperdrive allows the vehicle to travel faster-than-light.                                                                      |
+| Crew Quarters     | The crew quarters provides a comfortable place for the crew to rest and relax.                                                      |
+| Escape Pods       | The escape pods allow you to get off the vehicle in a hurry if you need.                                                            |
+| Deflector Shields | This vehicle is equipped with deflector shields that can mitigate some incoming fire. Increase this vehicle's Durability Spec by 1. |
 
 ## Vehicles and Damage
 
@@ -318,12 +319,12 @@ For larger vehicles or particularly advanced vessels, a GM might grant additiona
 
 Each Vehicle starts with the Modules provided by its Class. These are intended to show the minimum functionality of the Vehicle, and to provide more specific systems to be damaged, should your Vehicle end up in combat.
 
-| Class               | Example Vehicles              | Description                                                | Starting Modules                                                      |
-| ------------------- | ----------------------------- | ---------------------------------------------------------- | --------------------------------------------------------------------- |
-| Terrestrial Vehicle | Speeder Bike, T-47 Airspeeder | Vehicles that don't leave atmosphere                       | Engine, Cockpit                                                       |
-| Small Starship      | X-Wing, TIE Fighter           | Vehicles that wouldn't be comfortable to live out of       | Engine, Cockpit, Life Support                                         |
-| Medium Starship     | YT-1300, Wayfarer             | Vehicles on which you could spend extended periods of time | Engine, Cockpit, Life Support, Hyperdrive, Crew Quarters              |
-| Large Starship      | Star Destroyer, Nebulon-B     | Vehicles that require more than just the PCs to operate    | Engine, Cockpit, Life Support, Hyperdrive, Crew Quarters, Escape Pods |
+| Class               | Example Vehicles              | Description                                                | Starting Modules                                                                         |
+| ------------------- | ----------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| Terrestrial Vehicle | Speeder Bike, T-47 Airspeeder | Vehicles that don't leave atmosphere                       | Engine, Cockpit                                                                          |
+| Small Starship      | X-Wing, TIE Fighter           | Vehicles that wouldn't be comfortable to live out of       | Engine, Cockpit, Life Support                                                            |
+| Medium Starship     | YT-1300, Wayfarer             | Vehicles on which you could spend extended periods of time | Engine, Cockpit, Life Support, Hyperdrive, Crew Quarters                                 |
+| Large Starship      | Star Destroyer, Nebulon-B     | Vehicles that require more than just the PCs to operate    | Engine, Cockpit, Life Support, Hyperdrive, Crew Quarters, Escape Pods, Deflector Shields |
 
 ### Vehicle Improvement
 

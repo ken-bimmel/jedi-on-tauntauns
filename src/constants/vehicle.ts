@@ -126,6 +126,17 @@ const ESCAPE_PODS_MODULE: Module = {
   decreasedSpec: "",
 };
 
+const DEFLECTOR_SHIELDS_MODULE: Module = {
+  id: window.crypto.randomUUID(),
+  name: "Deflector Shields",
+  cost: 0,
+  description:
+    "This vehicle is equipped with deflector shields that can mitigate some incoming fire. Increase this vehicle's Durability Spec by 1.",
+  destroyed: false,
+  increasedSpec: "Durability",
+  decreasedSpec: "",
+};
+
 const CLASS_STARTING_MODULES: Record<VehicleClass, Module[]> = {
   "Terrestrial Vehicle": [ENGINE_MODULE, COCKPIT_MODULE],
   "Small Starship": [ENGINE_MODULE, COCKPIT_MODULE, LIFE_SUPPORT_MODULE],
@@ -143,6 +154,7 @@ const CLASS_STARTING_MODULES: Record<VehicleClass, Module[]> = {
     HYPERDRIVE_MODULE,
     CREW_QUARTERS_MODULE,
     ESCAPE_PODS_MODULE,
+    DEFLECTOR_SHIELDS_MODULE,
   ],
 };
 
