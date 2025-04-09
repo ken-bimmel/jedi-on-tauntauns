@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/jedi-on-tauntauns/static/js/main.69618957.js",
+    "main.js": "/jedi-on-tauntauns/static/js/main.db74372c.js",
     "index.html": "/jedi-on-tauntauns/index.html",
-    "main.69618957.js.map": "/jedi-on-tauntauns/static/js/main.69618957.js.map"
+    "main.db74372c.js.map": "/jedi-on-tauntauns/static/js/main.db74372c.js.map"
   },
   "entrypoints": [
-    "static/js/main.69618957.js"
+    "static/js/main.db74372c.js"
   ]
 }
