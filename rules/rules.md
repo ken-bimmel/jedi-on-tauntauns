@@ -234,6 +234,8 @@ Vehicles are similar to, but not the same as characters. Every vehicle is define
 
 Specs define the performance characteristics of a vehicle. All Specs start at a value of 0 and cannot provide a bonus of more than 3. A Spec also cannot impose a penalty below -3. Specs are modified by the Modules that you have installed on the Vehicle.
 
+<!-- Should speed and maneuverability be combined into something like "handling"? -->
+
 ### Speed
 
 Speed covers activities related to the speed of the vehicle, typically outrunning other vehicles or traveling between places. Checks related to the Speed Spec are typically performed with a Technician Stat check.
@@ -325,6 +327,8 @@ Each Vehicle starts with the Modules provided by its Class. These are intended t
 | Small Starship      | X-Wing, TIE Fighter           | Vehicles that wouldn't be comfortable to live out of       | Engine, Cockpit, Life Support                                                            |
 | Medium Starship     | YT-1300, Wayfarer             | Vehicles on which you could spend extended periods of time | Engine, Cockpit, Life Support, Hyperdrive, Crew Quarters                                 |
 | Large Starship      | Star Destroyer, Nebulon-B     | Vehicles that require more than just the PCs to operate    | Engine, Cockpit, Life Support, Hyperdrive, Crew Quarters, Escape Pods, Deflector Shields |
+
+<!-- Maybe scale starting VP to vehicle class -->
 
 ### Vehicle Improvement
 

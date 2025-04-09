@@ -76,9 +76,10 @@ To start:
 - [ ] Library of standard vehicles for use with NPCs
   - [x] UI for adding standard vehicles
   - [x] Terrestrial Vehicles
+    - [ ] Revisit and standardize
   - [x] Small Starships
   - [x] Medium Starships
-  - [ ] Large Starships
+  - [x] Large Starships
   - [ ] Swap table for DataGrid
 - [ ] Move New Module action to persistent bottom row
 - [ ] Autocomplete standard modules?

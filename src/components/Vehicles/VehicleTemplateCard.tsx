@@ -13,6 +13,7 @@ import {
   TableRow,
 } from "@mui/material";
 import {
+  LARGE_STARSHIP_TEMPLATES,
   MEDIUM_STARSHIP_TEMPLATES,
   SMALL_STARSHIP_TEMPLATES,
   TERRESTRIAL_VEHICLE_TEMPLATES,
@@ -25,6 +26,7 @@ function VehicleTemplateCard() {
     ...TERRESTRIAL_VEHICLE_TEMPLATES,
     ...SMALL_STARSHIP_TEMPLATES,
     ...MEDIUM_STARSHIP_TEMPLATES,
+    ...LARGE_STARSHIP_TEMPLATES,
   ];
 
   const dispatch = useContext(StateDispatchContext);
