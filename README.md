@@ -80,6 +80,6 @@ To start:
   - [x] Small Starships
   - [x] Medium Starships
   - [x] Large Starships
-  - [ ] Swap table for DataGrid
+  - [x] Swap table for DataGrid
 - [ ] Move New Module action to persistent bottom row
 - [ ] Autocomplete standard modules?

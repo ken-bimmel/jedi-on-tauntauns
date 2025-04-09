@@ -1,25 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
-import {
-  Card,
-  CardContent,
-  IconButton,
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-} from "@mui/material";
+import { Card, CardContent, IconButton } from "@mui/material";
 import {
   LARGE_STARSHIP_TEMPLATES,
   MEDIUM_STARSHIP_TEMPLATES,
   SMALL_STARSHIP_TEMPLATES,
   TERRESTRIAL_VEHICLE_TEMPLATES,
+  Vehicle,
 } from "../../constants";
 import { Add } from "@mui/icons-material";
 import { StateDispatchContext } from "../../state/reducerContext";
+import { DataGrid, GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
 
 function VehicleTemplateCard() {
   const vehicles = [
@@ -30,6 +21,45 @@ function VehicleTemplateCard() {
   ];
 
   const dispatch = useContext(StateDispatchContext);
+
+  const [columns] = useState<GridColDef[]>([
+    { field: "name", headerName: "Vehicle", width: 175 },
+    { field: "class", headerName: "Class", width: 175 },
+    {
+      field: "description",
+      headerName: "Description",
+      width: 600,
+      renderCell: (params: GridRenderCellParams<Vehicle>) => (
+        <div
+          style={{
+            textWrap: "wrap",
+            lineHeight: "14px",
+          }}
+        >
+          {params.value}
+        </div>
+      ),
+    },
+    {
+      field: "action",
+      headerName: "Action",
+      renderCell: (params: GridRenderCellParams<Vehicle>) => (
+        <IconButton
+          onClick={() => {
+            const vehicleCopy = structuredClone(params.row);
+            vehicleCopy.id = window.crypto.randomUUID();
+            dispatch?.({
+              type: "ADD_VEHICLE_TEMPLATE",
+              payload: vehicleCopy,
+            });
+          }}
+        >
+          <Add />
+        </IconButton>
+      ),
+      width: 75,
+    },
+  ]);
 
   return (
     <Card
@@ -43,47 +73,12 @@ function VehicleTemplateCard() {
     >
       <CardContent
         style={{
-          width: "fit-content",
-          minWidth: "1000px",
           maxHeight: "80vh",
-          overflowY: "scroll",
+          display: "flex",
+          flexDirection: "column",
         }}
       >
-        <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }}>
-            <TableHead>
-              <TableRow>
-                <TableCell>Vehicle</TableCell>
-                <TableCell>Class</TableCell>
-                <TableCell>Description</TableCell>
-                <TableCell>Add</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {vehicles.map((vehicle) => (
-                <TableRow key={vehicle.name}>
-                  <TableCell>{vehicle.name}</TableCell>
-                  <TableCell>{vehicle.class}</TableCell>
-                  <TableCell>{vehicle.description}</TableCell>
-                  <TableCell>
-                    <IconButton
-                      onClick={() => {
-                        const vehicleCopy = structuredClone(vehicle);
-                        vehicleCopy.id = window.crypto.randomUUID();
-                        dispatch?.({
-                          type: "ADD_VEHICLE_TEMPLATE",
-                          payload: vehicleCopy,
-                        });
-                      }}
-                    >
-                      <Add />
-                    </IconButton>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+        <DataGrid rows={vehicles} columns={columns} rowHeight={80} />
       </CardContent>
     </Card>
   );
