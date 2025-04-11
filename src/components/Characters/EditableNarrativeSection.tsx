@@ -63,7 +63,7 @@ function EditableNarrativeSection(props: EditableNarrativeSectionProps) {
       >
         <Grid>
           <TextField
-            label="NPC Name"
+            label="Name"
             variant="outlined"
             style={{ textTransform: "capitalize" }}
             value={character.name}
@@ -84,7 +84,7 @@ function EditableNarrativeSection(props: EditableNarrativeSectionProps) {
         <Grid>
           {/* TODO: Maybe autocomplete with supported species list? */}
           <TextField
-            label="NPC Species"
+            label="Species"
             variant="outlined"
             value={character.species}
             onChange={makeChangeHandler("species")}
@@ -94,7 +94,7 @@ function EditableNarrativeSection(props: EditableNarrativeSectionProps) {
           <>
             <Grid>
               <TextField
-                label="NPC Role"
+                label="Role"
                 variant="outlined"
                 value={(character as NPC).role}
                 onChange={makeChangeHandler("role")}
@@ -102,7 +102,7 @@ function EditableNarrativeSection(props: EditableNarrativeSectionProps) {
             </Grid>
             <Grid>
               <TextField
-                label="NPC Group Affiliation"
+                label="Group Affiliation"
                 variant="outlined"
                 value={(character as NPC).group}
                 onChange={makeChangeHandler("group")}
@@ -112,34 +112,39 @@ function EditableNarrativeSection(props: EditableNarrativeSectionProps) {
         ) : null}
         {!isNpc ? (
           <Grid>
-            <FormControl>
-              <InputLabel id={`${character.id}-species-stat`}>
-                Species Stat
-              </InputLabel>
-              <Select
-                labelId={`${character.id}-species-stat`}
-                value={(character as PC).speciesStat}
-                label={(character as PC).speciesStat}
-                onChange={updateSpeciesStat}
-                style={{ minWidth: "125px" }}
-              >
-                <MenuItem value={"Force Sensitivity"}>
-                  Force Sensitivity
-                </MenuItem>
-                <MenuItem value={"Athleticism"}>Athleticism</MenuItem>
-                <MenuItem value={"Brains"}>Brains</MenuItem>
-                <MenuItem value={"Charm"}>Charm</MenuItem>
-                <MenuItem value={"Technician"}>Technician</MenuItem>
-                <MenuItem value={"Fight"}>Fight</MenuItem>
-                <MenuItem value={"Grit"}>Grit</MenuItem>
-              </Select>
-            </FormControl>
+            <Tooltip
+              arrow
+              title="Select which Stat for which your species gets a free increase (only used in IP calculations, you must manually increase the Stat)"
+            >
+              <FormControl>
+                <InputLabel id={`${character.id}-species-stat`}>
+                  Species Stat
+                </InputLabel>
+                <Select
+                  labelId={`${character.id}-species-stat`}
+                  value={(character as PC).speciesStat}
+                  label={(character as PC).speciesStat}
+                  onChange={updateSpeciesStat}
+                  style={{ minWidth: "125px" }}
+                >
+                  <MenuItem value={"Force Sensitivity"}>
+                    Force Sensitivity
+                  </MenuItem>
+                  <MenuItem value={"Athleticism"}>Athleticism</MenuItem>
+                  <MenuItem value={"Brains"}>Brains</MenuItem>
+                  <MenuItem value={"Charm"}>Charm</MenuItem>
+                  <MenuItem value={"Technician"}>Technician</MenuItem>
+                  <MenuItem value={"Fight"}>Fight</MenuItem>
+                  <MenuItem value={"Grit"}>Grit</MenuItem>
+                </Select>
+              </FormControl>
+            </Tooltip>
           </Grid>
         ) : null}
       </Grid>
       <Grid flexGrow={1}>
         <TextField
-          label="NPC Description"
+          label="Description"
           variant="outlined"
           value={character.description}
           onChange={makeChangeHandler("description")}
