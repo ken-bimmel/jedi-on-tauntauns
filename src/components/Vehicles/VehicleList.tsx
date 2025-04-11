@@ -61,47 +61,55 @@ function VehicleList(props: VehicleListProps) {
         <CardContent>
           <Table>
             <TableHead>
-              <TableCell>
-                <Grid container flexDirection="row" spacing={1}>
-                  <Grid>
-                    <Typography variant="h5">Vehicles</Typography>
-                  </Grid>
-                  <Grid>
-                    <Tooltip title="Create a new terrestrial vehicle" arrow>
-                      <IconButton
-                        onClick={makeCreateHandler("Terrestrial Vehicle")}
+              <TableRow>
+                <TableCell>
+                  <Grid container flexDirection="row" spacing={1}>
+                    <Grid>
+                      <Typography variant="h5">Vehicles</Typography>
+                    </Grid>
+                    <Grid>
+                      <Tooltip title="Create a new terrestrial vehicle" arrow>
+                        <IconButton
+                          onClick={makeCreateHandler("Terrestrial Vehicle")}
+                        >
+                          <CarSide />
+                        </IconButton>
+                      </Tooltip>
+                      <Tooltip title="Create a new small starship" arrow>
+                        <IconButton
+                          onClick={makeCreateHandler("Small Starship")}
+                        >
+                          <Airplane />
+                        </IconButton>
+                      </Tooltip>
+                      <Tooltip title="Create a new medium starship" arrow>
+                        <IconButton
+                          onClick={makeCreateHandler("Medium Starship")}
+                        >
+                          <AirplanePlus />
+                        </IconButton>
+                      </Tooltip>
+                      <Tooltip title="Create a new large starship" arrow>
+                        <IconButton
+                          onClick={makeCreateHandler("Large Starship")}
+                        >
+                          <SpaceStation />
+                        </IconButton>
+                      </Tooltip>
+                      <Tooltip
+                        title="Create a vehicle from an existing template"
+                        arrow
                       >
-                        <CarSide />
-                      </IconButton>
-                    </Tooltip>
-                    <Tooltip title="Create a new small starship" arrow>
-                      <IconButton onClick={makeCreateHandler("Small Starship")}>
-                        <Airplane />
-                      </IconButton>
-                    </Tooltip>
-                    <Tooltip title="Create a new medium starship" arrow>
-                      <IconButton
-                        onClick={makeCreateHandler("Medium Starship")}
-                      >
-                        <AirplanePlus />
-                      </IconButton>
-                    </Tooltip>
-                    <Tooltip title="Create a new large starship" arrow>
-                      <IconButton onClick={makeCreateHandler("Large Starship")}>
-                        <SpaceStation />
-                      </IconButton>
-                    </Tooltip>
-                    <Tooltip
-                      title="Create a vehicle from an existing template"
-                      arrow
-                    >
-                      <IconButton onClick={() => setShowVehicleTemplates(true)}>
-                        <ContentCopy />
-                      </IconButton>
-                    </Tooltip>
+                        <IconButton
+                          onClick={() => setShowVehicleTemplates(true)}
+                        >
+                          <ContentCopy />
+                        </IconButton>
+                      </Tooltip>
+                    </Grid>
                   </Grid>
-                </Grid>
-              </TableCell>
+                </TableCell>
+              </TableRow>
             </TableHead>
             <TableBody>
               {vehicles.map((vehicle) => (

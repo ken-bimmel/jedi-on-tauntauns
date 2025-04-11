@@ -37,9 +37,11 @@ function NpcList(props: NpcListProps) {
         <CardContent>
           <Table>
             <TableHead>
-              <TableCell>
-                <Typography variant="h5">Characters</Typography>
-              </TableCell>
+              <TableRow>
+                <TableCell>
+                  <Typography variant="h5">Characters</Typography>
+                </TableCell>
+              </TableRow>
             </TableHead>
             <TableBody>
               {Object.keys(groupedNpcs)
@@ -47,7 +49,9 @@ function NpcList(props: NpcListProps) {
                 .map((group) => (
                   <>
                     <TableRow key={group}>
-                      <Typography variant="h6">{group}</Typography>
+                      <TableCell>
+                        <Typography variant="h6">{group}</Typography>
+                      </TableCell>
                     </TableRow>
                     {groupedNpcs[group].map((npc) => (
                       <TableRow key={npc.id}>

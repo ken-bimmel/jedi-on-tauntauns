@@ -40,22 +40,24 @@ function PcList(props: PcListProps) {
         <CardContent>
           <Table>
             <TableHead>
-              <TableCell>
-                <Grid container flexDirection="row" spacing={1}>
-                  <Grid>
-                    <Typography variant="h5">Characters</Typography>
+              <TableRow>
+                <TableCell>
+                  <Grid container flexDirection="row" spacing={1}>
+                    <Grid>
+                      <Typography variant="h5">Characters</Typography>
+                    </Grid>
+                    <Grid>
+                      <Tooltip title="Create a new character" arrow>
+                        <IconButton
+                          onClick={() => dispatch?.({ type: "ADD_PC" })}
+                        >
+                          <PlusCircle />
+                        </IconButton>
+                      </Tooltip>
+                    </Grid>
                   </Grid>
-                  <Grid>
-                    <Tooltip title="Create a new character" arrow>
-                      <IconButton
-                        onClick={() => dispatch?.({ type: "ADD_PC" })}
-                      >
-                        <PlusCircle />
-                      </IconButton>
-                    </Tooltip>
-                  </Grid>
-                </Grid>
-              </TableCell>
+                </TableCell>
+              </TableRow>
             </TableHead>
             <TableBody>
               {pcs.map((pc) => (

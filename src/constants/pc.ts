@@ -8,7 +8,8 @@ type InventoryItem = {
 
 type PC = Character & {
   /**
-   * The Stat increased by this character's species
+   * The Stat increased by this character's species. Only used for calculating
+   * IP values.
    */
   speciesStat: StatName;
   /**
@@ -19,6 +20,10 @@ type PC = Character & {
    * The total IP this character has been granted (not the same as spent IP)
    */
   totalIp: number;
+  /**
+   * A section for players to take notes.
+   */
+  notes?: string;
 };
 
 const MAX_PC_DESTINY = 5;
@@ -77,9 +82,10 @@ const EXAMPLE_PC: PC = {
   maxInjuries: 4,
   currentInjuries: 1,
   currentDestiny: 3,
-  totalIp: 20,
   // Should have a total of 19 IP spent
+  totalIp: 20,
   inventory: [EXAMPLE_ITEM],
+  notes: "Example notes",
 };
 
 export { PC, InventoryItem, EXAMPLE_PC, MAX_PC_DESTINY, BLANK_STATS_ARRAY };

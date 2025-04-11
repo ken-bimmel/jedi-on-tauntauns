@@ -8,6 +8,7 @@ import FeatsSection from "./FeatsSection";
 import ActionsSection from "./ActionsSection";
 import EditSection from "./EditSection";
 import InventorySection from "./InventorySection";
+import NotesSection from "./NotesSection";
 
 type PCCardProps = {
   pc: PC;
@@ -40,6 +41,7 @@ function PcCard(props: PCCardProps) {
               </>
             )}
             <InventorySection character={pc} isEditMode={isEditMode} />
+            <NotesSection pc={pc} />
           </Grid>
         </CardContent>
       </Card>
