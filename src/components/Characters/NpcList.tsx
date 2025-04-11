@@ -47,8 +47,8 @@ function NpcList(props: NpcListProps) {
               {Object.keys(groupedNpcs)
                 .sort()
                 .map((group) => (
-                  <>
-                    <TableRow key={group}>
+                  <React.Fragment key={group}>
+                    <TableRow>
                       <TableCell>
                         <Typography variant="h6">{group}</Typography>
                       </TableCell>
@@ -69,7 +69,7 @@ function NpcList(props: NpcListProps) {
                         </Tooltip>
                       </TableRow>
                     ))}
-                  </>
+                  </React.Fragment>
                 ))}
             </TableBody>
           </Table>
