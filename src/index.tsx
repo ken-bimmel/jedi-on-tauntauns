@@ -7,7 +7,7 @@ import { getTheme } from "./theme";
 
 // Theme is set to 'light' by default to preserve current appearance
 // Change to 'dark' to test appearance under dark mode
-const theme = getTheme("dark");
+const theme = getTheme("light");
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const root = ReactDOM.createRoot(document.getElementById("root")!);
