@@ -24,7 +24,7 @@ function FeatsSection(props: FeatsSection) {
   }
   return (
     <Grid>
-      <TableContainer component={Paper} style={{ maxWidth: "1000px" }}>
+      <TableContainer component={Paper}>
         <Table>
           <TableHead>
             <TableRow>

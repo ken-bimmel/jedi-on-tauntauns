@@ -20,8 +20,8 @@ function PcCard(props: PCCardProps) {
 
   return (
     <Grid>
-      <Card style={{ width: "fit-content" }}>
-        <CardContent style={{ width: "fit-content", minWidth: "1000px" }}>
+      <Card>
+        <CardContent style={{ maxWidth: "1100px" }}>
           <Grid container flexDirection="column" spacing={2}>
             <Grid container flexDirection="row" spacing={2}>
               <NarrativeSection character={pc} isNpc={false} />

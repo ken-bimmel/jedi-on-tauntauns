@@ -63,7 +63,7 @@ function EditableFeatsSection(props: EditableFeatsSectionProps) {
 
   return (
     <Grid>
-      <TableContainer component={Paper} style={{ maxWidth: "1000px" }}>
+      <TableContainer component={Paper}>
         <Table>
           <TableHead>
             <TableRow>

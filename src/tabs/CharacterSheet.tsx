@@ -13,6 +13,7 @@ function CharacterSheetTab(props: CharacterSheetTabProps) {
   const { state } = props;
   const dispatch = useContext(StateDispatchContext);
   const activePc = state.pcs.find((pc) => pc.id === state.activePcId);
+  console.log({ activePc, api: state.activePcId, pcs: state.pcs });
 
   return (
     <StateDispatchContext.Provider value={dispatch}>

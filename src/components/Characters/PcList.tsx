@@ -86,12 +86,13 @@ function PcList(props: PcListProps) {
                         <Grid>
                           <Tooltip title="Delete this character" arrow>
                             <IconButton
-                              onClick={() =>
+                              onClick={(e) => {
                                 dispatch?.({
                                   type: "DELETE_PC",
                                   payload: pc.id,
-                                })
-                              }
+                                });
+                                e.stopPropagation();
+                              }}
                               color="error"
                             >
                               <Delete />

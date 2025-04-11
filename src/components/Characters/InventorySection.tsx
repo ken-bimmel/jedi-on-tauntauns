@@ -60,7 +60,7 @@ function InventorySection(props: InventorySectionProps) {
 
   return (
     <Grid>
-      <TableContainer component={Paper} style={{ maxWidth: "1000px" }}>
+      <TableContainer component={Paper}>
         <Table>
           <TableHead>
             <TableRow>

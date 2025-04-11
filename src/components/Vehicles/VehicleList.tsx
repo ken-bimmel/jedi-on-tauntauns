@@ -43,9 +43,10 @@ function VehicleList(props: VehicleListProps) {
     };
   }
 
-  function makeDeleteHandler(vehicleId: string) {
-    return () => {
+  function makeDeleteHandler(vehicleId: string): React.MouseEventHandler {
+    return (e) => {
       dispatch?.({ type: "DELETE_VEHICLE", payload: vehicleId });
+      e.stopPropagation();
     };
   }
 

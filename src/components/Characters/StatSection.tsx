@@ -12,12 +12,7 @@ function StatSection(props: statSectionProps) {
   const { character } = props;
   const statsArray = character.stats;
   return (
-    <Grid
-      container
-      flexDirection={"row"}
-      spacing={4}
-      style={{ width: "fit-content", minWidth: "1000px" }}
-    >
+    <Grid container flexDirection={"row"} spacing={2}>
       <StatCard
         stat={statsArray.forceSensitivity}
         color={STAT_COLORS.forceSensitivity}
