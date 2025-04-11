@@ -68,6 +68,7 @@ To start:
   - [ ] Include name/species as part of generated NPC
     - [ ] Option for non-sentient creatures
     - [ ] Add droid species
+- [ ] Explanation of NPC generation logic
 
 ### Character Sheet
 
@@ -79,8 +80,6 @@ To start:
   - [x] Terrestrial Vehicles
     - [ ] Revisit and standardize
   - [x] Small Starships
-  - [x] Medium Starships
-  - [x] Large Starships
-  - [x] Swap table for DataGrid
+    - [ ] Revisit and standardize
 - [ ] Move New Module action to persistent bottom row
 - [ ] Autocomplete standard modules?

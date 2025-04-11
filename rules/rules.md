@@ -298,6 +298,8 @@ As discussed below in the vehicle creation section, all vehicles will start with
 
 ## Vehicles and Damage
 
+<!-- Brief playtesting so far is making me think that vehicles may take too long to adequately destroy for combat to feel sufficiently pulpy. Perhaps explore using the margin of success to determine the number of modules to destroy, like a critical hit -->
+
 Unlike characters, vehicles track damage using their Modules. Whenever a vehicle takes damage, one of its Modules is destroyed. When a vehicle has no remaining Modules, it is destroyed. This does not necessarily mean that it it explodes or ceases to exist - it may simply be disabled or drifting in space without any power.
 
 As Modules are destroyed, they no longer provide their effects.

@@ -35,8 +35,7 @@ make changes to the rules text.
     - [x] Vehicle creation
     - [ ] Combat encounter
     - [ ] Social encounter
-  - [x] GM section
-    - [x] Play philosophy
-    - [x] Check difficulty explanation
 - [ ] Infrastructure
   - [ ] Improved styling
+  - [ ] Paper Character Sheet
+  - [ ] Paper Vehicle Sheet
