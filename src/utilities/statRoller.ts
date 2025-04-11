@@ -14,6 +14,10 @@ function rollStat(
    * Whether or not a modifier changed the outcome of the roll
    */
   unModifiedRoll: number;
+  /**
+   * The number of times the roll exploded
+   */
+  explosionCount: number;
 } {
   const injuryLevel = getInjuryLevel(character);
 
@@ -21,14 +25,22 @@ function rollStat(
   const isAutoFail = injuryLevel.autoFailStats.includes(stat.name);
 
   if (isAutoFail) {
-    return { result: undefined, unModifiedRoll: 0 };
+    return { result: undefined, unModifiedRoll: 0, explosionCount: 0 };
   }
 
   const max = stat.value;
-  const roll = Math.ceil(Math.random() * max);
+  let explosionCount = 0;
+  let roll = Math.ceil(Math.random() * max);
+  let result = roll;
+  while (roll === max) {
+    roll = Math.ceil(Math.random() * max);
+    result += roll;
+    explosionCount++;
+  }
   return {
-    result: roll + modifier,
-    unModifiedRoll: roll,
+    result: result + modifier,
+    unModifiedRoll: result,
+    explosionCount,
   };
 }
 
@@ -47,11 +59,23 @@ function composeStatRollMessage(stat: Stat, character: Character): string {
   if (roll.result !== roll.unModifiedRoll) {
     //modified roll
     const modifier = roll.result - roll.unModifiedRoll;
-    return `${character.name} rolled a ${roll.result} on their ${
-      stat.name
-    } check (with a ${modifier} ${modifier < 0 ? "penalty" : "bonus"})`;
+    return `${character.name} rolled a ${roll.result} ${
+      roll.explosionCount > 0
+        ? `(exploding ${roll.explosionCount} time${
+            roll.explosionCount > 1 ? "s" : ""
+          })`
+        : ""
+    } on their ${stat.name} check (with a ${modifier} ${
+      modifier < 0 ? "penalty" : "bonus"
+    })`;
   }
-  return `${character.name} rolled a ${roll.result} on their ${stat.name} check`;
+  return `${character.name} rolled a ${roll.result} ${
+    roll.explosionCount > 0
+      ? `(exploding ${roll.explosionCount} time${
+          roll.explosionCount > 1 ? "s" : ""
+        })`
+      : ""
+  } on their ${stat.name} check`;
 }
 
 export { composeStatRollMessage };
