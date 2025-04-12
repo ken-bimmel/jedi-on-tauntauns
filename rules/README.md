@@ -28,6 +28,10 @@ All configuration for the generated file is contained in the _config.js_ file in
 this folder. This is where you should update the version number whenever you
 make changes to the rules text.
 
+# Paper character/vehicle sheets
+
+Paper character and vehicle sheets are available in the _sheets_ sub folder.
+
 # Upcoming or desired features
 
 - [ ] More rules/text
@@ -37,5 +41,5 @@ make changes to the rules text.
     - [ ] Social encounter
 - [ ] Infrastructure
   - [ ] Improved styling
-  - [ ] Paper Character Sheet
-  - [ ] Paper Vehicle Sheet
+  - [x] Paper Character Sheet
+  - [x] Paper Vehicle Sheet
