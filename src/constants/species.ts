@@ -1,8 +1,23 @@
 type Species = {
+  /**
+   * The name of the species.
+   */
   name: string;
+  /**
+   * A link to a random generator for the species.
+   */
   generatorUrl: string;
+  /**
+   * A list of female names for the species (if they exist).
+   */
   defaultFemaleNames?: string[];
+  /**
+   * A list of male names for the species (if they exist).
+   */
   defaultMaleNames?: string[];
+  /**
+   * A list of non-binary names for the species (if they exist).
+   */
   defaultNonBinaryNames?: string[];
 };
 

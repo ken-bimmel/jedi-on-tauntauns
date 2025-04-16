@@ -22,6 +22,10 @@ import {
 } from "../constants";
 import { normalRandom, shuffleArray } from "./random";
 
+/**
+ * Generates a new NPC based on the species, role, tier, and force sensitivity
+ * provided to the method.
+ */
 function generateNpc(
   species: Species,
   role: Role,
@@ -53,11 +57,22 @@ function generateNpc(
   return npc;
 }
 
+/**
+ * Selects a random role from the list of roles.
+ */
 function getRandomRole(): Role {
   const roleKeys = Object.keys(ROLES);
   return ROLES[roleKeys[Math.floor(Math.random() * roleKeys.length)]];
 }
 
+/**
+ * Generates a random name from a selected species, or generates a random
+ * species and then generates a name from that species.
+ *
+ * There's a bunch of logic in here for randomly selecting a name from the
+ * gender based lists of names, but it's largely superfluous, as very few of the
+ * names are actually discernible between genders. ¯\_(ツ)_/¯
+ */
 function generateRandomNameAndSpecies(species: Species) {
   let internalSpecies = species;
   if (internalSpecies === undefined) {
@@ -106,11 +121,17 @@ function generateRandomNameAndSpecies(species: Species) {
   };
 }
 
+/**
+ * Gets a random species from the list of species.
+ */
 function getRandomSpecies(): Species {
   const speciesKeys = Object.keys(SPECIES);
   return SPECIES[speciesKeys[Math.floor(Math.random() * speciesKeys.length)]];
 }
 
+/**
+ * Generates the StatsArray object for the NPC.
+ */
 function generateStatsArray(
   role: Role,
   tier: Tier,
@@ -129,6 +150,20 @@ function generateStatsArray(
   };
 }
 
+/**
+ * Generates an array of Feats for an NPC. The Feats generated depend on the
+ * tier and role of the NPC. Grunt NPCs do not get feats. Lieutenant NPCs get
+ * one Feat. Boss NPCs get two Feats. Feats are selected from a pool determined
+ * by the role of the NPC and the tier of the NPC.
+ *
+ * All of the Feats in the pool are put into a single array, the array is
+ * shuffled and then the appropriate number of feats are taken from the
+ * beginning of the array.
+ *
+ * Then, if any of the feats reference a Stat increase or decrease, those are
+ * updated by using the NPC's role and its respective increased or decreased
+ * stat arrays.
+ */
 function generateFeatArray(tier: Tier, role: Role): Feat[] {
   if (tier.name === "Grunt") {
     // grunts don't get feats
@@ -169,7 +204,22 @@ function generateFeatArray(tier: Tier, role: Role): Feat[] {
   });
   return modifiedFeats;
 }
-
+/**
+ * Generates the value of a Stat, taking into consideration the role and tier of
+ * the NPC. It starts by selecting an index from the dice size array using a
+ * normally distributed random number (i.e. it trends to the middle of the
+ * array). Then, if the Stat is included in the role's list of increased stats,
+ * the index is increased by a random amount, up to the max die size, using the
+ * `explodeModifier` function. Similarly, the index is adjusted downwards if the
+ * Stat is included in the role's list of decreased stats.
+ *
+ * The index is then modified according to the tier of the NPC. This means
+ * Grunts are adjusted down one size, Lieutenants are not adjusted, and Bosses
+ * are adjusted up one size. This process is again bounded to the largest and
+ * smallest die sizes.
+ *
+ * Finally, the die size is retrieved from the die size array using the index.
+ */
 function generateRandomStat(name: StatName, role: Role, tier: Tier): Stat {
   let valueIndex = Math.floor(normalRandom() * NUM_DICE);
   let valueArray = DIE_SIZES;
@@ -196,7 +246,19 @@ function generateRandomStat(name: StatName, role: Role, tier: Tier): Stat {
   };
 }
 
+/**
+ * The chance of increasing the stat index by one and getting to try to increase
+ * it again. Percentage is out of 1, so `0.6` is a 60% chance.
+ */
 const EXPLODE_CHANCE = 0.6;
+
+/**
+ * This function calculates a random modifier by repeatedly generating random
+ * numbers and comparing them to the `EXPLODE_CHANCE`. If they are lower than
+ * the `EXPLODE_CHANCE`, the modifier is increased by 1 and the cycle is
+ * repeated. If the value is higher than the `EXPLODE_CHANCE`, the cycle stops
+ * and the current modifier value is returned.
+ */
 function explodeModifier(): number {
   let explodeCount = 0;
   let guess = Math.random();

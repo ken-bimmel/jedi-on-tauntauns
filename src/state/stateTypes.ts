@@ -219,6 +219,9 @@ type StateActions =
     };
 
 type AppState = {
+  /**
+   * The configuration of the NPC generator.
+   */
   generatorConfiguration: {
     activeRole: { id: string; label: string };
     activeTier: { id: string; label: string };
