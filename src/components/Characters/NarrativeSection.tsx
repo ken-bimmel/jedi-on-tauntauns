@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 import { Grid2 as Grid, IconButton, Tooltip, Typography } from "@mui/material";
-import { NPC, PC } from "../../constants";
+import { NPC, PC, SPECIES } from "../../constants";
 import { Description } from "@mui/icons-material";
 import { StateDispatchContext } from "../../state/reducerContext";
 import { EmoticonAngry, EmoticonHappy, EmoticonNeutral } from "mdi-material-ui";
@@ -24,7 +24,7 @@ function NarrativeSection(props: NarrativeSectionProps) {
       spacing={2}
     >
       {isNpc ? (
-        <Tooltip title={(character as NPC).disposition}>
+        <Tooltip arrow title={(character as NPC).disposition}>
           <IconButton
             onClick={() =>
               dispatch?.({ type: "NEXT_DISPOSITION", payload: character.id })
@@ -51,7 +51,20 @@ function NarrativeSection(props: NarrativeSectionProps) {
       </Grid>
       <Grid>
         <Typography variant="h6" width="fit-content">
-          {character.species} {isNpc ? (character as NPC).role : ""}
+          <Tooltip arrow title="Click to view species Wookiepedia page">
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href={
+                SPECIES[character.species]?.wookiepediaUrl ??
+                "https://starwars.fandom.com/wiki/Main_Page"
+              }
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              {character.species}
+            </a>
+          </Tooltip>{" "}
+          {isNpc ? (character as NPC).role : ""}
         </Typography>
       </Grid>
       {character?.description !== undefined ? (

@@ -67,7 +67,7 @@ To start:
 - [ ] Generate a random NPC
   - [ ] Include name/species as part of generated NPC
     - [ ] Option for non-sentient creatures
-    - [ ] Include link to species on Wookiepedia
+    - [x] Include link to species on Wookiepedia
 - [x] Explanation of NPC generation logic
 
 ### Character Sheet

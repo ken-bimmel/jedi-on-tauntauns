@@ -4,9 +4,13 @@ type Species = {
    */
   name: string;
   /**
-   * A link to a random generator for the species.
+   * A link to a random name generator for the species.
    */
   generatorUrl: string;
+  /**
+   * A link to the Wookiepedia article for the species.
+   */
+  wookiepediaUrl: string;
   /**
    * A list of female names for the species (if they exist).
    */
@@ -26,6 +30,7 @@ const SPECIES: { [key: string]: Species } = {
     name: "Alderaanian (Human)",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-alderaanian-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Alderaanian",
     defaultFemaleNames: [
       "suth ragas",
       "kila lublota",
@@ -54,6 +59,7 @@ const SPECIES: { [key: string]: Species } = {
   Anzati: {
     name: "Anzati",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-anzati-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Anzati",
     defaultFemaleNames: [
       "kemmia sartuk",
       "sulle kintac",
@@ -82,6 +88,7 @@ const SPECIES: { [key: string]: Species } = {
   Aqualish: {
     name: "Aqualish",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-aqualish-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Aqualish",
     defaultFemaleNames: [
       "zolftogth mangekati",
       "rifri araketa",
@@ -110,6 +117,7 @@ const SPECIES: { [key: string]: Species } = {
   Arkanian: {
     name: "Arkanian",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-arkanian-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Arkanian",
     defaultFemaleNames: [
       "borru odekdresh",
       "ormuze mendreltec",
@@ -138,6 +146,7 @@ const SPECIES: { [key: string]: Species } = {
   Balosar: {
     name: "Balosar",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-balosar-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Balosar_(species)",
     defaultFemaleNames: [
       "deeno legnivar",
       "dirreed zelli",
@@ -166,6 +175,7 @@ const SPECIES: { [key: string]: Species } = {
   Besalisk: {
     name: "Besalisk",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-besalisk-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Besalisk",
     defaultFemaleNames: [
       "nava zingrel",
       "choden ek",
@@ -194,6 +204,7 @@ const SPECIES: { [key: string]: Species } = {
   Bith: {
     name: "Bith",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-bith-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Bith",
     defaultFemaleNames: [
       "mooshaa r'halo",
       "humlu k'sass",
@@ -222,6 +233,7 @@ const SPECIES: { [key: string]: Species } = {
   Bothan: {
     name: "Bothan",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-bothan-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Bothan",
     defaultFemaleNames: [
       "dhul faqias",
       "thath gundais",
@@ -250,6 +262,7 @@ const SPECIES: { [key: string]: Species } = {
   Cerean: {
     name: "Cerean",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-cerean-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Cerean",
     defaultFemaleNames: [
       "nim chris",
       "hyn adel",
@@ -275,10 +288,11 @@ const SPECIES: { [key: string]: Species } = {
       "hundurs-Skirfonz gareft",
     ],
   },
-  Chalactan: {
-    name: "Chalactan",
+  "Chalactan (Human)": {
+    name: "Chalactan (Human)",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-chalactan-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Chalactan",
     defaultFemaleNames: [
       "turrins bhembo",
       "drer duchalik",
@@ -308,6 +322,7 @@ const SPECIES: { [key: string]: Species } = {
     name: "Chandrilan (Human)",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-chandrilan-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Chandrilan",
     defaultFemaleNames: [
       "eidon dybol",
       "ler ylwile",
@@ -336,6 +351,7 @@ const SPECIES: { [key: string]: Species } = {
   Clawdite: {
     name: "Clawdite",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-clawdite-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Clawdite",
     defaultFemaleNames: [
       "nas sennan",
       "kram wimall",
@@ -364,22 +380,24 @@ const SPECIES: { [key: string]: Species } = {
   Clone: {
     name: "Clone",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-clone-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Clone_trooper",
     defaultMaleNames: [
       "jass",
-      " seerrt",
-      " xuppynks",
-      " beppam",
-      " dural",
-      " hippick",
-      " Dream",
-      " CT-678-4408",
-      " MT628",
-      " UG776",
+      "seerrt",
+      "xuppynks",
+      "beppam",
+      "dural",
+      "hippick",
+      "Dream",
+      "CT-678-4408",
+      "MT628",
+      "UG776",
     ],
   },
   "Codru-Ji": {
     name: "Codru-Ji",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-codru-ji-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Codru-Ji",
     defaultFemaleNames: [
       "reina",
       "men",
@@ -409,6 +427,7 @@ const SPECIES: { [key: string]: Species } = {
     name: "Corellian (Human)",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-corellian-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Corellian",
     defaultFemaleNames: [
       "fage orvers",
       "kissiw shidgem",
@@ -438,6 +457,7 @@ const SPECIES: { [key: string]: Species } = {
     name: "Coruscanti (Human)",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-coruscanti-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Coruscanti",
     defaultFemaleNames: [
       "ihini mas",
       "airlin roli",
@@ -467,6 +487,7 @@ const SPECIES: { [key: string]: Species } = {
     name: "Dathomirian",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-dathomirian-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Dathomirian",
     defaultFemaleNames: [
       "ran itro",
       "theg noggraj",
@@ -496,6 +517,7 @@ const SPECIES: { [key: string]: Species } = {
     name: "Devaronian",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-devaronian-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Devaronian",
     defaultFemaleNames: [
       "ghu gar",
       "hu t'rumrask",
@@ -524,6 +546,7 @@ const SPECIES: { [key: string]: Species } = {
   Dug: {
     name: "Dug",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-dug-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Dug",
     defaultNonBinaryNames: [
       "paakei lterdoudi",
       "bogruhx ndornad",
@@ -540,6 +563,7 @@ const SPECIES: { [key: string]: Species } = {
   Duros: {
     name: "Duros",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-duros-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Duros",
     defaultFemaleNames: [
       "dachu zhelt",
       "jena lilmig",
@@ -568,6 +592,7 @@ const SPECIES: { [key: string]: Species } = {
   Ewok: {
     name: "Ewok",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-ewok-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Ewok",
     defaultFemaleNames: [
       "nasta neenic",
       "kake glaliddi",
@@ -596,6 +621,7 @@ const SPECIES: { [key: string]: Species } = {
   Falleen: {
     name: "Falleen",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-falleen-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Falleen",
     defaultFemaleNames: [
       "zel sit",
       "nel bruthruss",
@@ -624,6 +650,7 @@ const SPECIES: { [key: string]: Species } = {
   Farghul: {
     name: "Farghul",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-farghul-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Farghul",
     defaultFemaleNames: [
       "aasi",
       "dasole",
@@ -653,6 +680,7 @@ const SPECIES: { [key: string]: Species } = {
     name: "Gamorrean",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-gamorrean-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Gamorrean",
     defaultFemaleNames: [
       "uuvnern peng",
       "rekmin koodvaks",
@@ -681,6 +709,7 @@ const SPECIES: { [key: string]: Species } = {
   Gand: {
     name: "Gand",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-gand-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Gand",
     defaultNonBinaryNames: [
       "nyik lurna",
       "rik neyffyu",
@@ -697,6 +726,7 @@ const SPECIES: { [key: string]: Species } = {
   "Gen'dai": {
     name: "Gen'dai",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-gendai-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Gen'dai",
     defaultNonBinaryNames: [
       "relne",
       "amdron",
@@ -714,6 +744,7 @@ const SPECIES: { [key: string]: Species } = {
     name: "Geonosian",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-geonosian-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Geonosian",
     defaultFemaleNames: [
       "runi chalkok",
       "tele sinpes",
@@ -742,6 +773,7 @@ const SPECIES: { [key: string]: Species } = {
   Gotal: {
     name: "Gotal",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-gotal-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Gotal",
     defaultMaleNames: [
       "jun krogg",
       "saur trohsark",
@@ -758,6 +790,7 @@ const SPECIES: { [key: string]: Species } = {
   Gran: {
     name: "Gran",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-gran-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Gran",
     defaultFemaleNames: [
       "vewz groer",
       "breks driekiaj",
@@ -786,6 +819,7 @@ const SPECIES: { [key: string]: Species } = {
   Gungan: {
     name: "Gungan",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-gungan-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Gungan",
     defaultFemaleNames: [
       "fle trad",
       "kho porud",
@@ -814,6 +848,7 @@ const SPECIES: { [key: string]: Species } = {
   Hutt: {
     name: "Hutt",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-hutt-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Hutt",
     defaultNonBinaryNames: [
       "niddlo tenjed",
       "mambu gish",
@@ -830,6 +865,7 @@ const SPECIES: { [key: string]: Species } = {
   Iktotchi: {
     name: "Iktotchi",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-iktotchi-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Iktotchi",
     defaultFemaleNames: [
       "tumkij vemin",
       "zishi dis",
@@ -858,6 +894,7 @@ const SPECIES: { [key: string]: Species } = {
   "Ishi Tib": {
     name: "Ishi Tib",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-ishi-tib-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Ishi_Tib",
     defaultFemaleNames: [
       "onzas hul",
       "sihre drambow",
@@ -886,6 +923,7 @@ const SPECIES: { [key: string]: Species } = {
   Ithorian: {
     name: "Ithorian",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-ithorian-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Ithorian",
     defaultFemaleNames: [
       "vle sokill",
       "ma slowowethh",
@@ -914,6 +952,7 @@ const SPECIES: { [key: string]: Species } = {
   Jawa: {
     name: "Jawa",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-jawa-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Jawa",
     defaultFemaleNames: [
       "olok walin",
       "voerek b'iacicic",
@@ -942,6 +981,7 @@ const SPECIES: { [key: string]: Species } = {
   Kaleesh: {
     name: "Kaleesh",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-kaleesh-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Kaleesh",
     defaultFemaleNames: [
       "dulo qannar",
       "zoddi san grer",
@@ -970,6 +1010,7 @@ const SPECIES: { [key: string]: Species } = {
   Kaminoan: {
     name: "Kaminoan",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-kaminoan-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Kaminoan",
     defaultFemaleNames: [
       "ha brai",
       "yim buvo",
@@ -998,6 +1039,7 @@ const SPECIES: { [key: string]: Species } = {
   "Kel Dor": {
     name: "Kel Dor",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-kel-dor-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Kel_Dor",
     defaultFemaleNames: [
       "cha brani",
       "ha gotchesza",
@@ -1026,6 +1068,7 @@ const SPECIES: { [key: string]: Species } = {
   Keshiri: {
     name: "Keshiri",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-keshiri-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Keshiri",
     defaultFemaleNames: [
       "arni dildezh",
       "uzi gunna",
@@ -1054,6 +1097,7 @@ const SPECIES: { [key: string]: Species } = {
   Kiffar: {
     name: "Kiffar",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-kiffar-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Kiffar",
     defaultFemaleNames: [
       "unta kexlax",
       "sairi karrizit",
@@ -1083,6 +1127,7 @@ const SPECIES: { [key: string]: Species } = {
     name: "Klatooinian",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-klatooinian-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Klatooinian",
     defaultFemaleNames: [
       "kit grovai",
       "duh kig",
@@ -1108,9 +1153,10 @@ const SPECIES: { [key: string]: Species } = {
       "ontucir jok",
     ],
   },
-  Korunnai: {
-    name: "Korunnai",
+  "Korunnai (Human)": {
+    name: "Korunnai (Human)",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-korunnai-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Korunnai",
     defaultFemaleNames: [
       "novo higdom",
       "wemmo gango",
@@ -1139,6 +1185,7 @@ const SPECIES: { [key: string]: Species } = {
   Kubaz: {
     name: "Kubaz",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-kubaz-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Kubaz",
     defaultFemaleNames: [
       "vugis kegrin",
       "selnol co",
@@ -1167,6 +1214,7 @@ const SPECIES: { [key: string]: Species } = {
   Lasat: {
     name: "Lasat",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-lasat-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Lasat",
     defaultFemaleNames: [
       "riza ganonniet",
       "nata domet",
@@ -1196,6 +1244,7 @@ const SPECIES: { [key: string]: Species } = {
     name: "Lothalite",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-lothalite-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Lothalite",
     defaultFemaleNames: [
       "yoddit krong",
       "dimne khuamu",
@@ -1225,6 +1274,7 @@ const SPECIES: { [key: string]: Species } = {
     name: "Mandalorian",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-mandalorian-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Mandalorian",
     defaultFemaleNames: [
       "his shous",
       "hi strorvhai",
@@ -1253,6 +1303,7 @@ const SPECIES: { [key: string]: Species } = {
   Mikkian: {
     name: "Mikkian",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-mikkian-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Mikkian",
     defaultFemaleNames: [
       "ravra vesim",
       "vizas mrahi",
@@ -1269,6 +1320,7 @@ const SPECIES: { [key: string]: Species } = {
   Mirialan: {
     name: "Mirialan",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-mirialan-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Mirialan",
     defaultFemaleNames: [
       "delo fuvenn",
       "thostez'or despolt",
@@ -1298,6 +1350,7 @@ const SPECIES: { [key: string]: Species } = {
     name: "Mon Calamari",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-mon-calamari-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Mon_Calamari",
     defaultFemaleNames: [
       "hos wackdoc",
       "sent duhuddixx",
@@ -1326,6 +1379,7 @@ const SPECIES: { [key: string]: Species } = {
   Muun: {
     name: "Muun",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-muun-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Muun",
     defaultMaleNames: [
       "jot vellok",
       "ur slait",
@@ -1342,6 +1396,7 @@ const SPECIES: { [key: string]: Species } = {
   "Naboo (Human)": {
     name: "Naboo (Human)",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-naboo-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Naboo",
     defaultFemaleNames: [
       "padelo collaulke",
       "teerré benmer",
@@ -1370,6 +1425,7 @@ const SPECIES: { [key: string]: Species } = {
   Nautolan: {
     name: "Nautolan",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-nautolan-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Nautolan",
     defaultFemaleNames: [
       "hoot goagin",
       "dhas motinnent",
@@ -1399,6 +1455,7 @@ const SPECIES: { [key: string]: Species } = {
     name: "Neimoidian",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-neimoidian-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Neimoidian",
     defaultFemaleNames: [
       "buith ikai",
       "smi srotet",
@@ -1427,6 +1484,7 @@ const SPECIES: { [key: string]: Species } = {
   Nikto: {
     name: "Nikto",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-nikto-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Nikto",
     defaultNonBinaryNames: [
       "da chash",
       "girsk nindu",
@@ -1443,6 +1501,7 @@ const SPECIES: { [key: string]: Species } = {
   Nothoiin: {
     name: "Nothoiin",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-nothoiin-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Nothoiin_(species)",
     defaultFemaleNames: [
       "ali migo",
       "vatil cozranzu",
@@ -1472,6 +1531,7 @@ const SPECIES: { [key: string]: Species } = {
     name: "Onderonian (Human)",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-onderonian-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Onderonian",
     defaultFemaleNames: [
       "bemoh rid",
       "idohe ramee",
@@ -1500,6 +1560,7 @@ const SPECIES: { [key: string]: Species } = {
   Ortolan: {
     name: "Ortolan",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-ortolan-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Ortolan",
     defaultFemaleNames: [
       "silnes hee",
       "meffo babe",
@@ -1528,6 +1589,7 @@ const SPECIES: { [key: string]: Species } = {
   Pantoran: {
     name: "Pantoran",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-pantoran-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Pantoran",
     defaultFemaleNames: [
       "rezzan shulira",
       "theera emo",
@@ -1556,6 +1618,7 @@ const SPECIES: { [key: string]: Species } = {
   "Pau'an": {
     name: "Pau'an",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-pauan-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Pau'an",
     defaultFemaleNames: [
       "lah zal",
       "moy blaret",
@@ -1584,6 +1647,7 @@ const SPECIES: { [key: string]: Species } = {
   Quarren: {
     name: "Quarren",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-quarren-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Quarren",
     defaultFemaleNames: [
       "tsik nink",
       "krarg mikkud",
@@ -1612,6 +1676,7 @@ const SPECIES: { [key: string]: Species } = {
   Rodian: {
     name: "Rodian",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-rodian-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Rodian",
     defaultFemaleNames: [
       "thriph broldee",
       "grii iweaazit",
@@ -1637,9 +1702,10 @@ const SPECIES: { [key: string]: Species } = {
       "ceegwithald wee",
     ],
   },
-  Savarian: {
-    name: "Savarian",
+  "Savarian (Human)": {
+    name: "Savarian (Human)",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-savarian-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Savarian",
     defaultFemaleNames: [
       "hamihe zubaziy",
       "phirwohi madu",
@@ -1668,6 +1734,7 @@ const SPECIES: { [key: string]: Species } = {
   Selkath: {
     name: "Selkath",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-selkath-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Selkath",
     defaultFemaleNames: [
       "kewirroks wud",
       "tsaontass bwizri",
@@ -1696,6 +1763,7 @@ const SPECIES: { [key: string]: Species } = {
   Selonian: {
     name: "Selonian",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-selonian-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Selonian",
     defaultFemaleNames: [
       "wiil thotte",
       "shits thurr",
@@ -1724,6 +1792,7 @@ const SPECIES: { [key: string]: Species } = {
   Sephi: {
     name: "Sephi",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-sephi-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Sephi",
     defaultFemaleNames: [
       "ago tash",
       "aalde minn",
@@ -1753,6 +1822,7 @@ const SPECIES: { [key: string]: Species } = {
     name: "Serennian (Human)",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-serennian-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Serennian",
     defaultFemaleNames: [
       "cra mogih",
       "datamo luund",
@@ -1782,6 +1852,7 @@ const SPECIES: { [key: string]: Species } = {
     name: "Shistavanen",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-shistavanen-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Shistavanen",
     defaultFemaleNames: [
       "thel bovgat",
       "heash fuk",
@@ -1810,6 +1881,7 @@ const SPECIES: { [key: string]: Species } = {
   Skakoan: {
     name: "Skakoan",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-skakoan-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Skakoan",
     defaultMaleNames: [
       "halaga lembom",
       "hram tezo",
@@ -1826,6 +1898,7 @@ const SPECIES: { [key: string]: Species } = {
   Snivvian: {
     name: "Snivvian",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-snivvian-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Snivvian",
     defaultFemaleNames: [
       "anli hak",
       "sursert cal",
@@ -1855,6 +1928,7 @@ const SPECIES: { [key: string]: Species } = {
     name: "Stormtrooper",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-stormtrooper-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Stormtrooper",
     defaultNonBinaryNames: [
       "JYI-899",
       "CD-749",
@@ -1872,6 +1946,7 @@ const SPECIES: { [key: string]: Species } = {
     name: "Sullustan",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-sullustan-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Sullustan",
     defaultFemaleNames: [
       "hunn vullibb",
       "ko vhum",
@@ -1900,6 +1975,7 @@ const SPECIES: { [key: string]: Species } = {
   Talz: {
     name: "Talz",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-talz-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Talz",
     defaultFemaleNames: [
       "ruthan vuc",
       "alta wac",
@@ -1929,6 +2005,7 @@ const SPECIES: { [key: string]: Species } = {
     name: "Tholothian",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-tholothian-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Tholothian",
     defaultFemaleNames: [
       "ilvit rinn",
       "mynnis sil",
@@ -1957,6 +2034,7 @@ const SPECIES: { [key: string]: Species } = {
   Togruta: {
     name: "Togruta",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-togruta-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Togruta",
     defaultFemaleNames: [
       "caumi baass",
       "hilesh jem",
@@ -1986,6 +2064,7 @@ const SPECIES: { [key: string]: Species } = {
     name: "Toydarian",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-toydarian-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Toydarian",
     defaultFemaleNames: [
       "fappe sim",
       "sorga zusgu",
@@ -2015,6 +2094,7 @@ const SPECIES: { [key: string]: Species } = {
     name: "Trandoshan",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-trandoshan-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Trandoshan",
     defaultFemaleNames: [
       "tym egse",
       "tsoo grors",
@@ -2044,6 +2124,7 @@ const SPECIES: { [key: string]: Species } = {
     name: "Tusken Raider",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-tusken-raider-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Tusken_Raider",
     defaultFemaleNames: [
       "Gr'Rhierk zriqheg",
       "Thork qog",
@@ -2072,6 +2153,7 @@ const SPECIES: { [key: string]: Species } = {
   "Twi'lek": {
     name: "Twi'lek",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-twilek-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Twi'lek",
     defaultFemaleNames: [
       "timirne kidinn",
       "nolle lertusall",
@@ -2100,6 +2182,7 @@ const SPECIES: { [key: string]: Species } = {
   Ugnaughts: {
     name: "Ugnaughts",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-ugnaught-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Ugnaughts",
     defaultFemaleNames: [
       "zaclek gnuggo",
       "romcoll mokk",
@@ -2128,6 +2211,7 @@ const SPECIES: { [key: string]: Species } = {
   Weequay: {
     name: "Weequay",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-weequay-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Weequay",
     defaultFemaleNames: [
       "riir klutimz",
       "xoz sac",
@@ -2156,6 +2240,7 @@ const SPECIES: { [key: string]: Species } = {
   Wookiee: {
     name: "Wookiee",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-wookiee-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Wookiee",
     defaultFemaleNames: [
       "wranma",
       "nerceu",
@@ -2184,6 +2269,7 @@ const SPECIES: { [key: string]: Species } = {
   Yarkora: {
     name: "Yarkora",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-yarkora-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Yarkora",
     defaultFemaleNames: [
       "lezith hige",
       "shezis mellat",
@@ -2212,6 +2298,7 @@ const SPECIES: { [key: string]: Species } = {
   Zabrak: {
     name: "Zabrak",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-zabrak-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Zabrak",
     defaultFemaleNames: [
       "ildra amu",
       "trokkosah bhov",
@@ -2240,6 +2327,7 @@ const SPECIES: { [key: string]: Species } = {
   Zeltron: {
     name: "Zeltron",
     generatorUrl: "https://www.fantasynamegenerators.com/sw-zeltron-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Zeltron",
     defaultFemaleNames: [
       "irnyr andoder",
       "zizhace raanzari",
@@ -2269,6 +2357,7 @@ const SPECIES: { [key: string]: Species } = {
     name: "Zygerrian",
     generatorUrl:
       "https://www.fantasynamegenerators.com/sw-zygerrian-names.php",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Zygerrian",
     defaultFemaleNames: [
       "yozes gisagal",
       "ireth krildoll",
@@ -2297,6 +2386,7 @@ const SPECIES: { [key: string]: Species } = {
   Droid: {
     name: "Droid",
     generatorUrl: "",
+    wookiepediaUrl: "https://starwars.fandom.com/wiki/Droid",
     defaultFemaleNames: [
       "Q9-X7",
       "L4-T0",
