@@ -2279,6 +2279,34 @@ const SPECIES: { [key: string]: Species } = {
       "daagrik crolnod",
     ],
   },
+  Droid: {
+    name: "Droid",
+    generatorUrl: "",
+    defaultFemaleNames: [
+      "Q9-X7",
+      "L4-T0",
+      "Z3-RN",
+      "R1-K5",
+      "B7-M9",
+      "TQ-3L",
+      "D0-R8",
+      "X2-VN",
+      "M5-K0",
+      "J9-C4",
+    ],
+    defaultMaleNames: [
+      "Sparky",
+      "Glitch",
+      "Whistler",
+      "Clank",
+      "Zee",
+      "Sprocket",
+      "Rusty",
+      "Vox",
+      "Buzz",
+      "Nibs",
+    ],
+  },
 };
 
 const SPECIES_LIST: { id: string; label: string }[] = Object.keys(SPECIES).map(

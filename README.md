@@ -67,7 +67,7 @@ To start:
 - [ ] Generate a random NPC
   - [ ] Include name/species as part of generated NPC
     - [ ] Option for non-sentient creatures
-    - [ ] Add droid species
+    - [x] Add droid species
 - [ ] Explanation of NPC generation logic
 
 ### Character Sheet
