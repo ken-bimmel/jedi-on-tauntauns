@@ -32,7 +32,7 @@ Currently the tools included in this repository are:
 
 These tools are accessible here: https://ken-bimmel.github.io/jedi-on-tauntauns/
 
-The rules are located in the [_rules_ folder](https://github.com/ken-bimmel/jedi-on-tauntauns/tree/main/rules).
+The rules are located in the [_rules_ folder](https://github.com/ken-bimmel/jedi-on-tauntauns/tree/main/rules). You can find print character and vehicle sheets in the [_sheets_ folder](https://github.com/ken-bimmel/jedi-on-tauntauns/tree/main/rules/sheets).
 
 ## Running locally
 
@@ -67,8 +67,6 @@ To start:
 - [ ] Generate a random NPC
   - [ ] Include name/species as part of generated NPC
     - [ ] Option for non-sentient creatures
-    - [x] Include link to species on Wookiepedia
-- [x] Explanation of NPC generation logic
 
 ### Character Sheet
 
