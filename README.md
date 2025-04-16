@@ -7,6 +7,9 @@ storytelling-focused TTRPG games in the Star Wars universe based on the
 This repository contains both the rules for _Jedi on Tauntauns_ and the source
 code for several web-based tools to assist in playing and running the system.
 
+The rules are located in the [_rules_ folder](https://github.com/ken-bimmel/jedi-on-tauntauns/tree/main/rules).
+You can find print character and vehicle sheets in the [_sheets_ folder](https://github.com/ken-bimmel/jedi-on-tauntauns/tree/main/rules/sheets).
+
 Currently the tools included in this repository are:
 
 - NPC generator and tracker
@@ -31,8 +34,6 @@ Currently the tools included in this repository are:
   - Automatically calculate VP expenditure
 
 These tools are accessible here: https://ken-bimmel.github.io/jedi-on-tauntauns/
-
-The rules are located in the [_rules_ folder](https://github.com/ken-bimmel/jedi-on-tauntauns/tree/main/rules). You can find print character and vehicle sheets in the [_sheets_ folder](https://github.com/ken-bimmel/jedi-on-tauntauns/tree/main/rules/sheets).
 
 ## Running locally
 
