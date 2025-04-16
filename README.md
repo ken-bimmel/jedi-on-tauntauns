@@ -45,40 +45,6 @@ To start:
 
 ## Deploying to GitHub Pages
 
-1. Update the `homepage` attribute of _package.json_
+1. If deploying for the first time, update the `homepage` attribute of
+   _package.json_
 2. `npm run deploy`
-
-## Possible new/additional features include:
-
-### Overall Project
-
-- [ ] Convert to Vite
-- [ ] Add data sharing url
-  - [ ] Load individual character/vehicle
-- [ ] Add warning to reset button and PC delete
-  - [ ] Reset Button
-  - [ ] PC Delete
-- [ ] New rating component for injury and destiny point trackers that allows
-      tooltips on individual icons
-- [ ] Add roll history viewer
-- [ ] Standardize implementations of reducer actions and generation
-
-### NPC Generator
-
-- [ ] Generate a random NPC
-  - [ ] Include name/species as part of generated NPC
-    - [ ] Option for non-sentient creatures
-
-### Character Sheet
-
-### Vehicle Sheet
-
-- [ ] Linking characters to vehicles for vehicle rolls
-- [ ] Library of standard vehicles for use with NPCs
-  - [x] UI for adding standard vehicles
-  - [x] Terrestrial Vehicles
-    - [ ] Revisit and standardize
-  - [x] Small Starships
-    - [ ] Revisit and standardize
-- [ ] Move New Module action to persistent bottom row
-- [ ] Autocomplete standard modules?
