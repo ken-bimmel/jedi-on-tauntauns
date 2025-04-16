@@ -60,7 +60,6 @@ function App() {
             top: 0,
             left: 0,
             width: "calc(100vw-16px)",
-            backgroundColor: "white",
             zIndex: 99,
           }}
         >
