@@ -75,11 +75,11 @@ If a character is under no time pressure or stress when they make a check, they 
 - Take half of the maximum die value for the Stat being used, instead of rolling the die (i.e. d10 -> 5, d12 -> 6, etc.)
 - Receive help from other players, who spend can their Destiny Points (see below) to grant a +1 bonus to the roll
 
-<!-- This needs a better name than "Twist of Destiny" -->
+<!-- This needs a better name than "Twist of Destiny"  || It should just be removed, not need for critical failures, I think. -->
 
 ## Twist of Destiny
 
-<!-- For simplicity I have gone with all dice, but I think this may be too great a burden on d4 and d6 stats, so I may revisit this in the future. -->
+<!-- For simplicity I have gone with all dice, but I think this may be too great a burden on d4 and d6 stats, so I may revisit this in the future. || I think it should be removed -->
 
 Anytime a character rolls a 1 on a die, they automatically fail the check as the will of the Force turns against them and some outside influence causes their attempt to go awry. This outside force could be anything from a stormtrooper showing up at an inopportune moment to deflector shields coming back online just before their attacks land, or anything else. The intention is that this is an outside force preventing their success, not a failure on their part to succeed.
 
@@ -205,7 +205,7 @@ When a character has an Injury Level, they can generally reduce their Injury Lev
 As with all RPGs, it is important to have a concept for when creating a character. In _Jedi on Tauntauns_ it is particularly important to have a strong idea of the character that you would like to play, since you are responsible for coming up with many of the mechanics of the character.
 
 Once you have determined the character concept for the character you wish to play, you will build your character by following these steps:
-
+<!-- Get rid of the speciesj stat die and just give an additional IP, though the species Feat does add some flavor -->
 1. Pick a species for your character. Work with your GM to decide on a Stat that should be increased by one die size based on your selected species and to create a Feat specific to your species that you gain for free.
 2. Every character starts with a pool of 14 Improvement Points (IP) to spend on Stats and Feats. Distribute your 14 IP by spending them in any of the following ways:
    1. Spend 1 IP to increase a Stat by 1 die size, up to d12
@@ -298,7 +298,7 @@ As discussed below in the vehicle creation section, all vehicles will start with
 
 ## Vehicles and Damage
 
-<!-- Brief playtesting so far is making me think that vehicles may take too long to adequately destroy for combat to feel sufficiently pulpy. Perhaps explore using the margin of success to determine the number of modules to destroy, like a critical hit -->
+<!-- Brief playtesting so far is making me think that vehicles may take too long to adequately destroy for combat to feel sufficiently pulpy. Perhaps explore using the margin of success to determine the number of modules to destroy, like a critical hit || I like margin of success for how many modules to destroy -->
 
 Unlike characters, vehicles track damage using their Modules. Whenever a vehicle takes damage, one of its Modules is destroyed. When a vehicle has no remaining Modules, it is destroyed. This does not necessarily mean that it it explodes or ceases to exist - it may simply be disabled or drifting in space without any power.
 
@@ -307,6 +307,7 @@ As Modules are destroyed, they no longer provide their effects.
 ### Repairing Vehicles
 
 It is possible to repair destroyed Module given enough time. To fully repair a destroyed Module, characters may make one or more Technician checks and spend the appropriate amount of time (typically a more than a day) performing the repairs if the parts they need are accessible. Alternately, players may spend 1 Vehicle Point to have someone else repair the destroyed Module.
+<!-- Spending VP to repair the vehicle is a little too close to money for my tastes, maybe just scrap the whole idea -->
 
 ## Vehicle Creation
 
